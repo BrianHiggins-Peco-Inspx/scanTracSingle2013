@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{586F4C51-22E8-11D4-AC3F-00500466E305} = s 'ScanTrac'
+		'ScanTrac.EXE'
+		{
+			val AppID = s {586F4C51-22E8-11D4-AC3F-00500466E305}
+		}
+	}
+}

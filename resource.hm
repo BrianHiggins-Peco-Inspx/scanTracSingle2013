@@ -1,0 +1,4 @@
+// Microsoft Developer Studio generated Help ID include file.
+// Used by ScanTrac.rc
+//
+#define HIDC_ChangeOnRebootNotifyLabel  0x8c060631    // IDD_FBWF_InfoDialog

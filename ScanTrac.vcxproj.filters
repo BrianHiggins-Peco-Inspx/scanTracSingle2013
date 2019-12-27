@@ -1,0 +1,1549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ACPowerMoniter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ACPowerMoniterLogFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlphaEntryDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoSetupImageDisplayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackupHardDriveThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BodyTrigger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckWeighDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureDirectoryNames.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="configureedgepixeladjustdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureEMailAddresses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureInspectionsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurePasswordsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProduct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductBodyTriggerDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductContaminantProcessesDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductContaminantReferenceDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductInspectionSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureRadiationDoorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Contaminant22EditThresholdsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="detectorsetupdialog1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagnosticCountersDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagnosticLineDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DigitalLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayDialogThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplaySavedRejects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EasySelectProductDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FBWF_Info.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FindParameterHelpDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEndDiagnosticDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helpdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helpindexdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HistogramDisplayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAquisitionThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inspection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionBottomContaminant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionCheckWeigh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionContaminant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionDensity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionGlassContaminant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionKernel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionSize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionStandardDeviation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectionVoid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspxHiddenDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspxHiddenSystemDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InspxHiddenXRayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ITIPCDig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoardTestDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListeningSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mapimessages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mapisession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoreDiagnosticsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewConfigProductEjectorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewConfigureProductExternalDetectorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewConfigureSystemDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewConfigureSystemEjectorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewConfigureSystemExternalDetectorDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewDiagnosticDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewEditProductDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewImageDisplayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoticeDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumericEntryDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasswordEntryDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PingTestThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessQuickLearnImagesThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Product.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductDensityCompensationDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductShapeHandlingDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanTrac.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanTracConfigureDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanTracDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectInspectionDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selectitemdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectMultipleItemDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupSystemExternalHardware.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketMessage1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpellmanDXMXRaySourcePort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StartCheckDisk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemConfigurationData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemCountersDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemProductSettingsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemTemperaturesDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemValuesDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPIPServerSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ucontrollerstatusdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoAddToLearnDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32SerialPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32SerialPortThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XRaySource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XRaySourceStatusDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XRayTubeAlignmentDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YesNoDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanTrac_i.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spellman100WattMonoBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TDAutoSetupImageDisplayDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessEvaluateImagesThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BottomButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductAlarmsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditUser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetupUserDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckWeighOffsetDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortReview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FillerSeamerSamplingDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SamplingDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemSetupFillerSeamerSamplingDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftKeyMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FillerValveDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartAxisLabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartBarSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCandlestickSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCrossHairCursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCtrl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartCursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartDateTimeAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartDragLineCursor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGanttSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGradient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLegend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLineSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartLogarithmicAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartPointsSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartScrollBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartStandardAxis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartSurfaceSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartTitle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChartCtrl\ChartXYSerie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortModBus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortGuardMaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortPowerFlex40.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductFillerSeamerSampling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sio_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sio_socket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\internal\sio_client_impl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\internal\sio_packet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheyneyMonoBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigureProductInspectionOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="USBMemoryStickDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductionSummaryDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SendNextOGMessageThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModBusTCPIPInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortRFIdeasBadgeReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PecoPictureBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialPortVjtMonoBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ACPowerMoniter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ACPowerMoniterLogFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlphaEntryDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="autosetupimagedisplaydialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackupHardDriveThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyTrigger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckWeighDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureDirectoryNames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="configureedgepixeladjustdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureEMailAddresses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureInspectionsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigurePasswordsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProduct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProductBodyTriggerDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProductContaminantProcessesDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProductContaminantReferenceDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProductInspectionSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureRadiationDoorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Contaminant22EditThresholdsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="detectorsetupdialog1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagnosticCountersDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagnosticLineDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayDialogThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplaySavedRejects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EasySelectProductDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ejector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FBWF_Info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FindParameterHelpDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEndDiagnosticDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helpdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helpindexdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HistogramDisplayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageAquisitionThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionBottomContaminant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionCheckWeigh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionContaminant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionDensity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionGlassContaminant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionKernel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionSize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionStandardDeviation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspectionVoid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inspxhiddendialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspxHiddenSystemDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InspxHiddenXRayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ITIPCDig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoardTestDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListeningSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lutLog2_1024_16bit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mapimessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mapisession.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoreDiagnosticsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewConfigProductEjectorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewConfigureProductExternalDetectorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewConfigureSystemDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewConfigureSystemEjectorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewConfigureSystemExternalDetectorDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewDiagnosticDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewEditProductDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewImageDisplayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NoticeDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumericEntryDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordEntryDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PingTestThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessQuickLearnImagesThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Product.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductDensityCompensationDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductShapeHandlingDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanTrac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanTracConfigureDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanTracDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanTrac_i.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectInspectionDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selectitemdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectMultipleItemDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetupSystemExternalHardware.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftSortedArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketMessage1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpellmanDXMXRaySourcePort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartCheckDisk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemConfigurationData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemCountersDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemProductSettingsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemTemperaturesDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemValuesDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPIPServerSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ucontrollerstatusdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UndoAddToLearnDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32SerialPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32SerialPortThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XRaySource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XRaySourceStatusDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XRayTubeAlignmentDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YesNoDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCoreTempInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spellman100WattMonoBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TDAutoSetupImageDisplayDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessEvaluateImagesThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BottomButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="configureproductalarmsdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditUser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetupUserDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckWeighOffsetDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FillerSeamerSamplingDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SamplingDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemSetupFillerSeamerSamplingDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftKeyMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FillerValveDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartAxisLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartBalloonLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartBarSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCandlestickSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCrossHairCursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCtrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartCursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartDateTimeAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartDragLineCursor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGanttSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGradient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLabel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLegend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLineSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartLogarithmicAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartMouseListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartPointsArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartPointsSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartScrollBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSerieBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSeriesMouseListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartStandardAxis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartSurfaceSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartTitle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\ChartXYSerie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChartCtrl\PointsOrdering.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortModBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortGuardMaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortPowerFlex40.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductFillerSeamerSampling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sio_client.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sio_message.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sio_socket.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheyneyMonoBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigureProductInspectionOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="USBMemoryStickDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductionSummaryDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SendNextOGMessageThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModBusTCPIPInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortRFIdeasBadgeReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PecoPictureBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialPortVjtMonoBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource.hm">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="ScanTrac.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ScanTrac.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ScanTrac.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idr_tran.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pecobmp div 4.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Pecobmp div 2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arrowrig.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arrowlef.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\arrowdow.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\uparrow1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\leftarro.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00009.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\downarro.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00010.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Greenck.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\rightarr.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00011.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00012.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00013.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\smallrig.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00014.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00015.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\inspxgra.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00016.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00017.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00018.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\green.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00019.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="M:\About Customers\Morgan Foods\Morgan Line 55 unit 2 ST53876\2014 02 24 Setup Files\Products.STR" />
+    <None Include="M:\About Customers\Morgan Foods\Morgan Line 55 unit 2 ST53876\2014 02 24 Setup Files\ProductsB.STR" />
+    <None Include="shadedbutton.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shadedbu.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cornered.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00023.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00024.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00025.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cornerbl.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00026.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bluestra.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00027.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00028.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00029.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00030.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00031.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00032.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00033.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00034.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00035.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00036.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00037.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00038.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cornersh.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00039.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00040.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00041.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00042.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\cornerma.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\idc_bord.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00043.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00044.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00045.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00046.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00047.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00048.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00049.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartBalloonLabel.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartLabel.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartPointsArray.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="ChartCtrl\ChartSerieBase.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="res\bmp00050.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00051.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00052.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00053.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00054.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00023.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\checkmar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\error1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\exclamat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\informat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\question.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00023.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\checkmar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\error1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\exclamat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\informat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\question.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00055.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00056.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00057.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00058.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00059.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00060.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00061.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00062.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00063.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00064.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00065.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00066.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\borderco.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00067.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00068.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00069.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00070.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00071.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00072.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap10.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap11.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\checkmar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\error.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\exclamat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\informat.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\inspxBlue.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\inspxRed.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\inspxYellow.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\question.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00073.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00074.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00075.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00076.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00077.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00078.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00079.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00080.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00081.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00082.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00084.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00083.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\greenbac.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\InspxLogox2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00085.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00086.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\errorgra.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00087.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00088.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00089.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00090.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\exclaima.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00091.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00094.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00095.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00093.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00092.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00097.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00096.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00098.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00099.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00100.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00101.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00102.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00103.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00049 (2).bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00104.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GreyButtonSelect.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\borderri.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ScanTrac.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bmp00107.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00105.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00106.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00108.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00109.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00110.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

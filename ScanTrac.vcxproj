@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>ManagedCProj</Keyword>
+    <ProjectGuid>{257AB81E-BFCD-3331-1255-6F0F451CBF11}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CLRSupport>false</CLRSupport>
+    <UseOfMfc>Static</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CLRSupport>false</CLRSupport>
+    <UseOfMfc>Static</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <NuGetPackageImportStamp>73d10cf0</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\IFC59\Include;C:\MVTools\Include;$(ProjectDir)\lib\boost-1_57;$(ProjectDir)\lib\websocketpp;$(ProjectDir)\lib\rapidjson\include;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\MVTools\Lib;C:\IFC59\Lib;C:\boost\lib;$(ProjectDir)\lib\boost-1_57\debug\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\IFC59\bin;C:\MVTools\bin;C:\Program Files\Microsoft Visual Studio 10.0\VC\bin;$(ExecutablePath)</ExecutablePath>
+    <LinkIncremental>true</LinkIncremental>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\IFC59\Include;C:\MVTools\Include;$(ProjectDir)\lib\boost-1_57;$(ProjectDir)\lib\websocketpp;$(ProjectDir)\lib\rapidjson\include;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\MVTools\Lib;C:\IFC59\Lib;$(ProjectDir)\lib\boost-1_57\release\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\IFC59\bin;C:\MVTools\bin;C:\Program Files\Microsoft Visual Studio 10.0\VC\bin;$(ExecutablePath)</ExecutablePath>
+    <LinkIncremental>true</LinkIncremental>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <CompileAsManaged>false</CompileAsManaged>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <MapFileName>ScanTrac.Map</MapFileName>
+      <MapExports>true</MapExports>
+      <GenerateMapFile>true</GenerateMapFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;boost.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalOptions>/SAFESEH:NO  /verbose  /NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsManaged>false</CompileAsManaged>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <MapFileName>ScanTrac.Map</MapFileName>
+      <MapExports>true</MapExports>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;boost.lib;wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+      <AdditionalOptions>/SAFESEH:NO  /verbose  /NODEFAULTLIB:msvcrt.lib %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ACPowerMoniter.cpp" />
+    <ClCompile Include="ACPowerMoniterLogFile.cpp" />
+    <ClCompile Include="AlphaEntryDialog.cpp" />
+    <ClCompile Include="AutoSetupImageDisplayDialog.cpp" />
+    <ClCompile Include="BackupHardDriveThread.cpp" />
+    <ClCompile Include="BodyTrigger.cpp" />
+    <ClCompile Include="BottomButton.cpp" />
+    <ClCompile Include="ChartCtrl\ChartAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartAxisLabel.cpp" />
+    <ClCompile Include="ChartCtrl\ChartBarSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCandlestickSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCrossHairCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCtrl.cpp" />
+    <ClCompile Include="ChartCtrl\ChartCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartDateTimeAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartDragLineCursor.cpp" />
+    <ClCompile Include="ChartCtrl\ChartFont.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGanttSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGradient.cpp" />
+    <ClCompile Include="ChartCtrl\ChartGrid.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLegend.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLineSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartLogarithmicAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartPointsSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartScrollBar.cpp" />
+    <ClCompile Include="ChartCtrl\ChartSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartStandardAxis.cpp" />
+    <ClCompile Include="ChartCtrl\ChartSurfaceSerie.cpp" />
+    <ClCompile Include="ChartCtrl\ChartTitle.cpp" />
+    <ClCompile Include="ChartCtrl\ChartXYSerie.cpp" />
+    <ClCompile Include="CheckWeighDialog.cpp" />
+    <ClCompile Include="CheckWeighOffsetDialog.cpp" />
+    <ClCompile Include="CheyneyMonoBlock.cpp" />
+    <ClCompile Include="ConfigureDirectoryNames.cpp" />
+    <ClCompile Include="configureedgepixeladjustdialog.cpp" />
+    <ClCompile Include="ConfigureEMailAddresses.cpp" />
+    <ClCompile Include="ConfigureInspectionsDialog.cpp" />
+    <ClCompile Include="ConfigurePasswordsDialog.cpp" />
+    <ClCompile Include="ConfigureProduct.cpp" />
+    <ClCompile Include="ConfigureProductAlarmsDialog.cpp" />
+    <ClCompile Include="ConfigureProductBodyTriggerDialog.cpp" />
+    <ClCompile Include="ConfigureProductContaminantProcessesDialog.cpp" />
+    <ClCompile Include="ConfigureProductContaminantReferenceDialog.cpp" />
+    <ClCompile Include="ConfigureProductInspectionOptions.cpp" />
+    <ClCompile Include="ConfigureProductInspectionSettings.cpp" />
+    <ClCompile Include="ConfigureRadiationDoorDialog.cpp" />
+    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="Contaminant22EditThresholdsDialog.cpp" />
+    <ClCompile Include="detectorsetupdialog1.cpp" />
+    <ClCompile Include="DiagnosticCountersDialog.cpp" />
+    <ClCompile Include="DiagnosticLineDialog.cpp" />
+    <ClCompile Include="DigitalLine.cpp" />
+    <ClCompile Include="DisplayDialogThread.cpp" />
+    <ClCompile Include="DisplaySavedRejects.cpp" />
+    <ClCompile Include="EasySelectProductDialog.cpp" />
+    <ClCompile Include="EditUser.cpp" />
+    <ClCompile Include="Ejector.cpp" />
+    <ClCompile Include="ExternalDetector.cpp" />
+    <ClCompile Include="FBWF_Info.cpp" />
+    <ClCompile Include="FillerSeamerSamplingDialog.cpp" />
+    <ClCompile Include="FillerValveDialog.cpp" />
+    <ClCompile Include="FindParameterHelpDialog.cpp" />
+    <ClCompile Include="FrontEndDiagnosticDialog.cpp" />
+    <ClCompile Include="helpdialog.cpp" />
+    <ClCompile Include="helpindexdialog.cpp" />
+    <ClCompile Include="HistogramDisplayDialog.cpp" />
+    <ClCompile Include="ImageAquisitionThread.cpp" />
+    <ClCompile Include="ImageData.cpp" />
+    <ClCompile Include="Inspection.cpp" />
+    <ClCompile Include="InspectionBottomContaminant.cpp" />
+    <ClCompile Include="InspectionCheckWeigh.cpp" />
+    <ClCompile Include="InspectionContaminant.cpp" />
+    <ClCompile Include="InspectionDensity.cpp" />
+    <ClCompile Include="InspectionGlassContaminant.cpp" />
+    <ClCompile Include="InspectionKernel.cpp" />
+    <ClCompile Include="InspectionSize.cpp" />
+    <ClCompile Include="InspectionStandardDeviation.cpp" />
+    <ClCompile Include="InspectionVoid.cpp" />
+    <ClCompile Include="InspxHiddenDialog.cpp" />
+    <ClCompile Include="InspxHiddenSystemDialog.cpp" />
+    <ClCompile Include="InspxHiddenXRayDialog.cpp" />
+    <ClCompile Include="ITIPCDig.cpp" />
+    <ClCompile Include="KeyBoardTestDialog.cpp" />
+    <ClCompile Include="ListeningSocket.cpp" />
+    <ClCompile Include="LogFile.cpp" />
+    <ClCompile Include="mapimessages.cpp" />
+    <ClCompile Include="mapisession.cpp" />
+    <ClCompile Include="ModBusTCPIPInterface.cpp" />
+    <ClCompile Include="MoreDiagnosticsDialog.cpp" />
+    <ClCompile Include="NewConfigProductEjectorDialog.cpp" />
+    <ClCompile Include="NewConfigureProductExternalDetectorDialog.cpp" />
+    <ClCompile Include="NewConfigureSystemDialog.cpp" />
+    <ClCompile Include="NewConfigureSystemEjectorDialog.cpp" />
+    <ClCompile Include="NewConfigureSystemExternalDetectorDialog.cpp" />
+    <ClCompile Include="NewDiagnosticDialog.cpp" />
+    <ClCompile Include="NewEditProductDialog.cpp" />
+    <ClCompile Include="NewImageDisplayDialog.cpp" />
+    <ClCompile Include="NoticeDialog.cpp" />
+    <ClCompile Include="NumericEntryDialog.cpp" />
+    <ClCompile Include="PasswordEntryDialog.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="PecoPictureBox.cpp" />
+    <ClCompile Include="ping.cpp" />
+    <ClCompile Include="PingTestThread.cpp" />
+    <ClCompile Include="ProcessEvaluateImagesThread.cpp" />
+    <ClCompile Include="ProcessQuickLearnImagesThread.cpp" />
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="ProductDensityCompensationDialog.cpp" />
+    <ClCompile Include="ProductFillerSeamerSampling.cpp" />
+    <ClCompile Include="ProductionSummaryDialog.cpp" />
+    <ClCompile Include="ProductShapeHandlingDialog.cpp" />
+    <ClCompile Include="SamplingDialog.cpp" />
+    <ClCompile Include="ScanTrac.cpp" />
+    <ClCompile Include="ScanTracConfigureDialog.cpp" />
+    <ClCompile Include="ScanTracDlg.cpp" />
+    <ClCompile Include="ScanTrac_i.c" />
+    <ClCompile Include="SelectInspectionDialog.cpp" />
+    <ClCompile Include="selectitemdialog.cpp" />
+    <ClCompile Include="SelectMultipleItemDialog.cpp" />
+    <ClCompile Include="SendNextOGMessageThread.cpp" />
+    <ClCompile Include="SerialPort.cpp" />
+    <ClCompile Include="SerialPortBase.cpp" />
+    <ClCompile Include="SerialPortGuardMaster.cpp" />
+    <ClCompile Include="SerialPortModBus.cpp" />
+    <ClCompile Include="SerialPortPowerFlex40.cpp" />
+    <ClCompile Include="SerialPortReview.cpp" />
+    <ClCompile Include="SerialPortRFIdeasBadgeReader.cpp" />
+    <ClCompile Include="SerialPortVjtMonoBlock.cpp" />
+    <ClCompile Include="SetupSystemExternalHardware.cpp" />
+    <ClCompile Include="SetupUserDialog.cpp" />
+    <ClCompile Include="SocketMessage1.cpp" />
+    <ClCompile Include="SoftKeyMenu.cpp" />
+    <ClCompile Include="Spellman100WattMonoBlock.cpp" />
+    <ClCompile Include="SpellmanDXMXRaySourcePort.cpp" />
+    <ClCompile Include="src\internal\sio_client_impl.cpp" />
+    <ClCompile Include="src\internal\sio_packet.cpp" />
+    <ClCompile Include="src\sio_client.cpp" />
+    <ClCompile Include="src\sio_socket.cpp" />
+    <ClCompile Include="StartCheckDisk.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="SystemConfigurationData.cpp" />
+    <ClCompile Include="SystemCountersDialog.cpp" />
+    <ClCompile Include="SystemProductSettingsDialog.cpp" />
+    <ClCompile Include="SystemSetupFillerSeamerSamplingDialog.cpp" />
+    <ClCompile Include="SystemTemperaturesDialog.cpp" />
+    <ClCompile Include="SystemValuesDialog.cpp" />
+    <ClCompile Include="TCPIPServerSocket.cpp" />
+    <ClCompile Include="TDAutoSetupImageDisplayDialog.cpp" />
+    <ClCompile Include="ucontrollerstatusdialog.cpp" />
+    <ClCompile Include="UndoAddToLearnDialog.cpp" />
+    <ClCompile Include="USBMemoryStickDialog.cpp" />
+    <ClCompile Include="UsersDialog.cpp" />
+    <ClCompile Include="Win32SerialPort.cpp" />
+    <ClCompile Include="Win32SerialPortThread.cpp" />
+    <ClCompile Include="XRaySource.cpp" />
+    <ClCompile Include="XRaySourceStatusDialog.cpp" />
+    <ClCompile Include="XRayTubeAlignmentDialog.cpp" />
+    <ClCompile Include="YesNoDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ACPowerMoniter.h" />
+    <ClInclude Include="ACPowerMoniterLogFile.h" />
+    <ClInclude Include="AlphaEntryDialog.h" />
+    <ClInclude Include="autosetupimagedisplaydialog.h" />
+    <ClInclude Include="BackupHardDriveThread.h" />
+    <ClInclude Include="BodyTrigger.h" />
+    <ClInclude Include="BottomButton.h" />
+    <ClInclude Include="ChartCtrl\ChartAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartAxisLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartBalloonLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartBarSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartCandlestickSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartCrossHairCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartCtrl.h" />
+    <ClInclude Include="ChartCtrl\ChartCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartDateTimeAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartDragLineCursor.h" />
+    <ClInclude Include="ChartCtrl\ChartFont.h" />
+    <ClInclude Include="ChartCtrl\ChartGanttSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartGradient.h" />
+    <ClInclude Include="ChartCtrl\ChartGrid.h" />
+    <ClInclude Include="ChartCtrl\ChartLabel.h" />
+    <ClInclude Include="ChartCtrl\ChartLegend.h" />
+    <ClInclude Include="ChartCtrl\ChartLineSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartLogarithmicAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartMouseListener.h" />
+    <ClInclude Include="ChartCtrl\ChartPointsArray.h" />
+    <ClInclude Include="ChartCtrl\ChartPointsSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartScrollBar.h" />
+    <ClInclude Include="ChartCtrl\ChartSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartSerieBase.h" />
+    <ClInclude Include="ChartCtrl\ChartSeriesMouseListener.h" />
+    <ClInclude Include="ChartCtrl\ChartStandardAxis.h" />
+    <ClInclude Include="ChartCtrl\ChartString.h" />
+    <ClInclude Include="ChartCtrl\ChartSurfaceSerie.h" />
+    <ClInclude Include="ChartCtrl\ChartTitle.h" />
+    <ClInclude Include="ChartCtrl\ChartXYSerie.h" />
+    <ClInclude Include="ChartCtrl\PointsOrdering.h" />
+    <ClInclude Include="CheckWeighDialog.h" />
+    <ClInclude Include="CheckWeighOffsetDialog.h" />
+    <ClInclude Include="CheyneyMonoBlock.h" />
+    <ClInclude Include="ConfigureDirectoryNames.h" />
+    <ClInclude Include="configureedgepixeladjustdialog.h" />
+    <ClInclude Include="ConfigureEMailAddresses.h" />
+    <ClInclude Include="ConfigureInspectionsDialog.h" />
+    <ClInclude Include="ConfigurePasswordsDialog.h" />
+    <ClInclude Include="ConfigureProduct.h" />
+    <ClInclude Include="configureproductalarmsdialog.h" />
+    <ClInclude Include="ConfigureProductBodyTriggerDialog.h" />
+    <ClInclude Include="ConfigureProductContaminantProcessesDialog.h" />
+    <ClInclude Include="ConfigureProductContaminantReferenceDialog.h" />
+    <ClInclude Include="ConfigureProductInspectionOptions.h" />
+    <ClInclude Include="ConfigureProductInspectionSettings.h" />
+    <ClInclude Include="ConfigureRadiationDoorDialog.h" />
+    <ClInclude Include="Container.h" />
+    <ClInclude Include="Contaminant22EditThresholdsDialog.h" />
+    <ClInclude Include="detectorsetupdialog1.h" />
+    <ClInclude Include="DiagnosticCountersDialog.h" />
+    <ClInclude Include="DiagnosticLineDialog.h" />
+    <ClInclude Include="DigitalLine.h" />
+    <ClInclude Include="DisplayDialogThread.h" />
+    <ClInclude Include="DisplaySavedRejects.h" />
+    <ClInclude Include="EasySelectProductDialog.h" />
+    <ClInclude Include="EditUser.h" />
+    <ClInclude Include="Ejector.h" />
+    <ClInclude Include="ExternalDetector.h" />
+    <ClInclude Include="FBWF_Info.h" />
+    <ClInclude Include="FillerSeamerSamplingDialog.h" />
+    <ClInclude Include="FillerValveDialog.h" />
+    <ClInclude Include="FindParameterHelpDialog.h" />
+    <ClInclude Include="FrontEndDiagnosticDialog.h" />
+    <ClInclude Include="GetCoreTempInfo.h" />
+    <ClInclude Include="helpdialog.h" />
+    <ClInclude Include="helpindexdialog.h" />
+    <ClInclude Include="HistogramDisplayDialog.h" />
+    <ClInclude Include="ImageAquisitionThread.h" />
+    <ClInclude Include="ImageData.h" />
+    <ClInclude Include="Inspection.h" />
+    <ClInclude Include="InspectionBottomContaminant.h" />
+    <ClInclude Include="InspectionCheckWeigh.h" />
+    <ClInclude Include="InspectionContaminant.h" />
+    <ClInclude Include="InspectionDensity.h" />
+    <ClInclude Include="InspectionGlassContaminant.h" />
+    <ClInclude Include="InspectionKernel.h" />
+    <ClInclude Include="InspectionSize.h" />
+    <ClInclude Include="InspectionStandardDeviation.h" />
+    <ClInclude Include="InspectionVoid.h" />
+    <ClInclude Include="inspxhiddendialog.h" />
+    <ClInclude Include="InspxHiddenSystemDialog.h" />
+    <ClInclude Include="InspxHiddenXRayDialog.h" />
+    <ClInclude Include="ITIPCDig.h" />
+    <ClInclude Include="KeyBoardTestDialog.h" />
+    <ClInclude Include="ListeningSocket.h" />
+    <ClInclude Include="LogFile.h" />
+    <ClInclude Include="lutLog2_1024_16bit.h" />
+    <ClInclude Include="mapimessages.h" />
+    <ClInclude Include="mapisession.h" />
+    <ClInclude Include="ModBusTCPIPInterface.h" />
+    <ClInclude Include="MoreDiagnosticsDialog.h" />
+    <ClInclude Include="NewConfigProductEjectorDialog.h" />
+    <ClInclude Include="NewConfigureProductExternalDetectorDialog.h" />
+    <ClInclude Include="NewConfigureSystemDialog.h" />
+    <ClInclude Include="NewConfigureSystemEjectorDialog.h" />
+    <ClInclude Include="NewConfigureSystemExternalDetectorDialog.h" />
+    <ClInclude Include="NewDiagnosticDialog.h" />
+    <ClInclude Include="NewEditProductDialog.h" />
+    <ClInclude Include="NewImageDisplayDialog.h" />
+    <ClInclude Include="NoticeDialog.h" />
+    <ClInclude Include="NumericEntryDialog.h" />
+    <ClInclude Include="PasswordEntryDialog.h" />
+    <ClInclude Include="PecoPictureBox.h" />
+    <ClInclude Include="ping.h" />
+    <ClInclude Include="PingTestThread.h" />
+    <ClInclude Include="ProcessEvaluateImagesThread.h" />
+    <ClInclude Include="ProcessQuickLearnImagesThread.h" />
+    <ClInclude Include="Product.h" />
+    <ClInclude Include="ProductDensityCompensationDialog.h" />
+    <ClInclude Include="ProductFillerSeamerSampling.h" />
+    <ClInclude Include="ProductionSummaryDialog.h" />
+    <ClInclude Include="ProductShapeHandlingDialog.h" />
+    <ClInclude Include="Register.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SamplingDialog.h" />
+    <ClInclude Include="ScanTrac.h" />
+    <ClInclude Include="ScanTracConfigureDialog.h" />
+    <ClInclude Include="ScanTracDlg.h" />
+    <ClInclude Include="ScanTrac_i.h" />
+    <ClInclude Include="SelectInspectionDialog.h" />
+    <ClInclude Include="selectitemdialog.h" />
+    <ClInclude Include="SelectMultipleItemDialog.h" />
+    <ClInclude Include="SendNextOGMessageThread.h" />
+    <ClInclude Include="SerialPort.h" />
+    <ClInclude Include="SerialPortBase.h" />
+    <ClInclude Include="SerialPortGuardMaster.h" />
+    <ClInclude Include="SerialPortModBus.h" />
+    <ClInclude Include="SerialPortPowerFlex40.h" />
+    <ClInclude Include="SerialPortRFIdeasBadgeReader.h" />
+    <ClInclude Include="SerialPortVjtMonoBlock.h" />
+    <ClInclude Include="SetupSystemExternalHardware.h" />
+    <ClInclude Include="SetupUserDialog.h" />
+    <ClInclude Include="shiftSortedArray.h" />
+    <ClInclude Include="SocketMessage1.h" />
+    <ClInclude Include="SoftKeyMenu.h" />
+    <ClInclude Include="Spellman100WattMonoBlock.h" />
+    <ClInclude Include="SpellmanDXMXRaySourcePort.h" />
+    <ClInclude Include="src\sio_client.h" />
+    <ClInclude Include="src\sio_message.h" />
+    <ClInclude Include="src\sio_socket.h" />
+    <ClInclude Include="StartCheckDisk.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="SystemConfigurationData.h" />
+    <ClInclude Include="SystemCountersDialog.h" />
+    <ClInclude Include="SystemProductSettingsDialog.h" />
+    <ClInclude Include="SystemSetupFillerSeamerSamplingDialog.h" />
+    <ClInclude Include="SystemTemperaturesDialog.h" />
+    <ClInclude Include="SystemValuesDialog.h" />
+    <ClInclude Include="TCPIPServerSocket.h" />
+    <ClInclude Include="TDAutoSetupImageDisplayDialog.h" />
+    <ClInclude Include="ucontrollerstatusdialog.h" />
+    <ClInclude Include="UndoAddToLearnDialog.h" />
+    <ClInclude Include="USBMemoryStickDialog.h" />
+    <ClInclude Include="UsersDialog.h" />
+    <ClInclude Include="Win32SerialPort.h" />
+    <ClInclude Include="Win32SerialPortThread.h" />
+    <ClInclude Include="XRaySource.h" />
+    <ClInclude Include="XRaySourceStatusDialog.h" />
+    <ClInclude Include="XRayTubeAlignmentDialog.h" />
+    <ClInclude Include="YesNoDialog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00020.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00021.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00022.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00023.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\checkmar.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\error1.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\exclamat.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\informat.bmp" />
+    <None Include="..\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\question.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00020.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00021.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00022.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\bmp00023.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\checkmar.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\error1.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\exclamat.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\informat.bmp" />
+    <None Include="..\Users\Viet\Desktop\ScanTrac2010Solo ScreenRes 0913 PreMerge\res\question.bmp" />
+    <None Include="ChartCtrl\ChartBalloonLabel.inl" />
+    <None Include="ChartCtrl\ChartLabel.inl" />
+    <None Include="ChartCtrl\ChartPointsArray.inl" />
+    <None Include="ChartCtrl\ChartSerieBase.inl" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="M:\About Customers\Morgan Foods\Morgan Line 55 unit 2 ST53876\2014 02 24 Setup Files\Products.STR" />
+    <None Include="M:\About Customers\Morgan Foods\Morgan Line 55 unit 2 ST53876\2014 02 24 Setup Files\ProductsB.STR" />
+    <None Include="packages.config" />
+    <None Include="resource.hm" />
+    <None Include="res\arrowdow.bmp" />
+    <None Include="res\arrowlef.bmp" />
+    <None Include="res\arrowrig.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bitmap10.bmp" />
+    <None Include="res\bitmap11.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\bluestra.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00002.bmp" />
+    <None Include="res\bmp00003.bmp" />
+    <None Include="res\bmp00004.bmp" />
+    <None Include="res\bmp00005.bmp" />
+    <None Include="res\bmp00006.bmp" />
+    <None Include="res\bmp00007.bmp" />
+    <None Include="res\bmp00008.bmp" />
+    <None Include="res\bmp00009.bmp" />
+    <None Include="res\bmp00010.bmp" />
+    <None Include="res\bmp00011.bmp" />
+    <None Include="res\bmp00012.bmp" />
+    <None Include="res\bmp00013.bmp" />
+    <None Include="res\bmp00014.bmp" />
+    <None Include="res\bmp00015.bmp" />
+    <None Include="res\bmp00016.bmp" />
+    <None Include="res\bmp00017.bmp" />
+    <None Include="res\bmp00018.bmp" />
+    <None Include="res\bmp00019.bmp" />
+    <None Include="res\bmp00020.bmp" />
+    <None Include="res\bmp00021.bmp" />
+    <None Include="res\bmp00022.bmp" />
+    <None Include="res\bmp00023.bmp" />
+    <None Include="res\bmp00024.bmp" />
+    <None Include="res\bmp00025.bmp" />
+    <None Include="res\bmp00026.bmp" />
+    <None Include="res\bmp00027.bmp" />
+    <None Include="res\bmp00028.bmp" />
+    <None Include="res\bmp00029.bmp" />
+    <None Include="res\bmp00030.bmp" />
+    <None Include="res\bmp00031.bmp" />
+    <None Include="res\bmp00032.bmp" />
+    <None Include="res\bmp00033.bmp" />
+    <None Include="res\bmp00034.bmp" />
+    <None Include="res\bmp00035.bmp" />
+    <None Include="res\bmp00036.bmp" />
+    <None Include="res\bmp00037.bmp" />
+    <None Include="res\bmp00038.bmp" />
+    <None Include="res\bmp00039.bmp" />
+    <None Include="res\bmp00040.bmp" />
+    <None Include="res\bmp00041.bmp" />
+    <None Include="res\bmp00042.bmp" />
+    <None Include="res\bmp00043.bmp" />
+    <None Include="res\bmp00044.bmp" />
+    <None Include="res\bmp00045.bmp" />
+    <None Include="res\bmp00046.bmp" />
+    <None Include="res\bmp00047.bmp" />
+    <None Include="res\bmp00048.bmp" />
+    <None Include="res\bmp00049 (2).bmp" />
+    <None Include="res\bmp00049.bmp" />
+    <None Include="res\bmp00050.bmp" />
+    <None Include="res\bmp00051.bmp" />
+    <None Include="res\bmp00052.bmp" />
+    <None Include="res\bmp00053.bmp" />
+    <None Include="res\bmp00054.bmp" />
+    <None Include="res\bmp00055.bmp" />
+    <None Include="res\bmp00056.bmp" />
+    <None Include="res\bmp00057.bmp" />
+    <None Include="res\bmp00058.bmp" />
+    <None Include="res\bmp00059.bmp" />
+    <None Include="res\bmp00060.bmp" />
+    <None Include="res\bmp00061.bmp" />
+    <None Include="res\bmp00062.bmp" />
+    <None Include="res\bmp00063.bmp" />
+    <None Include="res\bmp00064.bmp" />
+    <None Include="res\bmp00065.bmp" />
+    <None Include="res\bmp00066.bmp" />
+    <None Include="res\bmp00067.bmp" />
+    <None Include="res\bmp00068.bmp" />
+    <None Include="res\bmp00069.bmp" />
+    <None Include="res\bmp00070.bmp" />
+    <None Include="res\bmp00071.bmp" />
+    <None Include="res\bmp00072.bmp" />
+    <None Include="res\bmp00073.bmp" />
+    <None Include="res\bmp00074.bmp" />
+    <None Include="res\bmp00075.bmp" />
+    <None Include="res\bmp00076.bmp" />
+    <None Include="res\bmp00077.bmp" />
+    <None Include="res\bmp00078.bmp" />
+    <None Include="res\bmp00079.bmp" />
+    <None Include="res\bmp00080.bmp" />
+    <None Include="res\bmp00081.bmp" />
+    <None Include="res\bmp00082.bmp" />
+    <None Include="res\bmp00083.bmp" />
+    <None Include="res\bmp00084.bmp" />
+    <None Include="res\bmp00085.bmp" />
+    <None Include="res\bmp00086.bmp" />
+    <None Include="res\bmp00087.bmp" />
+    <None Include="res\bmp00088.bmp" />
+    <None Include="res\bmp00089.bmp" />
+    <None Include="res\bmp00090.bmp" />
+    <None Include="res\bmp00091.bmp" />
+    <None Include="res\bmp00092.bmp" />
+    <None Include="res\bmp00093.bmp" />
+    <None Include="res\bmp00094.bmp" />
+    <None Include="res\bmp00095.bmp" />
+    <None Include="res\bmp00096.bmp" />
+    <None Include="res\bmp00097.bmp" />
+    <None Include="res\bmp00098.bmp" />
+    <None Include="res\bmp00099.bmp" />
+    <None Include="res\bmp00100.bmp" />
+    <None Include="res\bmp00101.bmp" />
+    <None Include="res\bmp00102.bmp" />
+    <None Include="res\bmp00103.bmp" />
+    <None Include="res\bmp00104.bmp" />
+    <None Include="res\borderco.bmp" />
+    <None Include="res\borderri.bmp" />
+    <None Include="res\checkmar.bmp" />
+    <None Include="res\cornerbl.bmp" />
+    <None Include="res\cornered.bmp" />
+    <None Include="res\cornerma.bmp" />
+    <None Include="res\cornersh.bmp" />
+    <None Include="res\cursor1.cur" />
+    <None Include="res\downarro.bmp" />
+    <None Include="res\error.bmp" />
+    <None Include="res\errorgra.bmp" />
+    <None Include="res\exclaima.bmp" />
+    <None Include="res\exclamat.bmp" />
+    <None Include="res\green.bmp" />
+    <None Include="res\greenbac.bmp" />
+    <None Include="res\Greenck.bmp" />
+    <None Include="res\GreyButtonSelect.bmp" />
+    <None Include="res\ico00001.ico" />
+    <None Include="res\idc_bord.bmp" />
+    <None Include="res\idr_tran.ico" />
+    <None Include="res\informat.bmp" />
+    <None Include="res\inspxBlue.bmp" />
+    <None Include="res\inspxgra.bmp" />
+    <None Include="res\InspxLogox2.bmp" />
+    <None Include="res\inspxRed.bmp" />
+    <None Include="res\inspxYellow.bmp" />
+    <None Include="res\leftarro.bmp" />
+    <None Include="res\Pecobmp div 2.bmp" />
+    <None Include="res\Pecobmp div 4.bmp" />
+    <None Include="res\question.bmp" />
+    <None Include="res\rightarr.bmp" />
+    <None Include="res\ScanTrac.ico" />
+    <None Include="res\ScanTrac.rc2" />
+    <None Include="res\shadedbu.bmp" />
+    <None Include="res\smallrig.bmp" />
+    <None Include="res\uparrow1.bmp" />
+    <None Include="ScanTrac.rgs" />
+    <None Include="shadedbutton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ScanTrac.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bmp00105.bmp" />
+    <Image Include="res\bmp00106.bmp" />
+    <Image Include="res\bmp00107.bmp" />
+    <Image Include="res\bmp00108.bmp" />
+    <Image Include="res\bmp00109.bmp" />
+    <Image Include="res\bmp00110.bmp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="ScanTrac.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winapp.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphone.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winphonesl.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v120.winxp.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.winapp.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,1580 @@
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+//#pragma code_page(936)
+#pragma code_page(65001)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+
+STRINGTABLE
+BEGIN
+    IDS_HelpNoFunctions     "没有此帮助主题的可用功能"
+    IDS_HelpNoOverview      "没有此帮助主题的可用概述"
+    IDS_HelpNoHints         "没有此帮助主题的可用提示"
+    IDS_HelpNoHiddenFunctions "此菜单中没有可用的备用功能"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTitle0          "使用ScanTrac"
+    IDS_HelpTitle1          "主菜单"
+    IDS_HelpTitle2          "选择产品"
+    IDS_HelpTitle3          "设置选项"
+    IDS_HelpTitle4          "设置产品"
+    IDS_HelpTitle5          "设置产品 - 容器触发器 "
+    IDS_HelpTitle6          "设置产品 - 编辑产品"
+    IDS_HelpTitle7          "设置产品 - 弹出器"
+    IDS_HelpTitle8          "设置产品 - 辅助检测器"
+    IDS_HelpTitle9          "设置产品 - 配置检查"
+    IDS_HelpTitle10         "设置系统 - 设置系统选项"
+    IDS_HelpTitle11         "设置系统 - 设置传送机"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTitle12         "设置系统"
+    IDS_HelpTitle13         "设置系统 - 弹出器"
+    IDS_HelpTitle14         "设置系统 - 辅助检测器"
+    IDS_HelpTitle15         "诊断摘要"
+    IDS_HelpTitle16         "拒绝显示"
+    IDS_HelpTitle17         "诊断 - 键盘测试"
+    IDS_HelpTitle18         "诊断 - 线路显示"
+    IDS_HelpTitle19         "诊断 - 电压"
+    IDS_HelpTitle20         "诊断 - 测试模式"
+    IDS_HelpTitle21         "诊断 - 模拟编码器速率"
+    IDS_HelpTitle22         "诊断 - X射线"
+    IDS_HelpTitle23         "输入名称"
+    IDS_HelpTitle24         "输入数字"
+    IDS_HelpTitle25         "输入密码"
+    IDS_HelpTitle26         "输入是或否"
+    IDS_HelpTitle27         "帮助"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTitle28         "帮助索引"
+    IDS_HelpTitle29         "选择项目"
+    IDS_HelpTitle30         "设置产品 - 设置检测感兴趣区域"
+    IDS_HelpTitle31         "设置系统硬件选项"
+    IDS_HelpTitle32         "未使用特殊设置图像菜单"
+    IDS_HelpTitle33         "设置产品 - 自动设置图像大小"
+    IDS_HelpTitle34         "设置产品 - 自动设置X射线源"
+    IDS_HelpTitle35         "设置产品 - 自动设置图像学习"
+    IDS_HelpTitle36         "设置产品 - 自动设置污染阈值"
+    IDS_HelpTitle37         "安装系统 - 图像处理"
+    IDS_HelpTitle38         "设置系统 - 设置检测器边缘像素调整"
+    IDS_HelpTitle39         "设置产品 - 检查设置"
+    IDS_HelpTitle40         "设置产品 - 图像学习参考菜单"
+    IDS_HelpTitle41         "设置系统 - X射线检测器"
+    IDS_HelpTitle42         "诊断 - 计数器"
+    IDS_HelpTitle43         "诊断 - 微控制器通讯"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTitle44         "直方图显示"
+    IDS_HelpTitle45         "设置系统 - 容器触发器"
+    IDS_HelpTitle46         "选择多个项目"
+    IDS_HelpTitle47         "设置产品 - 自动设置产品检查"
+    IDS_HelpTitle48         "系统设置摘要"
+    IDS_HelpTitle49         "产品设置摘要菜单"
+    IDS_HelpTitle50         "X射线源强度数据显示"
+    IDS_HelpTitle51         "事件日志显示"
+    IDS_HelpTitle52         "设置系统 - 设置电子邮件地址"
+    IDS_HelpTitle53         "生产报告"
+    IDS_HelpTitle54         "设置产品 - 图像设置"
+    IDS_HelpTitle55         "设置系统 - 设置形状处理"
+    IDS_HelpTitle56         "设置产品 - 自动设置密度阈值"
+    IDS_HelpTitle57         "设置系统 - 产品密度补偿"
+    IDS_HelpTitle58         "设置系统 - 辐射快门"
+    IDS_HelpTitle59         "选择检查菜单"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpText0           "ScanTrac是一个X射线成像包检测系统。运行时，其会对经过的每个包拍摄X射线图像，并根据当前产品的设置确定该包是否符合检查条件。如果不符合，其会沿着三个备用路径之一将包弹出。在这三个路径中都可以设置一个弹出确认传感器。ScanTrac还允许最多五个辅助传感器检查各种物品的容器，如礼品标签。所有结果都会记录并显示给操作员。 \n\n每种类型的包都必须配置其设置，然后才能正常运行。不同包设置的数目没有限制。 \n\n操作员还可以查看X射线图像。查看图像时，许多功能可用于显示或隐藏信息，以便操作员可以查看感兴趣的特定详细信息。\n\n在运行系统之前，必须针对容器类型和所需的检查进线路配置。要设置全面的验证系统诊断辅助，正确执行并在需要时进行调试。设置需要一些时间理解才能准确，所以只能由指定的人员完成。 \n\n设置和诊断菜单受密码保护。 对于不需要密码的设施，在设置菜单中不输入任何密码，密码输入将被绕过。\n\nScanTrac是一个非常灵活的系统，由现成的组件制成，以提高可靠性并简化维护。 "
+    IDS_HelpText1           "ScanTrac主菜单显示最重要的计数器和容器的图像的运行总计。 \n\n显示可以使用显示生产摘要按钮更改为生产摘要。生产摘要提供附加的计数器和信息。\n\n当选择当前产品时，重置总计，或者可以从“生产摘要”菜单中手动重置总计。\n\n要在配置系统后对其进行操作，请使用选择当前产品”，然后按运行按钮。\n\n通过“设置菜单”完成系统配置。系统必须首先由Inspx设置，然后可以使用“设置菜单”设置一个或多个产品。\n\n“诊断菜单”可用于验证配置或帮助确定原因（如出现问题）。\n\n运行中拒绝的图像可利用“拒绝菜单”查看。\n\n如果系统检测到问题，则会在当前产品下方显示黄色警告消息，主机黄色指示灯亮起。操作员处理问题后或想要清除指示器，按“清除黄色消息”按钮，该按钮将清除消息并关闭主机上的黄色指示灯。通过按下“生产摘要”菜单中的“显示事件日志”按钮，可以在事件日志中查看所有事件和黄色消息。 \n\n如果出现弹出太多容器的问题，则操作员可“禁用容器弹出器”允许所有容器通过，然后可更正导致过多容器弹出的问题，然后“启用容器弹出器”。\n\n具有黑色文本的按钮仅可用于主管。具有蓝色文本的按钮可供所有用户使用。\n\n具有绿色背景的按钮表示功能处于“异常”或“关闭”状态，您可以按下使其处于“正常”或“开启”状态。绿色按钮也用于指示按钮将启动该功能。 "
+    IDS_HelpText2           "“选择产品菜单”可以选择当前操作的产品，您可以选择任何目前已配置的产品。只需按指向所需产品名称的按钮，即可执行操作。\n\n当您选择一个产品成为“当前产品”，ScanTrac将检查配置并验证其配置是否在限制范围内。如果配置不正确，将发出警告，然后ScanTrac将设置硬件，使其准备运行。\n\n产品数量没有限制。 "
+    IDS_HelpText3           "“设置选项”可以设置系统时间、日期、密码和考虑生产停止的时间段，以及平均生产速率的时间。 "
+    IDS_HelpText4           "“设置产品菜单”允许您设置和编辑不同的产品。您可以设置的产品数量没有限制，但是如果您有未使用的产品，它会使操作员更难找到正确的产品。 \n\n设置新产品时，ScanTrac会引导您完成自动设置过程。这需要您拥有可在系统上运行的良好容器 。\n\n如果您编辑或复制或删除产品，ScanTrac将显示已配置产品的列表，以便您执行该功能。\n\n产品无法重命名。如果产品需要重命名，请复制产品，将副本命名为您想要的名称，然后删除原产品。\n\n要使更改永久保存，必须在菜单中完成后保存并退出。\n\n只有在按下“完成自动设置”或“完成设置”按钮并确认时，子菜单中的“产品设置”项才会保存在产品设置中。\n\n“设置”及其子菜单中的所有项目都会在打开本机时保存并恢复。在从“设置”或任何其他菜单返回到主菜单后，切勿立即关闭设备的电源，因为这是将设置信息保存到永久存储器中。如果在保存到永久存储器期间关闭电源，则设置信息将被损坏，并且在打开电源时不会恢复。\n\n更改设置项目后，“退出”按钮将更改为“保存”并 “退出”，并显示“取消”按钮。取消将取消任何更改。更改只有在“保存”并 “退出”完成后才是永久性的。 \n\n在命令按钮上的感叹号“！”意味着命令立即完成，不等待按下“保存”并 “退出”。\n\n菜单将中止您所做的任何更改，除非按钮文字以“！”结尾。 \n\n有两个密码可防止意外或未经授权更改ScanTrac的设置。必须输入“系统密码”和 “产品密码”才能进入相关功能或菜单。 "
+    IDS_HelpText5           "此菜单允许您选择 “容器触发器”和用于产品的“备用容器触发器”。 \n\n容器触发器必须连接到正确的输入端，才能正常工作，并在 “系统设置”菜单中进行配置它们以在这里显示。\n\n系统上最多可以有5个容器触发器，这允许它们处于不同的高度，因此产品更换不需要调整容器触发高度。 "
+    IDS_HelpText6           "“编辑产品菜单”允许您完全配置任何产品。“产品”自动设置功能按钮让您自动完成产品设置。大小、曝光、学习、检查、评估，弹出器和辅助检测功能让您直接跳转进入“产品”自动设置序列中的设置。您可以在自动设置序列中向前或向后移动，也可以完成保存并退出哪项。\n\n如果您只想更改一个或两个设置，不希望系统运行，您可以进入“手动”设置功能。在“手动”设置功能中，您必须手动配置和输入数据。这只能由高级设置操作员使用。在“手动产品设置”中，您可以设置所有可以在自动产品设置中设置的设置（图像学习除外）。污染和空白检查要求图像被学习，因此“手动”产品设置只用于在初始设置后修改设置。 "
+    IDS_HelpText7           "此菜单允许您配置系统中弹出器在其用于本产品时的位置和时序特性，每种不同的尺寸和形状的产品可能需要调整这些值，如果从 “自动设置菜单”（新产品或编辑产品、自动设置）调整，则您可以测试弹出器并以交互方式调整设置。\n\n对于初始距离值，只是测量从容器触发器到弹出器的距离，如果弹出早或晚，您可以进行微调。\n\n“弹出器响应因子”乘以传送带速度，并使弹出器早些触发。\n\n“弹出器停留时间”是弹弹出信号施加到弹出器上的时间。如果弹出器打开的时间过长，则会撞击或阻塞下一个容器，请缩短此时间。如果不将容器完全推开，请延长此时间。\n\n要更改设置，请确保选择要更改的弹出器，然后按设置按钮。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpText8           "此菜单允许您配置“辅助检测器”以检查图像检查以及该产品。“辅助检测器”可用于许多不同类型的检测（如帽、箔、标签或其他传感器）。辅助检测器可用于4种主要模式。它们还可以用于检测在传送机上的容器堵塞，以防下游阻塞阻止容器通过ScanTrac区域。 \n\n要设置辅助检测器，选择在其左边的按钮，然后设置模式，然后输入要采样的位置。窗口中的“接受”和“拒绝”需要一个开始和停止位置，其中开始时的“接受”和“拒绝”只需要一个开始位置。选择弹出一个不合格容器的弹出器。\n\n在为产品配置“辅助检测器”之前，必须在“系统设置”中连接和设置“辅助检测器”。\n\n请参阅“阻塞检测器详细信息提示”。 "
+    IDS_HelpText9           "“配置检查”菜单允许您添加、删除、重新排序和编辑检查。如果需要，还可以配置弹出器定时和辅助检测器。\n\n弹出器和辅助检测器定时仅适用于本产品，但适用于所有检查。\n\n一种产品有10次检查的限制。\n\n要对检查重新排序，让“最后检查”按照正确的顺序，以获得所需的顺序。最好先进行欠料检查（如果使用的话），然后进行任何其他密度检查。如果欠料水平偏离，可能回影响污染物或空洞检查，它们将被排除，但列出错误的原因。检查按照屏幕上显示的顺序测试。如果一个容器被确定为检查失败，没有进行更多的检查，容器将被弹出，就是这样。\n\n对于编辑、移动和删除，按下按钮后，将显示检查列表，您可以选择适当的检查。\n\n检查可能有相同的名称。检查名称仅用于人们了解为什么容器被弹出。如果您给两个检查相同的名称，系统将正确跟踪它们，并在正确的位置显示正确的拒绝数量，但是您可能会感到困惑，哪个是哪个检查。 "
+    IDS_HelpText10          "“设置系统选项”菜单中启用、禁用和配置系统的许多可选功能。 “转向器”、“传送机停止时停止”和 “未确认弹出时停止”通常只对那些100％需要检查的制药企业。\n\n报警设置后重新启用弹出器允许弹出器被报警禁用，并且现在系统正常运行后系统启用弹出器。通常系统运行良好将利用容器99%或100%良好表示。\n\n弹出器传感器是一个压力传感器，如果弹出器空气压力太低，将产生一个黄色信息。此功能目前只为1个客户设置，所以可能不在这个系统中，除非添加。\n\nScanTrac ID用于电子邮件和“生产报告”，以便您可以知道哪个ScanTrac发送了信息。\n\n备份目录可以设置为空白以禁用备份设置文件。建议对所有经营客户使用设置备份。 "
+    IDS_HelpText11          "“设置系统传送机”菜单是编码器配置和校准的地方。首先将单位设置为英寸或毫米，校准包括设置 “每单位的编码器脉冲数”。\n\n在诊断、诊断计数器中显示的“上次触发时的编码器计数”是为了帮助校准传送机上的编码器，以便系统知道传送机移动的距离和速度。要校准编码器，让一个直立，不倾斜的多边固定容器通过传送机。测量容器的宽度。用“上次触发时的编码器计数”除以容器的宽度，得出必须在“设置系统传送机”上输入的“每单位的编码器脉冲数”，如果该数值（大于5）与32差距很大，将编码器分频因子加或减1（如果数字大于32，则增加，如果数字小于32，则减小），然后重复该过程，直到找到接近32的值。 "
+    IDS_HelpText12          "“设置系统菜单”是设置与硬件有关的所有设置的地方，所有产品相关设置都在这里进行。所有的系统设置都应在设置任何产品之前进行。\n\n每个子菜单都有一些相关的设置项。在设置系统时和运行之前检查每个子菜单及其项目。\n\n必须设置一个或多个容器触发器。 \n\n必须设置一个或多个弹出器。 \n\n如果系统有“辐射快门”，您必须在“辐射快门”菜单中指示并配置其时间。在生产中断期间的校准也在“辐射快门”菜单中配置。\n\n您必须在“设置X射线检测器”菜单中配置主 “X射线检测器”。您还必须校准偏移量，并在两个单独的过程中校准边沿。\n\n电子邮件系统必须能够访问电子邮件提供商，并且网络不得阻止它。\n\n编码器必须在传送机菜单中校准。所需的 “每英寸编码器脉冲”为32。（每毫米0.8个脉冲）。设置为尽可能接近32。要校准编码器，请使用临时产品运行系统。让一个容器通过。转到 “诊断菜单”、 “诊断计数器菜单”，并查看“上次触发时的编码器计数”。（你可以进行几次并平均）。测量容器触发器碰到容器时的宽度。用“上次触发时的编码器计数”除以容器宽度，即“每个单位的编码器计数”。如果该值与所需的差距甚大（每英寸32个脉冲），请更改“编码器分频因子”。如果每英寸编码器脉冲数远大于32，则增加“编码器分频因子”。如果它低得多，减小编码器分频因子。\n\n“设置操作菜单”是启用一些 “演示功能”以及其他关键系统设置的地方。 \n\n“设置系统选项”是启用某些可选功能，以及 “机器ID”和 “备份目录”的地方。 "
+    IDS_HelpText13          "此菜单用于告诉系统您连接了哪些弹出器，并且可以为它们指定一个名称，以便于记住每个弹出器的用途。可以配置最多3个弹出器。 \n\n要配置弹出器，将其连接到适当的输入，通过向左按下按钮来选择线路来配置弹出器，启用弹出器，给弹出器指定一个名称，并且输入，并且定义是否为高电平有效。每个弹出器可以具有确认传感器设置在弹出路径中，如果使用，输入活动级别和输入。如果在此配置，确认器将始终与弹出器一起使用。 "
+    IDS_HelpText14          "此菜单允许您告诉系统什么辅助检测器已连接到系统（如果有），并给它们一个名称，以便易于记住哪些辅助检测器可用于某些检查。5个 “辅助检测器”可以连接系统。\n\n要配置辅助检测器，请使用左侧的按钮选择辅助检测器，然后启用辅助检测器，然后为其命名，输入并定义辅助检测器是否为高电平有效。\n\n对于每个产品，您可以配置它们，以使用在此配置的任何辅助检测器。辅助检测器可用于检查帽、箔、标签或在容器开始在传送机上堵塞检查区域时作为备用检测器使用。 "
+    IDS_HelpText15          "“诊断摘要菜单”允许您查看系统硬件和软件的状态，但不能更改任何内容。 \n\n 有关更详细的状态和测试系统功能，您可以进入此菜单中的子菜单。\n\n以红色显示的任何项目都有问题，应在操作系统之前检出并更正或理解。 \n\n子菜单中具有更多详细信息的项目的详细菜单通过项目左侧按钮访问。 "
+    IDS_HelpText16          "“拒绝显示”显示最近拒绝的容器的X射线图像。 \n\n使用 “显示拒绝X”按钮前进或返回最近的拒绝。 \n\n左侧和右侧的按钮显示本产品的每次检查，允许您通过切换按钮显示或隐藏每次检查的拒绝。每次检查到目前为止的拒绝数量显示在该检查的按钮下方。ScanTrac通常配置为保存每种拒绝类型的最近50个图像，并按照从最近到最长的顺序显示它们。绿色按钮表示该检查的拒绝被隐藏。按绿色按钮返回该检查的正常显示模式。\n\n左上角指示显示的拒绝号码、是否弹出或弹出器被禁用、被拒绝的时间、以及显示的图像是模拟测试图像还是从文件加载。\n\n右上角区域将指示容器被拒绝的原因。\n\n“图像分析”按钮是主管可以在检查生产过程中根据需要分析拒绝和更改检查设置的位置。有关 “图像分析”的帮助，请参阅“备用功能帮助”。 "
+    IDS_HelpText17          "“键盘测试菜单”允许您测试键盘上的键以正常操作。当您按下一个键时，显示屏将以绿色显示该键一秒钟。如果在绿色时按键，将改变蓝色显示一秒钟。如果您按一个蓝色的键，显示将变为绿色一秒钟。如果您按退出或帮助键，显示屏将变成绿色一秒钟，然后操作。如果您当退出或帮助键为绿色时按键，显示屏将变为蓝色一秒钟，而不执行操作;如果在退出或帮助键为蓝色时按键，显示屏将变为绿色一秒钟，而不执行操作。如果在另一个键为蓝色或绿色时按键，蓝色或绿色键将返回其正常颜色，显示屏将显示您按下的键一秒钟。 "
+    IDS_HelpText18          "“诊断I/O线路显示菜单”允许您看到六个输入或输出信号。信号每10毫秒采样一次。您可以使用 “选择输入线路按钮”选择任何六个信号。\n\n显示屏出现连续模式，其中总是显示新数据。您可以将触发模式更改为“通道触发”或“单次触发”模式。“单次触发”模式将在上升沿收集数据一次，显示并停止。您可以重新启动“单次触发”模式用于采集另一个数据采样。注意：任何有效或不活动小于10毫秒的信号可能不会被看到，因为它可能在采样之间发生。这意味着快速信号（如线路启用）将随机高或低，因此您无法验证时间详细信息，但可以看到信号已激活。\n\n您可以通过按 “显示信号名称”按钮查看哪些轨迹上有什么信号。\n\n数据仅在显示此菜单时收集。 "
+    IDS_HelpText19          "“电压菜单”显示前端计算机和硬件的当前状态。如果任何项目显示为红色，则出现问题。如果三个LED中有任何一个是黑色的，则有问题。如果任何电源电压运行最小值或最大值为红色，则清除最小值和最大值运行并监控以查看是否重新出现。红色项目需要更正或了解。 "
+    IDS_HelpText20          "“测试模式菜单”允许您将硬件和软件置于模式中以测试系统的特定部分。其中许多模式将影响生产检测，并且不应在最终产品交付检测期间运行。如果在此菜单中的任何按钮是绿色的，这意味着它们处于测试模式，并且在测试完成时应该禁用。在最终产品检测期间不要使测试模式激活。任何末尾感叹号的按钮标签表示一旦按下按钮，将执行此命令。退出不需要“保存并退出”或“退出”按钮， “主菜单按钮”也可以用于退出，因为功能已经立即完成。 "
+    IDS_HelpText21          "“生产摘要”提供比 “主菜单”更详细的生产统计信息。每项检测的拒绝列在右边。如果当一个容器应该被弹出时禁用弹出器，将显示“拒绝”列。在这种情况下， “拒绝”是有缺陷的容器，而“弹出”是实际弹出的有缺陷的容器。\n\n设置>选项菜单可用于调整用于容器/最小和生产停留的时间、日期和时间段。 "
+    IDS_HelpText22          "“X射线菜单”显示X射线源高压电源的工作情况、源温度和互锁。如果有任何问题，它们将显示为红色。如果没有任何项目显示红色，则一切正常。在此菜单上打开或关闭X射线是为了诊断目的，以便在打开或关闭时监视源监视器。如果X射线电压或电流、最大值或最小值超出公差，并且是红色的，可能有问题。清除最大值或最小值。运行并监视，如果问题重新出现，应该可以检出。 \n\n“测量源强度”功能测量X射线电流强度、记录并显示日志。这允许您查看X射线源这些年是否已经下降了。该诊断应该每月运行一次，并验证X射线源下降不超过5％。运行、停止传送机，并停止检查，确保在X射线源前没有容器。运行测量源强度功能。它将加载特殊产品设置，启动系统，然后返回到主菜单，您可以在其中观看它运行。它会自动截取20个背景图片（您会看到它在左上角计数）。然后它会停止，计算强度，允许您添加注释，然后显示结果。注释是测试期间的源设置。除非需要，保留默认注释。\n\n要清除所有先前的源强度结果（如果更改检测器、源或其他主要部件），只需在“系统设置”、“检测器菜单”中设置检测器数量。 "
+    IDS_HelpText23          "“输入菜单名称”允许您指定名称。 \n\n允许最多32个字符的字母、数字和空格。不允许使用特殊字符。\n\n当您首次进入此菜单时，当前名称以蓝色突出显示。如果输入一个字符，它将删除当前名称，并以您按下的字符开始。按向右箭头清除蓝色高亮显示并将光标移动到结束。 \n\n您可以任何时候利用箭头按钮将光标左右移动。 “清除按钮”将删除光标上方的字符。当按下字符按钮时，字符被添加在光标前面。 \n\n多次按字符按钮可以旋转显示在按钮上的字符。 \n\n如果您要输入另一个字符，并且它与刚才输入的字符在同一个按钮上，只需按向 “右箭头按钮”，或更改字母大小写（如果您想以相同的大小写开始一个新字符，更改字母大小写两次）。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpText24          "“输入菜单号码”允许您输入设置项目的号码。它验证该数字是项目的共振值，如果不是，则更改。当您第一次进入此菜单时，当前数字被突出显示。如果输入一个数字，原始数字将删除，并从您按下的数字开始。按下向右箭头按钮清除蓝色高亮显示并将光标移动到结束位置。您可以用箭头按钮将光标向左右。 “清除按钮”将删除光标上方的数字，当按下字符按钮时，在光标前添加数字。 "
+    IDS_HelpText25          "“输入密码菜单”允许您拥有产品和系统设置密码。建议使用产品和系统密码，但是可以通过将其设置为无，消除任何一个或两者。密码最多为32个字符长。您可以记住您的密码作为一个数字，或一个您利用每个按钮上显示的任何字母组成的单词。如果您不想要系统中的密码，清除密码字符，保存并退出。当您首次进入此菜单时，当前密码以蓝色突出显示，如果您输入一个数字，当前密码将删除，并以您按下的数字开始。按向右箭头键清除蓝色高亮显示并将光标移动到结束位置。您可以随时用箭头按钮向右或向左移动光标，清除按钮将删除光标上方的数字。当按下字符按钮时，光标前面会添加数字。保存密码后，ScanTrac将让您再次输入作为确认，因为您输入时看不到密码。 "
+    IDS_HelpText26          "“是否菜单” 允许您对选项回答是或否。 "
+    IDS_HelpText27          "“是否菜单”允许您了解如何使用ScanTrac。\n\n当您在ScanTrac中的任何地方按 “帮助”时，您将获得主帮助菜单，您可以在 “当前菜单”中查看 “帮助”，查找某个设置的位置、与远程用户聊天（打字），或如果您是远程用户并希望使用键盘，查看键盘键映射。\n\n帮助系统是上下文相关的，这意味着它将在当前显示的菜单上显示帮助。从主帮助菜单中，按 “当前菜单”上的 “帮助”可查看您所在菜单的信息。您可以通过使用 “帮助索引”按钮选择要显示的其他主题来查看其他帮助项目。 \n\n当“当前菜单”上的“帮助”最初显示时，将显示主题概述。一些主题还有菜单 “功能”、 “备用功能”或菜单上可通过左侧按钮访问的 “提示”的其他信息。\n\n滚动按钮只有在该方向有更多文本时才会显示。这使得很容易知道您正在阅读的主题的上面下面什么时候有更多内容。 \n\n“使用ScanTrac”是ScanTrac是什么以及如何使用的摘要。 "
+    IDS_HelpText28          "“帮助索引菜单”允许您跳转到任何可用的帮助主题。它不会返回到退出时当前的主题，但您可以使用 “帮助索引菜单”再次跳回。 "
+    IDS_HelpText29          "要选择 “项目”，请按其旁边的按钮。\n\n您可以 “取消”此操作，这将使您返回上一个菜单，而不更改项目。 "
+    IDS_HelpText30          "此菜单允许您为每次检查设置检测区域（或ROI，感兴趣区域）。只需设置要检查区域的顶部、底部、左侧和右侧。您还可以选择哪些弹出器应弹出无法通过此检查的容器，有时选择图像设置。 \n\n最多3个弹出器可能连接到单个ScanTrac。任何一个或多个弹出器可能因任何类型的检查失败而被触发。\n\n要查看产品图像和图像上显示的 “检查边界”，使用 “产品自动设置”或 “图像学习自动设置”来调整“检查边界”，而不是手动菜单。 "
+    IDS_HelpText31          "“设置硬件选项菜单”用于演示和模拟硬件。如果更改为不兼容模式，更改此菜单中的项目可以使系统停止运行。如果您确信自己正在做什么，或者由INSPX人员指示这样做，只需更改这些项目。\n\n鼠标光标应该被隐藏。任何具有绿色按钮的项目对于操作ScanTrac都处于非正常状态。请仔细检查。远程用户看到自己的鼠标光标。\n\n如果X射线电压或电流过远，自动X射线关闭将关闭X射线。\n\n如果您有一个uController，但没有I / O（如互锁）与其连接，“模拟光控制”用于在办公室测试。它模拟所有到uController板的输入。\n\n“禁止警告消息”警告用于当您不想要任何黄色信息时，可以在展示或演示中使用。\n\n“演示模式”用于 “演示程序”。\n\n通常，ScanTrac使用通讯端口1。 "
+    IDS_HelpText32          "“特殊设置图像菜单文本”\n\n\n未使用 "
+    IDS_HelpText33          "如果图像的轮廓和找到的边缘线在白色背景上看起来不错，请按按钮“自动调整此容器大小”，然后等待ScanTrac调整图像大小。计算所需的大小并显示需要几秒钟。\n\n如果容器的轮廓在白色背景上看起来不明显，请转到下一个自动设置步骤并调整源强度，直到看起来明显，然后使用 “上一个自动设置步骤按钮”返回到此菜单，然后按“自动调整此容器大小”按钮。\n\n如果缩放后的大小不正确（有时两个容器之间的距离太近），您可以在屏幕上看到一个好的容器并且边缘显示正确后再次按 “自动调整容器大小”。\n\n如果 “自动调整大小”功能在多次尝试后仍未达到您需要的大小，则可以在需要调整时手动更改图像的大小和位置设置。进行手动更改等待几秒钟，系统加载新的值，然后发送另一个容器通过查看一个新的图像。\n\n在 “自动设置”过程中，绿色按钮通常表示它是您应该执行的下一个功能。 \n\n当图像尺寸看起来不错时，按 “下一个自动设置步骤”。为了获得最好的结果，需要在容器的每一侧为0.25至0.4英寸。 \n\n在自动设置过程中，您可以随时发送容器以更新映像。如果您没有看到容器，并且只是得到一个白色图像，容器触发器到检测器距离是错误的。如果需要，用卷尺测量，并输入略小于测量的距离。您还可以增加宽度，以便容器在图像中的可能性更大。容器在映像中后，再次尝试 “自动调整容器大小功能”。\n\n图像左边缘的紫色条显示容器边缘上的区域，ScanTrac会查找容器边缘以引用图像进行图像学习。 "
+    IDS_HelpText34          "根据需要调整电压、电流和曝光时间，以让背景成为黄色，容器为绿色，非蓝色。\n\n蓝色是X射线太少无法看到污染物通过，黄色是X射线撞击过多无法看到容器，绿色是很好的X射线，红色是根本没有X射线。\n\n使用“感兴趣区域产品密度”按钮，调整“感兴趣区域产品密度”只在您的容器的灰色区域。 \n\n每次更改设置以更新图像时，发送一个容器通过ScanTrac。\n\n增加电压和电流将增加X射线及其强度。增加强度将减少和消除蓝色和红色。\n\n曝光时间越长，最大传送机速度越慢，并且更多的X射线将撞击成像器。增加曝光时间将减少和消除蓝色和红色，而不增加X射线的数量和强度。 \n\n一般来说，对于 “自动设置”，最好确定最大传送机速度，并以此速度运行。 “自动设置软件”将显示给定曝光时间下当前正在运行的最大传送机速度的百分比。增加曝光时间，直到传送机速度为最大值的90％到95％。然后降低X射线源电流，使图像颜色达到合适的色带。这让您可以以最少的X射线进行检查。\n\n如果容器具有非常薄且非常厚的区域，在容器上同时产生黄色和蓝色区域，则使最重要的区域为绿色。如果玻璃墙的边缘是蓝色或红色的，因为污染物不能在玻璃墙的边缘，这是正常的。但产品区域应该没有红色，并且在产品区域蓝色应尽可能少。 "
+    IDS_HelpText35          "如果满意图像的大小和亮度，请按统一容器的 “启动IP自动设置”按钮。 \n\n“图像学习自动设置”了解具有良好的内容容器的功能和变体，因此可以在其检查的容器中发现缺陷。\n\n如果对图像大小和亮度不满意，请按 “上一个自动设置”按钮进行调整。\n\n在继续操作之前，您可以发送更多容器，以便更新图像，以便验证大小和亮度。\n\n启动“自动设置图像学习”它将提供您必须发送多少个容器以校准系统的摘要。完成后，它将显示一条消息，您可以继续下一步。\n\n设置了 “图像学习”后，左下角出现两个数字：Avg和Cur。Avg是平均图像的整个容器的密度，Cur是当前图像的整个容器的密度。数字可用于确定将来设置的容器中的产品是否足够相似，以使用相同的设置。根据经验，如果不同的产品通常在平均值的5％以内，您可以使用相同的设置。平均值和当前密度值将在设置后显示在本产品的所有自动设置菜单上。 "
+    IDS_HelpText36          "当图像显示良好时，按 “发送送良好容器”。然后通过ScanTrac发送至少100个良好容器，以教授ScanTrac良好容器阈值。\n\n您可以选择发送不良容器，看看它们与良好容器的类似程度。要发送不良容器，请按 “发送不良容器”按钮，并通过ScanTrac发送至少10个不良容器（或相同容器至少10次），以教授ScanTrac不良容器阈值。\n\n如果需要，您可以按 “发送良好容器”按钮或 “发送不良容器”按钮重复。 \n\n每个步骤完成后，ScanTrac将突出显示一个绿色的按钮，以便在准备就绪时继续。 \n\n每项检查都有一个阈值要设置，因此您需要使用每次检查的阈值设置菜单。\n\n如果“最小正常”或“最大不良”值中的任何一个黄色突出显示，则表示有问题。可能来自正在进行良好测试时的不良样品，进行良好检查时的良好样品，或图像学习设置未完成，或在传送机上不一致的容器处理。您应该对看起来错误的值重复“最小正常”或“最大不良”进程。如果继续发生，请确保图像学习完成，并且容器处理是一致的。为了保持一致，所有容器必须与检测器具有相同的距离，并且高度相同。 如果传送机具有不同高度的板条，则无法进行精确检查。\n\n 当违反以下规定时，会出现黄色高亮显示：最小良好平均值减去标准差的10倍必须大于最大不良平均值加上最大不良标准差的3倍（质量因子以黄色突出显示）。 \n\n最小平均值和最小值应大于40（Ave或Min分别以黄色突出显示）。最大不良平均值和最大值应小于240（Ave或Max分别以黄色突出显示）。 "
+    IDS_HelpText37          "“设置系统图像处理”菜单是配置引用、图像强度和 “已存最后拒绝数量”的位置。\n\n“参考抖动位置”是查看图像是否匹配学习图像的位置数。首先配置左右，然后配置向上和向下。仅当您以顶部为基准检查时才使用向上和向下。当以底部为基准检查时不使用。配置的值为加和减。值为1 ，表示检查将尝试3次，一次在参考位置，然后一个像素到右边，一个像素到左边。值为3将检查每次污染或空洞检查7次。在高速线路上，您需要查看是否有足够的时间用于 “抖动位置”的数量。使用Inspx密码进行检查，在拒绝显示屏中查看拒绝信息，并查看处理所花费的时间，如果处理时间加上1毫秒，每秒容器的时间大于100％的时间，则必须减少抖动位置的数量并再次检查。\n\n“密度校正”调整探测器偏移以保持与产品学习时相同的灰度级别。\n\n调整图像强度是从每个像素增加或减少一些，以使当前图像与学习图像的灰度级别相同。\n\n通常只调整图像的灰色部分。如果容器中偶尔有白色区域，则可以通过“调整容器所有区域”获得更好的结果。测试并查看。\n\n“上一次拒绝的数目”是被拒绝的每项检查类型的图像保存在内存中以供查看的数目。如果有5次检查，上一次拒绝50次，最多250个上一次拒绝可能在内存中。如果系统偶尔运行内存不足，可以减少此值以防止出现问题。如果计算机内存不足，它会发出黄色消息。如果继续，计算机可能会崩溃。添加更多内存也是一个选择。 "
+    IDS_HelpText38          "设置系统 - 设置检测器边缘像素调整菜单允许您查看检测器校准的结果，并根据需要进行调整。X射线检测器上的边缘像素因为像素几何不如检测器上的其他像素那么强。为了调整，“检测器校准”测量它们的强度，并且计算出一个校正因子以补偿它们较弱的强度。这个校正因子被应用到每个图像的像素数据，您不应该更改这些设置，除非您确保您知道您在做什么。它们影响图像质量，如果不正确地修改，可能会阻止正确的检查。 "
+    IDS_HelpText39          "设置产品 - 检验设置菜单允许您选择图像上使用的图像检查技术及其某些参数。\n\n可用的检查包括：污染物、无效、高密度、低密度、污染内核。 \n\n您不需要更改这些设置，因为“自动设置”菜单会自动调整这些设置。\n\n您可以使用 “启用/禁用”按钮启用或禁用此检查。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpText40          "设置产品 - 图像学习参考菜单允许您根据需要调整图像参考设置。 \n\n您不需要调整这些设置，因为自动设置菜单测量和设置这些值。\n\n参考图像，移动一点，如果需要，将容器排队。这是需要的，因为编码器和主体触发器中的不准确可能会令容器放置在图像中的位置稍微偏离。由于如果容器显示在图像中的相同位置，图像检查软件更准确，如果它没有落在那里，容器被参考，或者移动到图像中的正确位置。 "
+    IDS_HelpText41          "X射线检测器菜单允许调整检测器设置，并校准检测器。如果不同的检测器不同，可以调整每个检测器的增益和偏移。必须针对偏移和边缘校准检测器，有检测器边缘的像素会有少量的X射线，需要补偿才能获得清晰的图像。要校准检测器，关闭传感器。按 “自动查找偏移”校准偏移。当完成后，放置一个典型产品在X射线源前，靠近源，而不是探测器，然后按“自动校准检测器”按钮。自动校准将启动并关闭返回主菜单的菜单，以便您可以观看拍摄的图像。校准将需要几分钟。完成后， “中止按钮”将消失， “运行按钮”将显示为绿色。图像将从黑暗开始，并随连续图像变亮。\n\n“验证检测器校准！”按钮与 “自动校准检测器！” 按钮相同，但不设置边缘调整数字。\n\n“边缘调整”按钮将显示显示自动校准结果的菜单，并可根据需要手动更改。\n\n测量增益后的大括号中的值是测量增益与最小测量增益的百分比差。\n\n在更改检测器数量，更改任何检测器的增益或偏移，需要运行 “马上查找偏移”和 “自动校准检测器”，所有测量的源强度数据都将被清除。\n\n“像素时钟分频器”调整读取图像数据的时序，不需要更改。 \n\n不要更改此菜单上的任何设置，除非Inspx客户支持部门指示这样做。 "
+    IDS_HelpText42          "“诊断计数器菜单”显示特定事件或传感器或弹出器的额外计数器。此菜单中没有任何内容可以更改。这有助于验证一切是否正常工作，还可以帮助您了解发生了什么。不完整的数据、处理错误和容器错误大小错误除非有错误容器通过或有系统问题，否则不应发生错误。 如果这些有计数，应该被跟踪和理解。 "
+    IDS_HelpText43          "“微控制器通讯菜单”显示当前状态、最近的通讯，并允许您测试通讯。快速和慢速通讯测试继续，直到按下另一个测试按钮或菜单退出。如果此菜单任何按钮的颜色为绿色，这意味着它们处于测试模式，测试完成后应禁用。测试模式，除非需要，否则不要在最终产品检验期间使测试模式激活。ScanTrac检测时，慢速、快速和突发通讯测试无法完成。\n\n如果硬盘已满，您可以使用此菜单删除旧的日志或图像文件。\n\n“微控制器重置”应为零，如果不为零，则发生问题（除非有人按下 “微控制器板”上的复位按钮，或在UPS关闭前关闭电源并重新打开）。如果发生复位，请联系INSPX进行维修。 "
+    IDS_HelpText44          "直方图显示显示特定数值数据值（X轴）的出现次数（Y轴）。这对于查看数据如何分布非常有用。\n\n注意：浮点值四舍五入为最接近的整数。\n\n数据直方图适用于： \n\n评估的密度数据，按钮右2\n\n评估污染物、无效和内核最小良好按钮右2\n\n评估污染物、无效和内核最大不良按钮右4 "
+    IDS_HelpText45          "设置系统 - 容器触发器菜单允许您配置已连接到系统的容器触发器，并给它们一个名称，以便更容易记住每个容器触发器可以用于什么。系统最多可以有5个容器触发器。它们可能在不同的高度，因此在更改产品时不需要调整。\n\n要配置，请按左侧的按钮选择，启用它，给它一个名称，输入它连接到的输入。在此配置后，就可以在 “产品设置”中选择 “容器触发器”。 "
+    IDS_HelpText46          "“选择多项目菜单” 允许您为此配置选项选择一个或多个项目。 \n\n通过按下指向它的按钮启用所有项目。启用项目以绿色显示，旁边带有复选标记。当所有必需项目都启用时，保存或转到下一步。\n\n通常必须为有效结果选择至少一个项目。 "
+    IDS_HelpText47          "“产品检查菜单”允许您添加、删除和编辑产品的检查。\n\n每种产品最多允许进行10次检查，至少需要进行一次检查。\n\n有四种类型的检查。要更改检查类型，必须先添加所需类型的新检查，然后删除具有不需要类型的旧检查。\n\n每个检验都有一个ROI（感兴趣区域），因此不同的检查可以检查不同的图像区域。 "
+    IDS_HelpText48          "“系统设置摘要菜单”允许您查看所有系统设置，但不能更改。如果需要更改系统设置，请转到设置，设置系统进行更改。 "
+    IDS_HelpText49          "“系统设置摘要菜单”允许您查看所有产品设置，但不能更改。如果设置需要更改，您必须转到设置，然后转到设置产品，然后单击编辑更改。 \n\n在右边的箭头按钮允许您向上或向下滚动一行或一页。底部有一个按钮，将允许您快速跳转到底部或顶部的显示。这些按钮位置和大小敏感，所以他们只有在适当的时候显示。 \n\n从这里您可以显示 “系统设置摘要”、“X射线源强度”历史或上次生成的 “生产报告”。所有这些都是仅查看显示。 "
+    IDS_HelpText50          "“X射线源强度数据显示”显示所有 “X射线源强度数据”以及自上次更改X射线检测器和配置检测器数量后的日期。\n\n如果检测器配置项目的数量被更改（设置、设置系统、检测器设置菜单），数据将被删除。如果更换检测器，只需将检测器数量设置为相同的值，并保存。\n\n每次执行测量源强度功能（诊断、X射线菜单）时，新数据将添加到源强度历史数据中。 使用该功能，可以确定源强度是否随时间衰减。 作为日常维护的一部分，建议每月运行一次测量源强度功能。 \n\n“X射线源数据显示”可从 “产品设置摘要”或 “系统设置摘要菜单”中获得。 "
+    IDS_HelpText51          "“事件日志显示窗口”显示自上次清除或启动“事件日志”以来发生的最后1000个事件和错误。顶部显示“事件日志”最后一次清除或启动的日期和时间 \n\n如果在查看日志时发生新的事件或错误，将显示 “更新事件显示按钮”。如果要查看更新的显示，单击按钮，显示将更新，您将在列表顶部设置新的事件或错误。\n\n您可以使用清除事件日志按钮“清除事件日志按钮”清除日志，日志将保留多达1000个事件。可以使用“清除事件日志”按钮清除日志，否则关闭ScanTrac。所有事件写入永久存储器并保存15天。\n\n“事件日志显示按钮”仅在日志中出现错误时在 “主菜单”上可见，并且操作员已在 “主菜单”上清除任何黄色消息，但按钮可以按下并显示日志，即使其中没有事件。 \n\n每行上的第一个数字只是一个事件编号。当日志被清除或ScanTrac打开时，它被复位。下一个数字（小数点后）是一个月中的日期。这在持续运行时很方便，您每几天只得到一个错误，您可以辨别是来自今天，或昨天，甚至之前。下一行是时间戳，使用24小时时间。然后显示事件或错误消息。如果需要，可以换行到下一行。 "
+    IDS_HelpText52          "设置系统 - 设置电子邮件地址菜单允许您为三种不同类别的报警设置电子邮件。如果不需要，可以禁用此功能，否则ScanTrac不能进行网络访问。要为任何或所有三个类别设置电子邮件，启用类别，然后输入每个地址的用户名和域名。每个类别的电子邮件的主题行可以根据需要自定义。三个类别每个最多允许25个电子邮件地址。 \n\n如果出现行或系统问题，导致发出过多的电子邮件，您可以暂时禁用该电子邮件设置，而不会丢失用户名和域名，然后重新启用电子邮件类别，问题已得到纠正。\n\n维护类别电子邮件包括如果灯泡烧坏或冷却剂流停止，以及需要监控的其他维护项目。如果发送工厂操作电子邮件发生过多的拒绝（产品Y报警中的X）。生产报告类别将在生成生产报告时通过电子邮件发送。\n\n每次显示电子邮件地址时，为了方便，按字母顺序排列电子邮件地址。因此，您可以在任何行上输入电子邮件地址，并在中间删除地址，并且将来的显示仍然容易阅读，没有间隙。 "
+    IDS_HelpText53          "每次更换班次或清除计数器或在检查任何容器时选择新产品时都会生成生产报告。当班次更改时，将自动显示在屏幕上。如果配置了电子邮件，将通过电子邮件发送。生成的最新生产报告可以通过“产品设置摘要”从主菜单中手动生成，然后“显示生产报告”。 Product Setup Summary, then Display Production Report.  \n\nThe production report contains all the vital statistics on an inspection run since the previous production report was run.  It also includes the Product Setup Notes and Date to verify the correct setup was inspected. "
+    IDS_HelpText54          "设置产品 - 图像设置下的图像设置菜单允许您更改图像和检查相关的大小和其他值。\n\n边缘位置区域是ScanTrac定位和引用图像的容器边缘的位置。在容器上选择一个高度，其边缘是直的上下，并且如果可能的话是一致的。边缘所在的自动设置菜单上显示紫色条。如果任一值（边缘位置的底部或高度）为零，则此功能被禁用，ScanTrac将努力找到容器边缘。如果容器可能彼此靠近，使得一个容器的边缘可能在另一个容器图像中，需要输入一个合适的边缘位置区域。所以知道在哪里寻找真正的容器边缘。\n\n当容器可能在下一个容器图像中的时候，需要“最大图像重叠”。如果下一个容器的一部分在此图像中，则是从图像的边缘搜索容器的真实边缘的距离。通常这个值将大于容器周围的边界（1/2英寸）。 “最大图像重叠”将需要设置为零，或者当包具有内部衬里，使得在外部容器边缘和容器的内容物之间存在间隙时，仔细调整。\n\n“容器触发锁定”是为了防止容器触发器由于标签或玻璃看到光线变化感测到当前容器中间的另一个容器。此值通常设置为实际容器的宽度。 \n\nY报警中的X（有两个）可以设置引起通知，如果配置，当您X个样品得到Y或更多拒绝时发送电子邮件。如果线路存在需要立即纠正的实际问题，则会发出警告。\n\n“产品说明”仅供参考，可能以任何有用的方式使用。 "
+    IDS_HelpText55          "“设置系统形状处理”菜单允许配置如何处理容器大小错误的图像。如果在 “系统选项”菜单中启用了“转移未检测容器”选项，则必须至少配置形状处理项目，以确定是否有错误形状并因此没有被检查。检查分为4项，边缘、顶部、错误宽度和错误高度。4项检查中的每项检查有3种可能的模式：1.通过或接受容器。在这种情况下，容器将不被检查，因此它不会被弹出并且将通过2.弹出。容器将不被检查，它将被自动弹出3.检查。如果检查发现容器有缺陷将被弹出。这个选项本质上是禁用形状检查。检查是按照它们在菜单上显示的顺序从上到下进行的。因此，如果容器接近侧面，并且宽度错误，将被计数并作为“接近边缘”对待。\n\n在计数显示中， “接近边缘”列为 “滑动”。通常，您将在边缘传递容器，并弹出错误的宽度。错误的宽度可以是空的或低的容器，或严重凹陷的容器。如果您将任何形状检查设置为弹出，则必须配置要在底部使用的弹出器。如果启用（通过或弹出）宽度或高度检查，则必须在左侧设置左侧公差。公差是加或减您输入的值。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpText56          "“自动设置密度阈值菜单”允许您找出产品的可接受和不良密度范围。\n\n按下“启动平均良好按钮”，并发送良好的容器。几个好的样品后，显示最小和最大密度并自动设置阈值。如果要手动设置阈值，使用左侧的按钮。手动更改其中一个阈值后，ScanTrac将基于良好的图像停止自动更新。继续显示其建议值，您可以输入它们或其他值（如果需要）。取100个良好样品，阈值的自动设置将是准确的。然后可以进入 “下一个自动设置步骤”。\n\n如果您有不良样品要比较，您可以停止良好样品通过ScanTrac，按 “发送不良容器按钮”，然后发送不良样品。然后可以看到良好和不良容器之间的数字差异。 "
+    IDS_HelpText57          "设置系统 - 产品密度补偿 \n\n此设置仅适用于Inspx用户。未经Inspx指导，请不要更改任何设置。 "
+    IDS_HelpText58          "“系统辐射快门菜单”允许您启用或禁用辐射快门的控制，手动测试或打开和关闭快门，并设置其时序特性。\n\n在生产中断期间重新校准也启用或禁用并设置其延迟时间。如果您不想在生产中断期间校准检测器偏移，请将 “重新校准前的时间”设置为零。\n\n如果在ScanTrac中有快门，则校准偏移相当简单。快门阻挡X射线，因此容器触发器被禁用，然后采集11个模拟图像以找到正确的偏移，然后重新启用容器触发器。如果ScanTrac没有快门，则在生产期间重新校准，断开X射线，容器触发器被禁用，11个图像被模拟以找到当前偏移，然后X射线源再次升高，容器触发器被启用。\n\n“快门延迟”是与容器触发器距离，直到您想要快门打开。通常将其设置为零，或1英寸，以便容器通过触发器时，快门打开。这是最好的，因为它需要一些时间才能打开快门。\n\n“距离快门打开”通常与ScanTrac单元一样宽（约50英寸），但可能增加，如果容器中的短间隙只是长于这将导致大量不必要的快门的打开和关闭的间隙。\n\n“快门输出”由硬件设计“反转”。 "
+    IDS_HelpText59          "“选择检查菜单”允许您选择要执行下一个功能的检查。\n\n您可以为此产品选择任何配置的检查。只需按指向所需检查名称的按钮，便可执行操作。\n\n每个产品有10次检查的限制。 "
+    IDS_HelpText60          "这是提供给ScanTrac的交流电源图，由PowerTronics和Eastern Time Designs制作，由Probe 100电源线监视器测量，插入第4个通讯端口。每秒读取一个电压读数。Scantrac要求至少109V的功率，同时生成X射线以正常操作。时间戳在x轴上以小时和分钟显示。第一个时间戳和最后一个时间戳显示在图的标题及其之间的时间长度中。\n\n2或向上箭头键\t- 缩小\n8或向下箭头\t- 放大\n9\t\t- 完全缩小\n3\t\t- 完全放大\n0\t\t- 机器关闭时显示零电压\n\n完全缩小时：\n\n4或向左箭头键\t- 更旧的日志\n6或向右箭头\t- 更新的日志\n\n放大时:\n\n4或向左箭头键\t- 向右平移\n6或向右箭头\t- 向左平移\n "
+    IDS_HelpText61          "“此处显示的 “交流电源事件”将告诉ScanTrac上次关闭的时间、关闭之后的时间以及关于交流电源的其他消息。当您在日志中发生新事件时，“更新事件显示”按钮显示。如果您点击那个按钮，您会转到页面的顶部，新的事件将显示在页面的底部。 \n\n如果电源错误，黄色信息将在主菜单显示。您可以导航到日志查看错误。每次运行的主菜单上仅显示黄色信息。 \n\n4或左箭头\t - 较旧的日志\n6或向右箭头\t-较新的日志 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextFunctions1  "主菜单按钮功能 \n\n运行-使ScanTrac进入检测模式，它激活X射线源，如果连接到ScanTrac，启动传送机，并激活所有已配置的传感器。必须为运行选择产品才能发挥功能。当系统正在运行时，此按钮将被隐藏，并且停止按钮将显示在左上角。 \n\n选择当前产品 - 显示菜单，以便可以选择新的当前产品。产品必须事先在设置菜单配置。当选择产品时，系统检查配置;如果没有配置任何产品参数，系统将发出警告，然后将加载产品设置（这需要几秒钟），以便系统可以运行。\n\n禁用（或启用）容器弹出器允许在发生太多错误拒绝时禁用弹出器。禁用容器弹出器时，黄色指示灯每秒闪烁一次，蓝色指示灯保持亮起，并在拒绝被弹出时应闪烁。系统仍然分析每个容器以允许纠正问题。一旦问题得到纠正， “启用容器弹出器”和ScanTrac将恢复弹出有缺陷的容器\n\n设置 - 显示配置系统和产品的设置菜单。这需要 “主管密码”。 \n\n诊断 - 显示显示硬件状态的 “诊断菜单”。 \n\n拒绝显示 - 显示拒绝显示菜单，当系统拒绝时，可以看到拒绝的X射线图像。必须选择当前产品才能进入 “拒绝显示”。\n\n生产摘要 - 显示更多信息和计数器，并具有其他功能。\n\n“仅显示拒绝/显示所有图像”允许您在 “主菜单”或任何图像上只显示被拒绝图像。即使更多的容器经过，每秒只显示一个图像。所有容器都已处理，但并非全部显示。被污染物、空隙或尺寸拒绝的图像将以红色显示缺陷。 \n\n由于浓度或其他原因而拒绝的照片将显示正常的灰度图像。 "
+    IDS_HelpTextFunctions2  "通过按下要执行操作的产品名称旁边的按钮，选择产品菜单按钮功能。如果选择当前产品，它将加载所选产品配置，并为操作员运行产品做好准备。\n\n主菜单按钮 - 返回主菜单，不重置任何计数。 \n\n当前产品 - 重新选择当前产品并重新设置所有计数。 \n\n取消 - 取消返回主菜单。 \n\n下一页 - 如果有多个产品，一页无法显示，则显示转到下一页的“下一页”按钮。 \n\n上一页 - 返回并显示上一页产品。 "
+    IDS_HelpTextFunctions3  "设置菜单按钮功能 \n\n主 - 如果设置被更改，返回主菜单，放弃确认警告。\n\n退出 - 返回主菜单。 \n\n保存并退出 -当设置为更改时退出菜单。\n\n设置产品 - 启动设置产品菜单以复制、编辑、评估、删除或创建新产品。 \n\n系统设置 - 转到设置系统相关设置。\n\n加载\不加载最后产品 - 系统重新启动时加载或不加载上一个产品。 \n\n设置产品密码 - 启动产品密码设置窗口。\n\n设置系统密码 - 启动系统密码设置窗口。 \n\n生产停止时间段 - 停止扫描隐藏/显示“未使用”显示的时间设置 - 隐藏在产品设置中未设置为有效的标签，或者显示所有标签，包括产品设置中的无效功能。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextFunctions4  "IDS_HelpTextFunctions4"
+    IDS_HelpTextFunctions5  "IDS_HelpTextFunctions5"
+    IDS_HelpTextFunctions6  "IDS_HelpTextFunctions6"
+    IDS_HelpTextFunctions7  "IDS_HelpTextFunctions7"
+    IDS_HelpTextFunctions8  "IDS_HelpTextFunctions8"
+    IDS_HelpTextFunctions9  "IDS_HelpTextFunctions9"
+    IDS_HelpTextFunctions10 "IDS_HelpTextFunctions10"
+    IDS_HelpTextFunctions11 "IDS_HelpTextFunctions11"
+    IDS_HelpTextFunctions12 "IDS_HelpTextFunctions12"
+    IDS_HelpTextFunctions13 "IDS_HelpTextFunctions13"
+    IDS_HelpTextFunctions14 "IDS_HelpTextFunctions14"
+    IDS_HelpTextFunctions15 "IDS_HelpTextFunctions15"
+    IDS_HelpTextFunctions16 "拒绝信息按钮显示有关拒绝信息，如其大小及其被拒绝的原因以及缺陷的大小。 \n\n“使用颜色中的缺陷”按钮突出显示污染物的边缘、无效或红色尺寸不足的物体。红色使得很容易看到缺陷的位置。使用 “无颜色”按钮隐藏缺陷的红色轮廓，以便您可以看到原始的灰色图像。 "
+    IDS_HelpTextFunctions17 "键映射 \n\n映射到标准计算机键盘：\nScanTrac软键=计算机键盘键\n左 1 = F5\n左 2 = F9\n左 3 = F11\n左4 = F6\n右 1 = F2\n右 2 = F4\n右 3 = F3\n右 4 = F8\n底部 1 = F7\n底部 2 = / (在数字键盘上)\n底部 3 = - (数字键盘上)\n底部 4 = * (数字键盘上)\n底部 5 = + (数字键盘上)\n清除=上一页\n帮助=下一页\n0-9 = 0-9 (数字键盘上) \n\n只有在键盘上NumLock指示灯亮起时，数字键才有效。\n其他键计算机键盘上的Esc键允许远程用户打开一个聊天窗口，以便向当时查看系统的其他用户输入消息。\n\n在演示版本中，主菜单中的转义键允许您退出程序。 "
+    IDS_HelpTextFunctions18 "底部5 - 开始或停止记录数据到一个文件。这个功能创建一个二进制文件，每个字节包含每个时间样品的6位（LSB位）的数据。\n左1 - 允许您选择要在六个轨迹上显示的行。\n左 2 - 这将打开或关闭弹射器1，仅用于测试。\n左 2 - 这将打开或关闭弹射器1，仅用于测试。\n左3 - 这打开或关闭喷射器2，仅用于测试。\n左4 - 这打开或关闭喷射器3，仅用于测试。\n右 1 - 开始或停止所指示的跟踪。仅在此屏幕显示时才收集数据。\n右 2 - 开始或停止跟踪值的显示更新，这会导致屏幕更新时每秒闪烁。\n右 3 - 这将显示每个跟踪上的信号。 "
+    IDS_HelpTextFunctions19 "IDS_HelpTextFunctions19"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextFunctions20 "IDS_HelpTextFunctions20"
+    IDS_HelpTextFunctions21 "“产品设置摘要”按钮显示产品的所有设置，但不允许更改。从“产品设置摘要”中，可能会显示系统设置摘要、源强度历史记录和上次生产报告。\n\n“系统设置摘要”显示系统设置值，但不允许更改。\n\n“显示事件日志”显示最近1000个事件和黄色消息。\n\n显示拒绝日志 - 显示事件日志，但只显示显示中的拒绝事件。\n\n重置计数 - 重置所有计数和运行时间，而不中断检查。在重置前显示这些值的生产报告。如果存在问题，手动重置计数器是有用的，您相信它已纠正，有并且您想要将计数从零开始，因此很容易查看问题是否再次出现。重置计数器还会清除“拒绝”屏幕中的所有图像。 "
+    IDS_HelpTextFunctions22 "IDS_HelpTextFunctions22"
+    IDS_HelpTextFunctions23 "IDS_HelpTextFunctions23"
+    IDS_HelpTextFunctions24 "IDS_HelpTextFunctions24"
+    IDS_HelpTextFunctions25 "IDS_HelpTextFunctions25"
+    IDS_HelpTextFunctions26 "IDS_HelpTextFunctions26"
+    IDS_HelpTextFunctions27 "IDS_HelpTextFunctions27"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextFunctions51 "错误日志功能 \n\n“要显示的事件类型”按钮允许您显示或隐藏3种不同类型的事件:\n 操作\n 拒绝\n 警告\n\n操作通常是操作员做的事情，如禁用弹出器。拒绝是一个容器被拒绝的时候。警告通常是您想知道的事情，例如容器应该被弹出，但喷射器或检查被禁用。 \n\n如果隐藏所有3种类型，只有真正的错误才被显示。如果您隐藏要显示的所有内容，它将指示所有事件都被隐藏。如果您隐藏了任何事件类型，则该按钮将为绿色，表示处于非正常状态。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHiddenFunctions1
+                            "Remote users can view and control the system.  They can also use their keyboard and mouse to do all functions available on the ScanTrac Console.  Pressing the Escape Key on the keyboard will bring up the 'Chat Window' (also from Help, Chat) where they can type a message to other users that can see the console.  Remote users should have their keyboard 'NumLock' on to use the number key pad to enter numbers.  See Help, Keyboard Function Keys for a complete console key to remote computer keyboard mapping.  Buttons may also be clicked on by the computer mouse (only the rectangular part of the button is active for mouse clicks). \n\nButtons with red background indicate pressing them will stop the function. \n\nButtons with yellow background indicate you will disable the important function."
+    IDS_HelpTextHiddenFunctions2 "IDS_HelpTextHiddenFunctions2"
+    IDS_HelpTextHiddenFunctions3 "IDS_HelpTextHiddenFunctions3"
+    IDS_HelpTextHiddenFunctions4
+                            "Typically the System Password would be given only to those people who setup the system and perform tests or troubleshooting.  The Product Password would be given to people who setup new products or are allowed to alter product settings.  Operators without either of those tasks just described would not have a password.  They can run and stop the system, and view the status of everything without a password."
+    IDS_HelpTextHiddenFunctions5 "IDS_HelpTextHiddenFunctions5"
+    IDS_HelpTextHiddenFunctions6 "IDS_HelpTextHiddenFunctions6"
+    IDS_HelpTextHiddenFunctions7 "IDS_HelpTextHiddenFunctions7"
+    IDS_HelpTextHiddenFunctions8 "IDS_HelpTextHiddenFunctions8"
+    IDS_HelpTextHiddenFunctions9 "IDS_HelpTextHiddenFunctions9"
+    IDS_HelpTextHiddenFunctions10 "IDS_HelpTextHiddenFunctions10"
+    IDS_HelpTextHiddenFunctions11 "IDS_HelpTextHiddenFunctions11"
+    IDS_HelpTextHiddenFunctions12
+                            "The Setup Image Handling menu contains the referencing settings, and the container density and image intensity adjustment settings. \n\nThe Setup Shape Handling contains the wrong width, height, at edges and top settings."
+    IDS_HelpTextHiddenFunctions13 "IDS_HelpTextHiddenFunctions13"
+    IDS_HelpTextHiddenFunctions14 "IDS_HelpTextHiddenFunctions14"
+    IDS_HelpTextHiddenFunctions15 "IDS_HelpTextHiddenFunctions15"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHiddenFunctions16
+                            "From the Rejects Display, you may go to the Image Analysis Menu. \n\nThere are two sets of alternate menus in the Image Analysis Menu:\n    Image Display Options\n    Edit While Running \n\nUnder Edit While Running there are three Alternate Menus:\n    Change ROI(Region of Inspection) Bounds\n    Change Reject Threshold\n    Evaluate. \n\nUnder Image Display Options you can save an image to a file, load an image from a file, turn on or off the scale lines, ROI (Region of Inspection) lines, and found boundary (edges) lines. \n\nIn the Edit While Running you can change the Threshold, Size, or ROI of any inspection.  You can also re-learn what the container looks like, add a false reject to the learn, or evaluate an inspection.  Evaluating an inspection is simply getting statistics on how the containers vary so you can set the threshold statistically.  \n\nFrom the three Alternate Menus under Edit While Running you can only return back to the Image Analysis Display, you may not return directly back to Edit While Running. \n\n     Image Analysis Menu: \n\nThe Select Inspection to View button is only available if there is more than one inspection for this product.  It allows you to view, and edit, any inspection desired.  Normally the Viewing Inspection is set to the inspection that caused the container to be rejected, if the container displayed was rejected.  If the inspection does not cause any rejects, and you want to view or edit it, you will need to select it manually. \n\nThe Show Images button will cause the system to show up to one image every second if a new image is available.  If the Show Only Rejects function is active in the Main Menu, then only rejects will be shown in the Image Analysis Display.  Pressing other buttons, like Show Reject 1, will cause the system to Freeze Image then display the selected image.  Freeze Image simply stops showing new images. \n\nThe Show Next Image button will show the next image, and then freeze on it."
+    IDS_HelpTextHiddenFunctions17 "IDS_HelpTextHiddenFunctions17"
+    IDS_HelpTextHiddenFunctions18 "IDS_HelpTextHiddenFunctions18"
+    IDS_HelpTextHiddenFunctions19 "IDS_HelpTextHiddenFunctions19"
+    IDS_HelpTextHiddenFunctions21 "IDS_HelpTextHiddenFunctions21"
+    IDS_HelpTextHiddenFunctions22 "IDS_HelpTextHiddenFunctions22"
+    IDS_HelpTextHiddenFunctions23 "IDS_HelpTextHiddenFunctions23"
+    IDS_HelpTextHiddenFunctions24 "IDS_HelpTextHiddenFunctions24"
+    IDS_HelpTextHiddenFunctions25 "IDS_HelpTextHiddenFunctions25"
+    IDS_HelpTextHiddenFunctions26 "IDS_HelpTextHiddenFunctions26"
+    IDS_HelpTextHiddenFunctions27 "IDS_HelpTextHiddenFunctions27"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHiddenFunctions33
+                            "It can be adjust in the Image Settings Menu.  It should be set to a consistent, straight up and down edge on the container for best results.  The size and scale lines are shown to make it easier to determine what values are appropriate for the bottom and height of the Edge Location Area."
+    IDS_HelpTextHiddenFunctions36
+                            "The Minimum Good Minimum should be greater than the Minimum Good Average minus 10 times the SD (SD is highlighted in yellow).  The Maximum Bad Maximum should be less than the Maximum Bad Average Plus 3 times the SD (SD is highlighted in yellow). \n\nIf bad samples are sent through, and the Quality Factor is calculated, it should be greater than 1. \n\nManual Adjustment Instructions: \n\nAdjust contaminant threshold up or down until all red in the image is from contaminants only.  Send good containers through ScanTrac.  Image should have no red. If any red in appears in image, lower threshold to remove red so only gray remains.  You can send bad containers and make sure all defects are highlighted in red.  Increase the threshold until the defects are red if they are not red at first. \n\nFor the Size Inspection, adjust the Threshold manually until the object of interest is always red.  Press Send Good Containers button.  After 100 containers, note the Minimum.  In Image Settings set the Minimum Acceptable Object Size to a little less than the observed Minimum."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHiddenFunctions54
+                            "They show up on the Production Report, and Product Setup Displays. \n\nContainer Threshold Bounds is the pixel intensity that defines a container versus background X-Rays. \n\nOverscan should not be used unles directed by an Inspx employee."
+    IDS_HelpTextHiddenFunctions61
+                            "Enter Password -> Press '0' to see All AC Power Monitor Events.  Some Events are Hidden because they are normally repeats of other events and could clutter the viewing screen.  Hidden events have a '\\' in front of the line."
+    IDS_HelpTextHints1      "在通过切换或旋转模式更改模式的按钮上，按钮上的标签是您将按下按钮时将选择的模式。当前模式通常在状态指示框中显示在附近。 \n\n如果红色“拒绝总计”显示行显示，表示应该已经弹出容器，但是弹出器被禁用。“拒绝总计”是检查失败的容器总数。“拒绝总计”是弹出的实际数量总数。“拒绝总计”红色，表示不正常。应该拒绝的容器数量，但不是因为弹出器被禁用是 “拒绝数量”减去“弹出数量”。\n\n当系统没有运行时，如果“容器”或一个数字在右下角显示，表示一个容器在容器触发器波束或多个容器前面。这向远程用户指示，因为看不到传送机当系统未检查时，容器正在经过。这仅在第一个示波器输入行是容器触发器时有效。 \n\n如果按钮文字以浅灰色显示，则该按钮被禁用，将不起作用。如果按下该按钮，它将显示不工作的原因。\n\n如果您收到太多拒绝无法处理，或太多的拒绝，并且您不想停止生产，请使用“禁用弹出按钮”。错误的拒绝可能是由于不良的容器处理造成的，就像轨道移动一样，容器沿着传送机行进，与学习图像时不同。您可以更正问题，或重新学习图像，然后启用容器触发器。 \n\nScan Trac具有通过网络连接可用的遥控功能。从您的办公室或安静的工作区监控您的系统有几个主要优点。有关详细信息，请联系Inspx。 "
+    IDS_HelpTextHints2      "IDS_HelpTextHints2"
+    IDS_HelpTextHints3      "IDS_HelpTextHints3"
+    IDS_HelpTextHints4      "IDS_HelpTextHints4"
+    IDS_HelpTextHints5      "IDS_HelpTextHints5"
+    IDS_HelpTextHints6      "IDS_HelpTextHints6"
+    IDS_HelpTextHints7      "IDS_HelpTextHints7"
+    IDS_HelpTextHints8      "两个辅助检测器可以被配置为检测备份，在最后一个ScanTrac弹出器后一段距离放置它们，使得如果容器以任何方式备份在它们前面备份，它们都将被激活。这将导致ScanTrac激活由弹出器编号指定的容器停止器（Can Stop）编号。可以在ScanTrac导致容器停止进入ScanTrac并且不备份到弹出器之前停止。当备用检测器在它们前面没有检测到容器时，它们将打开上游容器停止器，允许容器进入检查区域。 \n\n将备用检测器在最后一个喷射器之后充分放置，以便在发生备份时，激活容器停止器，检查区域中的其余容器不会备份到最后一个弹出器。 "
+    IDS_HelpTextHints9      "IDS_HelpTextHints9"
+    IDS_HelpTextHints10     "IDS_HelpTextHints10"
+    IDS_HelpTextHints11     "IDS_HelpTextHints11"
+    IDS_HelpTextHints12     "IDS_HelpTextHints12"
+    IDS_HelpTextHints13     "IDS_HelpTextHints13"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHints14     "在容器堵塞或卡顿备份容器通过ScanTrac检测区域的设施，最好检测此备份并在容器进入检测区域之前停止容器。如果允许备份通过检查区域，则许多容器不会得到恰当的检查。容器必须从主体触发器移动到最后一个弹出器，不能接触壁或轨道，并且不会备份。否则它们可能在输送机上向后滑动，而是在弹出时位于弹出器处。 \n\n为了通过检查区域处理备份情况，必须在最后一个喷射器之后适当地放置两个辅助检测器，并且一个容器停止器必须在容器触发器之前。辅助检测器应该与容器保持一半容器的距离。如果任一个感测到容器具有多于一个图像宽度，则其激活容器停止器，以防止更多容器进入检查区域。一旦卡顿被清除，容器停止器打开。 "
+    IDS_HelpTextHints15     "IDS_HelpTextHints15"
+    IDS_HelpTextHints16     "使用“拒绝信息”找出容器相对于学习容器的大小以及有关其缺陷的详细信息。 \n\n一旦开始显示拒绝，系统就不会将当前拒绝添加到您正在查看的组中，因此拒绝数字不随机更改。要强制“拒绝显示”为最新一组拒绝更新。单击隐藏或显示检查按钮，显示正常，然后查看第一个或最后一个拒绝，或转到主菜单并返回到“拒绝显示”。\n\n如果ScanTrac当前未处于每个模式的默认设置，则下一组按钮将显示“颜色缺陷”、“仅拒绝”或其他模式指示器。 "
+    IDS_HelpTextHints17     "IDS_HelpTextHints17"
+    IDS_HelpTextHints18     "IDS_HelpTextHints18"
+    IDS_HelpTextHints19     "IDS_HelpTextHints19"
+    IDS_HelpTextHints20     "IDS_HelpTextHints20"
+    IDS_HelpTextHints21     "如果生产摘要检查计数后出现红色数字，则由于弹出器被禁用，某些拒绝未被弹出。这是应该被拒绝的总数，但不是全部被弹出，因此它是红色的。 "
+    IDS_HelpTextHints22     "IDS_HelpTextHints22"
+    IDS_HelpTextHints23     "要提出有意义的名称，以便更容易记住或识别它们。例如 "
+    IDS_HelpTextHints24     "IDS_HelpTextHints24"
+    IDS_HelpTextHints25     "IDS_HelpTextHints25"
+    IDS_HelpTextHints26     "IDS_HelpTextHints26"
+    IDS_HelpTextHints27     "IDS_HelpTextHints27"
+    IDS_HelpTextHints28     "注意：只有当面板联锁处于OK状态时，才能读取门互锁。因此，如果面板互锁处于打开状态，您将看不到门联锁状态，并且显示“OK”。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHints33     "当手动将 “容器触发器”调整到 “检测器”距离时，增大该值以将图像向右移动，并减小该值以将图像向左移动。 "
+    IDS_HelpTextHints34     "一般来说，将电压设置在50 KV附近，如果需要，可以提供更好的对比度。针对最大传送机速度，将积分时间设置为尽可能高。最好在最大传送机速度的90％到95％。然后，调整您的X射线源电流以获得绿色带中的图像颜色。使用此方法将为您提供最少的X射线输出以获得良好的图像检查。降低X射线输出意味着更大的安全边距。 \n\nX射线源电压影响X射线的能级。不同能级的X射线穿过不同材料的方式略有不同。对于封装检查，接近10是更好的。 \n\nX射线源电流影响正在生成的X射线数量。该系统在最大输出功率下按照政府标准是安全的，但较低的设置提供更大的安全边际。\n\n曝光时间是探测器测量撞击X射线数量的时间量。如在照片中，曝光时间越长，图片越亮。 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTextHints51     "如果在设置程序中出现“无MVTool许可证”错误，您必须在安装程序中输入正确的MVTools许可证号码。获取MVTools许可证号码，通常在PC-Dig Frame Grabber Board的标签上（这是通过购买ITI、Imaging Technology Inc.的许可证获得。）使用Explorer或Windows NT Embedded Desktop中的我的电脑，在C：\\ MVTools文件夹中运行UseLic.Exe。在 “产品框”中输入MVTools，在许可证框中输入完整的许可证号。然后单击 “更新许可证”信息，然后单击 “保存许可证文件”，然后单击右上角的关闭按钮。如果许可证输入正确，您不应该出现“无MVTool许可证”错误。 "
+    IDS_Run                 "运行"
+    IDS_Stop                "停止"
+    IDS_Setup               "设置"
+    IDS_Diagnostics         "诊断"
+    IDS_Min                 "分钟"
+    IDS_MilliAmps           "mA"
+    IDS_MaximumConveyorSpeed "最大传送机速度"
+    IDS_Hide                "隐藏"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Show                "显示"
+    IDS_CurrentProduct      "当前产品"
+    IDS_No                  "编号"
+    IDS_Total               "总计"
+    IDS_Contaminant					"污染物 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Production          "生产"
+    IDS_ConveyorRateFtMin   "传送机(Ft/Min)"
+    IDS_ConveyorRateMMin    "传送机(M/Min)"
+    IDS_Rejected            "已拒绝 "
+    IDS_NouC                "无uC通讯"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Disabled            "已禁用 "
+    IDS_ShowProductionSummary "显示生产摘要"
+    IDS_ShowSoftwareVersion "版本"
+    IDS_ClearSoftwareVersion "清除软件版本"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Abort               "中止"
+    IDS_Calibrating         "校准"
+    IDS_XRAYSON             "X射线开"
+    IDS_ShowingRejects      "显示拒绝"
+    IDS_TestModesActive     "测试模式活动"
+    IDS_EjectorsDisabled    "弹出器已禁用"
+    IDS_PleaseWait          "请稍候..."
+    IDS_StartingSystem      "启动系统"
+    IDS_UsingLocalSetupDataFile "\n\n\n使用本地安装数据文件"
+    IDS_Notice              "注意"
+    IDS_Error               "错误"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ProductHeightIsTallerThanDetectors
+                            "\n\n\nProduct height is taller than detectors"
+    IDS_Warning             "警告"
+    IDS_ImageOverlapIsWiderThanHalfTheImage
+                            "\nImage Overlap is Wider than half the image.\n\nSet to half image width."
+    IDS_ProductEdgeLocationHeightIsTallerThanProduct
+                            "\nProduct Edge Location Height is Taller than Product\n\nSet to Product Height"
+    IDS_ProductEdgeLocationBottomIsTallerThanProduct
+                            "\nProduct Edge Location Bottom is Taller than Product\n\nSet to Product Bottom"
+    IDS_ProductWidthIsZero  "\n产品宽度为零\n\n配置将无法正常运行 "
+    IDS_NoContainerTriggerAssigned
+                            "\nNo Container Trigger assigned\n\nConfiguration will not run"
+    IDS_ContainerTriggerUsedNotEnabled
+                            "\nContainer Trigger used not enabled\n\nConfiguration will not run"
+    IDS_ContainerTriggerToDetectorDistanceIsZero
+                            "\nContainer Trigger to Detector distance is zero\n\nConfiguration will not run properly"
+    IDS_EndOfLineBeltPositionIsZero
+                            "\nEnd Of Line Conveyor Position is zero\n\nConfiguration will not run properly"
+    IDS_XRaySourceVoltageIsZero
+                            "\nX-Ray Source Voltage is zero\n\nConfiguration will not run properly"
+    IDS_XRAYON              "X射线开"
+    IDS_XRaySourceCurrentIsZero
+                            "\nX-Ray Source Current is zero\n\nConfiguration will not run properly"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EnableContainerEjectors "启用容器弹出器 "
+    IDS_DisableContainerEjectors "禁用容器弹出器 "
+    IDS_Confirm             "确认 "
+    IDS_PasswordNotCorrect  "\n\n\n密码不正确 "
+    IDS_NoXRayImageCriteriaEnabled
+                            "\nNo Inspections Setup\n\nProduct setup will not inspect containers"
+    IDS_ContaminantEjectorDisabled
+                            "\nInspection ejector disabled\n\nProduct Configuration will not run properly"
+    IDS_ContaminantThresholdNotSet
+                            "\nInspection Threshold Not Set\n\nProduct Configuration will not run properly"
+    IDS_ContaminantSizeNotSet
+                            "\nMinimum Defect Size Not Set\n\nProduct Configuration will not run properly"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UsedEjectorHasZeroPosition
+                            "\nUsed ejector has zero Position\n\nProduct Configuration will not run properly"
+    IDS_UsedEjectorHasZeroResponseFactor
+                            "\nUsed ejector has zero Response Factor\n\nProduct Configuration will not run properly"
+    IDS_UsedEjectorHasZeroDwellTime
+                            "\nUsed ejector has zero Dwell Time\n\nProduct Configuration will not run properly"
+    IDS_NoCurrentProduct    "无当前产品 "
+    IDS_EnterProductSetupPassword "无产品设置密码  "
+    IDS_DiagnosticSummaryMenu "诊断摘要菜单"
+    IDS_OK                  "OK"
+    IDS_Fault               "故障"
+    IDS_MicroControllerPower "电压"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XRaySourceOnOff     "X射线源开/关 "
+    IDS_XRaySourceStatus    "X射线 "
+    IDS_XRaySourceTemperature "X射线源温度 "
+    IDS_XRaySourceCoolantFlow "X射线源冷却剂流 "
+    IDS_MeasuredEncoderRate "编码器速率 "
+    IDS_EncoderPercentOfMaximum "最大传送速度百分比 "
+    IDS_MainMenu            "主菜单 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MicroControllerComm "通讯 "
+    IDS_DiagnosticCountersMenu "诊断计数器菜单 "
+    IDS_DiagnosticOscilloscope "范围"
+    IDS_KeypadTestMenu      "键盘"
+    IDS_Failed              "失败"
+    IDS_FPGASWVersion       "FPGA S/W版本"
+    IDS_Hz                  "Hz"
+    IDS_Passed              "已通过"
+    IDS_SaveAndExit         "保存\n并退出 "
+    IDS_Cancel              "取消"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LoadingProductSetupPleaseWait
+                            "\n\nLoading Product Setup\nPlease Wait..."
+    IDS_StartingSystemPleaseWait "启动系统，请稍候..."
+    IDS_NoProductSelected   "\n\n\n未选择产品"
+    IDS_Next                "下一个 "
+    IDS_Previous            "上一个 "
+    IDS_SystemMustBeRunningToShowImages
+                            "\n\n\nSystem Must Be Running for this function"
+    IDS_Rejects             "拒绝"
+    IDS_ShowImages          "显示图像"
+    IDS_FreezeLastImage     "冻结最后图像 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_PleaseWaitForImage  "请等待图像 "
+    IDS_NextAutoSetupStep   "下一个自动设置步骤 "
+    IDS_Exit                "退出 "
+    IDS_NoItemSelected      "\n\n\n未选择项目"
+    IDS_NameCanNotBeBlank   "\n\n\n名称不能为空"
+    IDS_32CharactersMaximum "\n\n\n最多32个字符 "
+    IDS_ChangeToUpperCase   "变为\n大写\n字母"
+    IDS_ChangeToLowerCase   "变为\n小写\n字母"
+    IDS_EnterNameFor        "输入名称： "
+    IDS_ValueMustBeBetween  "\n\n\n值必须在"
+    IDS_ValueCannotBeBlank  "\n\n\n值不能为空 "
+    IDS_10DigitsMaximum     "\n\n\n最多10位数"
+    IDS_Only1DecimalPointAllowed "\n\n\n只允许1个小数点"
+    IDS_And                 "并 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EnterNumberFor      "输入编号： "
+    IDS_Information         "信息"
+    IDS_Instructions        "说明"
+    IDS_PasswordComplete    "密码完成"
+    IDS_EnterPasswordFor    "输入密码： "
+    IDS_Enable              "启用"
+    IDS_Disable             "禁用"
+    IDS_Yes                 "是 "
+    IDS_Question            "问题"
+    IDS_WaitingForContainer "等待容器： "
+    IDS_WaitingToSetContainerSize
+                            "\nWaiting to set container size.\n\nAre you sure you want to skip it?"
+    IDS_UseManuallySetVoidThreshold "\n\n\n使用手动设置空缺阈值？"
+    IDS_UseManuallySetContaminantThreshold
+                            "\n\n\nUse Manually Set Contaminant Threshold?"
+    IDS_ContaminantThresholdNotSetContinueAnyway
+                            "\n\nInspection Threshold Not Set!\nContinue Anyway?"
+    IDS_ImageProcessingNotSetupYet
+                            "\nImage Learning not complete.\nAre you sure you want to skip learning?"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MeasuredInVolts     "以kV为单位 "
+    IDS_VoidThresholdNotSetContinueAnyway
+                            "\n\nInspection Threshold Not Set!\nContinue Anyway?"
+    IDS_AdjustRegionOfInterestLines "调整感兴趣区域行"
+    IDS_PressStartButtonWhenImagesLookGood
+                            " Press Send Good Containers Button when images look good"
+    IDS_AdjustExposureAsNeeded "调整电压以使Cur接近130"
+    IDS_AutoSetupNotConfigured "\n\n\n自动设置未配置 "
+    IDS_SendAllGoodContainersThroughScanTrac
+                            "Send all good product through ScanTrac\nuntil it completes the Image Learn Setup.\nA pop up message will indicate when complete."
+    IDS_Top                 "顶部"
+    IDS_Bottom              "底部"
+    IDS_Left                "左 "
+    IDS_Right               "右 "
+    IDS_None                "无 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Max                 "最大 "
+    IDS_SD                  "SD"
+    IDS_SendGoodContainers  "发送\n良好容器"
+    IDS_Product             "产品"
+    IDS_MeasuredIn          "测量单位"
+    IDS_OriginalValue       "原始值 "
+    IDS_Of                  "之 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MetersPerMinute     "每分钟米"
+    IDS_FeetPerMinute       "每分钟英尺 "
+    IDS_ContainerTriggerToXRayDetectorDistance
+                            "Container Trigger to X-Ray Detector Distance"
+    IDS_SendBadContainers   "发送不良容器 "
+    IDS_XRAY                "X射线"
+    IDS_AutoSetupInProcess  "\n\n自动设置正在进行！\n您确定要中止吗？"
+    IDS_WidthOfXRayImage    "X射线图像的宽度 "
+    IDS_Void                "无效"
+    IDS_AutoSetupImageSize  "自动设置图像大小"
+    IDS_PreviousAutoSetup   "上一个自动设置 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AutoSizeThisContainer "自动\n调整容器\n大小"
+    IDS_ContainerTriggerToDetector "触发到检测器偏移"
+    IDS_Width               "宽度"
+    IDS_AutoSetupImageIntensity "自动设置图像曝光"
+    IDS_DisplayGreyImage    "显示灰色图像"
+    IDS_DisplayColorImage   "显示彩色 \n图像"
+    IDS_XRaySourceVoltage   "X射线源电压 "
+    IDS_XRaySourceCurrent   "X射线源电流 "
+    IDS_Maximum             "最大 "
+    IDS_BeltSpeed           "速度"
+    IDS_AutoSetupImageLearn "自动设置图像学习"
+    IDS_AbortIPAutoSetup    "中止自动学习"
+    IDS_StartIPAutoSetup    "开始\n自动\n学习"
+    IDS_SkipAutoSetupStep   "跳过自动学习"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AutoSetupContaminantThreshold "自动设置评估阈值 "
+    IDS_AutoSetupVoidThreshold "自动设置无效阈值 "
+    IDS_MinGood             "最小良好 "
+    IDS_MaxBad              "最大不良 "
+    IDS_Automatic           "自动"
+    IDS_Manual              "手动"
+    IDS_PressAnyKeyToContinue "按任意按钮继续。 "
+    IDS_Scale               "比例"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NoRejectsAvailableToShow "\n\n\n无拒绝可显示"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NoImageFilesAvailableToLoad "\n\n\n无图像文件可加载"
+    IDS_Reject              "拒绝"
+    IDS_ShowNextImage       "显示下一图像"
+    IDS_LoadImageFromFile   "从文件\n加载\n图像"
+    IDS_SaveImageToFile     "保存\n图像\n到文件 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DefectsInColorWithCarriageReturns "色彩\n缺陷\n"
+    IDS_DefectsInColor      "色彩"
+    IDS_Ejected             "已弹出 "
+    IDS_FileNameToSaveImageAs "文件名将图像另存为 "
+    IDS_ChooseImageFileToLoad "选择要加载的图像文件"
+    IDS_ImageFile           "图像文件"
+    IDS_CouldNotBeRead      "无法读取"
+    IDS_CouldNotBeFound     "无法找到"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FinishAutoSetup     "完成\n自动设置"
+    IDS_ConveyorBackedUp    "传送机备份"
+    IDS_AutoSetupDensityThreshold "自动设置评估阈值 "
+    IDS_Density             "密度"
+    IDS_ChangeUpperThreshold "更改未足量阈值 "
+    IDS_ChangeLowerThreshold "更改过满阈值 "
+    IDS_StopAveragingDensity "停止处理良好"
+    IDS_StartAveragingDensity "发送\n良好容器"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DensityThresholdNotSetContinueAnyway
+                            "\n\nUpper Threshold Not Set\nContinue Anyway?"
+    IDS_CollectingDensitySamples "收集密度样品"
+    IDS_NoReading           "无法读取"
+    IDS_StopProcessingGood  "停止处理良好"
+    IDS_SettingVoidThresholdToMinimumGood
+                            "\nSetting Void Threshold to Minimum Good\nminus 3 times the standard deviation."
+    IDS_SettingContaminantThresholdToMinimumGood
+                            "\nSetting Contaminant Threshold to Minimum Good\nminus 3 times the standard deviation."
+    IDS_StartXRays          "等待X射线"
+    IDS_XRAYSStarted        "X射线等待"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NoContaminantEjectorConfigured
+                            "\nNo Ejector configured for inspection.\n\nProduct configuration will not run properly."
+    IDS_NoExternalDetectorEjectorConfigured
+                            "\nNo Auxiliary Detector Ejector Configured.\n\nProduct configuration will not run properly."
+    IDS_DetectorsEjectorEjectorDisabled
+                            "\nAuxiliary Detector Ejector Disabled.\n\nProduct configuration will not run properly."
+    IDS_Measuring           "测量"
+    IDS_ShowingAllImages    "显示所有图像 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_StopProcessingBad   "停止处理错误"
+    IDS_SendBadContainersButton "发送\n不良容器"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NoRejectsWithCarriageReturn "无\n拒绝"
+    IDS_32DigitsMaximum     "32位数最大值 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AutoSetupInspectionROI "自动设置检查感兴趣区域"
+    IDS_InspectionNameBlank "\n\n\n检查名称空白 "
+    IDS_AutoSetupKernelThreshold "自动设置评估阈值 "
+    IDS_QF                  "质量因数"
+    IDS_Select              "选择"
+    IDS_UnSelect            "取消选择"
+    IDS_CollectingBadDensitySamples "收集不良密度样品"
+    IDS_StopAveragingBad    "停止处理不良"
+    IDS_StartAveragingBad   "发送\n不良容器"
+    IDS_InspectionSettings  "检查设置 "
+    IDS_KernelSizeNotSet    "\n未设置内核大小\n\n“产品配置”将无法正常运行"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ShiftRateCPM        "移位速率 (CPM)"
+    IDS_AutoSetupSizeThreshold "自动设置评估阈值 "
+    IDS_Threshold           "阈值 "
+    IDS_Exposure            "曝光"
+    IDS_Unconfirmed         "未确认 "
+    IDS_Starting            "等待"
+    IDS_Youmustselectaproducttoseeimages
+                            "\n\n\nYou must Select A Product to see images"
+    IDS_RedLight            "红灯"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XRaysShutDown       "检查已停止"
+    IDS_Youmustselectaproducttotesttrigger
+                            "\n\n\nYou must Select A Product to test trigger"
+    IDS_YellowLight         "黄灯"
+    IDS_BlueLight           "蓝灯"
+    IDS_ErrorBeltSpeedTooFastForExposureTime
+                            "Error-Conveyor Speed Too Fast For Exposure Time"
+    IDS_Learn               "学习"
+    IDS_CPM                 "每分钟容器数"
+    IDS_Stopped             "已停止 "
+    IDS_YoumustselectaCurrentProducttoRun
+                            "\n\n\nYou must Select A Product to Run"
+    IDS_XRayFault           "XLF HVPS故障"
+    IDS_CoolantFlow         "冷却剂流量 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EStop               "急停"
+    IDS_Youmustselectaproductbeforeyoucanrunthesystem
+                            "\n\n\nYou must Select A Product before you can run the system"
+    IDS_Start               "启动"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Filtered_First_Letter "F"
+    IDS_Slipped             "滑动"
+    IDS_AtTop               "在顶部 "
+    IDS_WrongWidth          "错误宽度"
+    IDS_WrongHeight         "错误高度"
+    IDS_TestEject           "测试弹出"
+    IDS_QLearn              "学习"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RejectDisplay       "拒绝显示"
+    IDS_TheThresholdhasbeenchangedExitwithoutsavingchanges
+                            "\n\nThe Threshold has been changed.\nExit without saving changes?"
+    IDS_ImageAnalysis       "图像分析"
+    IDS_SavecurrentThresholdforproduct "保存当前产品阈值 "
+    IDS_UpperThresholdLowDensity "上阈值 (低密度)"
+    IDS_LowerThresholdHighDensity "下阈值 (高密度)"
+    IDS_UpperThresholdHeavyTexture "上阈值（重纹理）"
+    IDS_LowerThresholdLightTexture "低阈值轻纹理"
+    IDS_ChooseWhichThresholdToSave "选择要保存的阈值 "
+    IDS_ValuenowbelowUpperThresholdValuenotsaved
+                            "\n\nValue to save below Upper Threshold.\nValue not saved."
+    IDS_ValuenowaboveLowerThresholdValuenotsaved
+                            "\n\nValue to save above Lower Threshold.\nValue not saved."
+    IDS_EditThreshold       "编辑阈值 "
+    IDS_DoStandardLearnorQuickLearn "\n\n\n标准学习或快速学习？"
+    IDS_StandardLearn       "标准学习"
+    IDS_QuickLearn          "学习"
+    IDS_IncludeRejectsinLearnedImage "\n\n\n包括学习图像中的拒绝？ "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_IncludeRejects      "包括拒绝"
+    IDS_RejectAddedToLearn  "\n\n\n拒绝已添加到学习"
+    IDS_EditInspection      "编辑检查 "
+    IDS_DisplayOptions      "显示选项"
+    IDS_SystemStoppedInspecting "\n\n\n系统停止检查 "
+    IDS_BacktoRejects       "返回\n拒绝"
+    IDS_ReturntoAutoSetup   "返回到自动设置 "
+    IDS_ReturnToImageMenu   "返回到分析 "
+    IDS_RejectInformation   "拒绝信息"
+    IDS_SaveThreshold       "保存检查阈值 "
+    IDS_NoRejects           "无拒绝 "
+    IDS_RejectsHidden       "拒绝隐藏"
+    IDS_ShowNormal          "显示主菜单图像 "
+    IDS_ShowLastReject      "显示最后\n拒绝"
+    IDS_ShowReject          "显示\n拒绝"
+    IDS_EvaluateInspection  "评估检查 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ShowThreshold       "显示阈值 "
+    IDS_SelectInspectionToView "选择要查看的检查 "
+    IDS_ChangeROIBounds     "更改\n感兴趣区域\n界限"
+    IDS_ChangeRejectThreshold "更改\n拒绝\n阙值 "
+    IDS_MinimumDefectSize   "最小缺陷\n大小"
+    IDS_AbortReLearnContainer "中止重新学习容器"
+    IDS_ReLearnContainerImage "重新学习容器图像"
+    IDS_AddRejecttoLearn    "添加拒绝到学习！"
+    IDS_InspectionEditWhileRunning "转到\n设置\n菜单"
+    IDS_EditWhileRunning    "运行\n时\n编辑"
+    IDS_ShowFirstSetofFilters "显示第一组过滤器"
+    IDS_ShowNextSetofFilters "显示\n下一组\n过滤器 "
+    IDS_ImageDisplayOptions "图像\n显示\n选项"
+    IDS_NoColor             "无颜色 "
+    IDS_DisplayedThreshold  "显示的阈值 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Rej                 "拒绝"
+    IDS_InAutoSetup         "在自动设置中"
+    IDS_ContainerOK         "容器OK"
+    IDS_AutoSetup           "自动设置"
+    IDS_Viewing             "查看"
+    IDS_ProcessedImage      "已处理图像 "
+    IDS_RejectsOnly         "仅拒绝 "
+    IDS_AcceptableDensity   "可接受密度 "
+    IDS_AcceptableTexture   "可接受纹理 "
+    IDS_Inspection          "检查 "
+    IDS_MinimumSizeofDarkAreaTheObjectSize
+                            "Minimum Size of Dark Area (The Object Size)"
+    IDS_PermanentChangeinProduct "产品永久更改"
+    IDS_Default             "默认"
+    IDS_DensityInspectionhasnoSizesetup
+                            "\n\n\nDensity Inspection has no Minimum Size setup"
+    IDS_TextureInspectionhasnoSizesetup
+                            "\n\n\nTexture Inspection has no Minimum Size setup"
+    IDS_Only1Inspectionforcurrentproductsodonotneedtoselect
+                            "\n\nOnly 1 Inspection for current product,\nso do not need to select"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NoInspectionsforcurrentproducttoselect
+                            "\n\n\nNo Inspections for current product to select"
+    IDS_ImageTime           "图像时间"
+    IDS_ContainerNumber     "容器编号"
+    IDS_ImageType           "图像类型"
+    IDS_ContainerEjected    "容器被弹出 "
+    IDS_Containerpassedmayhaveslippedonconveyor
+                            "Container passed without inspection (may have slipped on conveyor)"
+    IDS_InAutoSetupallcontainerspass "在自动设置中，所有容器都通过"
+    IDS_EjectionsDISABLEDcontainerpassed
+                            "Ejections DISABLED, container passed"
+    IDS_ContainerDimensionsThisImageReferenceImage
+                            "\n\nContainer Dimensions   This Image\t Reference Image"
+    IDS_RejectInspection    "拒绝检查 "
+    IDS_ThiscontainersTextureValue "此容器的纹理值 "
+    IDS_AcceptableTextureValue "可接受的纹理值 "
+    IDS_ThiscontainersDensity "此容器的密度"
+    IDS_Thiscontainerssize  "此容器的大小"
+    IDS_SizeInspectionSettings "大小检查设置 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MinimumNumberofPixelsDarkerthanThreshold
+                            "Minimum Number of Pixels Darker than Threshold"
+    IDS_Thiscontainersnumberofdefects "blob中的红色像素数 "
+    IDS_InspectionThreshold "检查阈值 "
+    IDS_MinimumSize         "最小大小 "
+    IDS_AcceptableWidthRange "可接受的宽度范围"
+    IDS_TestEjectedContainer "测试弹出的容器 "
+    IDS_AcceptableHeightRange "可接受的高度范围"
+    IDS_Containerisatsideofimage "容器滑出"
+    IDS_Containerisattoporbottomofimage
+                            "Container is at top or bottom of image"
+    IDS_Containerisattopofimage "容器在图像的顶部"
+    IDS_ViewingInspection   "查看检查 "
+    IDS_ValueofdarkestPixelinROI "感兴趣区域中最暗像素的值 "
+    IDS_ValueoflightestPixelinROI "感兴趣区域中最亮像素的值 "
+    IDS_SizeofDisplay       "显示大小"
+    IDS_ImageHeight         "图像高度"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ImageWidth          "图像宽度"
+    IDS_ScalelinespacinginHeight "比例线高度间距 "
+    IDS_ScalelinespacinginWidth "比例线宽度间距 "
+    IDS_Valuesarein         "...中的值 "
+    IDS_ImageInformation    "图像信息"
+    IDS_TotalEjected        "弹出总计"
+    IDS_TotalGood           "良好总计"
+    IDS_TotalRejects        "未弹出 "
+    IDS_RunDuration         "运行持续时间"
+    IDS_StopDuration        "停止持续时间"
+    IDS_ProductionStops     "生产停止"
+    IDS_ContainersPerMin    "容器/最小 "
+    IDS_RedLightFilamentBroken "红灯灯丝断 "
+    IDS_YellowLightFilamentBroken "黄灯灯丝断 "
+    IDS_BlueLightFilamentBroken "蓝灯灯丝断 "
+    IDS_AbortLearn          "中止学习"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ErrorXRayFaultCheckSpellmanPowerSupply
+                            "Error-XLF HVPS Fault, Check High Voltage Supply"
+    IDS_ErrorXRayCoolantFlowProblem
+                            "Error-Coolant Flow Problem, Check Coolant and Pump"
+    IDS_SideDoor            "侧屏蔽 "
+    IDS_SideDoorOpen        "侧屏蔽开"
+    IDS_FRDoorOpen          "前/后门开"
+    IDS_FrontorRearDoorOpen "前门或后门打开"
+    IDS_EStopSwitchNotOn    "急停开关未打开"
+    IDS_KeySwitch           "钥匙开关 "
+    IDS_KeySwitchNotOn      "钥匙开关未打开"
+    IDS_XRayStart           "X射线等待"
+    IDS_ResetAllCounters    "\n\n重置所有计数器？ "
+    IDS_SystemRunningResetAllCounters
+                            "\n\nSystem Running!\nReset All Counters?"
+    IDS_LoadedProductSetupResetallcounters
+                            "\n\nLoaded Product Setup.\nReset all counters?"
+    IDS_ResetCounters       "重置计数器 "
+    IDS_ClearYellowMessage  "清除黄色消息"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ProductSetupSummary "产品设置摘要"
+    IDS_SystemSetupSummary  "系统设置摘要"
+    IDS_ShowRejectLog       "显示拒绝\n日志"
+    IDS_DisplayAllImages    "显示所有图片 "
+    IDS_DisplayOnlyRejects  "仅显示拒绝 "
+    IDS_ShowEventLog        "显示\n事件 \n日志"
+    IDS_SelectAProduct      "选择\n一个\n产品"
+    IDS_SelectProductToRun  "选择要运行的产品"
+    IDS_SelectProductToEdit "选择要编辑的产品"
+    IDS_SelectProductToCopy "选择要复制的产品"
+    IDS_SelectProductToDelete "选择要删除的产品"
+    IDS_SelectProductToDisplay "选择要显示的产品"
+    IDS_SelectProductToEvaluate "选择要评估的产品"
+    IDS_SetupImageSettings  "容器边缘\n发现"
+    IDS_ClearFixedROILines  "清除检查感兴趣区域行 "
+    IDS_ShowFixedROILines   "显示检查感兴趣区域行 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ClearScaleLines     "清除\n检测器\n行 "
+    IDS_ShowScaleLines      "显示检测器行 "
+    IDS_ClearFoundBoundary  "清除容器边缘行 "
+    IDS_ShowFoundBoundary   "清除容器边缘行 "
+    IDS_SelectInspectionToEdit "选择要编辑的检查 "
+    IDS_SelectInspectionToCopy "选择要复制的检查 "
+    IDS_SelectInspectionToDelete "选择要删除的检查 "
+    IDS_SelectInspectionToDisplay "选择要显示的检查 "
+    IDS_SelectInspectionToEvaluate "选择要评估的检查 "
+    IDS_SelectInspectionToMakeLastPriority "选择要作为最后一次的检查 "
+    IDS_ClearWarning        "清除警告"
+    IDS_TopOfXRayImage      "X射线图像顶部"
+    IDS_BottomOfXRayImage   "X射线图像底部"
+    IDS_DisplayEventLog     "显示事件日志"
+    IDS_MinSize             "最小大小 "
+    IDS_AbortSetup          "中止\n设置"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Avg                 "平均"
+    IDS_PreviousSetupStep   "上一个设置步骤 "
+    IDS_NextSetupStep       "下一个设置步骤 "
+    IDS_AbandonSetupChangesandExit "\n\n\n放弃设置更改并退出 "
+    IDS_SetupEjectorTiming  "设置弹出器时间 "
+    IDS_FinishSetup         "完成\n设置"
+    IDS_SetupImageSize      "设置图像大小"
+    IDS_ExposurelowforAutosize "自动调整大小低曝光 "
+    IDS_XScale              "X比例"
+    IDS_YScale              "Y比例"
+    IDS_XSize               "X大小"
+    IDS_YSize               "Y大小、 "
+    IDS_SetupInspectionROI  "设置检查感兴趣区域"
+    IDS_SelectEjectors      "选择\n弹出器 "
+    IDS_ReturntoExposure    "返回曝光"
+    IDS_AutoU               "AutoU"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AutoL               "AutoL"
+    IDS_ProductDensityROI   "产品密度\n感兴趣区域 "
+    IDS_Cur                 "Cur"
+    IDS_SystemRunning       "系统运行"
+    IDS_Notes               "备注"
+    IDS_FreezeImage         "冻结图像"
+    IDS_Startingsystemtryagaininafewseconds
+                            "\n\nStarting system try again in a few seconds"
+    IDS_AutoSetupProductInspections "自动设置产品检查 "
+    IDS_SetupProductInspections "设置产品检查 "
+    IDS_SetupAuxiliaryDetectors "设置辅助检测器"
+    IDS_Evaluate            "评估"
+    IDS_Edit                "编辑"
+    IDS_MakeInspectionLast  "让检查成为最后一次 "
+    IDS_Delete              "删除"
+    IDS_New                 "新建"
+    IDS_MoveInspection      "移动检查 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_toLastPriority      "到最后优先级"
+    IDS_Inspectionislastalready "\n\n\n检查已是最后一次。 "
+    IDS_DeleteInspection    "删除检查 "
+    IDS_Youcannotdeletethelastinspection
+                            "\n\nYou cannot delete the last inspection.\nAdd a new inspection,\nthen delete this one if desired."
+    IDS_SelectInspectionTypetoAdd "选择要添加的检查类型 "
+    IDS_ContaminantKernel   "污染内核"
+    IDS_Size                "大小"
+    IDS_Texture             "纹理"
+    IDS_ContaminantBottom   "瓶底"
+    IDS_InspectionName      "检查名称 "
+    IDS_YoucannotaddanymoreInspections
+                            "\n\nYou cannot add any more Inspections.\nThis Product already has the maximum of "
+    IDS_Inspections         "检查 "
+    IDS_ProductEditing      "产品编辑"
+    IDS_NoInspectionstoEdit "无检查要编辑"
+    IDS_Demo                "演示"
+    IDS_Pixels              "像素"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Inches              "英寸"
+    IDS_Millimeters         "毫米"
+    IDS_Abandon             "放弃"
+    IDS_KeepChanges         "保留\n更改"
+    IDS_Wait                "等待"
+    IDS_YoucannotexitwhileLearning "\n\n\n学习时无法退出。 "
+    IDS_ExitAutoSetup       "\n\n退出自动设置？"
+    IDS_Onlyoneejectorconfiguredinthesystem
+                            "\n\nOnly one ejector configured in the system.\nIt has been automatically selected."
+    IDS_PressSendGoodButtonWhenImagesLookGood
+                            "Press Send Good Button when images look good"
+    IDS_AutoSetupTextureThreshold "自动设置纹理阈值 "
+    IDS_SetupTextureThreshold "设置纹理阈值 "
+    IDS_SetupDensityThreshold "设置密度阈值 "
+    IDS_SetupKernelThreshold "设置内核阈值 "
+    IDS_SetupContaminantThreshold "设置污染阈值 "
+    IDS_SetupSizeThreshold  "设置大小阈值 "
+    IDS_SetupVoidThreshold  "设置虚拟阈值 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ThresholdLater      "稍后设置阈值 "
+    IDS_SetupImageLearn     "设置图像学习"
+    IDS_ThisisOKifyouareonlydoingDensityandTextureInspections
+                            "\nThis is OK if you are only doing\nDensity and Texture Inspections."
+    IDS_SkipLearn           "跳过学习"
+    IDS_SetupImageExposure  "设置图像曝光"
+    IDS_mSec                "mSec"
+    IDS_UseManual           "使用手册"
+    IDS_LeaveThreshold      "离开阈值 "
+    IDS_StartQuickLearn     "\n\n\n开始学习。 "
+    IDS_containersrequired  "需要容器 "
+    IDS_Image               "图像"
+    IDS_Productmustbetallerthanthebottomplus
+                            "\n\nProduct must be taller than\nthe bottom plus"
+    IDS_Evaluating          "评估"
+    IDS_CollectingTextureSamples "收集纹理样品"
+    IDS_Productbottommustbelowerthantopminus
+                            "\n\nProduct bottom must be lower than\ntop minus"
+    IDS_ExposurelowtoAutosize "曝光低至自动调整大小"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CW                  "CW"
+    IDS_SkipSetupStep       "跳过设置步骤"
+    IDS_ThisproducthasbeenLearned
+                            "This product has been Learned.\nIf you change this setting, the Learn will be deleted,\nand you will have to Learn again.\nDo you want to continue?"
+    IDS_DeleteLearn         "删除学习"
+    IDS_ScanTracisinspectingandejectingrejects
+                            "ScanTrac is inspecting and ejecting rejects.\nIf you do not disable the ejectors, or abort, many containers may be ejected when this setting is changed.\nDisable Ejectors Now?"
+    IDS_DisableEjectors     "禁用弹出器 "
+    IDS_ContinueInspecting  "继续检查 "
+    IDS_ScanTracisinspectingandejectingdefectivecontainersAbort
+                            "ScanTrac is inspecting and ejecting defective containers.\nIf you do not abort many containers may be ejected\nwhen this setting is changed.\nAbort Now?"
+    IDS_Continue            "继续"
+    IDS_YoucannotchangethissettingbecauseScanTracisinspectingcontainers
+                            "\nYou cannot change this setting because\nScanTrac is inspecting containers.\nYou must exit setup, stop running,\nthen enter Setup Product to change this setting."
+    IDS_Waitingfornextimagetoupdatescreen
+                            "Waiting for next image to update screen"
+    IDS_Needanewimagetoautosize "\n\n\n需要新图像自动调整大小"
+    IDS_DensityCompensation "密度补偿"
+    IDS_KeepSetupChangesandExit "\n\n保留设置更改然后退出？"
+    IDS_Copy                "复制"
+    IDS_Options             "选项"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SelectAll           "全选 "
+    IDS_SetupProducts       "设置产品"
+    IDS_EjectorsweredisabledwhenenteredEditWhileRunning
+                            "\n\nEjectors were disabled when entered Edit While Running\nRe-enable Ejectors Now?"
+    IDS_EnableEjectors      "启用弹出器 "
+    IDS_KeepDisabled        "保持禁用"
+    IDS_EditProductSetup    "编辑产品设置"
+    IDS_SetupProductName    "名称"
+    IDS_Ejectors            "弹出器 "
+    IDS_Triggers            "触发器 "
+    IDS_Youmustgivetheproductanewname
+                            "\n\n\nYou must give the product a new name."
+    IDS_DeletingLearnedDataforProduct
+                            "\n\n\nDeleting Learned Data for Product"
+    IDS_SincethesizeoftheproducthaschangedyoumustLearnagain
+                            "\nsince the size of the product has changed\nyou must Learn again."
+    IDS_ProductName         "产品名称"
+    IDS_MustchangeProductName "\n\n\n必须更改产品名称"
+    IDS_ProductNameinusealreadyinputignored
+                            "\n\n\nProduct Name in use already, input ignored"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ProductNameinusealreadyyoumustchangeit
+                            "\n\nProduct Name in use already\nyou must change it"
+    IDS_DemoHelp            "演示帮助"
+    IDS_Container           "容器"
+    IDS_MicroControllerSWVersion "微控制器SW版本"
+    IDS_StopTriggerTest     "停止\n触发器\n测试"
+    IDS_StartTriggerTest    "启动\n触发器\n测试"
+    IDS_Interlocks          "互锁"
+    IDS_SelectLowerThreshold "选择下限阈值 "
+    IDS_SelectUpperThreshold "选择上限阈值 "
+    IDS_SavecurrentUpperThresholdforproduct
+                            "Save current Upper Threshold for product"
+    IDS_SavecurrentLowerThresholdforproduct
+                            "Save current Lower Threshold for product"
+    IDS_DisplayedUThreshold "选择上限阈值 "
+    IDS_DisplayedLThreshold "选择下限阈值 "
+    IDS_Failedtowritescreenimagetofile
+                            "\n\n\nFailed to write screen image to file"
+    IDS_Screenimagesavedtofile "\n\n\n屏幕图像已保存到文件：\n"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_FileNamemorethe83charactersfilesaveaborted
+                            "\n\n\nFile Name more the 83 characters, file save aborted"
+    IDS_TheROIhasbeenchangedExitwithoutsavingchanges
+                            "\n\nThe ROI has been changed.\nExit without saving changes?"
+    IDS_EditROI             "编辑感兴趣区域 "
+    IDS_TheThresholdhasbeenchangedAbandonthresholdchangeswithoutsaving
+                            "\n\nThe Threshold has been changed.\nAbandon threshold changes without saving?"
+    IDS_ContaminantGlass    "玻璃污染物 "
+    IDS_ConveyorStop        "传送机停止"
+    IDS_HVPSInterlock       "HVPS互锁"
+    IDS_HighVoltagePowerSupplyInterlockNotOn
+                            "High Voltage Power Supply Interlock Open"
+    IDS_NoCalibrationImageCallInspx "未收到图像，呼叫服务"
+    IDS_DetectorTooHot      "检测器过热"
+    IDS_XRaySourceTooHot    "X射线源过热 "
+    IDS_OutsideAirTooHot    "外部空气过热 "
+    IDS_CheckAirFilterandreplaceifdirtycheckfans
+                            "Check Air Filter and replace if dirty, check fans"
+    IDS_InsideAirTooHot     "内部空气过热 "
+    IDS_CoolantTooHot       "冷却剂过热 "
+    IDS_KeySwitchTurnedOff  "钥匙开关关闭 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_EStopShutOff        "急停关闭 "
+    IDS_FRDoorInterlockBroken "前/后门联锁断开"
+    IDS_SideDoorInterlockBroken "侧屏蔽联锁断开"
+    IDS_SDoorOpen           "侧屏蔽打卡 "
+    IDS_HighVoltagePowerSupplyInterlock "高电压电源联锁 "
+    IDS_CoolantFlowFault    "冷却剂流故障"
+    IDS_CoolantFault        "冷却剂故障 "
+    IDS_XRaySourceFault     "X射线源故障 "
+    IDS_Alarm               "报警"
+    IDS_RejectsOutOf        "...中的拒绝"
+    IDS_InspectingOKReenabledEjectorsAfterAlarm
+                            "Enabled Ejectors, Inspection Normal"
+    IDS_SetupProductDensityROI "设置产品密度感兴趣区域 "
+    IDS_MissingLid          "缺少盖子 "
+    IDS_Underfill           "未充满 "
+    IDS_ContaminantTop      "顶部外部材料"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ContaminantThreshold "阈值外部材料 "
+    IDS_JarBottom           "瓶底"
+    IDS_Overfill            "溢出"
+    IDS_ContaminantAdvanced "污染物高级 "
+    IDS_Auto                "自动"
+    IDS_ShuttingDown        "正在关闭"
+    IDS_NoXRayComm          "无X射线通讯"
+    IDS_LostCommunicationwithDXMHVPSCallInspx
+                            "Call Service. Lost Communication with "
+    IDS_CheckTo             "检查到"
+    IDS_ProductCodeLotDateCodeShiftorOperator
+                            "Product Code, Lot Date Code, Shift, or Operator"
+    IDS_CalibrateDetectors  "校准检测器"
+    IDS_ImproveLearn        "改进学习"
+    IDS_UndoLastAddToLearn  "撤消上次添加到学习 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ContainerReTriggerLockoutsmallthancontainerwidthYoushouldgobackandAutosize
+                            "\n\nContainer Re-Trigger Lockout smaller than container width\nYou should go back and Autosize"
+    IDS_GoBackToAutosize    "返回到大小菜单 "
+    IDS_ContinueAsSet       "继续\n设置"
+    IDS_ImageIsTooWideYoushouldgobackandAutosize
+                            "\n\nImage Is Too Wide For Container Width.\nYou should go back and Autosize."
+    IDS_SendJustOneContainerThroughToAutoSize
+                            "Send Just One Container Through To AutoSize"
+    IDS_ProducthasnotbeenlearnedyoucannotAddToLearn
+                            "Product has not been learned.\nYou cannot Add To Learn."
+    IDS_ContainerwasnotrejectedyoucannotAddToLearn
+                            "Container was not rejected.\nYou cannot Add To Learn."
+    IDS_ImproveLearnMenu    "改进\n学习菜单"
+    IDS_UndoLearnMenu       "撤消添加到学习菜单 "
+    IDS_CoolingSystemProblemCallInspx "检查冷却液液位和风扇 "
+    IDS_NoImproveLearnImageToView "\n\n\n无提高学习图像可查看"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XRaysWait           "X射线等待"
+    IDS_ShutterManuallyClosedCanNotTestOpenedShutter
+                            "Shutter Manually Closed - Cannot Test Opened Shutter"
+    IDS_ShutterFailureDarkImageWhenOpen "润滑快门电磁阀"
+    IDS_BlackImageCheckXRayCurrent "需要X射线管服务 "
+    IDS_ShutterManuallyOpenedCanNotTestClosedShutter
+                            "Shutter Manually Opened - Cannot Test Closed Shutter"
+    IDS_ShutterFailureBrightImageWhenClosed "润滑快门电磁阀"
+    IDS_NoImageInformationToShow "无显示信息相关图像 "
+    IDS_JumpToStart         "跳转\n以开始 "
+    IDS_ClearExcludeLearn   "清除排除学习"
+    IDS_InterlockOpen       "联锁打开"
+    IDS_CouldNotAccessServerToBackupSetup
+                            "Could Not Access Server To Backup Setup"
+    IDS_NoEncoder           "无编码器"
+    IDS_LostCommunicationwithMicroControllerCallInspx
+                            "Lost Communication with Micro-Controller. Call Service."
+    IDS_ContainerwasnotrejectedbyaLearnedInspectionyoucannotAddToLearn
+                            "Container was not rejected by a Learned Inspection.\nThis Container cannot be Added To Learn."
+    IDS_SystemCountersMenu  "计数器 "
+    IDS_SafetyViolation     "安全违规"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ForYourSafety       "\n为了您的安全\n在打开门或传送机盖之前，\n始终按下红色的“停止”按钮。 "
+    IDS_InspectionType      "检查类型 "
+    IDS_ThisFunctionrequiresanimageonthescreen
+                            "\n\n\nThis Function requires an image on the screen"
+    IDS_Youcannotchangeimageexposurewhileinspecting
+                            "\n\nYou can not change image exposure while inspecting.\nYou must stop running on the Main Menu,\nthen Edit the Product Exposure\n"
+    IDS_ScanTracdidnotfindtheedgesofthecontainercorrectly
+                            "ScanTrac did not find the edges of\nthe container correctly.\nSend another container through, then adjust the Purple Line in the Container Edge Finding Menu if the edges are not found correctly."
+    IDS_GoBack              "返回"
+    IDS_ScanTracdidnotfindtheedgesofthecontainercorrectly2
+                            "\nScanTrac did not find the edges of the container\ncorrectly since you have changed the exposure.\nYou should go back to the Setup Image Size Menu and press Auto Size This Container one more time."
+    IDS_UseAutoThreshold    "使用自动阈值 "
+    IDS_CalculatingLearnImagePleaseWait
+                            "\n\n\nCalculating Learn Image, Please Wait..."
+    IDS_SavingScreenImagePleaseWait
+                            "\n\n\nSaving Screen Image, Please Wait..."
+    IDS_ProcessingLearn     "使用自动阈值 "
+    IDS_ShutterFailed       "快门失败"
+    IDS_ProcessingQuickLearnwaituntilfinished
+                            "Processing Quick Learn, wait until finished"
+    IDS_ShutterClosed       "快门关闭"
+    IDS_ShutterOpen         "快门打开"
+    IDS_ShutterNeedsMaintenance "润滑快门电磁阀"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AdvancedThresholdContaminant "污染物2"
+    IDS_Contaminant2        "污染物2"
+    IDS_AdvancedContaminant2 "高级污染物2"
+    IDS_BackToInspections   "返回到检查 "
+    IDS_BackToROI           "返回到\n感兴趣区域 "
+    IDS_BackToBackground    "返回到背景 "
+    IDS_BackToExposure      "返回到曝光 "
+    IDS_BackToSize          "返回到\n大小"
+    IDS_BackToLearn         "返回到\n学习"
+    IDS_NextToExposure      "接近曝光"
+    IDS_ChangeExposure      "更改曝光"
+    IDS_NextToEvaluate      "接近\n评估"
+    IDS_EvaluateThreshold   "评估阈值 "
+    IDS_ChangeInspections   "更改检查 "
+    IDS_ChangeROI           "更改\n感兴趣区域 "
+    IDS_NextToInspections   "接近检查 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ChangeBackground    "更改背景"
+    IDS_ChangeSize          "更改\n大小"
+    IDS_NextToLearn         "接近\n学习"
+    IDS_ChangeLearn         "更改学习"
+    IDS_NextToBackground    "接近背景"
+    IDS_NextToROI           "接近\n感兴趣区域 "
+    IDS_ReplaceRedLightFixture "更换红灯装置"
+    IDS_MaintenanceCleanandcheckopticalsensoralignment
+                            "Trigger blocked, check for jam/sensor"
+    IDS_UnderRemoteControl  "远程控制"
+    IDS_WaitingForAGapOfAtleast2FeetToAutoSize
+                            "Waiting For A Gap Of At least 2 Feet To AutoSize"
+    IDS_AlreadyWaitingFor2FootGapInContainers
+                            "\n\nAlready Waiting For a 2 Foot\nor More Gap Between Containers"
+    IDS_WaitForA2OrMoreFootGapInProductionToAutosizeDoYouWantToAbort
+                            "\n\nWaiting For A 2 Or More Foot Gap\nIn Production To Autosize.  Do You Want To Abort?"
+    IDS_EncoderMayBeFaultyCheckOrReplace
+                            "Encoder Rate Unstable, May Be Faulty, Check or Replace"
+    IDS_SetToDefaultROI     "设置感兴趣区域\n为\n默认 "
+    IDS_Contaminant3        "污染物3"
+    IDS_Youcannotchangethiswhilelearning
+                            "\n\n\nYou can not change this while learning."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LearnIncomplete     "学习不完整 "
+    IDS_CheckWeigh          "重量趋势"
+    IDS_CheckWeighDoesNotEject "重量趋势（不弹出） "
+    IDS_AutoSetupCheckWeigh "自动设置重量趋势"
+    IDS_SendMaximumGood     "发送最大良好 "
+    IDS_MinimumGoodWeight   "轻样品重量 "
+    IDS_MaximumGoodWeight   "重样品重量 "
+    IDS_SendMinimumGood     "发送最小良好 "
+    IDS_WeightUnits         "重量单位"
+    IDS_StopSendingMinimum  "停止发送最小 "
+    IDS_StopSendingMaximum  "停止发送最大 "
+    IDS_ChangeMinimumThreshold "更改最小阈值 "
+    IDS_ChangeMaximumThreshold "更改最大阈值 "
+    IDS_MeasureInOunces     "以盎司为单位"
+    IDS_MeasureInGrams      "以克为单位 "
+    IDS_ShowImproveLearn    "显示改进学习"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ShowLastImprove     "显示最后改进 "
+    IDS_CollectingMaximumGoodSamples "收集最大良好样品 "
+    IDS_CollectingMinimumGoodSamples "收集最小良好样品 "
+    IDS_ExcludeRejects      "排除拒绝"
+    IDS_Glass13mm           "玻璃 2"
+    IDS_SpotInROI           "感兴趣区域中的点"
+    IDS_3Lines_WaitingForAGapOfAtleast2FeetToAutoSize
+                            "\n\n\nWaiting For A Gap Of At Least 2 Feet To AutoSize"
+    IDS_Glass3Plusmm        "玻璃"
+    IDS_ShowPreviousSetofFilters "显示上一组过滤器"
+    IDS_Improve             "改进"
+    IDS_PoorLearn           "不良学习"
+    IDS_ContainerReTriggerLockoutlargerthancontainerwidthYoushouldgobackandAutosize
+                            "\n\nContainer ReTrigger Lockout larger than container width.\nYou should go back and Autosize."
+    IDS_BackToEExposure     "边缘曝光"
+    IDS_AutoSetupCenterExposure "自动设置中心曝光"
+    IDS_SetupCenterExposure "设置中心曝光"
+    IDS_NextToEExposure     "边缘曝光"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_BackCExposure       "中心曝光"
+    IDS_AutoSetupEdgeExposure "自动设置边缘曝光"
+    IDS_SetupEdgeExposure   "设置边缘曝光"
+    IDS_MakeEdgesBrighter   "让边缘更亮 "
+    IDS_MakeEdgesDarker     "让边缘更暗 "
+    IDS_UseOneIntegrationTime "设置为\n平面曝光"
+    IDS_MakeALittleBrighter "更亮一点 "
+    IDS_MakeALittleDarker   "更暗一点 "
+    IDS_AdjustEdgeExposureToMatchCenter "调整边缘曝光与中心匹配 "
+    IDS_ChangeExposureTime  "更改曝光时间"
+    IDS_AlreadyAtThisValue  "\n\n\n已经为此值 "
+    IDS_AlreadyAtMinimumValue "\n\n\n已经为最小值 "
+    IDS_AlreadyAtMaximumValue "\n\n\n已经为最大值 "
+    IDS_DefectInRedBox      "红框中的缺陷"
+    IDS_DefectsInRedWithCarriageReturns "红色\n缺陷\n"
+    IDS_DefectsInRed        "红色缺陷"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DefectsInRedBoxWithCarriageReturns "\n红色\n框中的缺陷 "
+    IDS_ReplaceHardDisk     "替换硬盘"
+    IDS_EnterCertifiedSetupPassword "输入认证设置密码"
+    IDS_AutoSetupExposure   "自动设置曝光"
+    IDS_SetupExposure       "自动设置曝光"
+    IDS_EnterOperatorPassword "输入操作员密码 "
+    IDS_TestFireEjectorNow  "现在测试 \n火焰弹出器 "
+    IDS_TriggerData         "触发器\n数据"
+    IDS_EncoderData         "编码器数据 "
+    IDS_ClearMaximums       "清除 \n最大值 "
+    IDS_EncoderCountsOnLastTrigger "上次触发时的编码器计数："
+    IDS_NoTriggerDataToPlot "\n\n\n无需绘图触发数据"
+    IDS_EnterThresholdValue "输入阈值 "
+    IDS_BackingupSetupFilesPleaseWait
+                            "\n\nBacking up Setup Files.\nPlease Wait."
+    IDS_DefectsInRedBoxesWithCarriageReturns "红色\n框中的\n缺陷"
+    IDS_ShowColor           "用颜色显示缺陷 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HideColor           "隐藏颜色"
+    IDS_DefectsInRedBoxes   "红色框中的缺陷 "
+    IDS_PressStartAutoLearnButtonWhenImagesLookGood
+                            "Press Start Auto Learn Button When Images Look Good"
+    IDS_OldInspection       "旧检查 "
+    IDS_Advanced            "高级"
+    IDS_LastStop            "上次停止"
+    IDS_EmptyContainer      "空 "
+    IDS_BrownOut            "掉电"
+    IDS_NoBackupDrive       "无备份驱动器"
+    IDS_NoPrimaryDrive      "无主驱动器 "
+    IDS_ACDropOut           "A/C输出"
+    IDS_ShowProductionReport "显示生产报告"
+    IDS_Back                "后 "
+    IDS_Front               "前 "
+    IDS_LowerDoor           "中央传送机门 "
+    IDS_TopDoor             "柜门"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_HelpTitle60         "诊断 - 交流电源监视器电压图"
+    IDS_HelpTitle61         "诊断 - 交流电源事件和错误日志 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UpperDoorInterlockBroken "柜门联锁断开"
+    IDS_TopDoorOpen         "柜门打开"
+    IDS_LowerDoorInterlockBroken "中央传送机门联锁断开"
+    IDS_Unknown             "未知"
+    IDS_DownStream          "下游"
+    IDS_MissingRAM          "上 RAM"
+    IDS_UnderfillByWeight   "重量不足"
+    IDS_AutoSetupLowWeightThreshold "自动设置重量不足阈值 "
+    IDS_SetupLowWeightThreshold "设置重量不足阈值 "
+    IDS_Weight              "重量"
+    IDS_StopSendingLight    "停止发送轻量 "
+    IDS_SendLightSamples    "发送轻量样品 "
+    IDS_StopSendingHeavy    "停止发送重量 "
+    IDS_SendHeavySamples    "发送重量样品 "
+    IDS_CollectingWeightCalibrationSamples
+                            "Collecting Weight Calibration Samples"
+    IDS_AutoSetupOverWeightThreshold "自动设置超重阈值 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_SetupOverWeightThreshold "设置超重阈值 "
+    IDS_OverfillByWeight    "超重"
+    IDS_SetupCheckWeigh     "设置检查重量阈值 "
+    IDS_UnderfillByWeightThreshold "重量不足阙值 "
+    IDS_AcceptableWeight    "可接受的重量"
+    IDS_ThisContainersWeight "此容器的重量"
+    IDS_ReLearnContainerMenu "重新学习容器菜单"
+    IDS_SetXofYAlarm        "设置Y中的X的报警 "
+    IDS_EnableNormalLearn   "启用\n正常\n学习"
+    IDS_EnableQuickLearn    "启用快速学习 "
+    IDS_ContainerRetriggerLockout "容器重新触发锁定"
+    IDS_ReturnToSize        "返回\n到大小 "
+    IDS_Up                  "上 "
+    IDS_Down                "下 "
+    IDS_Longer              "更长"
+    IDS_Shorter             "更短"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_OverWeight          "超重"
+    IDS_SmallBones          "小骨头 "
+    IDS_Bones               "骨头"
+    IDS_GlassinBody         "体内玻璃"
+    IDS_GlassonBottom       "底部玻璃"
+    IDS_ForeignMaterial     "外部材料"
+    IDS_StartAutoSizeOver   "启用自动大小"
+    IDS_SavedRejects        "已存\n拒绝"
+    IDS_FreeMemory          "可用内存"
+    IDS_CPULoad             "CPU负载"
+    IDS_FreeDiskSpace       "可用磁盘空间"
+    IDS_LateEject           "最近弹出 "
+    IDS_Proceed             "下一个 "
+    IDS_Save                "保存"
+    IDS_AutoSetupEvaluate   "自动设置评估"
+    IDS_EvaluateAgain       "再次评估阈值 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ACFailed            "空调失败"
+    IDS_AutoSetupWeightTrending "自动设置重量趋势阈值 "
+    IDS_SetupWeightTrending "设置重量趋势阈值 "
+    IDS_WeightTrend         "重量趋势"
+    IDS_TunnelDoor          "隧道门 "
+    IDS_DetectorCalibrationNeeded "需要检测器校准"
+    IDS_DeselectAll         "\n取消\n全选 "
+    IDS_AllSelected         "\n选择\n全部\n检查 "
+END
+
+STRINGTABLE
+BEGIN
+    IDS_InspectionEnabled   "禁用\n检查\n# "
+    IDS_InspectionDisabled  "启用\n检查\n#"
+    IDS_YellowMessageOnly   "仅黄色消息 "
+    IDS_DisableEjectorsOnAlarm "经验报警器弹出器"
+    IDS_ConfigureAlarmTitle "编辑报警"
+    IDS_PasswordTooLow      "密码不正确。 "
+    IDS_CalibrateWeight     "校准重量"
+    IDS_ShowThresholds      "显示阈值 "
+    IDS_RunTime             "运行时间"
+    IDS_LastReject          "上次拒绝"
+    IDS_EnterSetupPassword  "输入设置密码"
+    IDS_EnterResetPassword  "输入重置密码"
+    IDS_EnterQAPassword     "输入QA密码"
+    IDS_EnterEasySetupPassword "输入轻松设置密码"
+    IDS_EnterAdvancedSetupPassword "输入高级设置密码"
+    IDS_EnterCertifiedPassword "输入认证密码"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_CurrentProductWithCarriageReturn "当前\n产品"
+    IDS_NoInterlockComm     "无互锁通讯"
+    IDS_RearDoorOpened      "后门已打开"
+    IDS_RearDoorOpen        "后门已打开"
+    IDS_ConveyorCoverOpened "传送门已打开"
+    IDS_LConveyorCover      "左传送门"
+    IDS_RConveyorCover      "右传送门"
+    IDS_ACPowerCriticalError "交流电源严重错误"
+    IDS_FrontDoorOpen       "前门打开"
+    IDS_EncoderFaulty       "编码器故障 "
+    IDS_XRayDetectorShield  "X射线检测器屏蔽 "
+    IDS_XRayTubeCover       "X射线管盖"
+    IDS_RTunnelCurtains     "右隧道帘"
+    IDS_LTunnelCurtains     "左隧道帘"
+    IDS_NoConveyorComm      "无传送机通讯"
+    IDS_PowerSupplyProblem  "电源问题"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AutoStop            "自动停止"
+    IDS_LeaveAsIs           "保持原样"
+    IDS_LastEject           "上次弹出"
+    IDS_ImprovingLearnDonottestsmallcontaminants
+                            "Improving Learn.  Do not test small contaminants"
+    IDS_IPContaminant       "IP 污染物 "
+    IDS_BottomDoor          "检测器门 "
+    IDS_LowerFrontDoor      "中央传送机门 "
+    IDS_LeftConveyorDoor    "左传送机门 "
+    IDS_RightConveyorDoor   "右传送机门 "
+    IDS_CenterConveyorDoor  "中央传送机门 "
+    IDS_CabinetDoor         "柜门 "
+    IDS_DetectorDoor        "检测器门 "
+    IDS_OrigDensity         "原始密度"
+    IDS_GlassonPunt         "平底上的玻璃"
+    IDS_ExternalInterlock   "外部互锁"
+    IDS_LanePositions       "调整通道位置"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Sampling            "取样"
+    IDS_DisplayLaneCounts   "显示通道计数"
+    IDS_SamplingandFillerMonitor "取样和填充监视器"
+    IDS_LaneCounts          "通道计数"
+    IDS_Sensitivity         "灵敏度 "
+    IDS_SavedImages         "已存图像"
+    IDS_ProductionSummary   "生产摘要"
+    IDS_AdvancedNew         "高级新 "
+    IDS_AdjustLanePositions "调整通道位置"
+    IDS_AirConditionerAirTooHot "空调空气过热"
+    IDS_GotoBottom          "转到底部"
+    IDS_GuardianServer      "监护人服务器"
+    IDS_ErrorOutsideAirTooHotIS
+                            "Error Air Conditioner Air Too Hot-Inspection Stopped.  Inside Air: "
+    IDS_AirConditionerTemp  "空调温度"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_Limit               "限制"
+    IDS_OutsideTemp         "外部温度"
+    IDS_ErrorOutsideAirTooHotInsideAir
+                            "Error-Outside Air Too Hot.  Inside Air: "
+    IDS_ErrorAirConditionerAirTooHotInsideAir
+                            "Error-Air Conditioner Air Too Hot.  Inside Air: "
+    IDS_ErrorAirConditionerAirTooHotIS
+                            "Error-Air Conditioner Air Too Hot. Inspection Stopped. Inside Air: "
+END
+
+
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////

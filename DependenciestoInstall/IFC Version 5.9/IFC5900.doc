@@ -1,0 +1,475 @@
+{\rtf1\ansi\ansicpg1252\uc1\deff0\stshfdbch0\stshfloch0\stshfhich0\stshfbi0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f7\fswiss\fcharset0\fprq2{\*\panose 020b0604020202030204}Helv{\*\falt Arial};}{\f36\froman\fcharset0\fprq0{\*\panose 00000000000000000000}CG Times{\*\falt Times New Roman};}
+{\f111\froman\fcharset238\fprq2 Times New Roman CE;}{\f112\froman\fcharset204\fprq2 Times New Roman Cyr;}{\f114\froman\fcharset161\fprq2 Times New Roman Greek;}{\f115\froman\fcharset162\fprq2 Times New Roman Tur;}
+{\f116\froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f117\froman\fcharset178\fprq2 Times New Roman (Arabic);}{\f118\froman\fcharset186\fprq2 Times New Roman Baltic;}{\f119\froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\f121\fswiss\fcharset238\fprq2 Arial CE;}{\f122\fswiss\fcharset204\fprq2 Arial Cyr;}{\f124\fswiss\fcharset161\fprq2 Arial Greek;}{\f125\fswiss\fcharset162\fprq2 Arial Tur;}{\f126\fswiss\fcharset177\fprq2 Arial (Hebrew);}
+{\f127\fswiss\fcharset178\fprq2 Arial (Arabic);}{\f128\fswiss\fcharset186\fprq2 Arial Baltic;}{\f129\fswiss\fcharset163\fprq2 Arial (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\stylesheet{\ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \snext0 Normal;}{
+\s1\qj \fi360\li0\ri0\keepn\widctlpar\nooverflow\faroman\outlinelevel0\rin0\lin0\itap0 \fs28\ul\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 heading 1;}{
+\s2\qj \li720\ri0\keepn\widctlpar\nooverflow\faroman\outlinelevel1\rin0\lin720\itap0 \fs28\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext0 heading 2;}{\*\cs10 \additive \ssemihidden Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv 
+\ql \li0\ri0\widctlpar\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \fs20\lang1024\langfe1024\cgrid\langnp1024\langfenp1024 \snext11 \ssemihidden Normal Table;}{\s15\ql \fi-360\li1080\ri0\widctlpar\nooverflow\faroman\rin0\lin1080\itap0 
+\b\fs24\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext15 Body Text 2;}{\s16\qj \li360\ri0\sl360\slmult1\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 \fs28\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 
+\sbasedon0 \snext16 Body Text 2;}{\s17\ql \li0\ri0\widctlpar\tqc\tx4320\tqr\tx8640\nooverflow\faroman\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext17 header;}{\s18\ql \li0\ri0\widctlpar
+\tqc\tx4320\tqr\tx8640\nooverflow\faroman\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 \sbasedon0 \snext18 footer;}{\*\cs19 \additive \sbasedon10 page number;}}{\*\listtable{\list\listtemplateid828115414\listsimple{\listlevel
+\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext\'01*;}{\levelnumbers;}}{\listname ;}\listid-2}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid65692883}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid103810730}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255
+\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid116223557}{\list\listtemplateid828115414\listsimple
+{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid139884026}
+{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname 
+;}\listid178010968}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li1080\lin1080 }{\listname ;}\listid207377190}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers
+;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid262609902}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid283731704}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120
+\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid309527248}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold
+\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid391461715}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid396588164}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0
+\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid444229049}{\list\listtemplateid1256633562\listsimple{\listlevel\levelnfc255\levelnfcn255
+\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid555044106}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255
+\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid585310247}{\list\listtemplateid1256633562\listsimple
+{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid668799860}
+{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname 
+;}\listid679116489}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li1080\lin1080 }{\listname ;}\listid827206885}{\list\listtemplateid1256633562\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid867639147}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120
+\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1076592402}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold
+\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1079061468}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1109276536}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1114137609}{\list\listtemplateid1256633562\listsimple{\listlevel\levelnfc255
+\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1126586514}{\list\listtemplateid828115414\listsimple
+{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1150438840}
+{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname 
+;}\listid1159615537}{\list\listtemplateid1256633562\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li1080\lin1080 }{\listname ;}\listid1303922051}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1340890557}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120
+\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1508132046}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold
+\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1525822870}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1528447986}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1532261576}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255
+\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1545827845}{\list\listtemplateid828115414\listsimple
+{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1659109977}
+{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname 
+;}\listid1758819751}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li1080\lin1080 }{\listname ;}\listid1839808306}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1943951107}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120
+\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1972595210}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold
+\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid1979722149}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0\leveljcn0\levelfollow0
+\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid2090420403}{\list\listtemplateid828115414\listsimple{\listlevel\levelnfc255\levelnfcn255\leveljc0
+\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-360\li1080\lin1080 }{\listname ;}\listid2108186322}}{\*\listoverridetable{\listoverride\listid-2
+\listoverridecount1{\lfolevel\listoverrideformat{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelold\levelspace0\levelindent0{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 }}\ls1}{\listoverride\listid1303922051
+\listoverridecount0\ls2}{\listoverride\listid1126586514\listoverridecount0\ls3}{\listoverride\listid555044106\listoverridecount0\ls4}{\listoverride\listid867639147\listoverridecount0\ls5}{\listoverride\listid668799860\listoverridecount0\ls6}
+{\listoverride\listid-2\listoverridecount1{\lfolevel\listoverrideformat{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelold\levelspace120\levelindent360{\leveltext\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 
+\fi-360\li1080\lin1080 }}\ls7}{\listoverride\listid391461715\listoverridecount0\ls8}{\listoverride\listid1943951107\listoverridecount0\ls9}{\listoverride\listid207377190\listoverridecount0\ls10}{\listoverride\listid444229049\listoverridecount0\ls11}
+{\listoverride\listid1528447986\listoverridecount0\ls12}{\listoverride\listid1079061468\listoverridecount0\ls13}{\listoverride\listid396588164\listoverridecount0\ls14}{\listoverride\listid1659109977\listoverridecount0\ls15}{\listoverride\listid1159615537
+\listoverridecount0\ls16}{\listoverride\listid1532261576\listoverridecount0\ls17}{\listoverride\listid1150438840\listoverridecount0\ls18}{\listoverride\listid2108186322\listoverridecount0\ls19}{\listoverride\listid65692883\listoverridecount0\ls20}
+{\listoverride\listid1972595210\listoverridecount0\ls21}{\listoverride\listid178010968\listoverridecount0\ls22}{\listoverride\listid827206885\listoverridecount0\ls23}{\listoverride\listid1109276536\listoverridecount0\ls24}{\listoverride\listid1525822870
+\listoverridecount0\ls25}{\listoverride\listid2090420403\listoverridecount0\ls26}{\listoverride\listid139884026\listoverridecount0\ls27}{\listoverride\listid1839808306\listoverridecount0\ls28}{\listoverride\listid116223557\listoverridecount0\ls29}
+{\listoverride\listid585310247\listoverridecount0\ls30}{\listoverride\listid283731704\listoverridecount0\ls31}{\listoverride\listid679116489\listoverridecount0\ls32}{\listoverride\listid1114137609\listoverridecount0\ls33}{\listoverride\listid1076592402
+\listoverridecount0\ls34}{\listoverride\listid309527248\listoverridecount0\ls35}{\listoverride\listid1545827845\listoverridecount0\ls36}{\listoverride\listid103810730\listoverridecount0\ls37}{\listoverride\listid1340890557\listoverridecount0\ls38}
+{\listoverride\listid1758819751\listoverridecount0\ls39}{\listoverride\listid1979722149\listoverridecount0\ls40}{\listoverride\listid262609902\listoverridecount0\ls41}{\listoverride\listid1508132046\listoverridecount0\ls42}}{\*\rsidtbl \rsid5450798}
+{\*\generator Microsoft Word 10.0.6612;}{\info{\title IFC-SDK for Win32 Software Release Notes}{\subject Release Notes for IFC 5.8.0.0}{\author Unknown}{\operator Russell Beaulieu}{\creatim\yr2005\mo10\dy27\hr10\min7}{\revtim\yr2005\mo10\dy27\hr10\min7}
+{\version2}{\edmins0}{\nofpages14}{\nofwords3014}{\nofchars17181}{\*\company Coreco Imaging, Inc.}{\nofcharsws20155}{\vern16389}}\margl1152\margr1152\margb1152 
+\widowctrl\ftnbj\aendnotes\aftnstart0\hyphhotz0\aftnnar\nospaceforul\lytprtmet\hyphcaps0\horzdoc\dghspace120\dgvspace120\dghorigin1701\dgvorigin1984\dghshow1\dgvshow0
+\jexpand\viewkind4\viewscale100\pgbrdrhead\pgbrdrfoot\bdrrlswsix\nolnhtadjtbl\oldas\rsidroot5450798 \fet0\sectd \pgnlcrm\linex0\endnhere\sectdefaultcl\sftnbj\saftnnar\saftnstart0 {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2
+\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6
+\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang 
+{\pntxtb (}{\pntxta )}}\pard\plain \qc \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\b\fs72\insrsid5450798 IFC-SDK for Win32
+\par Software Release Notes
+\par 5.9.0.0
+\par }{\b\fs60\insrsid5450798 400-00003-00
+\par }{\f36\fs72\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 IFC-SDK for Win32 Software Release Notes
+\par Document Number 400-00003-00
+\par October 2005
+\par 
+\par }\pard \qc \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 Copyright \'a9 Coreco Imaging, Inc. 2000-2005
+\par Copyright \'a9 transferred to Coreco Imaging, Inc. 2000 
+\par Copyright \'a9 Imaging Technology Incorporated 1999-2000
+\par All rights reserved.
+\par Printed in the United States of America.
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 
+\par All copyrights in this manual, and the software described in it, are the exclusive property of Coreco Imaging, Inc. and its licensers. Claim of copyright does not imply waiver of Coreco Imaging, Inc. or its licenser's other rights in the work. See the fol
+lowing Notice of Proprietary Rights.
+\par }\pard \qc \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\fs28\insrsid5450798 
+\par NOTICE OF PROPRIETARY RIGHTS
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 This manual and the related hardware and software are confidential trade secrets and 
+the property of Coreco Imaging, Inc. and its licensers. Use, examination, reproduction, copying, transfer and/or disclosure to others of all or any part of this manual and the related documentation are prohibited except with the express written consent of
+ Coreco Imaging. The information in this document is subject to change without notice. Coreco Imaging, Inc. makes no representations or warranties with respect to the contents of this manual and specifically disclaims any implied warranties of merchantabi
+lity or fitness for a particular purpose. Coreco Imaging, Inc. assumes no responsibility for errors or omissions in this document.
+\par 
+\par PCVision, PC-DIG, PC-RGB, PC-LineScan, PC-CamLink, PC2-Vision, Bandit-II (CV/MV/RGB), PC2-CamLink, NetSight II, IFC and the Coreco Imaging logo are trademarks of Coreco Imaging, Inc.  The Camera Configurator, PCVision}{\i\fs28\insrsid5450798 plus}{
+\fs28\insrsid5450798  and ITEX are registered trademarks of Coreco Imaging, Inc.
+\par  Microsoft, Microsoft C, Windows, Windows 98, Windows NT, Windows 2000, Windows XP, MS, and MS-DOS are registered trademarks of Microsoft Corporation. All other trademarks are the property of their respective owners.
+\par 
+\par }\pard \qc \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\fs56\insrsid5450798 
+\par \page Table of Contents
+\par }\pard \ql \li0\ri0\widctlpar\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin0\itap0 {\f1\fs28\insrsid5450798 1. Introduction\tab iv}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 2. Release Information\tab v
+\par }\pard \ql \li280\ri0\widctlpar\tx1120\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin280\itap0 {\f1\fs28\insrsid5450798 2.1 What\rquote s New}{\fs28\insrsid5450798 \tab v}{\fs24\insrsid5450798 
+\par }\pard \ql \li274\ri0\widctlpar\tx1120\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin274\itap0 {\f1\fs28\insrsid5450798 2.2 IFC System Files\tab v}{\f1\fs24\insrsid5450798 
+\par }\pard \ql \li280\ri0\widctlpar\tx1120\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin280\itap0 {\f1\fs28\insrsid5450798 2.3 Microsoft Developer Studio Settings\tab vi
+\par 2.4 Microsoft Developer Studio Extended Help\tab vii}{\f1\fs24\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin0\itap0 {\f1\fs28\insrsid5450798 3. Installing IFC under Windows XP\tab vii
+\par 4. Known Bugs and Limitations\tab ix}{\f1\fs24\insrsid5450798 
+\par }\pard \ql \li280\ri0\widctlpar\tx1120\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin280\itap0 {\f1\fs28\insrsid5450798 4.1 Config File names for examples\tab ix}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.2 Coexistence with ITEX\tab ix}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.3 Qualified video cards and drivers\tab ix}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.4 The Configurator\tab ix}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.5 Bandit-II Series Boards\tab ix}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.6 Windows 98 Support\tab x}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.7 Overlay Example\tab x}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.8 ImgProc Example\tab x}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.9 SeqSnap Example\tab x}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.10 CGrab Example\tab xi}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.11 VegaNet Examples\tab xi}{\f1\fs24\insrsid5450798 
+\par }\pard \ql \li560\ri0\widctlpar\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin560\itap0 {\f1\fs28\insrsid5450798 4.11.1 Record Example\tab xi}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.11.2 BlobView Example\tab xi
+\par }\pard \ql \li280\ri0\widctlpar\tx1120\tqr\tldot\tx9360\nooverflow\faroman\rin0\lin280\itap0 {\f1\fs28\insrsid5450798 4.12 FPGA Update Tool\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85\'85xi
+\par 4.13 Camera List and Presence of configuration file.\tab xi}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.14 Image Size Limitations\tab xii}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.15 Microsoft Visual C++ v. 5.0\tab xii}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.16 PC-LineScan Issues\tab xii}{\f1\fs24\insrsid5450798 
+\par }{\f1\fs28\insrsid5450798 4.17 PC2-CamLink Issues\tab xii}{\f1\fs24\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs28\insrsid5450798 \page }{\f1\fs48\insrsid5450798 1. Introduction
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 This release of IFC}{\f3\fs28\insrsid5450798 \'d4}{\fs28\insrsid5450798  Software Development K
+it (SDK) supports following DALSA Coreco or Coreco Imaging, Inc. hardware boards:
+\par }{\fs16\insrsid5450798 
+\par }{\fs28\insrsid5450798 PC-DIG}{\fs16\insrsid5450798 
+\par }{\fs28\insrsid5450798 PC-RGB
+\par PC-LineScan
+\par PCVision
+\par PCVision}{\i\fs28\insrsid5450798 plus
+\par }{\fs28\insrsid5450798 PC-CamLink
+\par Bandit-II CV, MV and RGB
+\par PC2-Vision
+\par PC2-CamLink
+\par NetSight II MCA Vision System
+\par }{\fs16\insrsid5450798 
+\par }{\fs28\insrsid5450798 These release notes present information on support in this release for the hardware modules and support under the Win32 (Windows NT, Windows 98, Windows 2000 and Windows XP) operating environments. 
+\par This release of IFC-SDK was developed for Microsoft Windows XP, Windows 2000, Windows NT version 4.0 and Windows 98(v4.10.1998) using the Microsoft Visual C++ compiler ver. 6.0. Service Pack 6 was used with NT 4.0 for testing.
+\par This product includes support for the following compilers to build customer applications:
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li360\ri0\widctlpar\tx360{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3 {\pntxtb \'b7}}\nooverflow\faroman\ls1\rin0\lin360\itap0\pararsid5450798 {\fs28\insrsid5450798 
+Microsoft Visual C++ v6.0
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}Microsoft Visual Basic v6.0
+\par }\pard \qj \li0\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin0\itap0 {\fs16\insrsid5450798 
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 C wrappers are supported in this release to support ANSI C and Visual Basic programmers.  Refer to IFC Software documentation for the valid API for C and VB.
+\par }\pard \qj \li0\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin0\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\f1\fs48\insrsid5450798 \page 2. Release Information   
+\par }{\b\f1\fs32\insrsid5450798 2.1 What\rquote s New
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \fi-360\li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs28\insrsid5450798 This Release incorporates all Service Packs to the previous version (5.8.0) of the IFC-SDK software:
+\par }\pard \qj \fi-360\li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs16\insrsid5450798 
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\cf1\insrsid5450798 NetSight-II:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls2\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Corrects a possible synchronization problem when Advanced IO decisions are enqued late. The pulses from subsequent decisions could occur at the wrong time.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls3\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Extended max rejector duration from 65.535 milliseconds to 16.777 seconds.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls4\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Removed extra pulse on default strobe output line (GPO0) during initialization.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls5\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fixed problem with sync source of SYNC_SEPARATE_SYNC where direction of vertical sync line could be set wrong.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls6\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fixed limitation of 4 second duration on Vsync and frame reset pulses 
+\par }\pard \ql \fi720\li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\fs28\cf1\insrsid5450798 so that new max duration is now 65.535 seconds.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlblt\ilvl0\ls7\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls7\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added 2 camera vertical planar mode acquire
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls8\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix handling of de-bounce parameter on NetSight II.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls9\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to potential Frame Reset signal setup problem on PC2-Vision and NetSight  II. 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls10\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Parallel output changed to allow access to all 8 outputs when strobe is disabled. 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls11\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls11\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Parameter added to allow planar acquire from 3 planes all on camera connector 1.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls12\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls12\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Added support for acquisition to physically contiguous memory with functions SeqSnapPhys & WaitPhysFrame.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls13\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls13\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to keep grab going when frame is too short.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls14\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls14\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Added support for Vixn precision scheduling of function invocation.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls15\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls15\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Prevent erroneous GPOx pulse output (Pass, Recycle, Fail) when cameras are switched.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0{\*\pn \pnlvlbody\ilvl0\ls16\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls16\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fixed Advanced I/O Control to recover after encountering an excessive trigger rate.
+\par }\pard \ql \li0\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\cf1\insrsid5450798 
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\cf1\insrsid5450798 PC2-Vision:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls17\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls17\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fixed problem with sync source of SYNC_SEPARATE_SYNC where direction of vertical sync line could be set wrong.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls18\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls18\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fixed limitation of 4 second duration on Vsync and frame reset pulses so that new max duration is now 65.535 seconds.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar{\*\pn \pnlvlbody\ilvl0\ls19\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls19\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added 2 camera vertical planar mode acquire
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls20\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls20\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix for use of CVixn::Schedule function on PC2-Vision and NetSight II.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls21\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls21\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to potential Frame Reset signal setup problem on PC2-Vision and NetSight II. 
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls22\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls22\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added interrupt events for each of the 8 parallel data pin inputs.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls23\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls23\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added support for acquisition to physically contiguous memory with functions }{\fs28\insrsid5450798 SeqSnapPhys & WaitPhysFrame.}{\fs28\cf1\insrsid5450798 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls24\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls24\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to keep grab going when frame is too short.}{\fs28\cf1\insrsid5450798 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls25\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls25\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Added support for Vixn precision scheduling of function invocation.}{\fs28\cf1\insrsid5450798 
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\tx360\nooverflow\faroman\rin0\lin360\itap0 {\fs28\cf1\insrsid5450798 
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\cf1\insrsid5450798 PC-CamLink:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls26\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls26\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fix to handle line sizes greater than 32 KPixels to handle up to 65 KPixels
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls27\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls27\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 
+Fix to improve tranfer efficiency (less CPU time consumed, more efficient use of PCI bandwidth) when frame size is between 2MB and 4MB, so that it is as good as when the frame size is less than 2MB
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls28\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls28\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added parameters which allow assigning EXSYNC and PRI signals to the TTL, Differential, and Opto outputs.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360\tx1080{\*\pn \pnlvlbody\ilvl0\ls29\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls29\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to PC2-CamLink to work properly for non-triggered line scan acquisitions.
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls30\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls30\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added support for Parallel I/O interrupt
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx360{\*\pn \pnlvlbody\ilvl0\ls31\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls31\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Added support for line too short interrupt 
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\cf1\insrsid5450798 
+\par PC-Dig:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls32\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls32\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fix to handle line sizes greater than 32 KPixels to handle up to 65 KPixels
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\f7\fs28\cf1\insrsid5450798  
+\par }{\b\fs28\cf1\insrsid5450798 PC-LineScan:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls33\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls33\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fix so that geometry PCL_3CHAN_SEP_TAP_L2R works correctly with function SeqSnapPhys
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\f7\fs28\cf1\insrsid5450798 
+\par }{\b\fs28\cf1\insrsid5450798 PC-Vision:
+\par {\pntext\pard\plain\f3\fs28\cf1 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls34\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls34\rin0\lin1080\itap0\pararsid5450798 {\fs28\cf1\insrsid5450798 Fix for excessive CPU consumption during image transfers on some Intel 845 based motherboards
+\par }\pard \ql \li360\ri0\sl240\slmult0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\cf1\insrsid5450798  
+\par For all boards:
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \ql \fi-360\li1080\ri0\sl240\slmult0\widctlpar\tx1080{\*\pn \pnlvlbody\ilvl0\ls35\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls35\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix where GrabWaitFrameEx would return -1 immediately if you were inside a call to this function when precisely 49.710269 days had elapsed since the system had booted.}{
+\b\fs28\cf1\insrsid5450798 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls36\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls36\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix for possibility of reverse image on DIB display due to concurrent CimgConn::Display method calls.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls37\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls37\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Added capability to change camera image acquisition dimensions, without re-creating an image display connection that sources from that camera.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls38\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls38\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix to GDI object leak upon image connection deletion.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls39\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls39\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Add parameter to PC-CamLink LNI_TRIG_CYCLE_LATCH_TRIG allowing  enable/or disable of latching trigger(s) while a triggered acquisition is already in progress. Prev
+ious operation always latched. 
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls40\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls40\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Fix for performing repeated dynamic LoadLibrary/FreeLibrary of ifcapi.dll.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls41\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls41\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 Add access to PCVision}{\i\fs28\insrsid5450798 plus}{\fs28\insrsid5450798 
+ Misc. connector inputs and outputs (TTL, Opto, Diff) using CICapMod::InportVal and CICapMod::OutportVal functions.
+\par {\pntext\pard\plain\f3\fs28 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard \qj \fi-360\li1080\ri0\widctlpar\tx0\tx360{\*\pn \pnlvlbody\ilvl0\ls42\pnrnot0\pnf3\pnstart1\pnindent360\pnsp120\pnhang {\pntxtb \'b7}}
+\nooverflow\faroman\ls42\rin0\lin1080\itap0\pararsid5450798 {\fs28\insrsid5450798 In Camera Configurator: add to the New Camera Wizard support for PC2-Vision, PC2-CamLink, and NetSight II. 
+\par }\pard \ql \fi-360\li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs28\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 2.2 IFC System Files
+\par }\pard \qj \li0\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin0\itap0 {\b\fs28\insrsid5450798 IFC}{\fs28\insrsid5450798  has installed the following files into your system directories. Backup copies of these files exists in }{
+\i\fs28\insrsid5450798 rootdir}{\fs28\insrsid5450798 :/IFC}{\i\fs28\insrsid5450798 xx}{\fs28\insrsid5450798 /lib or \'85/IFC}{\i\fs28\insrsid5450798 xx}{\fs28\insrsid5450798 /BanditII/DisplayDriver.
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \fi720\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\ul\insrsid5450798 windows/system, windows/system32 or winnt/system32 
+\par }\pard \qj \li1440\ri0\widctlpar\nooverflow\faroman\rin0\lin1440\itap0 {\fs28\insrsid5450798 hiffl32.dll                                   v. 1.3.0.1
+\par ifftif32.dll                                   v. 1.3.0.1
+\par }\pard \qj \fi360\li1080\ri0\widctlpar\nooverflow\faroman\rin0\lin1080\itap0 {\fs28\insrsid5450798 Corlog.dll                                   v. 4.20.0.0
+\par Corpci.dll\tab \tab \tab \tab v. 4.30.0.0
+\par BdIICap.dll                                v. 1.71.0.0
+\par }\pard \qj \li1440\ri0\widctlpar\nooverflow\faroman\rin0\lin1440\itap0 {\fs28\insrsid5450798 ifc21.dll                                      v. 5.9.0.10
+\par }\pard \qj \fi720\li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 ifcapi.dll                                     v. 5.9.0.10
+\par ifcui21.dll                                   v. 5.9.0.10
+\par }\pard \qj \li1440\ri0\widctlpar\nooverflow\faroman\rin0\lin1440\itap0 {\fs28\insrsid5450798 IDGT21.dl                                  v. 1.2.0.0}{\b\fs28\insrsid5450798 
+\par }\pard \qj \fi360\li1080\ri0\widctlpar\nooverflow\faroman\rin0\lin1080\itap0 {\fs28\insrsid5450798 ifcdrv21.dll                                 v. 5.9.0.10
+\par ifcdsp21.dll                                 v. 5.9.0.10
+\par ijl15.dll                                        v. 1.51.12.44
+\par pcv2L.dll\tab \tab \tab \tab  v. 1.20.0.0
+\par pc2cl.dll\tab \tab \tab \tab  v. 1.2.1.0
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 \tab    }{\i\fs28\insrsid5450798 If Bandit-II is selected:
+\par }\pard \qj \fi360\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 \tab \tab BdIIDual.dll\tab                                 v. 1.70.0.0
+\par \tab \tab BdIIVga.dll                                 v. 5.12.01.7053
+\par \tab \tab BdIIVgaS.dll\tab \tab \tab v.  5.12.1.1207
+\par \tab \tab MXICD.dll\tab \tab \tab \tab v. 2.10.58.0}{\fs24\ul\insrsid5450798 
+\par }{\fs28\ul\insrsid5450798 
+\par WindowsNT/2000/XP : winnt (windows \{under XP\})\\system32\\drivers 
+\par }\pard \qj \fi720\li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 mvcntp.sys  }{\i\fs28\insrsid5450798 Windows NT}{\fs28\insrsid5450798         \tab v. 5.8.3.0
+\par mvcntp.sys  }{\i\fs28\insrsid5450798 Windows 2000}{\fs28\insrsid5450798       \tab v. 5.9.0.10
+\par mvcntp.sys  }{\i\fs28\insrsid5450798 Windows XP}{\fs28\insrsid5450798          \tab v. 5.9.0.10
+\par CorBDII.sys                           \tab v. 1.70.0.0
+\par CorLog.sys                           \tab v. 4.2.0.0
+\par Pcv2.sys\tab \tab \tab \tab v. 1.21.0.0
+\par Corserial.sys\tab \tab \tab v. 5.0.0.0
+\par Corpci.sys\tab \tab \tab \tab v. 4.1.0.0
+\par PC2C.sys\tab \tab \tab \tab v. 1.2.1.0
+\par Nsplus.sys\tab \tab \tab \tab v. 1.21.0.0
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 \tab    }{\i\fs28\insrsid5450798 If Bandit-II is selected:
+\par }\pard \qj \fi720\li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 BdIIVgaM.sys\tab \tab \tab v. 5.12.1.7053
+\par BdIIVgaSM.sys \tab \tab    \tab v. 5.12.1.1207
+\par }\pard \qj \fi720\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 
+\par For windows 2000: 
+\par }\pard \qj \fi720\li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 INF File: iti_pci2k.inf (available on the root directory of the CD)
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 \tab 
+\par }\pard \qj \fi720\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798 For windows XP:
+\par }\pard \qj \fi360\li1080\ri0\widctlpar\nooverflow\faroman\rin0\lin1080\itap0 {\fs28\insrsid5450798 INF File: iti_pci2k.inf (available on the root directory of the CD)
+\par }\pard \qj \fi720\li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 INF File: itiports.inf (available on the root directory of the CD)
+\par }{\ul\insrsid5450798 
+\par }\pard\plain \s1\qj \fi360\li0\ri0\keepn\widctlpar\nooverflow\faroman\outlinelevel0\rin0\lin0\itap0 \fs28\ul\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid5450798 Windows98 : windows\\system 
+\par }\pard\plain \qj \fi720\li360\ri0\widctlpar\nooverflow\faroman\rin0\lin360\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\fs28\insrsid5450798 itipci.vxd                                   v.5.6.0.0
+\par }\pard \qj \fi720\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\fs28\insrsid5450798  INF File: iti_pci.inf (available on the root directory of the CD)
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 \page 2.3 Microsoft Developer Studio Settings
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 In}{\fs28\insrsid5450798  order to build applications with this release of IFC, any standard Win32 project will need the following changes:
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin720\itap0 {\b\fs28\insrsid5450798 Additional}{\fs28\insrsid5450798  Include Directories: }{\i\fs28\insrsid5450798 drive}{\fs28\insrsid5450798 :/IFC}{\i\fs28\insrsid5450798 xx}{
+\fs28\insrsid5450798 /include (Add this to your Project - Settings - C++ -Preprocessor Category)
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 Additional}{\fs28\insrsid5450798  Lib path: }{\i\fs28\insrsid5450798 drive}{\fs28\insrsid5450798 :/IFC}{\i\fs28\insrsid5450798 xx}{\fs28\insrsid5450798 /lib (Add this to your Project - Settings -Link - Input Category )
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li0\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin0\itap0 {\b\fs28\insrsid5450798     \tab \tab The}{\fs28\insrsid5450798  IFC libraries used for linking (ifc21.lib and ifcdsp21.lib) do not need to be \tab \tab specified.
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 For}{\fs28\insrsid5450798  building applications that use VegaNet:
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin720\itap0 {\b\fs28\insrsid5450798 Additional}{\fs28\insrsid5450798  Include Directories: }{\i\fs28\insrsid5450798 drive}{\fs28\insrsid5450798 :/IFC}{\i\fs28\insrsid5450798 xx}{
+\fs28\insrsid5450798 /Veganet/include (Add this to your Project - Settings - C++ -Preprocessor Category)
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 Additional}{\fs28\insrsid5450798  Lib path: }{\i\fs28\insrsid5450798 drive}{\fs28\insrsid5450798 :/IFC}{\i\fs28\insrsid5450798 xx}{\fs28\insrsid5450798 /Veganet/lib (Add this to your Project - Settings -Link - Input Category )
+
+\par }{\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 2.4 Microsoft Developer Studio Extended Help
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 This}{\fs28\insrsid5450798  release of IFC includes context-sensitive help for the software developer.  If the Developer Studio user selects the 
+\'93Extension Help\'94 checkbox on the Help menu, F1 will pop up the function Reference Manual page. This describes the IFC function at the cursor, rather than searching the normal Microsoft help via the InfoViewer.  Clearing the \'93Extension Help\'94
+ checkbox will return the function to normal Microsoft help.
+\par }\pard \qj \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\f1\fs24\insrsid5450798 \page }{\f1\fs48\insrsid5450798 3. Installing IFC under Windows XP 
+\par }\pard \qj \li360\ri0\widctlpar\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 1. Install the IFC Software before installing the Coreco Imaging frame grabber.}{\fs28\insrsid5450798  }{\b\fs28\insrsid5450798 
+The Bandit-II series board may be installed before or after installing IFC.}{\fs28\insrsid5450798  (See Installation Notes \'93setup.txt\'94
+ on CD root.)  The following directions simplify finding hardware drivers, bypass attempts to find drivers on the Microsoft website, and make the \'93Found New Hardware\'94 process faster and easier. }{\fs16\insrsid5450798 
+\par 
+\par }{\b\fs28\insrsid5450798 2. }{\fs28\insrsid5450798 Install the IFC software, shut down the PC, install the Coreco Imaging frame grabber, attach the camera, and reboot the PC. 
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\ul\insrsid5450798 NOTE:}{\fs28\insrsid5450798  The \'93Add New Hardware\'94 Icon appears in the right corner of the Task Bar.  This Icon does not have a \'93float over ID\'94 or 
+\'93tool tip\'94 and does not give a properties or status menu/popup if you right-click on the Icon.  The Icon will display a message that ne
+w hardware was found and is searching for drivers.  You do not have to click on this message to close it.  It will close by itself before 
+the Found New Hardware window opens.  You cannot open the Device Manager (Control Panel | System | Hardware | Device Manager) while the Add New Hardware Icon is in the Task Bar.  You must wait for the \'93Found New Hardware\'94 window to open. 
+\par }\pard \qj \li360\ri0\widctlpar\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 3. }{\fs28\insrsid5450798 When the Found New Hardware window opens, select \'93Install from a list or Specific Location\'94 then click on Next.  (Do }
+{\b\fs28\insrsid5450798 not}{\fs28\insrsid5450798  select Install Automatically.) 
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 4. }{\fs28\insrsid5450798 In}{\b\fs28\insrsid5450798  }{\fs28\insrsid5450798 the next window, select \'93Don\rquote t Search I Will Choose the Driver to Install\'94 then click on Next.  (Do not select Search.) 
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 5. }{\fs28\insrsid5450798 In the next window, select the Coreco Imaging frame grabber or serial port and click Next.  Do not check Have Disk.  If you get a warning \'93This software is not licensed\'94
+, select Continue.  Coreco Imaging has not yet applied for a Microsoft Certificate for this driver under XP. 
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\ul\insrsid5450798 NOTE:}{\fs28\insrsid5450798  The Found New Hardware process repeats for each frame grabber and each frame grabber\rquote 
+s serial port. (The PC-CamLink has 1 serial port, the PC-DIG and PC-LineScan have 2 serial ports each.)  The complete process 
+can take about five minutes for a frame grabber and two serial ports.  Waiting for the Found New Hardware window makes it seem much longer than it really is. 
+\par }\pard \qj \li360\ri0\widctlpar\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 6.}{\fs28\insrsid5450798  When the \'93Found New Hardware Complete\'94
+ message appears over the Add New Hardware Icon, Click on the message to close the message.  The Add New Hardware Icon disappears from the Task Bar. 
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\ul\insrsid5450798 NOTE:}{\fs28\insrsid5450798  If you cancelled the process, you can open the Device Manager, and restart the driver installation, or rescan the hardware. 
+\par }\pard \ql \li0\ri0\pagebb\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\f1\fs48\insrsid5450798 4. Known Bugs and Limitations
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.1 Config File names for examples
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 All}{\fs28\insrsid5450798 
+ IFC examples try to load a default configuration file depending on the board used. If this attempt fails then they load an auto configuration. Here are the default configuration file names for various boards:
+\par }\pard \qj \li720\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 PC-DIG :            pcdtest.txt\tab \tab PC-LineScan :    pcltest.txt
+\par }\pard \qj \li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 {\fs28\insrsid5450798 PC-RGB :           pcrtest.txt\tab \tab PCVision}{\i\fs28\insrsid5450798 plus}{\fs28\insrsid5450798  :   pcptest.txt
+\par }\pard\plain \s2\qj \li720\ri0\keepn\widctlpar\nooverflow\faroman\outlinelevel1\rin0\lin720\itap0 \fs28\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\insrsid5450798 PCVision :          pcvtest.txt\tab \tab PC-CamLink:     lnktest.txt
+\par }\pard\plain \qj \li720\ri0\widctlpar\nooverflow\faroman\rin0\lin720\itap0 \fs20\lang1033\langfe1033\cgrid\langnp1033\langfenp1033 {\fs28\insrsid5450798 Bandit-II:\tab        bdttest.txt\tab \tab PC2-Vision:\tab        p2vtest.txt
+\par PC2-CamLink:    cl2test.txt\tab \tab NetSight II:         nsptest.txt
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.2 Coexistence with ITEX   
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 IFC-SDK}{\fs28\insrsid5450798  5.0.0.0 }{\fs28\ul\insrsid5450798 and}{\fs28\insrsid5450798  }{\fs28\ul\insrsid5450798 above}{\fs28\insrsid5450798 
+ can coexist with ITEX v.4.1.0.0 on the same machine.  You must }{\fs28\ul\insrsid5450798 uninstall}{\fs28\insrsid5450798  any }{\fs28\ul\insrsid5450798 earlier version}{\fs28\insrsid5450798  of ITEX before installing IFC v.5.9.0.0.
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.3 Qualified video cards and drivers
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 Under}{\fs28\insrsid5450798 
+ Win98 it has been noted that certain video cards cannot properly share an IRQ assignment with our hardware. If you experience problems, check if your CI board is sharing an IRQ with your video hardware. If this is the case, try a dif
+ferent video card, if possible.
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.4 The Configurator
+\par }\pard \ql \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 The}{\fs28\insrsid5450798 
+ Camera Configurator Histogram is guaranteed to work properly with the generic OpenGL implementation and acceleration from Microsoft.  If your display card device driver accelerates the generic OpenGL implementation, then the stability and performance of 
+the histogram depends on the specific device driver acceleration of the generic OpenGL implementation.
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 \lquote Create}{\fs28\insrsid5450798  Camera\rquote  with a PC-DIG does not allow you to select \lquote Area Scan.\rquote \\}{\fs28\ul\insrsid5450798 Workaround:}{\fs28\insrsid5450798  Edit a facto
+ry-defined area scan camera to match your camera and rename it when requested to do so. }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin0\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.5 Bandit-II Series Boards (CV, MV, RGB)
+\par }\pard \ql \li0\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs28\insrsid5450798 \tab }{\b\fs28\insrsid5450798 For }{\fs28\insrsid5450798 instructions on video driver installation, please refer to the \tab 
+Installation Notes on the CD root (setup.txt).
+\par }{\b\f1\fs28\insrsid5450798 \tab }{\b\fs28\insrsid5450798 VegaNet.htm }{\fs28\insrsid5450798 exhibits limited proper functionality at this time with the \tab Bandit-II MV and RGB. It does not function at all with the CV.
+\par }{\b\f1\fs28\insrsid5450798 \tab }{\b\fs28\insrsid5450798 Trigger}{\fs28\insrsid5450798  interrupt with the Bandit-II RGB and MV does not function.
+\par \tab }{\b\fs28\insrsid5450798 IFC }{\fs28\insrsid5450798 does not support the use of the Bandit-II as just a frame grabber; i.e., it must be the VGA card also.
+\par \tab }{\b\fs28\insrsid5450798 Bandit-II}{\fs28\insrsid5450798  series is not supported by IFC under Windows 98.
+\par \tab }{\b\fs28\insrsid5450798 For }{\fs28\insrsid5450798 YCRCB display with either Bandit-II CV or RGB, upon exiting a screen saver mode, the display may be faulty, generating an error message: Unable to lock DDRAW surface.  }{\fs28\ul\insrsid5450798 
+Workarounds}{\fs28\insrsid5450798 : Disable the screen saver, snap and then re-grab the image, or change from and then back to the active port.
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.6 Windows 98 Support
+\par }\pard \ql \li0\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 \tab }{\b\fs28\insrsid5450798 PC2-Vision, Bandit-II, PC2-CamLink }{\fs28\insrsid5450798 are not supported under W98.
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.7 Overlay Example
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 In}{\fs28\insrsid5450798 
+ certain modes, the overlay graphics objects are not updated when you switch modes. They all will reappear when you start drawing a new graphical object. This is a limitation of this example and not IFC.
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 The}{\fs28\insrsid5450798  example does not display an image on the secondary surface if the image is larger than the screen setting.
+\par }\pard \qj \li0\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin0\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.8 ImgProc Example
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 Every}{\fs28\insrsid5450798  time \'93Grab AOI\'94 and then \'93OK\'94
+ is selected, the image repaints higher in that window so that eventually access to the toolbar is blocked.
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 With}{\fs28\insrsid5450798  multiple windows open, images in all windows repaint higher if \'93Select Cam\'94 and then \'93OK\'94 is selected.
+\par }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\tx720\nooverflow\faroman\rin0\lin720\itap0 {\fs28\ul\insrsid5450798 Note: Workaround for both issues}{\fs28\insrsid5450798 : enlarge the program window and move each image window down before starting any program functions.
+
+\par }\pard \qj \li360\ri0\widctlpar\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 Multiple}{\fs28\insrsid5450798  windows are not supported by the Bandit-II Series boards or the PC2-Vision board.
+\par }{\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.9 SeqSnap Example 
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 When}{\fs28\insrsid5450798  a TIFF file is loaded from disk to \'93display,\'94
+ a rectangle that was previously occupied by the file dialog box may not be painted correctly and the image may have a white unpainted rectangle.}{\fs16\insrsid5450798 
+\par }\pard \ql \li360\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin360\itap0 {\b\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 If}{\fs28\insrsid5450798  multiple boards are installed, the program will default to Board0.
+\par }{\fs16\insrsid5450798 
+\par }{\b\fs28\insrsid5450798 PCVisionplus:}{\fs28\insrsid5450798  Oversampling works only with an RS170 640x480 image.
+\par 
+\par }\pard \ql \li0\ri0\keepn\nowidctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.10 CGrab Example
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 CGrab}{\fs28\insrsid5450798  is an example of using IFC with ANSI \lquote C\rquote 
+ API. After building, run the executable from a command line with the board name code as an argument; e.g., pcd (for PC-DIG), pcl (PC-LineScan), pcr (PC-RGB), pcvision (PCVision), pcp (PCVision}{\i\fs28\insrsid5450798 plus}{\fs28\insrsid5450798 
+) p2v (PC2-Vision) and bdt (Bandit-II) cl2 (PC2-CamLink).
+\par }\pard \qj \li0\ri0\widctlpar\tx360\nooverflow\faroman\rin0\lin0\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.11 VegaNet Examples
+\par }\pard \qj \fi-360\li720\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin720\itap0 {\b\fs28\insrsid5450798 VegaNet}{\fs28\insrsid5450798  is not supported under Windows 98. VegaNet examples are not compatible with Windows 98
+\par }{\b\fs28\insrsid5450798 With}{\fs28\insrsid5450798  all VegaNet examples, if an error occurs in Remote Mode, you may have to go to the remote computer and kill the process \'93dllhost.exe\'94 using the Task Manager.
+\par }\pard \ql \fi360\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs28\insrsid5450798 4.11.1 Record Example
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs28\insrsid5450798 
+This example is designed to show the fast frame rate at which a live image gets saved.  If you access a remote node, the image saved will be on that node in <WINSYSDIR> even though the program indicates it is saving it in the local active directory.
+
+\par }\pard \ql \fi360\li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs28\insrsid5450798 4.11.2 BlobView Example
+\par }\pard \qj \fi-360\li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs28\insrsid5450798 \tab This example supports only small-size 8-bit images.  640 x 480 and 512 x 512 are appropriate for this example.  
+\par \tab Digital camera images are usually large because of their extended line size (width) and may crash this example.  
+\par \tab Color images are not supported.  
+\par \tab Accessing images concurrently from 2 local boards must be done through two separate configuration files.  Program will otherwise crash.
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.12 FPGA Update Tool
+\par }{\b\i\fs28\insrsid5450798      Warning:}{\fs28\insrsid5450798  This tool is configured for the PC2CamLink board only.  Attempting to \tab use this with any other board may crash your system.
+\par }{\fs16\insrsid5450798 
+\par }{\b\f1\fs32\insrsid5450798 4.13 Camera List and Presence of configuration file.
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 Examples}{\fs28\insrsid5450798  Process, LargeAcq and VBexamp require a configuration file. There is \tab 
+no way to select a camera configuration from within these programs.}{\fs16\insrsid5450798 
+\par 
+\par }{\b\fs28\insrsid5450798 SeqSnap, }{\fs28\insrsid5450798 Overlay, and ImgProc will default to a configuration file as specified in \tab 
+4.1, if present, but also have the camera database available from within the program. If no configuration file is present, they will display the complete list of available cameras in the camera database by default. }{\fs16\insrsid5450798 
+\par }\pard \qj \li720\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin720\itap0 {\b\fs28\insrsid5450798 This}{\fs28\insrsid5450798  is not a limitation of IFC, but intentional, to show how to use the camera database from an application.}{
+\fs16\insrsid5450798 
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.14 Image Size Limitations
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 Acquisition}{\fs28\insrsid5450798  and transfer of image to host buffer has limitations on image size \tab 
+alignment. The width of the image should be a multiple of 8 and width x height \tab should be multiple of 4K for it to function properly.}{\fs16\insrsid5450798 
+\par 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.15 Microsoft Visual C++ v. 5.0 
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 If}{\fs28\insrsid5450798  you use Microsoft Visual C++ v. 5.0 to rebuild the examples you will have \tab warning messages: \'93
+conflicting subsystem; image may not run.\'94  Just ignore it.}{\fs16\insrsid5450798 
+\par 
+\par }{\b\fs28\insrsid5450798 You}{\fs28\insrsid5450798  cannot rebuild the QConfig Example using Microsoft Visual C++ v.5.0.
+\par }{\b\f1\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.16 PC-LineScan Issues
+\par }\pard \qj \li360\ri0\sl360\slmult1\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 PC-LineScan}{\fs28\insrsid5450798  needs a Pentium II or higher motherboard to work properly.}{\fs16\insrsid5450798 
+\par }\pard \qj \li360\ri0\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\b\fs28\insrsid5450798 Run-Length}{\fs28\insrsid5450798  Encoding does not work under Windows 98 with this release.
+\par }\pard \qj \li360\ri0\sl360\slmult1\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }\pard \ql \li0\ri0\widctlpar\nooverflow\faroman\rin0\lin0\itap0 {\b\f1\fs32\insrsid5450798 4.17 PC2-CamLink Issues
+\par }{\b\fs28\insrsid5450798     For}{\fs28\insrsid5450798  line scan operation, the maximum number of }{\fs28\ul\insrsid5450798 lines}{\fs28\insrsid5450798  in a virtual frame is \tab limited to 8K in this software release.
+\par }\pard \qj \li360\ri0\sl360\slmult1\widctlpar\tx0\tx360\tx720\nooverflow\faroman\rin0\lin360\itap0 {\fs16\insrsid5450798 
+\par }}
