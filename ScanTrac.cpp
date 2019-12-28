@@ -105,6 +105,7 @@ static char THIS_FILE[] = __FILE__;
 	bool vGlobalFPGAVersion15point42orAbove;
 	bool vGlobalFPGAVersion16point0orAbove; //needed for X-Scan Detectors
 	bool vGlobalFPGAVersion16point7orAbove; //needed for Diverter in Sampling
+	bool vGlobalFPGAVersion16Point20OrHigher;
 	bool vGlobalFPGAVersion17point0orAbove; //need for HDRX but not used in Solo
 	bool vGlobalFPGAVersion18point0orAbove; //need for new DACs on Version 18 uC board
 
@@ -362,6 +363,7 @@ CScanTracApp::CScanTracApp()
 	vGlobalFPGAVersion16point0orAbove = true;
 	vGlobalFPGAVersion16point7orAbove = true;
 	vGlobalFPGAVersion17point0orAbove = true;
+	vGlobalFPGAVersion16Point20OrHigher = true;
 	vGlobalFPGAVersion18point0orAbove = true;
 
 	HANDLE TempMyProcessHandle = GetCurrentProcess();

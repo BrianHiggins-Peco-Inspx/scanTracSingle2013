@@ -15,6 +15,8 @@ class CNewConfigureSystemEjectorDialog : public CDialog
 {
 public:
 	//variables
+	BYTE vApplyRetriggerLockoutToResynchronizingSensors;
+	BYTE vResynchronizeEjectors;
 	bool vChangeMade;
 	CString vName[cNumberOfEjectors];
 	CString vDigitalInputLine[cNumberOfEjectors];
@@ -72,6 +74,8 @@ public:
 	CLeftFunctionButton	m_SubFunction1Button;
 	CLeftFunctionButton	m_SubFunction3Button;
 	CLeftFunctionButton	m_SubFunction2Button;
+	CStatic m_SubFunction0Button;
+	CStatic m_SubFunction1Display;
 	CStatic	m_EjectorName3;
 	CStatic	m_EjectorName2;
 	CStatic	m_EjectorName1;
@@ -122,6 +126,8 @@ protected:
 	afx_msg void OnFunction3Button();
 	afx_msg void OnFunction4Button();
 	afx_msg void OnFunction5Button();
+	afx_msg void OnSubfunction0button();
+	afx_msg void OnSubFunction0Button();
 	afx_msg void OnSubFunction1Button();
 	afx_msg void OnSubFunction2Button();
 	afx_msg void OnSubFunction3Button();

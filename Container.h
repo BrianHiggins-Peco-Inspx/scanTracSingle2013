@@ -24,6 +24,7 @@ public:
 	//BYTE vRejectedForThisInspection[cMaximumNumberOfInspections];
 	bool vRealImage;
 	DWORD vContainerNumber;
+	BYTE vContainerNumberToEject;
 	WORD vLastBodyTriggerGapLength;
 	BYTE vNumberOfLinesShort;
 	WORD vBodyTriggerPosition;

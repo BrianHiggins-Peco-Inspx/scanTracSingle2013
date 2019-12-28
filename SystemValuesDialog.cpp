@@ -1702,7 +1702,7 @@ void CSystemValuesDialog::SetChangeMade()
 //			TempProduct->vMaximumImageOverlap = TempProduct->vMaximumImageOverlap * 25.4;
 //
 //			TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(
-//				(float)(TempProduct->vProductBodyTriggerToImageBeltPositionOffset * 25.4));
+//				(float)(TempProduct->vProductBodyTriggerToImageDistanceInInches * 25.4));
 //
 //			TempProduct->SetEdgeLocationBottom((float)(TempProduct->vEdgeLocationBottom * 25.4));
 //			TempProduct->SetEdgeLocationHeight((float)(TempProduct->vEdgeLocationHeight * 25.4));
@@ -1720,7 +1720,7 @@ void CSystemValuesDialog::SetChangeMade()
 //			}
 //			for (BYTE TempLoopD = 0; TempLoopD < cNumberOfEjectors; TempLoopD++)
 //				TempProduct->SetEjectorBeltPositionOffset(TempLoopD,
-//				(float)(TempProduct->vEjectorDelayPosition[TempLoopD] * 25.4));
+//				(float)(TempProduct->vEjectorDistanceFromTriggerInInches[TempLoopD] * 25.4));
 //		}
 //	}
 //}
@@ -1741,7 +1741,7 @@ void CSystemValuesDialog::SetChangeMade()
 //			TempProduct->vMaximumImageOverlap = TempProduct->vMaximumImageOverlap / 25.4;
 //
 //			TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(
-//				(float)(TempProduct->vProductBodyTriggerToImageBeltPositionOffset / 25.4));
+//				(float)(TempProduct->vProductBodyTriggerToImageDistanceInInches / 25.4));
 //
 //			TempProduct->SetEdgeLocationBottom((float)(TempProduct->vEdgeLocationBottom / 25.4));
 //			TempProduct->SetEdgeLocationHeight((float)(TempProduct->vEdgeLocationHeight / 25.4));
@@ -1759,7 +1759,7 @@ void CSystemValuesDialog::SetChangeMade()
 //			}
 //			for (BYTE TempLoopD = 0; TempLoopD < cNumberOfEjectors; TempLoopD++)
 //				TempProduct->SetEjectorBeltPositionOffset(TempLoopD,
-//				(float)(TempProduct->vEjectorDelayPosition[TempLoopD] / 25.4));
+//				(float)(TempProduct->vEjectorDistanceFromTriggerInInches[TempLoopD] / 25.4));
 //		}
 //	}
 //}
@@ -1779,11 +1779,11 @@ void CSystemValuesDialog::ChangeScale()
 			TempProduct->SetProductLockOutWidth(TempProduct->vProductLockOutWidth);
 
 			TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(
-				TempProduct->vProductBodyTriggerToImageBeltPositionOffset);
+				TempProduct->vProductBodyTriggerToImageDistanceInInches);
 
 			for (BYTE TempLoopD = 0; TempLoopD < cNumberOfEjectors; TempLoopD++)
 				TempProduct->SetEjectorBeltPositionOffset(TempLoopD,
-				TempProduct->vEjectorDelayPosition[TempLoopD]);
+				TempProduct->vEjectorDistanceFromTriggerInInches[TempLoopD]);
 
 			for (BYTE TempLoopD = 0; TempLoopD < cNumberOfExternalDetectors; TempLoopD++)
 			{
@@ -2139,7 +2139,7 @@ void CSystemValuesDialog::OnTimer(UINT nIDEvent)
 //   in
 //	other cal 		//must set when change pixels per inch
 //	method accept	vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(
-//	cal, ask		vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset);
+//	cal, ask		vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches);
 //					vGlobalCurrentProduct->SetProductImageWidth(vGlobalCurrentProduct->vProductImageWidth);
 //
 //					vGlobalCurrentProduct->SetProductLockOutWidth(vGlobalCurrentProduct->vProductLockOutWidth);
@@ -2865,7 +2865,7 @@ void CSystemValuesDialog::CalculateCalibration()  //calibrating encoder with X-R
 					vGlobalPixelsPerUnit = vPixelsPerUnit;
 
 					//must set when change pixels per inch
-					vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset);
+					vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches);
 
 					vGlobalCurrentProduct->SetProductImageWidth(vGlobalCurrentProduct->vProductImageWidth);
 
@@ -3281,7 +3281,7 @@ void CSystemValuesDialog::CalibrateEncoderWithXRaysNoProductionSelection()
 							//must set when change pixels per inch so set incase user changed
 							vOriginalProduct = vGlobalCurrentProduct;
 
-							TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageBeltPositionOffset);
+							TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageDistanceInInches);
 
 							TempProduct->SetProductImageWidth((float)96);
 							TempProduct->SetProductLockOutWidth((float)100);

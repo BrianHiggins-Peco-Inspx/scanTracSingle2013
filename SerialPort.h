@@ -89,6 +89,7 @@ public:
 	virtual void DecodeMessage();
 	void ProcessBeltPosition(WORD TempBeltPosition, bool TempSyncValue);
 	void ProcessEjectNotification(WORD TempBeltPosition, BYTE TempEjector);
+	void ProcessResynchronizedEjectNotification(WORD TempBeltPosition, BYTE TempContainerEjectNumber);
 	void SendXRayPowerOnOffToUController(BYTE TempOn);
 	void HandleExternalDetectorLineChange(WORD TempBeltPosition,BYTE TempDigitalLines);
 	void TestContainersForEject(WORD TempCurrentBeltPosition);
@@ -106,11 +107,12 @@ public:
 	void EjectContainer(BYTE TempReason, CContainer *TempContainer, CInspection *TempInspection);
 	bool IsPastBeltPostion(WORD TempCurrentBeltPosition, 
 		WORD TempDecisionPoint, WORD TempBodyTrigger);
-	void AddNewContainer(UINT TempBTPosition);
+	CContainer* AddNewContainer(UINT TempBTPosition);
 	void SendDigitalLineInterruptEnableDisable(BYTE TempLine, BYTE TempEnable, WORD TempPosition);
 	void TallyEject(CContainer *TempContainer);
 	void RemoveContainerFromCollection();
 	void SendEjectCommand(BYTE TempEjector, WORD TempPosition);
+	void SendResynchronizedEjectCommand(BYTE TempContainerNumber, BYTE TempEjector, WORD TempDelay);
 	void WriteToLogFileWithBeltPosition(CString TempString, WORD TempContainerPosition);
 	//void EndTheThread();
 	void SetSimulatedEncoderRate(WORD TempRate);
@@ -144,6 +146,8 @@ public:
 #ifdef CompileInHTTPClientOperationsGuardian
 	void TestOGMessage();
 #endif
+	void ClearEjectorSynchronizationCount();
+	void CalculateDistanceToFirstSensor(WORD TempBeltPosition, BYTE TempContainerEjectNumber, BYTE TempEjectorNumber);
 	BYTE GetIndexForThisEncoderRate(WORD TempEncoderRate);
 	void HandleCompleteFillerMonitorDataSet();
 	void HandleCompleteSeamerDataSet();

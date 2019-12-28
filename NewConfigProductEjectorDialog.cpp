@@ -208,25 +208,27 @@ void CNewConfigProductEjectorDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 			(vLocalSystemData->vSimulateContainersRate) || (vLocalConfigurationData->vContinuousFeedContainerRate) || (vLocalConfigurationData->vBulkProductMode))
 			vMinimumEjectorDistance = 1 + TempMargin;
 		else
-			vMinimumEjectorDistance = vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset + TempMargin;
+			vMinimumEjectorDistance = vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches + TempMargin;
 	}
 	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 	{
-		vEjectorDelayPosition[TempLoop] = vGlobalCurrentProduct->vEjectorDelayPosition[TempLoop];
+		vEjectorDistanceFromTriggerInInches[TempLoop] = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempLoop];
 		vEjectorResponseTime[TempLoop] = vGlobalCurrentProduct->vEjectorResponseTime[TempLoop];
 		vDwellTime[TempLoop] = dtoa(vGlobalCurrentProduct->vEjectorDwellTime[TempLoop],2);
-		vOriginalDelayPosition[TempLoop] = dtoa(vGlobalCurrentProduct->vEjectorDelayPosition[TempLoop],2);
+		vOriginalDelayPosition[TempLoop] = dtoa(vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempLoop],2);
 		vOriginalEjectorResponseTime[TempLoop] = vGlobalCurrentProduct->vEjectorResponseTime[TempLoop];
 		vOriginalDwellTime[TempLoop] = dtoa(vGlobalCurrentProduct->vEjectorDwellTime[TempLoop],2);
+		vResyncTriggerToEjectTime[TempLoop] = vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempLoop];
+		vOriginalResyncTriggerToEjectTime[TempLoop] = vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempLoop];
 
-		if (vGlobalCurrentProduct->vEjectorDelayPosition[TempLoop] + .02 < vMinimumEjectorDistance)
+		if (vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempLoop] + .02 < vMinimumEjectorDistance)
 		{
-			vEjectorDelayPosition[TempLoop] = vMinimumEjectorDistance;
-			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)vEjectorDelayPosition[vEjectorNumberEditing]);
+			vEjectorDistanceFromTriggerInInches[TempLoop] = vMinimumEjectorDistance;
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing]);
 			vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
 
-			if (vEjectorDelayPosition[TempLoop] + vGlobalEndOfLineTimeOutMargin > vGlobalCurrentProduct->vEndOfLineTimeOut)
-				vGlobalCurrentProduct->SetEndOfLineTimeOut((float)vEjectorDelayPosition[TempLoop] + vGlobalEndOfLineTimeOutMargin);
+			if (vEjectorDistanceFromTriggerInInches[TempLoop] + vGlobalEndOfLineTimeOutMargin > vGlobalCurrentProduct->vEndOfLineTimeOut)
+				vGlobalCurrentProduct->SetEndOfLineTimeOut((float)vEjectorDistanceFromTriggerInInches[TempLoop] + vGlobalEndOfLineTimeOutMargin);
 
 			SetChangeMade();
 			if (vLocalConfigurationData->vEjector[TempLoop].vEnabled)
@@ -326,6 +328,13 @@ void CNewConfigProductEjectorDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 		if (!TimerResult)
 			ReportErrorMessage("Error-Start Timer Failed",cEMailInspx, 32000);
 	}
+	if (vLocalConfigurationData->vResynchronizeEjectors)
+	{
+		SetDlgItemText(IDC_Title2, _T("Time"));
+		SetDlgItemText(IDC_DistanceUnitsLabel, _T("Delay"));
+		SetDlgItemText(IDC_SubFunction6Button, _T("Time Delay (Sensor to Eject)"));
+	}
+
 
 	UpdateDisplay();
 
@@ -448,7 +457,8 @@ void CNewConfigProductEjectorDialog::SaveAndExit(int TempReturnCode)
 		ReportErrorMessage("Save and Exit from Edit Ejector Timing Menu", cUserAction,0);
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 		{
-			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)vEjectorDelayPosition[TempLoop]);
+			vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempLoop] = (float)vResyncTriggerToEjectTime[TempLoop];
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)vEjectorDistanceFromTriggerInInches[TempLoop]);
 			vGlobalCurrentProduct->vEjectorResponseTime[TempLoop] = vEjectorResponseTime[TempLoop];
 			vGlobalCurrentProduct->vEjectorDwellTime[TempLoop] = ((float)ATOF(vDwellTime[TempLoop]));
 		}
@@ -461,6 +471,10 @@ void CNewConfigProductEjectorDialog::SaveAndExit(int TempReturnCode)
 			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)ATOF(vOriginalDelayPosition[TempLoop]));
 			vGlobalCurrentProduct->vEjectorResponseTime[TempLoop] = vOriginalEjectorResponseTime[TempLoop];
 			vGlobalCurrentProduct->vEjectorDwellTime[TempLoop] = ((float)ATOF(vOriginalDwellTime[TempLoop]));
+
+			vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempLoop] = vOriginalResyncTriggerToEjectTime[TempLoop];
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+				vMainWindowPointer->SendEjectorDwellTimesToFPGA();
 		}
 	}
 	vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
@@ -647,124 +661,168 @@ void CNewConfigProductEjectorDialog::OnSubFunction5Button()
 
 void CNewConfigProductEjectorDialog::OnSubFunction6Button() 
 {
-	//Edit Distance From Container Trigger Button Was Pressed
-	CNumericEntryDialog INumericEntryDialog;  
+	if (vLocalConfigurationData->vResynchronizeEjectors)
+	{
+		//Edit time from resync photo eye until fire ejector (in milliseconds)
+		CNumericEntryDialog INumericEntryDialog;  
 	
-	//Set dialog box data titles and number value
+		//Set dialog box data titles and number value
 
-	if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
-		INumericEntryDialog.vEditString = dtoa(vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] - 
-		vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
-	else
-	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-		INumericEntryDialog.vEditString = dtoa(vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
-	else
-		INumericEntryDialog.vEditString = dtoa(vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown], 2);
+		INumericEntryDialog.vEditString = dtoa(vResyncTriggerToEjectTime[vEjectorNumberEditing	+ vFirstEjectorShown], 2);
 
-	if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
-		INumericEntryDialog.m_DialogTitleStaticText1 = "Ejector position OFFSET (Normally Zero)";
-	else
-	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-		INumericEntryDialog.m_DialogTitleStaticText1 = "Distance from ScanTrac Output Side Wall to Ejector";
-	else
-		INumericEntryDialog.m_DialogTitleStaticText1 = "Distance from Optical Trigger to Ejector";
+		INumericEntryDialog.m_DialogTitleStaticText1 = "Delay Time from Re-Sync Photo Eye to Fire Ejector";
 
-	INumericEntryDialog.m_DialogTitleStaticText2 = "Ejector: " + vCurrentEjectorName;
-	INumericEntryDialog.m_DialogTitleStaticText3 = "Product: " + *vProductName;
-	INumericEntryDialog.m_DialogTitleStaticText4 = "Original Value: " + INumericEntryDialog.vEditString;
-	INumericEntryDialog.m_UnitsString = "Measured in " + vLocalConfigurationData->vUnitsString;
-	INumericEntryDialog.vMaxValue = 500; //cMaxBeltPositionOffset / vGlobalPixelsPerUnit;
+		INumericEntryDialog.m_DialogTitleStaticText2 = "Ejector: " + vCurrentEjectorName;
+		INumericEntryDialog.m_DialogTitleStaticText3 = "Product: " + *vProductName;
+		INumericEntryDialog.m_DialogTitleStaticText4 = "Original Value: " + INumericEntryDialog.vEditString;
+		INumericEntryDialog.m_UnitsString = "Measured in milli-seconds";
+		INumericEntryDialog.vMaxValue = 4000;
+		INumericEntryDialog.vMinValue = 0;
 
-	if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
-	{
-		if (vMinimumEjectorDistance < vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] + vLocalConfigurationData->vSystemEjectorPositionOffset)
-			INumericEntryDialog.vMinValue = vMinimumEjectorDistance - vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset;
-		else
-			INumericEntryDialog.vMinValue = 0;
-	}
-	else
-	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-	{
-		if (vMinimumEjectorDistance < vLocalConfigurationData->vSystemEjectorPositionOffset)
-			INumericEntryDialog.vMinValue = vMinimumEjectorDistance - vLocalConfigurationData->vSystemEjectorPositionOffset;
-		else
-			INumericEntryDialog.vMinValue = 0;
-	}
-	else
-		INumericEntryDialog.vMinValue = vMinimumEjectorDistance;
+		INumericEntryDialog.vIntegerOnly = false;
 
-		// + vGlobalCurrentProduct->vProductImageWidth
-	INumericEntryDialog.vIntegerOnly = false;
-	if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
-	{
-		INumericEntryDialog.vAllowNegative = true;
-		INumericEntryDialog.vWarnIfLargerThan4 = true;
-	}
-
-	//Pass control to dialog box and display
-	int nResponse = INumericEntryDialog.DoModal();
-	//dialog box is now closed, if user pressed select do this
-	//if user pressed cancel, do nothing
-	if (nResponse == IDOK)
-	{
-		if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
-			vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString) + 
-			vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] + vLocalConfigurationData->vSystemEjectorPositionOffset);
-		else
-		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-			vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString) + vLocalConfigurationData->vSystemEjectorPositionOffset);
-		else
-			vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString));
-
-		if (vEjectorResponseTime[vEjectorNumberEditing	+ vFirstEjectorShown] > .09)
-			vEjectorResponseTime[vEjectorNumberEditing	+ vFirstEjectorShown] = (float).004;
-
-		vGlobalCurrentProduct->SetEjectorBeltPositionOffset(vEjectorNumberEditing	+ vFirstEjectorShown, (float)vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown]);
-
-		SetChangeMade();
-		UpdateDisplay();
-
-		if (vGlobalCurrentProduct->vMultiLaneNumberOfLanes)
+		//Pass control to dialog box and display
+		int nResponse = INumericEntryDialog.DoModal();
+		//dialog box is now closed, if user pressed select do this
+		//if user pressed cancel, do nothing
+		if (nResponse == IDOK)
 		{
-			CYesNoDialog TempYesNoDialog;
-			TempYesNoDialog.vNoticeText = _T("\n\nMulti Lane Product\n\nWould you like this eject position for all ejectors?");
-			TempYesNoDialog.vYesButtonText = "Set In All Ejectors";
-			TempYesNoDialog.vNoButtonText = "Just this ejector";
-			TempYesNoDialog.vQuestionType = cConfirmQuestion;
-			int TempResult = TempYesNoDialog.DoModal();
-			if (TempResult == IDOK)
-			{
-				for (BYTE TempLoop = 1; TempLoop < vGlobalCurrentProduct->vMultiLaneNumberOfLanes; TempLoop++)
-				{
-					vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown + TempLoop] = (float)vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown];
-					vGlobalCurrentProduct->SetEjectorBeltPositionOffset(vEjectorNumberEditing	+ vFirstEjectorShown + TempLoop, (float)vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown]);
-				}
+			vResyncTriggerToEjectTime[vEjectorNumberEditing	+ vFirstEjectorShown] = ATOF(INumericEntryDialog.vEditString);
+			vGlobalCurrentProduct->vResyncTriggerToEjectTime[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)ATOF(INumericEntryDialog.vEditString);
 
-				UpdateDisplay();
+			SetChangeMade();
+			UpdateDisplay();
+
+			//if (PasswordOK(cTemporaryInspxPassword, false))
+			//if (vEjectorNumberEditing	+ vFirstEjectorShown == 0)
+			//{
+			//	INumericEntryDialog.vEditString = dtoa(vEjectorDistanceFromTriggerInInches[0], 2);
+			//	INumericEntryDialog.m_DialogTitleStaticText1 = "Enter Distance to farthest ejector";
+			//	nResponse = INumericEntryDialog.DoModal();
+			//	if (nResponse == IDOK)
+			//	{
+			//		vEjectorDistanceFromTriggerInInches[0] = (float)(ATOF(INumericEntryDialog.vEditString));
+			//		vGlobalCurrentProduct->SetEjectorBeltPositionOffset(vEjectorNumberEditing	+ vFirstEjectorShown, (float)vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown]);
+			//		vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
+			//	}
+			//}
+
+			if (!vLocalSystemData->vEject4InARowCount)
+			if (vLocalSystemData->vSystemRunMode == cAutoSetupRunningSystem)
+			if (!vLocalSystemData->vTestEjectNextContainer)
+			{
+				vWaitingForTestEjectNextContainer = true;
+				vLocalSystemData->vTestEjectNextContainer = 1 << (vEjectorNumberEditing	+ vFirstEjectorShown);
+				UpdateButtons();
 			}
 		}
-
-		vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
-
-		if (vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] + vGlobalEndOfLineTimeOutMargin > vGlobalCurrentProduct->vEndOfLineTimeOut)
-			vGlobalCurrentProduct->SetEndOfLineTimeOut((float)(vEjectorDelayPosition[vEjectorNumberEditing	+ vFirstEjectorShown] + vGlobalEndOfLineTimeOutMargin));
-
-		if (!vLocalSystemData->vEject4InARowCount)
-		//if (vLocalConfigurationData->vEnableEjectors)
-		if (vLocalSystemData->vSystemRunMode == cAutoSetupRunningSystem)
-		if (!vLocalSystemData->vTestEjectNextContainer)
+		else 
+		if (nResponse == 10)
 		{
-			vWaitingForTestEjectNextContainer = true;
-			vLocalSystemData->vTestEjectNextContainer = 1 << (vEjectorNumberEditing	+ vFirstEjectorShown);
-			UpdateButtons();
+			//Main Menu button pressed
+			PrepareToExitDialog();
+			CDialog::EndDialog(10);
 		}
 	}
-	else 
-	if (nResponse == 10)
-	{
-		//Main Menu button pressed
-		PrepareToExitDialog();
-		CDialog::EndDialog(10);
+	else
+	{  //normal ejector distance from encoder pulses from container trigger
+		//Edit Distance From Container Trigger Button Was Pressed
+		CNumericEntryDialog INumericEntryDialog;  
+	
+		//Set dialog box data titles and number value
+
+		if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
+			INumericEntryDialog.vEditString = dtoa(vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] - 
+			vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
+		else
+		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+			INumericEntryDialog.vEditString = dtoa(vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
+		else
+			INumericEntryDialog.vEditString = dtoa(vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown], 2);
+
+		if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
+			INumericEntryDialog.m_DialogTitleStaticText1 = "Ejector position OFFSET (Normally Zero)";
+		else
+		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+			INumericEntryDialog.m_DialogTitleStaticText1 = "Distance from ScanTrac Output Side Wall to Ejector";
+		else
+			INumericEntryDialog.m_DialogTitleStaticText1 = "Distance from Optical Trigger to Ejector";
+
+		INumericEntryDialog.m_DialogTitleStaticText2 = "Ejector: " + vCurrentEjectorName;
+		INumericEntryDialog.m_DialogTitleStaticText3 = "Product: " + *vProductName;
+		INumericEntryDialog.m_DialogTitleStaticText4 = "Original Value: " + INumericEntryDialog.vEditString;
+		INumericEntryDialog.m_UnitsString = "Measured in " + vLocalConfigurationData->vUnitsString;
+		INumericEntryDialog.vMaxValue = 500; //cMaxBeltPositionOffset / vLocalConfigurationData->vPixelsPerUnit;
+
+		if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
+		{
+			if (vMinimumEjectorDistance < vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] + vLocalConfigurationData->vSystemEjectorPositionOffset)
+				INumericEntryDialog.vMinValue = vMinimumEjectorDistance - vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset;
+			else
+				INumericEntryDialog.vMinValue = 0;
+		}
+		else
+		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+		{
+			if (vMinimumEjectorDistance < vLocalConfigurationData->vSystemEjectorPositionOffset)
+				INumericEntryDialog.vMinValue = vMinimumEjectorDistance - vLocalConfigurationData->vSystemEjectorPositionOffset;
+			else
+				INumericEntryDialog.vMinValue = 0;
+		}
+		else
+			INumericEntryDialog.vMinValue = vMinimumEjectorDistance;
+
+			// + vGlobalCurrentProduct->vProductImageWidthInInches
+		INumericEntryDialog.vIntegerOnly = false;
+		if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
+		{
+			INumericEntryDialog.vAllowNegative = true;
+			INumericEntryDialog.vWarnIfLargerThan4 = true;
+		}
+
+		//Pass control to dialog box and display
+		int nResponse = INumericEntryDialog.DoModal();
+		//dialog box is now closed, if user pressed select do this
+		//if user pressed cancel, do nothing
+		if (nResponse == IDOK)
+		{
+			if (vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown])
+				vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString) + 
+				vLocalConfigurationData->vSystemEjectorDistance[vEjectorNumberEditing	+ vFirstEjectorShown] + vLocalConfigurationData->vSystemEjectorPositionOffset);
+			else
+			if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+				vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString) + vLocalConfigurationData->vSystemEjectorPositionOffset);
+			else
+				vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] = (float)(ATOF(INumericEntryDialog.vEditString));
+
+			if (vEjectorResponseTime[vEjectorNumberEditing	+ vFirstEjectorShown] > .09)
+				vEjectorResponseTime[vEjectorNumberEditing	+ vFirstEjectorShown] = (float).004;
+
+			SetChangeMade();
+			UpdateDisplay();
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(vEjectorNumberEditing	+ vFirstEjectorShown, (float)vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown]);
+			vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
+
+			if (vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] + vGlobalEndOfLineTimeOutMargin > vGlobalCurrentProduct->vEndOfLineTimeOut)
+				vGlobalCurrentProduct->SetEndOfLineTimeOut((float)(vEjectorDistanceFromTriggerInInches[vEjectorNumberEditing	+ vFirstEjectorShown] + vGlobalEndOfLineTimeOutMargin));
+
+			if (!vLocalSystemData->vEject4InARowCount)
+			//if (vLocalConfigurationData->vEnableEjectors)
+			if (vLocalSystemData->vSystemRunMode == cAutoSetupRunningSystem)
+			if (!vLocalSystemData->vTestEjectNextContainer)
+			{
+				vWaitingForTestEjectNextContainer = true;
+				vLocalSystemData->vTestEjectNextContainer = 1 << (vEjectorNumberEditing	+ vFirstEjectorShown);
+				UpdateButtons();
+			}
+		}
+		else 
+		if (nResponse == 10)
+		{
+			//Main Menu button pressed
+			PrepareToExitDialog();
+			CDialog::EndDialog(10);
+		}
 	}
 }
 
@@ -807,6 +865,12 @@ void CNewConfigProductEjectorDialog::OnSubFunction7Button()
 	if (nResponse == IDOK)
 	{
 		vDwellTime[vEjectorNumberEditing	+ vFirstEjectorShown] = INumericEntryDialog.vEditString;
+
+		if (vLocalConfigurationData->vResynchronizeEjectors)
+		{
+			vGlobalCurrentProduct->vEjectorDwellTime[vEjectorNumberEditing	+ vFirstEjectorShown] = ((float)ATOF(vDwellTime[vEjectorNumberEditing	+ vFirstEjectorShown]));
+			vMainWindowPointer->SendEjectorDwellTimesToFPGA();
+		}
 
 		SetChangeMade();
 		UpdateDisplay();
@@ -1123,6 +1187,7 @@ HBRUSH CNewConfigProductEjectorDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCt
 		TextSize = SetTextSizeFunctionButton(TempDialogHwnd, pWnd, pDC, &m_Function3Button, 5);  //5 is medium large
 		if (vLocalSystemData->vSystemRunMode == cStoppedSystemMode)
 		{
+			pDC->SetAttribDC(pDC->m_hDC);
 			pDC->SelectObject(vLocalSystemData->vCurrentLargeFont);
 			pDC->SetBkMode(TRANSPARENT);
 			pDC->SetTextColor(cButtonTextColor);
@@ -1131,6 +1196,7 @@ HBRUSH CNewConfigProductEjectorDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCt
 		else
 		if (vLocalSystemData->vYellowMessageButtonYellow)
 		{
+			pDC->SetAttribDC(pDC->m_hDC);
 			pDC->SetBkMode(TRANSPARENT);
 			pDC->SetTextColor(cButtonTextColor);
 			return vLocalSystemData->vYellowBrush;
@@ -1441,33 +1507,41 @@ void CNewConfigProductEjectorDialog::UpdateDisplay()
 
 	DisplayEjectorNames();
 
+	if (vLocalConfigurationData->vResynchronizeEjectors)
+	{
+		SetDlgItemText(IDC_DelayPosition1, dtoa(vResyncTriggerToEjectTime[0	+ vFirstEjectorShown], 2));
+		SetDlgItemText(IDC_DelayPosition2, dtoa(vResyncTriggerToEjectTime[1	+ vFirstEjectorShown], 2));
+		SetDlgItemText(IDC_DelayPosition3, dtoa(vResyncTriggerToEjectTime[2	+ vFirstEjectorShown], 2));
+	}
+	else
+	{
 	if (vLocalConfigurationData->vSystemEjectorDistance[0	+ vFirstEjectorShown])
-		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDelayPosition[0	+ vFirstEjectorShown] - 
+		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDistanceFromTriggerInInches[0	+ vFirstEjectorShown] - 
 			vLocalConfigurationData->vSystemEjectorPositionOffset - vLocalConfigurationData->vSystemEjectorDistance[0	+ vFirstEjectorShown], 2));
 	else
 	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDelayPosition[0	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
+		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDistanceFromTriggerInInches[0	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
 	else
-		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDelayPosition[0	+ vFirstEjectorShown], 2));
+		SetDlgItemText(IDC_DelayPosition1, dtoa(vEjectorDistanceFromTriggerInInches[0	+ vFirstEjectorShown], 2));
 
 	if (vLocalConfigurationData->vSystemEjectorDistance[1	+ vFirstEjectorShown])
-		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDelayPosition[1	+ vFirstEjectorShown] - 
+		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDistanceFromTriggerInInches[1	+ vFirstEjectorShown] - 
 			vLocalConfigurationData->vSystemEjectorPositionOffset - vLocalConfigurationData->vSystemEjectorDistance[1	+ vFirstEjectorShown], 2));
 	else
 	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDelayPosition[1	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
+		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDistanceFromTriggerInInches[1	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
 	else
-		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDelayPosition[1	+ vFirstEjectorShown], 2));
+		SetDlgItemText(IDC_DelayPosition2, dtoa(vEjectorDistanceFromTriggerInInches[1	+ vFirstEjectorShown], 2));
 
 	if (vLocalConfigurationData->vSystemEjectorDistance[2	+ vFirstEjectorShown])
-		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDelayPosition[2	+ vFirstEjectorShown] - 
+		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDistanceFromTriggerInInches[2	+ vFirstEjectorShown] - 
 			vLocalConfigurationData->vSystemEjectorPositionOffset - vLocalConfigurationData->vSystemEjectorDistance[2	+ vFirstEjectorShown], 2));
 	else
 	if (vLocalConfigurationData->vSystemEjectorPositionOffset)
-		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDelayPosition[2	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
+		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDistanceFromTriggerInInches[2	+ vFirstEjectorShown] - vLocalConfigurationData->vSystemEjectorPositionOffset, 2));
 	else
-		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDelayPosition[2	+ vFirstEjectorShown], 2));
-
+		SetDlgItemText(IDC_DelayPosition3, dtoa(vEjectorDistanceFromTriggerInInches[2	+ vFirstEjectorShown], 2));
+		}
 	if (_wtoi(vDwellTime[0	+ vFirstEjectorShown]) == 0)// && ((vLocalConfigurationData->vNumberOfHeadsToMonitor[cFillerSamplingType]) || (vLocalConfigurationData->vNumberOfHeadsToMonitor[cSeamerSamplingType]) || 
 		//(vLocalConfigurationData->vNumberOfHeadsToMonitor[cRandomSamplingType])))
 		SetDlgItemText(IDC_DwellTime1,_T("Diverter"));

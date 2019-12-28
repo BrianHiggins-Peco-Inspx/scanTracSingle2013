@@ -60,6 +60,7 @@ CImageData::CImageData()
 	vMinimumGoodMaximumBad = 255;
 	vImageTypeString = "Unknown Type";
 	vContainerNumber = 0;
+	vContainerNumberToEject = 0;
 	vBodyTriggerGapLength = 0;
 	vImageType = cNoImageType;
 
@@ -212,6 +213,7 @@ void CImageData::CopyImage(CImageData *TempSourceImage, DWORD TempSize)
 		vImageTypeString = TempSourceImage->vImageTypeString;
 		vBodyTriggerGapLength = TempSourceImage->vBodyTriggerGapLength;
 		vContainerNumber = TempSourceImage->vContainerNumber;
+		vContainerNumberToEject = TempSourceImage->vContainerNumberToEject;
 		vImageType = TempSourceImage->vImageType;
 
 

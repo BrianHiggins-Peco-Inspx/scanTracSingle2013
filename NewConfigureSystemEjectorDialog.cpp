@@ -16,6 +16,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+extern bool vGlobalFPGAVersion16Point20OrHigher;
 extern bool vGlobalFPGAVersion15Point34OrHigher;
 extern bool vGlobalFPGAVersion16point0orAbove;
 extern BYTE vGlobalShiftKeyDown;
@@ -33,6 +34,8 @@ CNewConfigureSystemEjectorDialog::CNewConfigureSystemEjectorDialog(CWnd* pParent
 	vChangeMade = false;
 	vEjectorNumberEditing = 0;
 	vFirstEjectorShown = 0;
+	vResynchronizeEjectors = 0;
+	vApplyRetriggerLockoutToResynchronizingSensors = 0;
 
 	vLightGreenBrush = ::CreateSolidBrush(cLightGreen);
 	vGreenBrush = ::CreateSolidBrush(cGreen);
@@ -47,6 +50,8 @@ CNewConfigureSystemEjectorDialog::CNewConfigureSystemEjectorDialog(CWnd* pParent
 	vLocalCWndCollection.Add(&m_SubFunction6Button);
 	vLocalCWndCollection.Add(&m_SubFunction5Button);
 	vLocalCWndCollection.Add(&m_SubFunction4Button);
+	vLocalCWndCollection.Add(&m_SubFunction0Button);
+	vLocalCWndCollection.Add(&m_SubFunction1Display);
 	vLocalCWndCollection.Add(&m_SubFunction1Button);
 	vLocalCWndCollection.Add(&m_SubFunction3Button);
 	vLocalCWndCollection.Add(&m_SubFunction2Button);
@@ -104,6 +109,9 @@ void CNewConfigureSystemEjectorDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 	vSubFunction6ButtonEnable = true;
 	vSubFunction7ButtonEnable = true;
 
+	vResynchronizeEjectors = vLocalConfigurationData->vResynchronizeEjectors;
+	vApplyRetriggerLockoutToResynchronizingSensors = vLocalConfigurationData->vApplyRetriggerLockoutToResynchronizingSensors;
+
 	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 	{
 		vName[TempLoop] = vLocalConfigurationData->vEjector[TempLoop].vName;
@@ -132,6 +140,7 @@ void CNewConfigureSystemEjectorDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SubFunction5Button, m_SubFunction5Button);
 	DDX_Control(pDX, IDC_SubFunction4Button, m_SubFunction4Button);
 	DDX_Control(pDX, IDC_SubFunction1Button, m_SubFunction1Button);
+	DDX_Control(pDX, IDC_SubFunction0Button, m_SubFunction0Button);
 	DDX_Control(pDX, IDC_SubFunction3Button, m_SubFunction3Button);
 	DDX_Control(pDX, IDC_SubFunction2Button, m_SubFunction2Button);
 	DDX_Control(pDX, IDC_EjectorName3, m_EjectorName3);
@@ -161,6 +170,7 @@ void CNewConfigureSystemEjectorDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_Title7, m_Title7);
 	DDX_Control(pDX, IDC_Title8, m_Title8);
 	DDX_Control(pDX, IDC_Title9, m_Title9);
+	DDX_Control(pDX, IDC_SubFunction1Display, m_SubFunction1Display);
 	//}}AFX_DATA_MAP
 }
 
@@ -173,6 +183,7 @@ BEGIN_MESSAGE_MAP(CNewConfigureSystemEjectorDialog, CDialog)
 	ON_BN_CLICKED(IDC_Function3Button, OnFunction3Button)
 	ON_BN_CLICKED(IDC_Function4Button, OnFunction4Button)
 	ON_BN_CLICKED(IDC_Function5Button, OnFunction5Button)
+	ON_BN_CLICKED(IDC_SubFunction0Button, OnSubfunction0button)
 	ON_BN_CLICKED(IDC_SubFunction1Button, OnSubFunction1Button)
 	ON_BN_CLICKED(IDC_SubFunction2Button, OnSubFunction2Button)
 	ON_BN_CLICKED(IDC_SubFunction3Button, OnSubFunction3Button)
@@ -206,6 +217,20 @@ void CNewConfigureSystemEjectorDialog::OnFunction2Button()
 			if (vChangeMade)
 				vLocalSystemData->vCurrentProductChanged = true;
 
+			if (vResynchronizeEjectors != vLocalConfigurationData->vResynchronizeEjectors)
+			{
+				if (!vLocalConfigurationData->vResynchronizeEjectors)
+				if (vLocalSystemData->vSystemRunMode != cStoppedSystemMode)
+				{
+					CNoticeDialog TempNoticeDialog;
+					TempNoticeDialog.vNoticeText = "\n\nYou must stop inspecting and\nselect the product to activate the Resynchronize Ejectors Mode.\nThen you must set the ejector timing";
+					TempNoticeDialog.vType = cErrorMessage;
+					TempNoticeDialog.DoModal();
+				}
+				vLocalConfigurationData->vResynchronizeEjectors = vResynchronizeEjectors;
+			}
+			vLocalConfigurationData->vApplyRetriggerLockoutToResynchronizingSensors = vApplyRetriggerLockoutToResynchronizingSensors;
+
 			for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 			{
 				vLocalConfigurationData->vEjector[TempLoop].vName = vName[TempLoop];
@@ -230,17 +255,17 @@ void CNewConfigureSystemEjectorDialog::OnFunction3Button()
 {
 	if (vFunction3ButtonEnable == true)
 	{
-	//Toggle Confirm Active High button Was pressed
-	if (vEnabled[vEjectorNumberEditing + vFirstEjectorShown])
-	if (vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown] != "0")
-	{
-		if (vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] == 0)
-			vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] = 1;
-		else
-			vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] = 0;
-		UpdateDisplay();
-		SetChangeMade();
-	}
+		//Toggle Confirm Active High button Was pressed
+		if (vEnabled[vEjectorNumberEditing + vFirstEjectorShown])
+		if (vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown] != "0")
+		{
+			if (vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] == 0)
+				vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] = 1;
+			else
+				vConfirmActiveHigh[vEjectorNumberEditing + vFirstEjectorShown] = 0;
+			UpdateDisplay();
+			SetChangeMade();
+		}
 	}
 	else
 	{
@@ -260,69 +285,69 @@ void CNewConfigureSystemEjectorDialog::OnFunction5Button()
 {
 	if (vFunction5ButtonEnable == true)
 	{
-	//Edit Confirm Digital Input Line Button Was Pressed
-	if (vEnabled[vEjectorNumberEditing + vFirstEjectorShown])
-	{
-		CNumericEntryDialog INumericEntryDialog;  
+		//Edit Confirm Digital Input Line Button Was Pressed
+		if (vEnabled[vEjectorNumberEditing + vFirstEjectorShown])
+		{
+			CNumericEntryDialog INumericEntryDialog;  
 		
-		//Set dialog box data titles and number value
-		INumericEntryDialog.vEditString = vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown];
-		INumericEntryDialog.m_DialogTitleStaticText1 = "Confirm Digital Input Line For";
-		INumericEntryDialog.m_DialogTitleStaticText2 = "System Ejector " + dtoa(vEjectorNumberEditing + vFirstEjectorShown + 1, 0);
-		INumericEntryDialog.m_DialogTitleStaticText3 = vName[vEjectorNumberEditing + vFirstEjectorShown];
-		INumericEntryDialog.m_DialogTitleStaticText4 = "Original Value: " + vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown];
+			//Set dialog box data titles and number value
+			INumericEntryDialog.vEditString = vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown];
+			INumericEntryDialog.m_DialogTitleStaticText1 = "Confirm Digital Input Line For";
+			INumericEntryDialog.m_DialogTitleStaticText2 = "System Ejector " + dtoa(vEjectorNumberEditing + vFirstEjectorShown + 1, 0);
+			INumericEntryDialog.m_DialogTitleStaticText3 = vName[vEjectorNumberEditing + vFirstEjectorShown];
+			INumericEntryDialog.m_DialogTitleStaticText4 = "Original Value: " + vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown];
 
-		INumericEntryDialog.m_UnitsString = "Zero Indicates No Detector Connected";
-		INumericEntryDialog.vMaxValue = 8;
-		INumericEntryDialog.vIntegerOnly = true;
-		//Pass control to dialog box and display
-		int nResponse = INumericEntryDialog.DoModal();
-		//dialog box is now closed, if user pressed select do this
-		//if user pressed cancel, do nothing
-		if (nResponse == IDOK)
-		{
-			vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown] = INumericEntryDialog.vEditString;
-			if (_wtoi(vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown]) != 0)
+			INumericEntryDialog.m_UnitsString = "Zero Indicates No Detector Connected";
+			INumericEntryDialog.vMaxValue = 8;
+			INumericEntryDialog.vIntegerOnly = true;
+			//Pass control to dialog box and display
+			int nResponse = INumericEntryDialog.DoModal();
+			//dialog box is now closed, if user pressed select do this
+			//if user pressed cancel, do nothing
+			if (nResponse == IDOK)
 			{
-				CYesNoDialog TempYesNoDialog;
-				TempYesNoDialog.vNoticeText = _T("\nDo you want to generate a\nsignal on X of Y Alarm 2 output\nwhen an unconfirmed eject error occurs?\n");
-				TempYesNoDialog.vYesButtonText = "Ouput on Alarm 2";
-				TempYesNoDialog.vNoButtonText = "No Output";
-				TempYesNoDialog.vQuestionType = cConfirmQuestion;
-				int TempResult = TempYesNoDialog.DoModal();
-				if (TempResult == IDOK)
+				vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown] = INumericEntryDialog.vEditString;
+				if (_wtoi(vConfirmDigitalInputLine[vEjectorNumberEditing + vFirstEjectorShown]) != 0)
 				{
-					if (vEjectorNumberEditing + vFirstEjectorShown == 0)
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 1;
-					else 
-						if (vEjectorNumberEditing + vFirstEjectorShown == 1)
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 2;
-					else 
-						if (vEjectorNumberEditing + vFirstEjectorShown == 2)
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 4;
+					CYesNoDialog TempYesNoDialog;
+					TempYesNoDialog.vNoticeText = _T("\nDo you want to generate a\nsignal on X of Y Alarm 2 output\nwhen an unconfirmed eject error occurs?\n");
+					TempYesNoDialog.vYesButtonText = "Ouput on Alarm 2";
+					TempYesNoDialog.vNoButtonText = "No Output";
+					TempYesNoDialog.vQuestionType = cConfirmQuestion;
+					int TempResult = TempYesNoDialog.DoModal();
+					if (TempResult == IDOK)
+					{
+						if (vEjectorNumberEditing + vFirstEjectorShown == 0)
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 1;
+						else 
+							if (vEjectorNumberEditing + vFirstEjectorShown == 1)
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 2;
+						else 
+							if (vEjectorNumberEditing + vFirstEjectorShown == 2)
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject | 4;
+					}
+					else
+					{
+						if ((vEjectorNumberEditing + vFirstEjectorShown == 0) && (vUseXofYAlarmOutputForUnconfirmedEject & 1))
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 6;
+						else if ((vEjectorNumberEditing == 1) && (vUseXofYAlarmOutputForUnconfirmedEject & 2))
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 5;
+						else if ((vEjectorNumberEditing == 2) && (vUseXofYAlarmOutputForUnconfirmedEject & 4))
+							vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 3;
+					}
 				}
-				else
-				{
-					if ((vEjectorNumberEditing + vFirstEjectorShown == 0) && (vUseXofYAlarmOutputForUnconfirmedEject & 1))
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 6;
-					else if ((vEjectorNumberEditing == 1) && (vUseXofYAlarmOutputForUnconfirmedEject & 2))
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 5;
-					else if ((vEjectorNumberEditing == 2) && (vUseXofYAlarmOutputForUnconfirmedEject & 4))
-						vUseXofYAlarmOutputForUnconfirmedEject = vUseXofYAlarmOutputForUnconfirmedEject & 3;
-				}
-			}
 				
-			SetChangeMade();
-			UpdateDisplay();
+				SetChangeMade();
+				UpdateDisplay();
+			}
+			else 
+			if (nResponse == 10)
+			{
+				//Main Menu button pressed
+				Sleep(1); //is the equivelent of a yeild statement;
+				CDialog::EndDialog(10);
+			}
 		}
-		else 
-		if (nResponse == 10)
-		{
-			//Main Menu button pressed
-			Sleep(1); //is the equivelent of a yeild statement;
-			CDialog::EndDialog(10);
-		}
-	}
 	}
 	else
 	{
@@ -330,19 +355,64 @@ void CNewConfigureSystemEjectorDialog::OnFunction5Button()
 	}
 }
 
-void CNewConfigureSystemEjectorDialog::OnSubFunction1Button() 
+void CNewConfigureSystemEjectorDialog::OnSubfunction0button()
 {
 	//Next or Previous Page
 	if (vGlobalFPGAVersion15Point34OrHigher)
 	{
-		vFirstEjectorShown = vFirstEjectorShown + 3;
-		if (vFirstEjectorShown >= cNumberOfEjectorsForUser)  //should be cNumberOfEjectors  //only allow 30 ejectors as that is all hardware supports, but software supports 32 if remove this
+		if (vFirstEjectorShown)
 			vFirstEjectorShown = 0;
-
-		vEjectorNumberEditing = 0; //start at first ejector in this group
+		else
+			vFirstEjectorShown = 3;
 
 		UpdateDisplay();
 	}
+}
+
+void CNewConfigureSystemEjectorDialog::OnSubFunction1Button() 
+{
+	if (vResynchronizeEjectors)
+		vResynchronizeEjectors = 0;
+	else
+		vResynchronizeEjectors = 1;
+
+	if (vResynchronizeEjectors)
+	{
+		CYesNoDialog TempYesNoDialog;
+		TempYesNoDialog.vNoticeText = _T("\n\nDo you want to apply the Re-Trigger Lockout to the re-synchronizing sensors?");
+		TempYesNoDialog.vYesButtonText = "Apply Lockout";
+		TempYesNoDialog.vNoButtonText = " Do Not Apply Lockout";
+		TempYesNoDialog.vQuestionType = cConfirmQuestion;
+		int TempResult = TempYesNoDialog.DoModal();
+		if (TempResult == IDOK)
+			vApplyRetriggerLockoutToResynchronizingSensors = true;
+		else
+			vApplyRetriggerLockoutToResynchronizingSensors = false;
+	}
+
+	if (vResynchronizeEjectors)
+#ifndef _DEBUG
+	if (vGlobalFPGAVersion16Point20OrHigher)
+#endif
+	{
+		CNoticeDialog TempNoticeDialog;
+		TempNoticeDialog.vNoticeText = "Resynchronizing Ejectors Mode requires\nPhoto Sensor to Opto Module 1, LED 4 to be mounted just before Ejector 1, Photo Sensor to Opto Module 2, LED 4 mounted just before Ejector 2 and higher.";
+		TempNoticeDialog.vType = cNoticeMessage;
+		TempNoticeDialog.DoModal();
+	}
+#ifndef _DEBUG
+	else
+	{
+		CNoticeDialog TempNoticeDialog;
+		TempNoticeDialog.vNoticeText = "\n\n\nResynchronizing Ejectors Mode requires\nFPGA Version 16.20 or higher";
+		TempNoticeDialog.vType = cErrorMessage;
+		TempNoticeDialog.DoModal();
+		vResynchronizeEjectors = 0;
+	}
+#endif
+
+	UpdateDisplay();
+	SetChangeMade();
 }
 
 void CNewConfigureSystemEjectorDialog::OnSubFunction2Button() 
@@ -861,6 +931,23 @@ HBRUSH CNewConfigureSystemEjectorDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT n
 			pDC->SetTextColor(cGray);
 		return vGlobalButtonColorBrush;
 	}
+
+	if (pWnd->GetDlgCtrlID() == IDC_SubFunction0Button)
+	{
+		pDC->SetBkMode(TRANSPARENT);
+		TextSize = SetTextSizeSubFunctionButton(TempDialogHwnd, pWnd, pDC, &m_SubFunction0Button, 5);  //5 is medium large
+		pDC->SetTextColor(cButtonTextColor);
+		return vGlobalButtonColorBrush;
+	}
+	
+	if (pWnd->GetDlgCtrlID() == IDC_SubFunction1Display)
+	{
+		TextSize = SetTextSizeMultilineDisplay(TempDialogHwnd, pWnd, pDC, &m_SubFunction1Display, 5);
+		pDC->SetBkMode(TRANSPARENT);
+		if (vResynchronizeEjectors)
+			return vYellowBrush;
+	}
+
 	if (pWnd->GetDlgCtrlID() == IDC_SubFunction1Button)
 	{
 		pDC->SetBkMode(TRANSPARENT);
@@ -940,12 +1027,36 @@ HBRUSH CNewConfigureSystemEjectorDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT n
 
 void CNewConfigureSystemEjectorDialog::UpdateDisplay()
 {
-	if (vGlobalFPGAVersion15Point34OrHigher)
-		SetDlgItemText(IDC_SubFunction1Button, _T("Next"));
+	if ((vFirstEjectorShown == 0) && (vGlobalFPGAVersion15Point34OrHigher))
 
-	SetDlgItemText(IDC_SubFunction2Button, "Edit " + dtoa(vFirstEjectorShown + 1, 0));
-	SetDlgItemText(IDC_SubFunction3Button, "Edit " + dtoa(vFirstEjectorShown + 2, 0));
-	SetDlgItemText(IDC_SubFunction4Button, "Edit " + dtoa(vFirstEjectorShown + 3, 0));
+	{
+		SetDlgItemText(IDC_SubFunction0Button, _T("Next"));
+		SetDlgItemText(IDC_SubFunction2Button, _T("Edit 1"));
+		SetDlgItemText(IDC_SubFunction3Button, _T("Edit 2"));
+		SetDlgItemText(IDC_SubFunction4Button, _T("Edit 3"));
+	}
+	else
+	{
+		SetDlgItemText(IDC_SubFunction0Button, _T("Previous"));
+		SetDlgItemText(IDC_SubFunction2Button, _T("Edit 4"));
+		SetDlgItemText(IDC_SubFunction3Button, _T("Edit 5"));
+		SetDlgItemText(IDC_SubFunction4Button, _T("Edit 6"));
+	}
+
+	if (vResynchronizeEjectors)
+	{
+		if (vApplyRetriggerLockoutToResynchronizingSensors)
+			SetDlgItemText(IDC_SubFunction1Display, _T("Using Resynchronized Ejectors.  Requires Auxilary Detector before each ejector.\nApply Re-Trigger Lockout to sensors"));
+		else
+			SetDlgItemText(IDC_SubFunction1Display, _T("Using Resynchronized Ejectors.  Requires Auxilary Detector before each ejector.\nNo Re-Trigger Lockout for sensors"));
+
+		SetDlgItemText(IDC_SubFunction1Button, _T("Don't Use Resynchronize Ejectors Mode"));
+	}
+	else
+	{
+		SetDlgItemText(IDC_SubFunction1Display, _T("Using Encoder Counts for Ejector timing.  (Original way)."));
+		SetDlgItemText(IDC_SubFunction1Button, _T("Use Resynchronize Ejectors Mode"));
+	}
 
 	if (vDigitalInputLine[0 + vFirstEjectorShown])
 		SetDlgItemText(IDC_DigitalInputLine1,vDigitalInputLine[0 + vFirstEjectorShown]);

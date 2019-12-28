@@ -1207,17 +1207,17 @@ void CConfigureProduct::OnSubFunction7Button()
 				TempProduct->vBodyTrigger = 1;
 		
 				TempProduct->SetProductName("~Default");
-					if (TempProduct->vEjectorDelayPosition[0] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[0] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(0,72);
-					if (TempProduct->vEjectorDelayPosition[1] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[1] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(1,82);
-					if (TempProduct->vEjectorDelayPosition[2] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[2] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(2,92);
-					//if (TempProduct->vEjectorDelayPosition[3] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[3] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(3,102);
-					//if (TempProduct->vEjectorDelayPosition[4] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[4] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(4,112);
-					//if (TempProduct->vEjectorDelayPosition[5] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[5] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(5,122);
 
 				TempProduct->vThresholdForContainerBounds = 220;
@@ -1239,19 +1239,19 @@ void CConfigureProduct::OnSubFunction7Button()
 
 				if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
 				{
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 4);
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 4);
 				}
 				else
 				if ((vLocalConfigurationData->vScanTracType == cSoloScanTrac) || (vLocalConfigurationData->vScanTracType == cSoloPlusScanTrac))
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(cSoloRightToLeftDistance - 2);
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = (float)(cSoloRightToLeftDistance - 2);
 				else
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = 8;
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = 8;
 
 				TempProduct->SetProductImageWidth(TempProduct->vProductImageWidth);
 
 				TempProduct->SetProductLockOutWidth(TempProduct->vProductImageWidth);
 
-				TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageBeltPositionOffset);
+				TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageDistanceInInches);
 				
 				if (vLocalConfigurationData->vScanTracType == cUpSideDownSoloScanTrac) //Not Continuous Feed, or a Pipeline or TD
 				{
@@ -1524,17 +1524,17 @@ void CConfigureProduct::OnSubFunction8Button()
 				else
 				{
 					TempProduct->SetProductName("~Default");
-					if (TempProduct->vEjectorDelayPosition[0] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[0] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(0,72);
-					if (TempProduct->vEjectorDelayPosition[1] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[1] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(1,82);
-					if (TempProduct->vEjectorDelayPosition[2] < 45)
+					if (TempProduct->vEjectorDistanceFromTriggerInInches[2] < 45)
 						TempProduct->SetEjectorBeltPositionOffset(2,92);
-					//if (TempProduct->vEjectorDelayPosition[3] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[3] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(3,102);
-					//if (TempProduct->vEjectorDelayPosition[4] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[4] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(4,112);
-					//if (TempProduct->vEjectorDelayPosition[5] < 45)
+					//if (TempProduct->vEjectorDistanceFromTriggerInInches[5] < 45)
 						//TempProduct->SetEjectorBeltPositionOffset(5,122);
 				}
 
@@ -1557,19 +1557,19 @@ void CConfigureProduct::OnSubFunction8Button()
 
 				if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
 				{
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 4);
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 4);
 				}
 				else
 				if ((vLocalConfigurationData->vScanTracType == cSoloScanTrac) || (vLocalConfigurationData->vScanTracType == cSoloPlusScanTrac))
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(cSoloRightToLeftDistance - 2);
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = (float)(cSoloRightToLeftDistance - 2);
 				else
-					TempProduct->vProductBodyTriggerToImageBeltPositionOffset = 8;
+					TempProduct->vProductBodyTriggerToImageDistanceInInches = 8;
 
 				TempProduct->SetProductImageWidth(TempProduct->vProductImageWidth);
 
 				TempProduct->SetProductLockOutWidth(TempProduct->vProductImageWidth);
 
-				TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageBeltPositionOffset);
+				TempProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempProduct->vProductBodyTriggerToImageDistanceInInches);
 
 				if ((vLocalConfigurationData->vScanTracType == cCaseInspectorScanTrac) || (vLocalConfigurationData->vScanTracType == cAtempoScanTrac) || (vLocalConfigurationData->vScanTracType == cForteScanTrac) ||
 					(vLocalConfigurationData->vScanTracType == cAllegroScanTrac) ||

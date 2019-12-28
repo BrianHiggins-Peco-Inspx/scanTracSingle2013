@@ -130,7 +130,7 @@ public:
 	float vProductLockOutWidth;
 	WORD vLockoutPosition;
 
-	float vProductBodyTriggerToImageBeltPositionOffset;
+	float vProductBodyTriggerToImageDistanceInInches;
 	WORD vBTToImagePosition;
 
 	float vEndOfLineTimeOut;
@@ -170,8 +170,9 @@ public:
 	float vEjectorDwellPosition[cNumberOfEjectors]; // not used, removed from stream, but keep variable to read in old streams
 	float vEjectorDwellTime[cNumberOfEjectors];
 	float vEjectorResponseTime[cNumberOfEjectors];
+	float vResyncTriggerToEjectTime[cNumberOfEjectors];
 
-	float vEjectorDelayPosition[cNumberOfEjectors];  //in inches or mm
+	float vEjectorDistanceFromTriggerInInches[cNumberOfEjectors];  //in inches or mm
 	WORD vEjectorDelayBeltPosition[cNumberOfEjectors];
 
 	//Multi Lane Feature Variables

@@ -281,6 +281,7 @@ public:
 	unsigned int vSetWindowActiveTimerHandle;
 	unsigned int vGoodCountTimerHandle;
 	unsigned int vBeltPositionTimerHandle;
+	unsigned int vBeltEstimatedPositionTimerHandle;
 	unsigned int vUpdateDisplayTimerHandle;
 	unsigned int vCheckForErrorMessagesTimerHandle;
 	unsigned int vEjectCountTimerHandle;
@@ -678,6 +679,7 @@ public:
 	void UpdateAllInspectionNames();
 	void TickleWatchDogs();
 	void SelectLanguage();
+	void SendEjectorDwellTimesToFPGA();
 	void ShowMultiLaneCounts();
 	void UpdateButtons();
 	void TestDTOA();
@@ -722,6 +724,7 @@ public:
 	void DisableCamLinkImages();
 	void EnableCamLinkImages();
 	void StartCheckWeighingMenu(bool TempGoToOffsetCalibration);
+	void ManuallyEditProductValues();
 	void ClearXScanProducts();
 
 	// Dialog Data

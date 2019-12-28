@@ -476,6 +476,8 @@ void CMoreDiagnosticsDialog::OnSubFunction3Button()
 				Sleep(cSendCommandSleepTime);
 			}
 
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+				vMainWindowPointer->SendEjectorDwellTimesToFPGA();
 		}
 		else
 		{
@@ -509,33 +511,43 @@ void CMoreDiagnosticsDialog::OnSubFunction3Button()
 void CMoreDiagnosticsDialog::OnSubFunction4Button() 
 {
 	//Keep Auxiliary Detectors enabled
-	vLocalSystemData->vKeepExternalDetectorsEnabled = !vLocalSystemData->vKeepExternalDetectorsEnabled;
-	tSerialCommand TempCommand;
-	TempCommand[0] = 0x1C;
-	TempCommand[1] = 0x02;  //group 2 is Auxiliary Detectors
-	TempCommand[2] = 0x00;
-	if (vLocalSystemData->vSystemRunMode != cStoppedSystemMode)
+	if ((vLocalConfigurationData->vResynchronizeEjectors) && (vLocalSystemData->vKeepExternalDetectorsEnabled))
 	{
-		if (vLocalSystemData->vKeepExternalDetectorsEnabled)
-			TempCommand[3] = vLocalSystemData->vCurrentExternalDetectorMask;
-		else
-			TempCommand[3] = vLocalSystemData->vCurrentAlwaysOnExternalDetectorMask;
+		CNoticeDialog TempNoticeDialog;
+		TempNoticeDialog.vNoticeText = "\n\n\nResynchronizing Ejector Mode requires Auxiliry Detectors\nto always be enabled.";
+		TempNoticeDialog.vType = cNoticeMessage;
+		TempNoticeDialog.DoModal();
 	}
 	else
-		TempCommand[3] = 0;
-	if (vGlobaluCSerialPort)
-		vGlobaluCSerialPort->SendSerialCommand(TempCommand);
-	TempCommand[0] = 0x33;
-	TempCommand[1] = 0x00;
-	TempCommand[2] = 0x00;
-	if (vLocalSystemData->vKeepExternalDetectorsEnabled)
-		TempCommand[3] = 3;
-	else
-		TempCommand[3] = 4;
-	if (vGlobaluCSerialPort)
-		vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+	{
+		vLocalSystemData->vKeepExternalDetectorsEnabled = !vLocalSystemData->vKeepExternalDetectorsEnabled;
+		tSerialCommand TempCommand;
+		TempCommand[0] = 0x1C;
+		TempCommand[1] = 0x02;  //group 2 is Auxiliary Detectors
+		TempCommand[2] = 0x00;
+		if (vLocalSystemData->vSystemRunMode != cStoppedSystemMode)
+		{
+			if (vLocalSystemData->vKeepExternalDetectorsEnabled)
+				TempCommand[3] = vLocalSystemData->vCurrentExternalDetectorMask;
+			else
+				TempCommand[3] = vLocalSystemData->vCurrentAlwaysOnExternalDetectorMask;
+		}
+		else
+			TempCommand[3] = 0;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		TempCommand[0] = 0x33;
+		TempCommand[1] = 0x00;
+		TempCommand[2] = 0x00;
+		if (vLocalSystemData->vKeepExternalDetectorsEnabled)
+			TempCommand[3] = 3;
+		else
+			TempCommand[3] = 4;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
 
-	UpdateButtons();
+		UpdateButtons();
+	}
 }
 
 void CMoreDiagnosticsDialog::OnSubFunction5Button() 
@@ -1061,7 +1073,7 @@ HBRUSH CMoreDiagnosticsDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	if (pWnd->GetDlgCtrlID() == IDC_SubFunction4Button)  
 	{
 		TextSize = SetTextSizeSubFunctionButton(TempDialogHwnd, pWnd, pDC, &m_SubFunction4Button, 5);  //5 is medium large
-		if (vLocalSystemData->vKeepExternalDetectorsEnabled)
+		if ((vLocalSystemData->vKeepExternalDetectorsEnabled) && (!vLocalConfigurationData->vResynchronizeEjectors))
 		{
 			pDC->SetBkMode(TRANSPARENT);
 			pDC->SetTextColor(cButtonTextColor);
@@ -1306,7 +1318,10 @@ void CMoreDiagnosticsDialog::UpdateButtons()
 	if (vLocalSystemData->vKeepExternalDetectorsEnabled)
 	{
 		SetDlgItemText(IDC_SubFunction4Button, _T("Auxiliary Detectors Normal!"));
-		SetDlgItemText(IDC_ExternalDetectorsForcedEnabled, _T("Auxiliary Detectors are Forced Enabled"));
+		if (vLocalConfigurationData->vResynchronizeEjectors)
+			SetDlgItemText(IDC_ExternalDetectorsForcedEnabled, _T("Auxiliary Detectors are always Enabled"));
+		else
+			SetDlgItemText(IDC_ExternalDetectorsForcedEnabled, _T("Auxiliary Detectors are Forced Enabled"));
 	}
 	else
 	{

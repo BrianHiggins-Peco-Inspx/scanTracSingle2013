@@ -52,8 +52,11 @@ CSystemConfigurationData::CSystemConfigurationData()
 
 	vUsePipeFlowInput = 0;
 	vUseDownStreamSignalThatStopsConveyor = cDontUseDownStream;
+	vResynchronizeEjectors = 0;
+	vBeltPositionDistancetoEjectorResynchronizationSensor = 0;
 
 	vEnableModBusTCPIPInterface = 0;
+	vApplyRetriggerLockoutToResynchronizingSensors = 0;
 	vNumberOfPixelAtBottomToIgnoreInCalibration = 10;
 	vSupportContractYearExpires = 0;
 	vSpareInt4 = 0;
@@ -356,8 +359,6 @@ CSystemConfigurationData::CSystemConfigurationData()
 	vIgnoreCheyneyInterlockStatus = 0;
 	vReferenceContainersSideToSide = 0;
 	vStopAfterAnInspectionRejects = 0;
-	vSpareByteCD2 = 0;
-	vSpareByteCD3 = 0;
 	vSpareByteCD4 = 0;
 
 	vSpareWordCD6 = 0;
@@ -386,7 +387,6 @@ CSystemConfigurationData::CSystemConfigurationData()
 	vSpareDoubleCD6 = 0;
 	vEncoderRateTolerance = 0;
 	vEncoderDividerForPoint4mmMode = 0;
-	vSpareWord3 = 0;
 	vSpareWord4 = 0;
 	vSpareWord5 = 0;
 	vAutoProductionReportHour2 = 0;
@@ -658,7 +658,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 			<< vSpareDoubleCD5
 			<< vEncoderRateTolerance
 			<< vEncoderDividerForPoint4mmMode
-			<< vSpareWord3
+			<< vBeltPositionDistancetoEjectorResynchronizationSensor
 			<< vSpareWord4
 			<< vSpareWord5
 			<< vTimeLastMeasuredSourceStrength
@@ -680,8 +680,8 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 			<< vSpareStringSC6
 			<< vReferenceContainersSideToSide
 			<< vStopAfterAnInspectionRejects
-			<< vSpareByteCD2
-			<< vSpareByteCD3
+			<< vResynchronizeEjectors
+			<< vApplyRetriggerLockoutToResynchronizingSensors
 			<< vSpareByteCD4
 			<< vSpareDoubleCD6
 			<< vSpareCTimeCD5;
@@ -979,7 +979,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareDoubleCD5
 				>> vEncoderRateTolerance
 				>> vEncoderDividerForPoint4mmMode
-				>> vSpareWord3
+				>> vBeltPositionDistancetoEjectorResynchronizationSensor
 				>> vSpareWord4
 				>> vSpareWord5
 				>> vTimeLastMeasuredSourceStrength
@@ -1001,8 +1001,8 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareStringSC6
 				>> vReferenceContainersSideToSide
 				>> vStopAfterAnInspectionRejects
-				>> vSpareByteCD2
-				>> vSpareByteCD3
+				>> vResynchronizeEjectors
+				>> vApplyRetriggerLockoutToResynchronizingSensors
 				>> vSpareByteCD4
 				>> vSpareDoubleCD6
 				>> vSpareCTimeCD5;
@@ -1294,7 +1294,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareDoubleCD5
 				>> vEncoderRateTolerance
 				>> vEncoderDividerForPoint4mmMode
-				>> vSpareWord3
+				>> vBeltPositionDistancetoEjectorResynchronizationSensor
 				>> vSpareWord4
 				>> vSpareWord5
 				>> vTimeLastMeasuredSourceStrength
@@ -1316,8 +1316,8 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareStringSC6
 				>> vReferenceContainersSideToSide
 				>> vStopAfterAnInspectionRejects
-				>> vSpareByteCD2
-				>> vSpareByteCD3
+				>> vResynchronizeEjectors
+				>> vApplyRetriggerLockoutToResynchronizingSensors
 				>> vSpareByteCD4
 				>> vSpareDoubleCD6
 				>> vSpareCTimeCD5;
@@ -1612,7 +1612,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareDoubleCD5
 				>> vEncoderRateTolerance
 				>> vEncoderDividerForPoint4mmMode
-				>> vSpareWord3
+				>> vBeltPositionDistancetoEjectorResynchronizationSensor
 				>> vSpareWord4
 				>> vSpareWord5
 				>> vTimeLastMeasuredSourceStrength
@@ -1920,7 +1920,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareDoubleCD5
 				>> vEncoderRateTolerance
 				>> vEncoderDividerForPoint4mmMode
-				>> vSpareWord3
+				>> vBeltPositionDistancetoEjectorResynchronizationSensor
 				>> vSpareWord4
 				>> vSpareWord5;
 
@@ -2211,7 +2211,7 @@ void CSystemConfigurationData::Serialize( CArchive& TempArchive )
 				>> vSpareDoubleCD5
 				>> vEncoderRateTolerance
 				>> vEncoderDividerForPoint4mmMode
-				>> vSpareWord3
+				>> vBeltPositionDistancetoEjectorResynchronizationSensor
 				>> vSpareWord4
 				>> vSpareWord5;
 
@@ -8638,6 +8638,11 @@ void CSystemConfigurationData::SetDetectorLength(BYTE TempDetectorLength)
 
 CScanTracSystemRunningData::CScanTracSystemRunningData()
 {
+	vResynchronizeEjectorsCurrentEjectorSensorCount[0] = 0;
+	vResynchronizeEjectorsCurrentEjectorSensorCount[1] = 0;
+	vResynchronizeEjectorsCurrentTriggerCount = 0;
+	vFirstContainerShouldNotTriggerSensorYet = false;
+	vBeltPositionTunnelShouldBeClearTo = 0;
 	vOperationsGuardianConnected = false;
 	vOperationsGuardianError = 0;
 
@@ -9341,6 +9346,7 @@ CScanTracSystemRunningData::CScanTracSystemRunningData()
 	vOldPercentEjected = 0;
 	vOldCurrentBeltPosition = 1;
 	vCurrentBeltPosition = 1;
+	vCurrentEstimatedBeltPosition = 0;
 
 	vLastXRayCommandOn = false;
 	vSourceVoltage = 0;

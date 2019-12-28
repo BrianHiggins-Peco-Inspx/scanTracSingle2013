@@ -333,8 +333,8 @@ void CTDAutoSetupImageDisplayDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 
 	//set ejector position so be sure to get image and process it before passes ejector
 	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
-  	if (vGlobalCurrentProduct->vEjectorDelayPosition[TempLoop] < vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset + vGlobalCurrentProduct->vProductImageWidth + 4)
-		vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset + vGlobalCurrentProduct->vProductImageWidth + 4 + (TempLoop * 10)));
+  	if (vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempLoop] < vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches + vGlobalCurrentProduct->vProductImageWidth + 4)
+		vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, (float)(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches + vGlobalCurrentProduct->vProductImageWidth + 4 + (TempLoop * 10)));
 
 	vGlobalCurrentProduct->vTypesOfRejectsToView = 0xFFFF; //view all reject types
 
@@ -370,7 +370,7 @@ void CTDAutoSetupImageDisplayDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 		if (vLocalConfigurationData->vScanTracType == cSoloScanTrac)
 		{
 			vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset((float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 2)); //set offset so leading edge of can will be 2" inside image
-			ReportErrorMessage("Express New BT to Image Delay:" + dtoa(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset, 2), cWriteToLog, 0);
+			ReportErrorMessage("Express New BT to Image Delay:" + dtoa(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches, 2), cWriteToLog, 0);
 
 			SetDlgItemText(IDC_SubFunction7Display, _T("0"));
 		}
@@ -384,7 +384,7 @@ void CTDAutoSetupImageDisplayDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 
 			vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset((float)TempDistance);
 
-			double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset - TempWhiteSpaceOnOneSideOfImage);
+			double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches - TempWhiteSpaceOnOneSideOfImage);
 			SetDlgItemText(IDC_SubFunction7Display, _T("0"));
 		}
 	}
@@ -406,19 +406,19 @@ void CTDAutoSetupImageDisplayDialog::OnShowWindow(BOOL bShow, UINT nStatus)
 	//vGlobalCurrentProduct->vProductImageHeightTop = (float)(vLocalConfigurationData->vDetectorLength * vLocalConfigurationData->vNumberOfXRayDetectors);
 
 
-	if (vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset < 2)
+	if (vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches < 2)
 	{
-		vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset = 2;
+		vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches = 2;
 		if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
 		{
 			double TempWhiteSpaceOnOneSideOfImage = (vGlobalCurrentProduct->vProductImageWidth / 1.6) * 0.3;
 			if (TempWhiteSpaceOnOneSideOfImage > 4)
 				TempWhiteSpaceOnOneSideOfImage = 4;
 
-			vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - TempWhiteSpaceOnOneSideOfImage);
+			vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - TempWhiteSpaceOnOneSideOfImage);
 		}
 
-		vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset);
+		vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches);
 	}
 
 	vGlobalCurrentProduct->vHaveManuallySetRetriggerLockout = false;
@@ -742,7 +742,7 @@ void CTDAutoSetupImageDisplayDialog::OnSubFunction5Button()
 			if ((vLocalConfigurationData->vScanTracType == cSoloScanTrac) || (vGlobalScanTracType == cSoloPlusScanTrac))
 			{
 				vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset((float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - 2)); //set offset so leading edge of can will be 2" inside image
-				ReportErrorMessage("Express New BT to Image Delay:" + dtoa(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset, 2), cWriteToLog, 0);
+				ReportErrorMessage("Express New BT to Image Delay:" + dtoa(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches, 2), cWriteToLog, 0);
 
 				SetDlgItemText(IDC_SubFunction7Display, _T("0"));
 			}
@@ -756,7 +756,7 @@ void CTDAutoSetupImageDisplayDialog::OnSubFunction5Button()
 
 				vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset((float)TempDistance);
 
-				double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset - TempWhiteSpaceOnOneSideOfImage);
+				double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches - TempWhiteSpaceOnOneSideOfImage);
 				SetDlgItemText(IDC_SubFunction7Display, _T("0"));
 			}
 		}
@@ -773,19 +773,19 @@ void CTDAutoSetupImageDisplayDialog::OnSubFunction5Button()
 			}
 		}
 
-		if (vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset < 2)
+		if (vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches < 2)
 		{
-			vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset = 2;
+			vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches = 2;
 			if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
 			{
 				double TempWhiteSpaceOnOneSideOfImage = (vGlobalCurrentProduct->vProductImageWidth / 1.6) * 0.3;
 				if (TempWhiteSpaceOnOneSideOfImage > 4)
 					TempWhiteSpaceOnOneSideOfImage = 4;
 
-				vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - TempWhiteSpaceOnOneSideOfImage);
+				vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches = (float)(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - TempWhiteSpaceOnOneSideOfImage);
 			}
 
-			vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset);
+			vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches);
 		}
 		ReportErrorMessage("Operator pressed Redo Size Button", cUserAction, 0);
 		vStartedResize = true;
@@ -2915,7 +2915,7 @@ void CTDAutoSetupImageDisplayDialog::AutoSizeImage()
 				//	vImageMargin = 4;
 				double TempWhiteSpaceOnOneSideOfImage = vImageMargin;
 			
-				float TempNewProductBodyTriggerToImageBeltPositionOffset = (float)(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset +
+				float TempNewProductBodyTriggerToImageBeltPositionOffset = (float)(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches +
 					vGlobalCurrentProduct->vProductImageWidth - vImageMargin - (vLocalSystemData->vITIPCDig->vOriginalImage->vRight / (vGlobalPixelsPerUnit * vGlobalCurrentProduct->vOverScanMultiplier)));
 
 				TempNewProductBodyTriggerToImageBeltPositionOffset = (float)(TempNewProductBodyTriggerToImageBeltPositionOffset - (TempCorrectDelayAmount / (vGlobalPixelsPerUnit * vGlobalCurrentProduct->vOverScanMultiplier)));
@@ -2925,7 +2925,7 @@ void CTDAutoSetupImageDisplayDialog::AutoSizeImage()
 
 				if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
 				{
-					double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset - TempWhiteSpaceOnOneSideOfImage);
+					double TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches - TempWhiteSpaceOnOneSideOfImage);
 
 					//if within .25 inches of no offset, set no offset
 					if ((TempTriggerToBeamOffset > -.25) && (TempTriggerToBeamOffset < .25))
@@ -2948,7 +2948,7 @@ void CTDAutoSetupImageDisplayDialog::AutoSizeImage()
 					//then re-size again
 					TempImageGrew = true;
 					//move the Conveyor position delay 1 inch over so container in center
-					TempNewProductBodyTriggerToImageBeltPositionOffset = (vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset -	1);
+					TempNewProductBodyTriggerToImageBeltPositionOffset = (vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches -	1);
 
 					if (TempNewProductBodyTriggerToImageBeltPositionOffset < 0)
 						TempNewProductBodyTriggerToImageBeltPositionOffset = 0;
@@ -3002,7 +3002,7 @@ void CTDAutoSetupImageDisplayDialog::AutoSizeImage()
 				if (TempNewProductImageHeightTop < TempNewProductImageHeightBottom)
 					TempNewProductImageHeightBottom = 0;
 
-				float TempOriginalProductBodyTriggerToImageBeltPositionOffset = vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset;
+				float TempOriginalProductBodyTriggerToImageBeltPositionOffset = vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches;
 
 				vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(TempNewProductBodyTriggerToImageBeltPositionOffset);
 
@@ -3099,10 +3099,10 @@ void CTDAutoSetupImageDisplayDialog::AutoSizeImage()
 				//if (TempNewProductBodyTriggerToImageBeltPositionOffset > TempOriginalProductBodyTriggerToImageBeltPositionOffset)
 				//	vYOffset = (WORD)(vLocalSystemData->vITIPCDig->vOriginalImage->vLeft - (vImageMargin * vGlobalPixelsPerUnit * vGlobalCurrentProduct->vOverScanMultiplier));
 
-				double TempTriggerToBeamOffset = vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset;
+				double TempTriggerToBeamOffset = vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches;
 				
 				if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
-					TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset - TempWhiteSpaceOnOneSideOfImage);
+					TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches - TempWhiteSpaceOnOneSideOfImage);
 				
 				if ((vGlobalScanTracType != cSoloScanTrac) && (vGlobalScanTracType != cSoloPlusScanTrac))
 				{

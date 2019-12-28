@@ -656,6 +656,161 @@ void CSerialPort::DecodeMessage()
 			if (vLocalSystemData->vMaximumExternalDetectorTime < TempEndTime)
 				vLocalSystemData->vMaximumExternalDetectorTime = TempEndTime;
 		break;
+		case 0x2A: 
+		case 0x2B: //Got an eject notice from a resynchornized ejector
+			if (vLocalConfigurationData->vResynchronizeEjectors)  //reset the container count
+			{
+				BYTE TempEjectorIndex = 0;
+				if (TempBuffer[0] == 0x2B)
+					TempEjectorIndex = 1;
+
+				if (vLocalSystemData->vOutstandingEjects)
+					vLocalSystemData->vOutstandingEjects--;
+
+				ProcessResynchronizedEjectNotification(TempBeltPosition, TempBuffer[3]);
+				ProcessBeltPosition(TempBeltPosition,false);
+
+				if (vLocalSystemData->vInAutoSetup)
+					CalculateDistanceToFirstSensor(TempBeltPosition, TempBuffer[3], TempEjectorIndex);
+			
+				if (vLocalSystemData->vLogFile.vLogSerialData)
+				if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+					WriteToLogFileWithBeltPosition("Resynchronize Eject sensor " + dtoa(TempEjectorIndex + 1, 0) + " counted Ejected container at: " + dtoa(TempBeltPosition,0) + ", cen: " + dtoa(TempBuffer[3], 0), vLocalSystemData->vCurrentBeltPosition);
+				else
+					WriteToLogFileWithBeltPosition("Resynchronize Eject sensor " + dtoa(TempEjectorIndex + 1, 0) + " count at: " + dtoa(TempBeltPosition,0) + ", cen: " + dtoa(TempBuffer[3], 0), vLocalSystemData->vCurrentBeltPosition);
+
+				vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] = TempBuffer[3];
+
+				if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+				if ((vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] > vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount) && 
+				(!((vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] > 200) && (vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount < 50)))) // did not just wrap around
+				{
+					//reset counts if nothing has passed the body trigger yet
+					WORD TempNumberOfContainers = vLocalSystemData->vContainerCollection->GetCount();
+					if (TempNumberOfContainers == 0)
+					{
+						ClearEjectorSynchronizationCount();
+						if (vLocalSystemData->vLogFile.vLogSerialData)
+							WriteToLogFileWithBeltPosition("Reset Resynchronize Eject counters because got ejector sensor pulse, but no containers should be in tunnel", vLocalSystemData->vCurrentBeltPosition);
+					}
+					else
+					{
+						if (((TempEjectorIndex == 0) && (vLocalSystemData->vEjectorUsed & 1)) || ((TempEjectorIndex == 1) && (vLocalSystemData->vEjectorUsed & 6))) //if using this ejector on this product
+						{
+							ReportErrorMessage("Critical error SCE-Resynchronized Ejector is off.\nThe ScanTrac needs a 10 foot gap to clear resynchronizing ejectors.\nTrigger: " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0) + " Sensor " + dtoa(TempEjectorIndex + 1, 0) + ": " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex], 0), cCritical, 0);
+
+							ReportErrorMessage("Critical error SCE-Ejector requires a 10 foot gap to synchronize", cError, 0);
+						}
+					}
+				}
+				else
+				if (vLocalSystemData->vFirstContainerShouldNotTriggerSensorYet)
+				{
+					//reset counts if nothing has passed the body trigger yet
+					WORD TempNumberOfContainers = vLocalSystemData->vContainerCollection->GetCount();
+					if (TempNumberOfContainers == 0)
+					{
+						ClearEjectorSynchronizationCount();
+						if (vLocalSystemData->vLogFile.vLogSerialData)
+							WriteToLogFileWithBeltPosition("Clear Resynchronize Eject counters because got ejector sensor pulse, but no containers should be in tunnel", vLocalSystemData->vCurrentBeltPosition);
+					}
+					else
+					{
+						if (((TempEjectorIndex == 0) && (vLocalSystemData->vEjectorUsed & 1)) || ((TempEjectorIndex == 1) && (vLocalSystemData->vEjectorUsed & 6))) //if using this ejector on this product
+						{
+							ReportErrorMessage("Critical error PDE-Resynchronized Ejector is off.\nThe ScanTrac needs a 10 foot gap to clear resynchronizing ejectors.\nTrigger: " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0) + " Sensor " + dtoa(TempEjectorIndex + 1, 0) + ": " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex], 0), cCritical, 0);
+
+							ReportErrorMessage("Critical error PDE-Ejector requires a 10 foot gap to synchronize", cError, 0);
+						}
+					}
+				}
+			}
+		break;
+		case 0x2F: //Got a reset confirm notice from a resynchornized ejector
+			if (vLocalConfigurationData->vResynchronizeEjectors)  //reset the container count
+			{
+				if (vLocalSystemData->vLogFile.vLogSerialData)
+					WriteToLogFileWithBeltPosition("uC confirm reset resynchronize ejector sensor. Old counts. 1: " + dtoa(TempBuffer[1],0) + ", 2: " + dtoa(TempBuffer[2], 0) + ", 3: " + dtoa(TempBuffer[3], 0), vLocalSystemData->vCurrentBeltPosition);
+			}
+		break;
+		case 0x6A: 
+		case 0x6B: //Got an from a resynchornized ejector trigger that it counted a container that did not need ejecting
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+			{
+				BYTE TempEjectorIndex = 0;
+				if (TempBuffer[0] == 0x6B)
+					TempEjectorIndex = 1;
+
+				ProcessBeltPosition(TempBeltPosition,false);
+
+				if (vLocalSystemData->vLogFile.vLogSerialData)
+				if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+					WriteToLogFileWithBeltPosition("Resynchronize Eject sensor " + dtoa(TempEjectorIndex + 1, 0) + " counted good container at: " + dtoa(TempBeltPosition,0) + ", cen: " + dtoa(TempBuffer[3], 0), vLocalSystemData->vCurrentBeltPosition);
+				else
+					WriteToLogFileWithBeltPosition("Resynchronize Eject sensor " + dtoa(TempEjectorIndex + 1, 0) + " count at: " + dtoa(TempBeltPosition,0) + ", cen: " + dtoa(TempBuffer[3], 0), vLocalSystemData->vCurrentBeltPosition);
+
+				if (vLocalSystemData->vInAutoSetup)
+					CalculateDistanceToFirstSensor(TempBeltPosition, TempBuffer[3], TempEjectorIndex);
+
+				vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] = TempBuffer[3];
+
+				if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+				if ((vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] > vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount) && 
+					(!((vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex] > 200) && (vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount < 50)))) // did not just wrap around
+				{
+					//reset counts if nothing has passed the body trigger yet
+					WORD TempNumberOfContainers = vLocalSystemData->vContainerCollection->GetCount();
+					if (TempNumberOfContainers == 0)
+					{
+						ClearEjectorSynchronizationCount();
+						if (vLocalSystemData->vLogFile.vLogSerialData)
+							WriteToLogFileWithBeltPosition("Reset all Resynchronize Eject counters because got ejector sensor pulse, but no containers should be in tunnel", vLocalSystemData->vCurrentBeltPosition);
+					}
+					else
+					{
+						if (((TempEjectorIndex == 0) && (vLocalSystemData->vEjectorUsed & 1)) || ((TempEjectorIndex == 1) && (vLocalSystemData->vEjectorUsed & 6))) //if using this ejector on this product
+						{
+							if (vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount < vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[0])
+								ReportErrorMessage("Resynchronize Ejector Error, Sensor " + dtoa(TempEjectorIndex + 1, 0) + " counted more than Trigger: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0) + ", " +
+									dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex], 0), cEMailInspx, 32000);
+
+							ReportErrorMessage("Critical error SC-Resynchronized Ejector is off.\nThe ScanTrac needs a 10 foot gap to clear resynchronizing ejectors.\nTrigger: " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0) + " Sensor " + dtoa(TempEjectorIndex + 1, 0) + ": " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex], 0), cCritical, 0);
+
+							ReportErrorMessage("Critical error SC-Ejector requires a 10 foot gap to synchronize", cError, 0);
+						}
+					}
+				}
+				else
+				if (vLocalSystemData->vFirstContainerShouldNotTriggerSensorYet)
+				{
+					//reset counts if nothing has passed the body trigger yet
+					WORD TempNumberOfContainers = vLocalSystemData->vContainerCollection->GetCount();
+					if (TempNumberOfContainers == 0)
+					{
+						ClearEjectorSynchronizationCount();
+						if (vLocalSystemData->vLogFile.vLogSerialData)
+							WriteToLogFileWithBeltPosition("Clear all Resynchronize Eject counters because got ejector sensor pulse, but no containers should be in tunnel", vLocalSystemData->vCurrentBeltPosition);
+					}
+					else
+					{
+						if (((TempEjectorIndex == 0) && (vLocalSystemData->vEjectorUsed & 1)) || ((TempEjectorIndex == 1) && (vLocalSystemData->vEjectorUsed & 6))) //if using this ejector on this product
+						{
+							ReportErrorMessage("Critical error PD-Resynchronized Ejector is off.\nThe ScanTrac needs a 10 foot gap to clear resynchronizing ejectors.\nTrigger: " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0) + " Sensor " + dtoa(TempEjectorIndex + 1, 0) + ": " + 
+								dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[TempEjectorIndex], 0), cCritical, 0);
+
+							ReportErrorMessage("Critical error PD-Ejector requires a 10 foot gap to synchronize", cError, 0);
+						}
+					}
+				}
+			}
+		break;
 		case 0x30: //reply to request to read a certain address
 			TempWord = (TempBuffer[2] << 8) + TempBuffer[3];
 			
@@ -2561,11 +2716,6 @@ void CSerialPort::DecodeMessage()
 		break;
 		case 0x77: //debug message just for log indicating new start for trigger set.
 		break;
-		case 0x2A: //For resynchronizing ejectors, not used in Single Image, just used in Multi Image
-		case 0x2B:
-		case 0x6A:
-		case 0x6B:
-		break;
 		default:
 			ReportErrorMessage("Error - Unknown uC Message: " + ByteToHex(TempBuffer[0]), cEMailInspx,32000);
 	}
@@ -3180,6 +3330,41 @@ void CSerialPort::ProcessBeltPosition(WORD TempBeltPosition, bool TempSyncValue)
 					EnableTriggerAfterTemporaryDisable(true); //tunnel should be clear, re-enable triggers
 		}
 	}
+
+	if (vLocalSystemData->vFirstContainerShouldNotTriggerSensorYet)
+	if (vLocalConfigurationData->vResynchronizeEjectors)  //reset the container count
+	if ((vLocalSystemData->vSystemRunMode == cAutoSetupRunningSystem) || (vLocalSystemData->vSystemRunMode == cRunningSystemMode))
+	{
+		if (BPSubtract(vLocalSystemData->vCurrentBeltPosition, vLocalSystemData->vBeltPositionTunnelShouldBeClearTo) < 20000) //current belt position is passed the point sensor 1 should not have trigger from a container in the tunnel
+		{
+			vLocalSystemData->vFirstContainerShouldNotTriggerSensorYet = false;
+			if (vLocalSystemData->vLogFile.vLogSerialData)
+				WriteToLogFileWithBeltPosition("Belt has traveled past sensor for Resynchronizing Ejector: " + dtoa(vLocalSystemData->vCurrentBeltPosition, 0), vLocalSystemData->vCurrentBeltPosition);
+
+			//enable ejector resync sensors
+			vLocalSystemData->vKeepExternalDetectorsEnabled = true;
+			vLocalSystemData->vCurrentExternalDetectorMask = vLocalSystemData->vCurrentExternalDetectorMask | 2; //enable photo eye on Aux Det 2 for ejector 1
+
+			if (vLocalConfigurationData->vEjector[1].vEnabled)
+				vLocalSystemData->vCurrentExternalDetectorMask = vLocalSystemData->vCurrentExternalDetectorMask | 0x20; //enable photo eye on Eject Confirmer 1 for ejector 2
+
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+				vLocalSystemData->vCurrentAlwaysOnExternalDetectorMask = vLocalSystemData->vCurrentExternalDetectorMask;
+
+			tSerialCommand TempCommand;
+			TempCommand[0] = 0x1C;
+			TempCommand[1] = 0x02;  //group 2 is Auxiliary Detectors
+			TempCommand[2] = 0x00;
+
+			if (vLocalSystemData->vKeepExternalDetectorsEnabled)
+				TempCommand[3] = vLocalSystemData->vCurrentExternalDetectorMask;
+			else
+				TempCommand[3] = vLocalSystemData->vCurrentAlwaysOnExternalDetectorMask;
+
+			SendSerialCommand(TempCommand);
+			Sleep(cSendCommandSleepTimeSetup);
+		}
+	}
 }
 
 void CSerialPort::ProcessEjectNotification(WORD TempBeltPosition, BYTE TempEjector)
@@ -3214,21 +3399,46 @@ void CSerialPort::ProcessEjectNotification(WORD TempBeltPosition, BYTE TempEject
 				//Check Each Containter until get one that was ejected
 				while ((TempContainer != NULL) && (!TempDone))
 				{
-					if ((TempContainer->vEjectPosition[TempEjector - 1] == TempBeltPosition) &&
-						((TempContainer->vEjectorNumber >> (TempEjector - 1)) & 1))
+					if (vLocalConfigurationData->vResynchronizeEjectors)
 					{
-						TempDone = true;
+						if (TempContainer->vContainerNumberToEject == TempEjector) //TempEjector is actually the container number to eject
+						{
+ 							TempDone = true;
+							if (vLocalSystemData->vInAutoSetup)
+							{
+								WORD TempBeltOffsetToThisEjector = BPSubtract(TempBeltPosition, TempContainer->vBodyTriggerPosition);
+								if (TempBeltOffsetToThisEjector > vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0])
+								{
+									vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0] = TempBeltOffsetToThisEjector;
+
+									if (vLocalSystemData->vLogFile.vLogSerialData)
+										WriteToLogFileWithBeltPosition("Resync Ejectors 1 Last Ejector Position set to: " + dtoa(TempBeltOffsetToThisEjector, 0), vLocalSystemData->vCurrentBeltPosition);
+								}
+							}
+						}
+ 						else
+						{
+							//get next container to check
+							if (TempIndex)
+								TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
+							else
+								TempContainer = NULL;
+						}
 					}
 					else
-					{
-						//get next container to check
-						if (TempIndex)
-							TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
-						else
-							TempContainer = NULL;
+					{ //normal belt position method of ejector timing
+						if ((TempContainer->vEjectPosition[TempEjector - 1] == TempBeltPosition) && ((TempContainer->vEjectorNumber >> (TempEjector - 1)) & 1))
+ 							TempDone = true;
+ 						else
+						{
+							//get next container to check
+							if (TempIndex)
+								TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
+							else
+								TempContainer = NULL;
+						}
 					}
 				}
-
 				if (TempDone)
 				{
 					TempContainer->vGotEjectedNotice++;
@@ -3292,6 +3502,90 @@ void CSerialPort::ProcessEjectNotification(WORD TempBeltPosition, BYTE TempEject
 		else
 			ReportErrorMessage("Error-Serial Thread Lock Failed 3", cEMailInspx,32000);
 	}
+}
+
+void CSerialPort::ProcessResynchronizedEjectNotification(WORD TempBeltPosition, BYTE TempContainerEjectNumber)
+{
+	vLocalSystemData->vLastEjectedPosition = TempBeltPosition;
+
+	//find which container should have ejected, them mark it.
+	if (vLocalSystemData->vITIPCDig->vContainerCollectionLock.Lock())
+	{
+		WORD TempContainerCount = vLocalSystemData->vContainerCollection->GetCount();
+		if (vLocalSystemData->vContainerCollection->GetCount() > 0)
+		{
+			POSITION TempIndex = vLocalSystemData->vContainerCollection->GetHeadPosition();
+			bool TempDone = false;
+			CContainer *TempContainer = vLocalSystemData->vContainerCollection->GetAt(TempIndex);//GetHead();
+			//Check Each Containter until get one that was ejected
+			while ((TempContainer != NULL) && (!TempDone))
+			{
+				if (TempContainer->vContainerNumberToEject == TempContainerEjectNumber) //TempEjector is actually the container number to eject
+				{
+ 					TempDone = true;
+					if (vLocalSystemData->vInAutoSetup)
+					{
+						WORD TempBeltOffsetToThisEjector = BPSubtract(TempBeltPosition, TempContainer->vBodyTriggerPosition);
+						if (TempBeltOffsetToThisEjector > vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0])
+						{
+							vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0] = TempBeltOffsetToThisEjector;
+
+							if (vLocalSystemData->vLogFile.vLogSerialData)
+								WriteToLogFileWithBeltPosition("Resync Ejectors 2 Last Ejector Position set to: " + dtoa(TempBeltOffsetToThisEjector, 0), vLocalSystemData->vCurrentBeltPosition);
+						}
+					}
+				}
+ 				else
+				{
+					//get next container to check
+					if (TempIndex)
+						TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
+					else
+						TempContainer = NULL;
+				}
+			}
+			if (TempDone)
+			{
+				TempContainer->vGotEjectedNotice++;
+				//if (TempContainer->vGotEjectedNotice >= TempContainer->vNumberOfEjectors)
+				{
+					//if (!vLocalConfigurationData->vEjector[TempEjector - 1].vConfirmEnabled)
+					{  //if got eject notice, and don't have a confirm, indicate this one done
+						TempContainer->vDataComplete = TempContainer->vDataComplete + 2;
+						if (vLocalSystemData->vLogFile.vLogSerialData)
+							WriteToLogFileWithBeltPosition("Processed Eject Notification r, Data Complete c: " + dtoa(TempContainer->vContainerNumber, 0), TempContainer->vBodyTriggerPosition);
+					}
+					//else
+					//{
+					//	TempContainer->vDataComplete++;
+					//	if (vLocalSystemData->vLogFile.vLogSerialData)
+					//		WriteToLogFileWithBeltPosition("Processed Eject Notification, Need Confirm for c: " + dtoa(TempContainer->vContainerNumber, 0), TempContainer->vBodyTriggerPosition);
+					//}
+				}
+			}
+			else
+			if (vLocalSystemData->vITIPCDig->vShowOnlyRealImages)
+			if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+			{
+				vLocalSystemData->vProcessingErrorCount++;
+				ReportErrorMessage("Processing Error, ProcessEjectNotice, Can't Find Container", cWriteToLog,32000);
+				//ReportErrorMessage("Eject Command Too Late 2", cEMailInspx,32000);
+				//ReportErrorMessage("Also Check Image Width and processing Time.", cWriteToLog,32000);
+				//ReportErrorMessage("Eject Decision Too Late! Adjust setup or Call Service.", cError, 0);
+				//vTooLateToEjectErrorCount
+			}
+		}
+		else
+		if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+		if (vLocalSystemData->vITIPCDig->vShowOnlyRealImages)
+		{
+			vLocalSystemData->vProcessingErrorCount++;
+			ReportErrorMessage("Processing Error, ProcessEjectNotice, No Containers", cEMailInspx,32000);
+		}
+		vLocalSystemData->vITIPCDig->vContainerCollectionLock.Unlock();
+	}
+	else
+		ReportErrorMessage("Error-Serial Thread Lock Failed 3", cEMailInspx,32000);
 }
 
 void CSerialPort::SendXRayPowerOnOffToUController(BYTE TempOn)
@@ -3392,14 +3686,86 @@ void CSerialPort::HandleExternalDetectorLineChange(WORD TempBeltPosition, BYTE T
 			//	WriteToLogFileWithBeltPosition("After Mask changed: " + ByteToHex(TempDigitalLines),TempBeltPosition);
 			//}
 
+			BYTE TempBitsActive = TempDigitalLines;
 			if (vGlobalCurrentProduct	!= NULL)   //you have a product
 			//if (TempDigitalLines)
 			//if (vLocalSystemData->vLastExternalDetectorLineState != TempDigitalLines) //if the lines changed
 			{
 				if (vLocalSystemData->vITIPCDig->vContainerCollectionLock.Lock())
 				{
-					//if (vLocalSystemData->vLogFile.vLogSerialData)
-					//	vLocalSystemData->vLogFile.WriteToLogFile("Test Aux. Det. change, bits: " + ByteToHex(TempBitsActive), cDebugMessage);
+					if (vLocalSystemData->vLogFile.vLogSerialData)
+						vLocalSystemData->vLogFile.WriteToLogFile("Test for Eject Confirm/Aux. Det. change, bits: " + ByteToHex(TempBitsActive), cDebugMessage);
+					if (vLocalSystemData->vEjectConfirmerUsed) //check for eject confirm
+					{
+						if (TempBitsActive)
+						{
+							if (vLocalSystemData->vFirstContainerShouldNotTriggerSensorYet)  //if the aux detector in front of the ejector triggers before enough belt went by, then give warning message
+							if (vLocalConfigurationData->vResynchronizeEjectors)  //should not get this as don't enable sensors until ready, but may be a container is in the few inches of not sure area
+							if (vLocalSystemData->vSystemRunMode == cRunningSystemMode)
+							if (TempBitsActive & 1)
+							{
+								ReportErrorMessage("Critical Problem - Tunnel was not cleared before started inspection so all resynchronizing ejects will eject the wrong container until you make a gap of at least 10 feet to resynchronize", cCritical, 0);
+								vLocalSystemData->vEjectorsNotSynchronized = true;
+							}
+
+							BYTE TempLoop = 0;
+							for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+							if (vLocalConfigurationData->vEjector[TempLoop].vConfirmLineBitMask & TempBitsActive) //if confirmer for this ejector is active, set that it is active
+							vLocalSystemData->vEjectConfirmerActive[TempLoop] = 1; //if eject confirmer active more than 5 seconds that eject tray must be full as sensor is blocked
+
+							//find which container waiting for eject confirm, them mark it.
+							//WORD TempCount = vLocalSystemData->vContainerCollection->GetCount();
+							bool TempDone = false;
+							if (vLocalSystemData->vContainerCollection->GetCount() > 0)
+							{
+								POSITION TempIndex = vLocalSystemData->vContainerCollection->GetHeadPosition();
+								CContainer *TempContainer = vLocalSystemData->vContainerCollection->GetAt(TempIndex);//GetHead();
+
+								if (TempIndex)
+									TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
+								else
+									TempContainer = NULL;
+								//Check Each Containter until get one that was ejected
+								while ((TempContainer != NULL) && (!TempDone))
+								{
+									bool TempDataComplete = (TempContainer->vDataComplete >= (TempContainer->vNumberOfEjectors * 2));
+
+									if ((TempContainer->vGotEjectedNotice) && (!TempDataComplete) && (TempContainer->vEjectorNumber))
+									{
+										//make sure bit changed is confirm bit for this container's ejector
+										//if (vGlobalEjectorConfirmMask[TempContainer->vEjectorNumber - 1])
+										//if (TempBitsActive & vGlobalEjectorConfirmMask[TempContainer->vEjectorNumber - 1])
+										{
+											if (vLocalSystemData->vLogFile.vLogSerialData)
+												WriteToLogFileWithBeltPosition("Found Container for Ejector: " + dtoa(TempContainer->vEjectorNumber - 1, 0) + 
+												"  Confirm, Data Complete c: " + dtoa(TempContainer->vContainerNumber,0),TempContainer->vBodyTriggerPosition);
+													
+											//vLocalSystemData->vEjectConfirmerActive[TempContainer->vEjectorNumber - 1] = 1; //if eject confirmer active more than 5 seconds that eject tray must be full as sensor is blocked
+
+											//vLocalSystemData->vEjectorConfirmCount[TempEjectorNumber]++;
+											TempContainer->vDataComplete++;
+											TempContainer->vGotEjectConfirmedNotice = true;
+											//Turn bit just handled off with exclusive or, 
+											//and see if any other bits to process
+											//TempBitsActive = TempBitsActive ^ vGlobalEjectorConfirmMask[TempContainer->vEjectorNumber - 1];
+											//if (!TempBitsActive) //if NO more bits set mark done
+												TempDone = true;
+										}
+									}
+									//get next container to check
+									if (TempIndex)
+										TempContainer = vLocalSystemData->vContainerCollection->GetNext(TempIndex);
+									else
+										TempContainer = NULL;
+								}
+							}
+						}
+						else
+						for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+							vLocalSystemData->vEjectConfirmerActive[TempLoop] = 0;
+					}
+					if (vLocalSystemData->vLogFile.vLogSerialData)
+						vLocalSystemData->vLogFile.WriteToLogFile("Test for Eject Confirm/Aux. Det. change, bits: " + ByteToHex(TempBitsActive), cDebugMessage);
 
 					if (TempBitsActive & vLocalSystemData->vSampleEjectNextContainerBitMap) 
 					{
@@ -3902,18 +4268,31 @@ void CSerialPort::HandleBodyTriggerLineChange(WORD TempBeltPosition, BYTE TempBo
 					//create new container object, and intitialize
 					if ((vLocalSystemData->vSystemRunMode == cRunningSystemMode) || (vLocalSystemData->vSystemRunMode == cAutoSetupRunningSystem))
 					{
-						vLocalSystemData->vBodyTriggersCount++;
-						if (vLocalSystemData->vITIPCDig->vContainerCollectionLock.Lock())
+						if (!vLocalSystemData->vShuttingDownXRays)
 						{
-							vLocalSystemData->vValidBodyTriggersCount++;
-							AddNewContainer(TempBeltPosition);
-							TempContainer = vLocalSystemData->vContainerCollection->GetTail();
-							vPreviousContainer = vCurrentContainer;
-							vCurrentContainer = TempContainer;
+							vLocalSystemData->vBodyTriggersCount++;
+							if (vLocalSystemData->vITIPCDig->vContainerCollectionLock.Lock())
+							{
+								vLocalSystemData->vValidBodyTriggersCount++;
+								TempContainer = AddNewContainer(TempBeltPosition);
+								TempContainer->vRealImage = true;
 
-							if (TempContainer)
-								AddedNewContainer_FillInData(TempContainer, TempBeltPosition);
-							vLocalSystemData->vITIPCDig->vContainerCollectionLock.Unlock();
+								if (vLocalConfigurationData->vResynchronizeEjectors)
+								{
+									vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount++;
+
+									TempContainer->vContainerNumberToEject = vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount;
+									if (vLocalSystemData->vLogFile.vLogSerialData)
+										WriteToLogFileWithBeltPosition("Trigger Resynchronized cen: " + dtoa(TempContainer->vContainerNumberToEject, 0),	TempContainer->vBodyTriggerPosition);
+								}
+								TempContainer = vLocalSystemData->vContainerCollection->GetTail();
+								vPreviousContainer = vCurrentContainer;
+								vCurrentContainer = TempContainer;
+
+								if (TempContainer)
+									AddedNewContainer_FillInData(TempContainer, TempBeltPosition);
+								vLocalSystemData->vITIPCDig->vContainerCollectionLock.Unlock();
+							}
 
 							if (vLocalSystemData->vReCalibrationTimerRunning)
 							if (!vLocalSystemData->vAutoCalibrateWhileRunning)
@@ -5056,6 +5435,27 @@ void CSerialPort::EjectContainer(BYTE TempReason, CContainer *TempContainer, CIn
 							{
 								TempContainer->vToBeEjected = true;
 								vLocalSystemData->vOutstandingEjects++;
+								if (vLocalConfigurationData->vResynchronizeEjectors)
+								{
+									int TempWaitTime = (int)vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempContainer->vEjectorNumber - 1];  //ejector number is one based
+									if (vGlobalCurrentProduct->vResyncTriggerToEjectTime[TempContainer->vEjectorNumber - 1])
+									{
+										int TempCorrection = (int)(vGlobalCurrentProduct->vEjectorResponseTime[TempContainer->vEjectorNumber - 1] * vLocalSystemData->vActualEncoderRate);
+										if (TempWaitTime > TempCorrection)
+											TempWaitTime = TempWaitTime - TempCorrection;
+										else
+											TempWaitTime = 0;
+									}
+										//temp for hardware limitation, should be able to go to zero, but firmware has a bug or something, it does not fire at all if less than 3
+									if (TempWaitTime < 3)
+										TempWaitTime = 3;
+									SendResynchronizedEjectCommand(TempContainer->vContainerNumberToEject, TempContainer->vEjectorNumber, (WORD)TempWaitTime);
+
+									if (vLocalSystemData->vLogFile.vLogSerialData)
+										WriteToLogFileWithBeltPosition("Send Resynchronized Eject Command, c: " + dtoa(TempContainer->vContainerNumber, 0) + ", cen: " + dtoa(TempContainer->vContainerNumberToEject, 0) + " Ejector: " +
+											dtoa(TempLoop + 1, 0) + " Wait Time: " + dtoa(TempWaitTime, 0), TempContainer->vBodyTriggerPosition);
+								}
+								else
 
 								if (TempContainer->vEjectorNumber)
 								{
@@ -5213,27 +5613,43 @@ bool CSerialPort::IsPastBeltPostion(WORD TempCurrentBeltPosition, WORD TempDecis
 	}
 }
 
-void CSerialPort::AddNewContainer(UINT TempBTPosition)
+CContainer* CSerialPort::AddNewContainer(UINT TempBTPosition)
 {
+	CContainer *TempContainer = NULL;
 	if (vGlobalCurrentProduct)
 	if (ThereIsEnoughMemory(sizeof(CContainer), "New Container"))
 	{
-		CContainer *TempContainer = new CContainer;
+		TempContainer = new CContainer;
 		if (TempContainer)
 		{
-			TempContainer->vTheImage = new CImageData;
+			//ReportErrorMessage("New Container Created", cWriteToLog, 0);
+
+			DWORD TempMemoryMargin = 2500000;
+			//create memory for new reject and copy data to it
+			//TempContainer->vTheImages = vLocalSystemData->vITIPCDig->CreateCImageDataObject(0, true, vLocalSystemData->vITIPCDig->vDisplayBufferSizeInPixels);
+
 			TempContainer->vBodyTriggerPosition = TempBTPosition;
-			TempContainer->vContainerNumber = vLocalSystemData->vFrameCount;
 
-			//WORD TempEnd = vGlobalCurrentProduct->vEndOfLineBeltPosition;
-			TempContainer->vTimeOutPosition = BPAdd(vGlobalCurrentProduct->vEndOfLineBeltPosition * vGlobalCurrentProduct->vOverScanMultiplier, TempBTPosition);
+			TempContainer->vTimeOutPosition = BPAdd(vGlobalCurrentProduct->vEndOfLineTimeOut * vGlobalPixelsPerUnit * vGlobalCurrentProduct->vOverScanMultiplier, TempBTPosition);
 
-			TempContainer->vStartImagePosition = BPAdd(vGlobalCurrentProduct->vBTToImagePosition * vGlobalCurrentProduct->vOverScanMultiplier, TempBTPosition);
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+			if (vLocalSystemData->vInAutoSetup)
+			if (TempContainer->vTimeOutPosition < 15 * 12 * vGlobalPixelsPerUnit) //if end of line is less than 15 feet in setup mode, set to 12 feet to find resynch ejectors
+				TempContainer->vTimeOutPosition = BPAdd((WORD)(15 * 12 * vGlobalPixelsPerUnit), TempBTPosition);
+
+
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+			if (vLocalSystemData->vInAutoSetup)
+			if (TempContainer->vTimeOutPosition < 200 * vGlobalPixelsPerUnit)
+				TempContainer->vTimeOutPosition = (WORD)(200 * vGlobalPixelsPerUnit);
+
+			TempContainer->vStartImagePosition = BPAdd(vGlobalCurrentProduct->vBTToImagePosition, TempBTPosition);
 
 			TempContainer->vEndImagePosition = BPAdd(vGlobalCurrentProduct->vImageWidthPosition, TempContainer->vStartImagePosition);
 
 			//br ht for testing only, next line
-			//TempContainer->vEjectPosition[0] = BPAdd(vGlobalCurrentProduct->vEjectorDelayBeltPosition[0], TempBTPosition);
+			//TempContainer->vEjectPosition[0] = BPAdd(vGlobalCurrentProduct->
+			//	vEjectorDistanceFromTriggerInPixels[0], TempBTPosition);
 
 			for (BYTE TempLoop = 0; TempLoop < cNumberOfExternalDetectors; TempLoop++)
 			{
@@ -5241,19 +5657,18 @@ void CSerialPort::AddNewContainer(UINT TempBTPosition)
 				{
 					if (vGlobalCurrentProduct->vExternalDetectorEnable[TempLoop])
 					{
-						TempContainer->vStartExternalDetectorPosition[TempLoop] = BPAdd(vGlobalCurrentProduct->vExternalDetectorWindowStartPosition[TempLoop] * vGlobalCurrentProduct->vOverScanMultiplier, TempBTPosition);
+						TempContainer->vStartExternalDetectorPosition[TempLoop] = BPAdd(vGlobalCurrentProduct->vExternalDetectorWindowStartPosition[TempLoop], TempBTPosition);
 						if (vGlobalCurrentProduct->vExternalDetectorWindowEndPosition[TempLoop] > 0)
-							TempContainer->vEndExternalDetectorPosition[TempLoop] = BPAdd(vGlobalCurrentProduct->vExternalDetectorWindowEndPosition[TempLoop] * vGlobalCurrentProduct->vOverScanMultiplier, TempBTPosition);
+							TempContainer->vEndExternalDetectorPosition[TempLoop] = BPAdd(vGlobalCurrentProduct->vExternalDetectorWindowEndPosition[TempLoop], TempBTPosition);
 						else
-							TempContainer->vEndExternalDetectorPosition[TempLoop] = TempContainer->vStartExternalDetectorPosition[TempLoop] * vGlobalCurrentProduct->vOverScanMultiplier;
+							TempContainer->vEndExternalDetectorPosition[TempLoop] = TempContainer->vStartExternalDetectorPosition[TempLoop];
 					}
 				}
 			}
 			vLocalSystemData->vContainerCollection->AddTail(TempContainer);
-			if (vLocalSystemData->vLogFile.vLogSerialData)
-				WriteToLogFileWithBeltPosition("Added new Container in Tunnel: " + dtoa(TempContainer->vContainerNumber, 0), TempBTPosition);
 		}
 	}
+	return TempContainer;
 }
 
 void CSerialPort::SendDigitalLineInterruptEnableDisable(BYTE TempLine, BYTE TempEnable, WORD TempPosition)
@@ -5468,7 +5883,12 @@ void CSerialPort::RemoveContainerFromCollection()
 		CContainer *TempContainer = vLocalSystemData->vContainerCollection->GetHead();
 		if (vLocalSystemData->vLogFile.vLogSerialData)
 		if (!vLocalSystemData->vSimulating)
-			WriteToLogFileWithBeltPosition("Removed Container " + dtoa(TempContainer->vBodyTriggerPosition, 0), TempContainer->vBodyTriggerPosition);
+		{
+			if (vLocalConfigurationData->vResynchronizeEjectors)
+				WriteToLogFileWithBeltPosition("Removed Resync Container " + dtoa(TempContainer->vContainerNumber, 0) + ", cen: " + dtoa(TempContainer->vContainerNumberToEject, 0), TempContainer->vBodyTriggerPosition);
+			else
+				WriteToLogFileWithBeltPosition("Removed Container " + dtoa(TempContainer->vContainerNumber, 0), TempContainer->vBodyTriggerPosition);
+		}
 
 		TempContainer = vLocalSystemData->vContainerCollection->RemoveHead();
 		delete TempContainer;
@@ -5476,6 +5896,13 @@ void CSerialPort::RemoveContainerFromCollection()
 		{
 			vLocalSystemData->vOutstandingEjects = 0;
 			vLocalSystemData->vOutstandingAuxiliaryDetectorEnables = 0;
+
+			if (vLocalConfigurationData->vResynchronizeEjectors)  //reset the container count because there are no more containers in the tunnel
+			{
+				ClearEjectorSynchronizationCount();
+				if (vLocalSystemData->vLogFile.vLogSerialData)
+					WriteToLogFileWithBeltPosition("Reset Resynchronize because last container exited the tunnel", vLocalSystemData->vCurrentBeltPosition);
+			}
 		}
 	}
 }
@@ -5491,6 +5918,28 @@ void CSerialPort::SendEjectCommand(BYTE TempEjector, WORD TempPosition)
 		TempCommand[1] = (BYTE)(TempPosition >> 8);
 		TempCommand[2] = (BYTE)TempPosition;
 		TempCommand[3] = TempEjector;
+		SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTime);
+	}
+}
+
+void CSerialPort::SendResynchronizedEjectCommand(BYTE TempContainerNumber, BYTE TempEjector, WORD TempDelay)
+{
+	if ((TempEjector < 1) || (TempEjector > cNumberOfEjectors))
+		ReportErrorMessage("Error-Bad Ejector Number",cEMailInspx,32000);
+	else
+	{
+		tSerialCommand TempCommand;
+
+		if (TempEjector == 1)
+			TempCommand[0] = 0x2C;
+		else
+			TempCommand[0] = 0x2D;
+
+		TempCommand[1] = TempContainerNumber;
+
+		TempCommand[2] = ((BYTE)(TempEjector << 4)) + ((BYTE)((TempDelay >> 8) & 0x0F));  //upper 4 bits are ejector number, lower 4 bits are MSBits of delay between photo eye and ejecting
+		TempCommand[3] = (BYTE)TempDelay;
 		SendSerialCommand(TempCommand);
 		Sleep(cSendCommandSleepTime);
 	}
@@ -7216,6 +7665,123 @@ void CSerialPort::EnableTriggerAfterTemporaryDisable(bool TempForceRemoveContain
 	}
 }
 
+void CSerialPort::ClearEjectorSynchronizationCount()
+{
+	if (vLocalConfigurationData->vResynchronizeEjectors)
+	{
+		//if (vLocalSystemData->vTotalContainers)
+		//if (vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount != vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[0])
+		//	ReportErrorMessage("Reset Resync Counts: T: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount,0) + ", S1: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[0],0) + ", S2: " +
+		//		dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[1],0), cEMailInspx, 32000);
+
+		tSerialCommand TempCommand;
+		TempCommand[0] = 0x2F;
+		TempCommand[1] = 0;
+		TempCommand[2] = 0;
+		TempCommand[3] = 0;
+		SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTime);
+
+		vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount = 0;
+		vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[0] = 0;
+		vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[1] = 0;
+		vLocalSystemData->vEjectorsNotSynchronized = false;
+
+		if (vLocalSystemData->vLogFile.vLogSerialData)
+			WriteToLogFileWithBeltPosition("Cleared the Resynchronizing Ejector Container Count", vLocalSystemData->vCurrentBeltPosition);
+	}
+}
+
+void CSerialPort::CalculateDistanceToFirstSensor(WORD TempBeltPosition, BYTE TempContainerEjectNumber, BYTE TempEjectorNumber) //TempEjectorNumber is either zero or one
+{
+	if (vLocalConfigurationData->vResynchronizeEjectors)
+	if (vLocalSystemData->vInAutoSetup)
+	if (vLocalSystemData->vContainerCollection->GetCount() == 1)
+	if (vLocalSystemData->vITIPCDig->vContainerCollectionLock.Lock())
+	if (TempEjectorNumber > 1)
+		ReportErrorMessage("CalculateDistanceToFirstSensor TempEjectorNumber too large, software bug would cause crash", cEMailInspx, 32000);
+	else
+	{
+		CContainer *TempContainer = vLocalSystemData->vContainerCollection->GetHead();
+		WORD TempBeltOffsetToThisEjector = BPSubtract(TempBeltPosition, TempContainer->vBodyTriggerPosition);
+
+		bool TempEjectorUsed[cNumberOfEjectors];
+		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+			TempEjectorUsed[TempLoop] = false;
+
+		for (BYTE TempLoop = 0; TempLoop < vGlobalCurrentProduct->vNumberOfInspections; TempLoop++)
+		{
+			if (vGlobalCurrentProduct->vInspection[TempLoop])
+			if (vGlobalCurrentProduct->vInspection[TempLoop]->vEjector)
+			{
+				for (BYTE TempEjectorLoop = 0; TempEjectorLoop < cNumberOfEjectors; TempEjectorLoop++)
+				if (vGlobalCurrentProduct->vInspection[TempLoop]->vEjector & (1 << TempEjectorLoop))
+					TempEjectorUsed[TempEjectorLoop] = true;
+			}
+		}
+
+		if (TempEjectorUsed[TempEjectorNumber]) //if this ejector is used, save its distance in the distance to have tunnel cleared on startup
+		{
+			if (vLocalConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor != TempBeltOffsetToThisEjector)
+			{
+
+				//ReportErrorMessage("Set Resynchronizing Ejector Distance to Sensor to : " + dtoa(TempBeltOffsetToThisEjector, 2) + " was: " + 
+				//dtoa(vLocalConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor, 2), cEMailInspx, 32000);
+
+				vLocalConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor = TempBeltOffsetToThisEjector; //save the distance to the first sensor
+			}
+		}
+
+		if (vLocalSystemData->vLogFile.vLogSerialData)
+		{
+			WriteToLogFileWithBeltPosition("Trigger to Resync Ejector " + dtoa(TempEjectorNumber + 1, 0) + " sensor distance: " + dtoa(TempBeltOffsetToThisEjector / vGlobalPixelsPerUnit, 0) + 
+				"\" (" + dtoa(TempBeltOffsetToThisEjector, 0) + " encoder pulses)", vLocalSystemData->vCurrentBeltPosition);
+		}
+
+		double TempDistanceInInches = (TempBeltOffsetToThisEjector / vGlobalPixelsPerUnit) + 12.0; 
+		if (TempDistanceInInches > 400)
+			TempDistanceInInches = 250;
+
+		if (vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber] < TempDistanceInInches)
+		{
+			double TempOldValue = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber];
+			if (vLocalSystemData->vLogFile.vLogSerialData)
+				WriteToLogFileWithBeltPosition("Resync A Ejector " + dtoa(TempEjectorNumber + 1, 0) + " Position was: " + dtoa(vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber], 2) +
+					" set to: " + dtoa(TempDistanceInInches, 2), vLocalSystemData->vCurrentBeltPosition);
+
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempEjectorNumber, (float)TempDistanceInInches);
+
+			//ReportErrorMessage("Set Resynchronizing Ejector Sensor: " + dtoa(TempEjectorNumber + 1, 0) + " to : " + dtoa(TempDistanceInInches, 2) + " was: " + dtoa(TempOldValue, 2), cEMailInspx, 32000);
+		}
+		else
+		if (vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber] > TempDistanceInInches + 30) //if more than 20 inches past new location, set to new location
+		{
+			double TempOldValue = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber];
+			if (vLocalSystemData->vLogFile.vLogSerialData)
+				WriteToLogFileWithBeltPosition("Resync B Ejector " + dtoa(TempEjectorNumber + 1, 0) + " Position was: " + dtoa(vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber], 2) + 
+					" set to: " + dtoa(TempDistanceInInches, 2), vLocalSystemData->vCurrentBeltPosition);
+
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempEjectorNumber, (float)TempDistanceInInches);
+
+			//ReportErrorMessage("Set Resynchronizing Ejector Sensor " + dtoa(TempEjectorNumber + 1, 0) + " to : " + dtoa(TempDistanceInInches, 2) + " was: " + dtoa(TempOldValue, 2), cEMailInspx, 32000);
+		}
+		else
+		{
+			if (vLocalSystemData->vLogFile.vLogSerialData)
+				WriteToLogFileWithBeltPosition("Resync Ejector " + dtoa(TempEjectorNumber + 1, 0) + " Position is OK at: " + dtoa(vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber], 1) + " calculated: " + dtoa(TempDistanceInInches, 0), vLocalSystemData->vCurrentBeltPosition);
+
+			double TempOldValue = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjectorNumber];
+			//ReportErrorMessage("Resynchronizing Ejector Sensor " + dtoa(TempEjectorNumber + 1, 0) + " close enough, left at current value: " + dtoa(TempOldValue, 2), cEMailInspx, 32000);
+		}
+		double TempOriginalEndOfLineTimeOutInInches = vGlobalCurrentProduct->vEndOfLineTimeOut;
+		vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
+
+		//if (TempOriginalEndOfLineTimeOut != vGlobalCurrentProduct->vEndOfLineTimeOut)
+		//	ReportErrorMessage("End of Line Timeout changed from  " + dtoa(TempOriginalEndOfLineTimeOut, 2) + " to : " + dtoa(vGlobalCurrentProduct->vEndOfLineTimeOut, 2), cEMailInspx, 32000);
+
+		vLocalSystemData->vITIPCDig->vContainerCollectionLock.Unlock();
+	}
+}
 void CSerialPort::DoBackGroundWork()
 {
 	if (vGlobalFPGAVersion10Point0OrHigher)

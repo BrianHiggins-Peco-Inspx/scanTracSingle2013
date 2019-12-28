@@ -24,6 +24,7 @@ public:
 
 	WORD vBodyTriggerGapLength;
 	DWORD vContainerNumber;
+	BYTE vContainerNumberToEject;
 	BYTE vHeadNumber[3]; //for filler monitoring and Filler and Seamer Sampling
 	double vFillLevel;
 	BYTE vContainerEjected;

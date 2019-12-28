@@ -3366,7 +3366,7 @@ void CHelpDialog::DisplayProductInformation()
 
 		if (vLocalConfigurationData)
 		if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam > 1)
-			TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vProductPointer->vProductBodyTriggerToImageBeltPositionOffset - TempWhiteSpaceOnOneSideOfImage);
+			TempTriggerToBeamOffset = -(vLocalConfigurationData->vSystemBodyTriggerToXRayBeam - vProductPointer->vProductBodyTriggerToImageDistanceInInches - TempWhiteSpaceOnOneSideOfImage);
 
 		if (vLocalConfigurationData)
 		if (vLocalConfigurationData->vSystemBodyTriggerToXRayBeam)
@@ -3435,7 +3435,7 @@ void CHelpDialog::DisplayProductInformation()
 			TempString = TempString + "Not Enabled";
 		vTextString = vTextString + "\n\nContainer Trigger: " + TempString;
 
-		TempString = dtoa(vProductPointer->vProductBodyTriggerToImageBeltPositionOffset,2);
+		TempString = dtoa(vProductPointer->vProductBodyTriggerToImageDistanceInInches,2);
 		if (vLocalConfigurationData)
 			vTextString = vTextString + "\nContainer Trigger to Detector Distance: " + TempString + " " + vLocalConfigurationData->vUnitsString;
 
@@ -3731,6 +3731,15 @@ void CHelpDialog::DisplayProductInformation()
 
 		vTextString = vTextString + "\n";
 		vTextString = vTextString + TempDividerString;
+		if (vLocalConfigurationData->vResynchronizeEjectors)
+		{
+			vTextString = vTextString + "\n++    Resynchronize Ejector Mode\n";
+			if (vLocalConfigurationData->vApplyRetriggerLockoutToResynchronizingSensors)
+				vTextString = vTextString + "\n++        Applying Re-trigger Lockout to Sensors\n";
+			else
+				vTextString = vTextString + "\n++        Not applying Re-trigger Lockout to Sensors\n";
+		}
+
 
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectorsForUser; TempLoop++)
 		{
@@ -3744,28 +3753,34 @@ void CHelpDialog::DisplayProductInformation()
 			}
 			else
 			{
-				vTextString = vTextString + "\nEjector " + dtoa(TempLoop + 1, 0) + ": " + vLocalConfigurationData->vEjector[TempLoop].vName;
-
-				vTextString = vTextString + "\n    Ejector Position: " + dtoa(vProductPointer->vEjectorDelayPosition[TempLoop], 2);
-
+				if (vLocalConfigurationData->vResynchronizeEjectors)
+				{
+						vTextString = vTextString + "\n    Delay in Milliseconds from resynchronizing sensor to fire ejector: " + dtoa(vProductPointer->vResyncTriggerToEjectTime[TempLoop], 2);
+						vTextString = vTextString + "\n    Sensor Distance: " + dtoa(vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop] - 12, 1);  //added 12 inches for width of ejector before end of line timeout
+				}
+				else
 				if (vLocalConfigurationData->vSystemEjectorDistance[TempLoop])
-				vTextString = vTextString + "\n    Ejector Offset: " + dtoa(vProductPointer->vEjectorDelayPosition[TempLoop] - 
-					vLocalConfigurationData->vSystemEjectorPositionOffset - vLocalConfigurationData->vSystemEjectorDistance[TempLoop],2) + " inches from System Distance of: "  + 
-					dtoa(vLocalConfigurationData->vSystemEjectorPositionOffset + vLocalConfigurationData->vSystemEjectorDistance[TempLoop],2);
+				{
+					vTextString = vTextString + "\n    Ejector Offset: " + dtoa(vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop] - 
+						vLocalConfigurationData->vSystemEjectorPositionOffset - vLocalConfigurationData->vSystemEjectorDistance[TempLoop],2) + " inches from System Distance of: "  + 
+						dtoa(vLocalConfigurationData->vSystemEjectorPositionOffset + vLocalConfigurationData->vSystemEjectorDistance[TempLoop],2);
+					vTextString = vTextString + "\n    Ejector Position: " + dtoa(vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop], 2);
+				}
+				else
+				{
+					CString TempEjectorText = "Trigger to Ejector Distance: ";
+					if (vLocalConfigurationData->vSystemEjectorPositionOffset > 1)
+						TempEjectorText = "ScanTrac Output Wall to Ejector Distance: ";
 
-				//CString TempEjectorText = "Trigger to Ejector Distance: ";
-				//if (vLocalConfigurationData->vSystemEjectorPositionOffset > 1)
-				//	TempEjectorText = "ScanTrac Output Wall to Ejector Distance: ";
+					if (vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop] > vLocalConfigurationData->vSystemEjectorPositionOffset)
+						vTextString = vTextString + "\n    " + TempEjectorText + dtoa(vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop] - vLocalConfigurationData->vSystemEjectorPositionOffset,2);
+					else
+						vTextString = vTextString + "\n*    Distance: Too Short";
 
-				//if (vProductPointer->vEjectorDelayPosition[TempLoop] > vLocalConfigurationData->vSystemEjectorPositionOffset)
-				//	vTextString = vTextString + "\n    " + TempEjectorText + dtoa(vProductPointer->vEjectorDelayPosition[TempLoop] - vLocalConfigurationData->vSystemEjectorPositionOffset,2);
-				//else
-				//	vTextString = vTextString + "\n*    Distance: Too Short";
-
-				//if (PasswordOK(cTemporaryInspxPassword,false))
-				//	vTextString = vTextString + " + ScanTrac Width of " + dtoa(vLocalConfigurationData->vSystemEjectorPositionOffset,2) +
-				//	" = " + dtoa(vProductPointer->vEjectorDelayPosition[TempLoop],2) + " Trigger To Ejector";
-
+					if (PasswordOK(cTemporaryInspxPassword,false))
+						vTextString = vTextString + " + ScanTrac Width of " + dtoa(vLocalConfigurationData->vSystemEjectorPositionOffset,2) +
+						" = " + dtoa(vProductPointer->vEjectorDistanceFromTriggerInInches[TempLoop],2) + " Trigger To Ejector";
+				}
 				vTextString = vTextString + "\n    Response Factor: " + dtoa(vProductPointer->vEjectorResponseTime[TempLoop],4);
 
 				if (vProductPointer->vEjectorDwellTime[TempLoop] == 0)
@@ -3854,7 +3869,7 @@ void CHelpDialog::DisplayProductInformation()
 			" Demo Images";
 		if (vLocalSystemData->vTemporarilyChangeSource)
 			vTextString = vTextString + "\n    Temporarily Changed X-Ray Source Voltage/Current";
-		if (vLocalSystemData->vKeepExternalDetectorsEnabled)
+		if ((vLocalSystemData->vKeepExternalDetectorsEnabled) && (!vLocalConfigurationData->vResynchronizeEjectors))
 			vTextString = vTextString + "\n    Auxiliary Detectors Forced Enabled";
 		//if (vLocalSystemData->vShowContainerTriggerLength)
 		//	vTextString = vTextString + "\n    Showing Container Trigger Length";
@@ -3946,6 +3961,19 @@ void CHelpDialog::DisplayProductInformation()
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectorsForUser; TempLoop++)
 		if (vGlobalCurrentProduct->vEjectorDwellTime[TempLoop] == 0)
 			vTextString = vTextString + "\n    Ejector " + dtoa(TempLoop + 1, 0) + " is being controlled as a Diverter";
+
+		if (vLocalConfigurationData->vResynchronizeEjectors)
+		{
+				vTextString = vTextString + "\n    Resynchronize Ejector Mode";
+				vTextString = vTextString + "\n        Trigger to Resynchronize Ejector Sensor Distance: " + 
+					dtoa(vLocalConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor / vGlobalPixelsPerUnit, 0) + "\" (" +
+					dtoa(vLocalConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor, 0) + " encoder pulses)";
+
+				vTextString = vTextString + "\n        Trigger Count: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentTriggerCount, 0);
+				vTextString = vTextString + "\n        Sensor 1 Count: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[0], 0);
+				if (vLocalConfigurationData->vEjector[1].vEnabled)
+					vTextString = vTextString + "\n        Sensor 2 Count: " + dtoa(vLocalSystemData->vResynchronizeEjectorsCurrentEjectorSensorCount[1], 0);
+		}
 
 		if (vLocalConfigurationData->vWriteRejectsToFiles)
 		{
@@ -4184,6 +4212,21 @@ void CHelpDialog::DisplayProductInformation()
 			}
 		}
 		vTextString = vTextString + "\n";
+		if (!vLocalConfigurationData->vResynchronizeEjectors)
+		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+		{
+			for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+			if (vLocalConfigurationData->vEjector[TempLoop].vEnabled)
+			if (vLocalConfigurationData->vSystemEjectorDistance[TempLoop])
+			{
+				vTextString = vTextString + "\n    ";
+
+				vTextString = vTextString + "Ejector " + dtoa(TempLoop + 1, 0) + ": ScanTrac output wall to ejector center: " + 
+					dtoa(vLocalConfigurationData->vSystemEjectorDistance[TempLoop], 2) + 
+					"\n         T to E: " + dtoa(vLocalConfigurationData->vSystemEjectorDistance[TempLoop] + vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
+			}
+		}
+		vTextString = vTextString + "\n";
 
 		vTextString = vTextString + "\n";
 		vTextString = vTextString + TempDividerString;
@@ -4387,6 +4430,21 @@ void CHelpDialog::DisplayProductInformation()
 				vTextString = vTextString + "\nError X-Ray Detector Pixel Size";
 		}
 
+		if (!vLocalConfigurationData->vResynchronizeEjectors)
+		if (vLocalConfigurationData->vSystemEjectorPositionOffset)
+		{
+			for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+			if (vLocalConfigurationData->vEjector[TempLoop].vEnabled)
+			if (vLocalConfigurationData->vSystemEjectorDistance[TempLoop])
+			{
+				vTextString = vTextString + "\n    ";
+
+				vTextString = vTextString + "Ejector " + dtoa(TempLoop + 1, 0) + ": ScanTrac output wall to ejector center: " + 
+					dtoa(vLocalConfigurationData->vSystemEjectorDistance[TempLoop], 2) + 
+					"\n         T to E: " + dtoa(vLocalConfigurationData->vSystemEjectorDistance[TempLoop] + vLocalConfigurationData->vSystemEjectorPositionOffset, 2);
+			}
+		}
+		vTextString = vTextString + "\n";
 		TempString = "Undefined";
 		switch(vLocalConfigurationData->vPreAmplifierGain)
 		{

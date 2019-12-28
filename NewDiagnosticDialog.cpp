@@ -1976,8 +1976,7 @@ HBRUSH CNewDiagnosticDialog::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	if (pWnd->GetDlgCtrlID() == IDC_Function4Button)
 	{
 		TextSize = SetTextSizeFunctionButton(TempDialogHwnd, pWnd, pDC, &m_Function4Button, 5);  //5 is medium large
-		
-		if ((vLocalSystemData->vKeepExternalDetectorsEnabled) ||
+		if (((vLocalSystemData->vKeepExternalDetectorsEnabled) && (!vLocalConfigurationData->vResynchronizeEjectors)) ||
 			(!vLocalSystemData->vITIPCDig->vShowOnlyRealImages) || 
 			(vLocalSystemData->vFPGAGeneratingSimulatedData) ||
 			(vLocalSystemData->vFPGASimulateEncoderRate) ||

@@ -35,7 +35,9 @@ public:
 	bool vWaitingForTestEjectNextContainer;
 	bool vTestingEject2ndContainer;
 	bool vChangeMade;
-	double vEjectorDelayPosition[cNumberOfEjectors];
+	double vEjectorDistanceFromTriggerInInches[cNumberOfEjectors];
+	double vResyncTriggerToEjectTime[cNumberOfEjectors];
+	float vOriginalResyncTriggerToEjectTime[cNumberOfEjectors];
 	float vEjectorResponseTime[cNumberOfEjectors];
 	CString vDwellTime[cNumberOfEjectors];
 	CString vOriginalDelayPosition[cNumberOfEjectors];

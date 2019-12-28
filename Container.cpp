@@ -20,6 +20,7 @@ CContainer::CContainer()
 {
 	vTheImage = NULL;
 	vContainerNumber = 0;
+	vContainerNumberToEject = 0;
 	vLastBodyTriggerGapLength = 0;
 	vRealImage = false;
 	vNumberOfLinesShort = 0;

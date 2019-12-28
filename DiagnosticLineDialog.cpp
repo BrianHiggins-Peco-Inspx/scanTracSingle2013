@@ -1319,21 +1319,28 @@ CString CDiagnosticLineDialog::GetInputName(BYTE TempLineNumber)	// TempLineNumb
 			TempString = TempNameString;
 		break;
 		case 18: //normally Aux Detector 2
-			TempNameString = "Unused Aux. Detector " + dtoa(TempLineNumber - 16, 0);
-			//for (TempLoop = 0;TempLoop < cNumberOfEjectors; TempLoop++)
-			//if ((vLocalConfigurationData->vEjector[TempLoop].vEnabled) && (vLocalConfigurationData->vEjector[TempLoop].vConfirmDigitalInputLine == 2))
-			//{
-			//	TempNameString = "Eject Confirmer " + dtoa(TempLoop + 2, 0) + " for: " + vLocalConfigurationData->vEjector[TempLoop].vName;
-			//}
-			for (TempLoop = 0;TempLoop < cNumberOfExternalDetectors; TempLoop++)
-			if (vLocalConfigurationData->vExternalDetector[TempLoop].vEnabled)
-			if (vLocalConfigurationData->vExternalDetector[TempLoop].vDigitalInputLine == 2)
+			if (vLocalConfigurationData->vResynchronizeEjectors)
 			{
-				TempNameString = "Aux. Detector ";
-				TempNameString = TempNameString + dtoa(TempLoop + 1, 0) + ": " + vLocalConfigurationData->vExternalDetector[TempLoop].vName;
+				TempString = "Resynchronizing Sensor for Ejector 1";
 			}
+			else
+			{
+				TempNameString = "Unused Aux. Detector " + dtoa(TempLineNumber - 16, 0);
+				//for (TempLoop = 0;TempLoop < cNumberOfEjectors; TempLoop++)
+				//if ((vLocalConfigurationData->vEjector[TempLoop].vEnabled) && (vLocalConfigurationData->vEjector[TempLoop].vConfirmDigitalInputLine == 2))
+				//{
+				//	TempNameString = "Eject Confirmer " + dtoa(TempLoop + 2, 0) + " for: " + vLocalConfigurationData->vEjector[TempLoop].vName;
+				//}
+				for (TempLoop = 0;TempLoop < cNumberOfExternalDetectors; TempLoop++)
+				if (vLocalConfigurationData->vExternalDetector[TempLoop].vEnabled)
+				if (vLocalConfigurationData->vExternalDetector[TempLoop].vDigitalInputLine == 2)
+				{
+					TempNameString = "Aux. Detector ";
+					TempNameString = TempNameString + dtoa(TempLoop + 1, 0) + ": " + vLocalConfigurationData->vExternalDetector[TempLoop].vName;
+				}
 
-			TempString = TempNameString;
+				TempString = TempNameString;
+			}
 		break;
 		case 19: //normally Aux Detector 3
 			TempNameString = "Unused Aux. Detector " + dtoa(TempLineNumber - 16, 0);
@@ -1372,19 +1379,26 @@ CString CDiagnosticLineDialog::GetInputName(BYTE TempLineNumber)	// TempLineNumb
 			TempString = TempNameString;
 		break;
 		case 22: //normally Eject Confirmer 1
-			TempNameString = "Unused Eject Confirmer " + dtoa(TempLineNumber - 21, 0);
-			if (vLocalConfigurationData->vEjector[TempLineNumber - 22].vConfirmDigitalInputLine == 1)
+			if (vLocalConfigurationData->vResynchronizeEjectors)
 			{
-				TempNameString = "Eject Confirmer " + dtoa(TempLineNumber - 21, 0) + " for: " + vLocalConfigurationData->vEjector[TempLineNumber - 22].vName;
+				TempString = "Resynchronizing Sensor for Ejector 2";
 			}
-			if (TempLineNumber == 22)
-			for (TempLoop = 0;TempLoop < cNumberOfExternalDetectors; TempLoop++)
-			if ((vLocalConfigurationData->vExternalDetector[TempLoop].vEnabled) && (vLocalConfigurationData->vExternalDetector[TempLoop].vDigitalInputLine == 6))
+			else
 			{
-				TempNameString = "Aux. Detector ";
-				TempNameString = TempNameString + dtoa(TempLoop + 1, 0) + ": " + vLocalConfigurationData->vExternalDetector[TempLoop].vName;
+				TempNameString = "Unused Eject Confirmer " + dtoa(TempLineNumber - 21, 0);
+				if (vLocalConfigurationData->vEjector[TempLineNumber - 22].vConfirmDigitalInputLine == 1)
+				{
+					TempNameString = "Eject Confirmer " + dtoa(TempLineNumber - 21, 0) + " for: " + vLocalConfigurationData->vEjector[TempLineNumber - 22].vName;
+				}
+				if (TempLineNumber == 22)
+				for (TempLoop = 0;TempLoop < cNumberOfExternalDetectors; TempLoop++)
+				if ((vLocalConfigurationData->vExternalDetector[TempLoop].vEnabled) && (vLocalConfigurationData->vExternalDetector[TempLoop].vDigitalInputLine == 6))
+				{
+					TempNameString = "Aux. Detector ";
+					TempNameString = TempNameString + dtoa(TempLoop + 1, 0) + ": " + vLocalConfigurationData->vExternalDetector[TempLoop].vName;
+				}
+				TempString = TempNameString;
 			}
-			TempString = TempNameString;
 		break;
 		case 23:   //normally Eject Confirmer 2
 			TempNameString = "Unused Eject Confirmer B";// + dtoa(TempLineNumber - 21, 0);

@@ -4399,7 +4399,7 @@ void CImageAquisitionThread::TestEjectThisContainer()
 			vMainWindowPointer->EnableDisableEjectors(true);
 
 			BYTE TempEjector = vLocalSystemData->vTestEjectNextContainer;
-			double TempDistance = vGlobalCurrentProduct->vEjectorDelayPosition[TempEjector - 1] * vGlobalPixelsPerUnit;
+			double TempDistance = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjector - 1] * vGlobalPixelsPerUnit;
 			double TempDelay = TempDistance / vLocalSystemData->vActualEncoderRate;
 			TempDelay = (TempDelay + 1) * 1000;  //add 1 scond, then convert to milliSeconds
 			::PostThreadMessage(vGlobalCallingThreadID,cDisableEjectorsMessage,(long)TempDelay,(long)TempDelay);//send message to Disable ejectors in X seconds
@@ -4612,7 +4612,7 @@ bool CImageAquisitionThread::SampleThisContainer(CContainer *TempContainer)
 				vLocalSystemData->vNeedToDisableEjectorsAfterSampleAll = false;
 				//setup to disable ejectors after eject this sample
 				BYTE TempEjector = vLocalSystemData->vTestEjectNextContainer;
-				double TempDistance = vGlobalCurrentProduct->vEjectorDelayPosition[TempEjector - 1] * vGlobalPixelsPerUnit;
+				double TempDistance = vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempEjector - 1] * vGlobalPixelsPerUnit;
 				double TempDelay = TempDistance / vLocalSystemData->vActualEncoderRate;
 				TempDelay = (TempDelay + 1) * 1000;  //add 1 scond, then convert to milliSeconds
 				::PostThreadMessage(vGlobalCallingThreadID,cDisableEjectorsMessage,(long)TempDelay,(long)TempDelay);//send message to Disable ejectors in X seconds

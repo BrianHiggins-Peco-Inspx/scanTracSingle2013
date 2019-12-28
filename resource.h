@@ -986,6 +986,7 @@
 #define IDC_EjectCriteriaCountLabel12   1191
 #define IDC_DelayPosition2              1192
 #define IDC_RejectReason                1192
+#define IDC_EjectorName4                1192
 #define IDC_DelayTime2                  1193
 #define IDC_DensityCompensation         1193
 #define IDC_DwellTime2                  1194

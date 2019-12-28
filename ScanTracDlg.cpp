@@ -492,6 +492,7 @@ CScanTracDlg::CScanTracDlg(CWnd* pParent /*=NULL*/)
 	vBackupToBackupHardDriveTimer = 990;
 	vCheckForNewImageToDisplayTimerHandle = 997;
 	vStartRunningTimerHandle = 992;
+	vBeltEstimatedPositionTimerHandle = 993;
 	vWaitToCalibrateForXRaysToSettleTimer = 993;
 	vTrackingCheckWeighMinuteData = false;
 
@@ -4229,9 +4230,65 @@ void CScanTracDlg::OnTimer(UINT nIDEvent)
   {
     //vSystemData.SetGoodCountTotal(vSystemData.vGoodCountTotal + 1);
 		vSystemData.vCurrentBeltPosition = vSystemData.vCurrentBeltPosition + 29;
-		//if (vSystemData.vSystemRunMode == cRunningSystemMode)
+		vSystemData.vCurrentEstimatedBeltPosition = vSystemData.vCurrentBeltPosition;
+
+		//if (vSystemData.vLogFile.vLogSerialData)
+		//	vGlobaluCSerialPort->WriteToLogFileWithBeltPosition("Estimated Belt Position from vBeltPositionTimerHandle: " + dtoa(vSystemData.vCurrentEstimatedBeltPosition, 0), vSystemData.vCurrentBeltPosition);
+
 		if (vGlobaluCSerialPort)
 			vGlobaluCSerialPort->CheckContainers(vSystemData.vCurrentBeltPosition);
+  }
+  else
+  if (nIDEvent == vBeltEstimatedPositionTimerHandle)
+  {
+		KillTimer(vBeltEstimatedPositionTimerHandle);
+		if ((vSystemData.vSystemRunMode != cRunningSystemMode) && (vSystemData.vSystemRunMode != cAutoSetupRunningSystem) || (vSystemData.vFirstContainerShouldNotTriggerSensorYet))
+		{
+			vSystemData.vCurrentEstimatedBeltPosition = vSystemData.vCurrentEstimatedBeltPosition + (WORD)(0.010 * vSystemData.vActualEncoderRate); //was 0.006, but too slow
+
+			//if (vSystemData.vLogFile.vLogSerialData)
+			//	vGlobaluCSerialPort->WriteToLogFileWithBeltPosition("Estimated Belt Position: " + dtoa(vSystemData.vCurrentEstimatedBeltPosition, 0) + ", Current Rate: " + dtoa(vSystemData.vActualEncoderRate, 0), vSystemData.vCurrentBeltPosition);
+
+			if (vConfigurationData->vResynchronizeEjectors)
+			if (vSystemData.vFirstContainerShouldNotTriggerSensorYet)
+			if ((vSystemData.vSystemRunMode == cAutoSetupRunningSystem) || (vSystemData.vSystemRunMode == cRunningSystemMode))
+			if (BPSubtract(vSystemData.vCurrentEstimatedBeltPosition, vSystemData.vBeltPositionTunnelShouldBeClearTo) < 20000) //current belt position is passed the point sensor 1 should not have trigger from a container in the tunnel
+			{
+				vSystemData.vFirstContainerShouldNotTriggerSensorYet = false;
+
+				//enable ejector resync sensors
+				vSystemData.vKeepExternalDetectorsEnabled = true;
+				vSystemData.vCurrentExternalDetectorMask = vSystemData.vCurrentExternalDetectorMask | 2; //enable photo eye on Aux Det 2 for ejector 1
+
+				if (vConfigurationData->vEjector[1].vEnabled)
+					vSystemData.vCurrentExternalDetectorMask = vSystemData.vCurrentExternalDetectorMask | 0x20; //enable photo eye on Eject Confirmer 1 for ejector 2
+
+				if (vConfigurationData->vResynchronizeEjectors)
+					vSystemData.vCurrentAlwaysOnExternalDetectorMask = vSystemData.vCurrentExternalDetectorMask;
+
+				if (vSystemData.vLogFile.vLogSerialData)
+					vGlobaluCSerialPort->WriteToLogFileWithBeltPosition("Estimated Belt has traveled past sensor for Resynchronizing Ejector: " + dtoa(vSystemData.vCurrentEstimatedBeltPosition, 0), vSystemData.vCurrentBeltPosition);
+
+				tSerialCommand TempCommand;
+				TempCommand[0] = 0x1C;
+				TempCommand[1] = 0x02;  //group 2 is Auxiliary Detectors
+				TempCommand[2] = 0x00;
+
+				if (vSystemData.vKeepExternalDetectorsEnabled)
+					TempCommand[3] = vSystemData.vCurrentExternalDetectorMask;
+				else
+					TempCommand[3] = vSystemData.vCurrentAlwaysOnExternalDetectorMask;
+
+				vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+				Sleep(cSendCommandSleepTimeSetup);
+			}
+			if (vSystemData.vFirstContainerShouldNotTriggerSensorYet)
+			{
+				int TempTimerResult = SetTimer(vBeltEstimatedPositionTimerHandle,10,NULL);
+				if (!TempTimerResult)
+					ReportErrorMessage("Error-Estimated Position Timer Failed",cEMailInspx,32000);
+			}
+		}
   }
   else
 	if (nIDEvent == vCheckHardDrivesTimerHandle)
@@ -6343,16 +6400,31 @@ void CScanTracDlg::OneSecondDisplayUpdate()
 	//	vGlobalCurrentProduct->vNeedToRelearn = 1;
 	//	QuickSetupStartAutoReLearnIfNeeded();
 	//}
-	//test
-	/*
-	if ((vMaximum10MilliSecondSpan != vOldMaximum10MilliSecondSpan) || (vLast10MilliSecondSpan != vOldLast10MilliSecondSpan))
+	if (vConfigurationData->vSimulateLightControlBoard)
 	{
-		vOldMaximum10MilliSecondSpan = vMaximum10MilliSecondSpan;
-		vOldLast10MilliSecondSpan = vLast10MilliSecondSpan;
-		SetDlgItemText(IDC_TriggerIndicator, dtoa(vOldLast10MilliSecondSpan,0) + ", " + dtoa(vOldMaximum10MilliSecondSpan,0));
+		//if (vSystemData.vNoCommunicationsWithUController)
+		{
+			//if (vSystemData.vConveyorIsOn)
+			{
+				if (vSystemData.vFPGASimulateEncoderRate)
+				{
+					vSystemData.vCurrentBeltPosition = vSystemData.vCurrentBeltPosition + vSystemData.vFPGASimulateEncoderRate;
+					vSystemData.vCurrentEstimatedBeltPosition = vSystemData.vCurrentBeltPosition;
+					vSystemData.vActualEncoderRate = vSystemData.vFPGASimulateEncoderRate;
+					vGlobaluCSerialPort->ProcessBeltPosition(vSystemData.vCurrentBeltPosition, false);
+				}
+				else
+				{
+					vSystemData.vCurrentBeltPosition = vSystemData.vCurrentBeltPosition + 300;
+					vSystemData.vCurrentEstimatedBeltPosition = vSystemData.vCurrentBeltPosition;
+					vSystemData.vActualEncoderRate = 300;
+					vGlobaluCSerialPort->ProcessBeltPosition(vSystemData.vCurrentBeltPosition, false);
+				}
+			}
+		}
 	}
-	*/
-	
+
+
 
 	bool TempProcessingQuickLearn = false;
 	if (vGlobalProcessQuickLearnImagesThread)
@@ -7285,6 +7357,15 @@ void CScanTracDlg::OneSecondDisplayUpdate()
 
 		if (vSystemData.vMainDisplayMode != cMainDisplayBooting)
 		{
+		if (vConfigurationData->vDemoMode)// || (vConfigurationData->vSimulateLightControlBoard))
+		if (vSystemData.vConveyorIsOn)
+		{
+			vSystemData.vCurrentBeltPosition = vSystemData.vCurrentBeltPosition + 1000;
+			vSystemData.vCurrentEstimatedBeltPosition = vSystemData.vCurrentBeltPosition;
+			vSystemData.vActualEncoderRate = 1000;
+		}
+		else
+			vSystemData.vActualEncoderRate = 0;
 			if ((vConfigurationData->vDemoMode) || (vConfigurationData->vSimulateLightControlBoard))
 			if ((vGlobaluCSerialPort) && (vGlobaluCSerialPort->vNoCommunications))
 			if (vSystemData.vXRayOnNotice)
@@ -8151,10 +8232,10 @@ void CScanTracDlg::OneSecondDisplayUpdate()
 		if (TempResult == IDOK)
 		if (vGlobalCurrentProduct)
 		{
-			if (vGlobalCurrentProduct->vEjectorDelayPosition[0] < 50)
+			if (vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0] < 50)
 				vGlobalCurrentProduct->SetEjectorBeltPositionOffset(0, 50);
 			else
-				vGlobalCurrentProduct->SetEjectorBeltPositionOffset(0, vGlobalCurrentProduct->vEjectorDelayPosition[0] + 10);
+				vGlobalCurrentProduct->SetEjectorBeltPositionOffset(0, vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0] + 10);
 
 			vGlobalCurrentProduct->CalculateEndOfLineTimeOut();
 		}
@@ -11535,9 +11616,9 @@ void CScanTracDlg::SetupProduct(CProduct *TempProduct, bool TempLeaveSourceOn)
 		vGlobalCurrentProduct->SetBottomLocationLeft((float)(vGlobalCurrentProduct->vBottomLocationLeftPixel / vGlobalPixelsPerUnit));
 		vGlobalCurrentProduct->SetBottomLocationLength((float)(vGlobalCurrentProduct->vBottomLocationLengthPixel / vGlobalPixelsPerUnit));
 		vGlobalCurrentProduct->SetProductLockOutWidth(vGlobalCurrentProduct->vProductLockOutWidth);
-		vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageBeltPositionOffset);
+		vGlobalCurrentProduct->SetProductBodyTriggerToImageBeltPositionOffset(vGlobalCurrentProduct->vProductBodyTriggerToImageDistanceInInches);
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
-			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, vGlobalCurrentProduct->vEjectorDelayPosition[TempLoop]);
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(TempLoop, vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[TempLoop]);
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfExternalDetectors; TempLoop++)
 		{
 			vGlobalCurrentProduct->SetExternalDetectorWindowStart(TempLoop,(float)vGlobalCurrentProduct->vExternalDetectorWindowStart[TempLoop]);
@@ -12288,6 +12369,8 @@ void CScanTracDlg::SetupProduct(CProduct *TempProduct, bool TempLeaveSourceOn)
 	SetInterlockStatus();
 	UpdateClearYellowMessageButton();
 	UpdateButtons();
+		if (vConfigurationData->vResynchronizeEjectors)
+			SendEjectorDwellTimesToFPGA();
 
 	if (TempNoticeText.GetLength() > 5)
 	{
@@ -13427,6 +13510,56 @@ void CScanTracDlg::StartImageAcquisition()
 
 	if (vSystemData.vLogFile.vLogSerialData)
 		vSystemData.vLogFile.WriteToLogFile("Exit StartImageAcquisition ScanTracDlg",cDebugMessage);
+	if (vConfigurationData->vResynchronizeEjectors)
+	if ((vSystemData.vSystemRunMode == cRunningSystemMode) || (vSystemData.vSystemRunMode == cAutoSetupRunningSystem))
+	{
+		WORD TempDistance = vConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor;
+		if (TempDistance > 500)
+			TempDistance = (WORD)(TempDistance - vGlobalPixelsPerUnit);  //give an inch margin
+		else 
+			TempDistance = (WORD)(12 * vGlobalPixelsPerUnit);
+
+		vSystemData.vBeltPositionTunnelShouldBeClearTo = BPAdd(vSystemData.vCurrentEstimatedBeltPosition, TempDistance);
+
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendDigitalLineInterruptEnableDisable(0x22, 1, vSystemData.vBeltPositionTunnelShouldBeClearTo);
+
+		if (vConfigurationData->vResynchronizeEjectors)  //reset the container count
+		//if (vSystemData.vSystemRunMode == cRunningSystemMode)
+		{
+			ReportErrorMessage("Start inspection at: " + dtoa(vSystemData.vCurrentEstimatedBeltPosition, 0) + ", for resynchronizing ejectors tunnel must be cleared for: " + dtoa(vConfigurationData->vBeltPositionDistancetoEjectorResynchronizationSensor, 0), cWriteToLog, 0);
+			vSystemData.vFirstContainerShouldNotTriggerSensorYet = true; //just activated body trigger, so should not get sensor trigger for certain distance
+			vSystemData.vEjectorsNotSynchronized = false;
+			//enable the ejector resync sensors later after the belt has moved enough to clear any containers out of the tunnel
+		}
+
+		tSerialCommand TempCommand;
+		TempCommand[0] = 0x1C;
+		TempCommand[1] = 0x02;  //group 2 is Auxiliary Detectors
+		TempCommand[2] = 0x00;
+
+		if (vConfigurationData->vResynchronizeEjectors)  //don't enable aux sensors if using to resynchronize ejectors as will do that after the belt travels enough to clear out tunnel
+			TempCommand[3] = 0;
+		else
+		if (vSystemData.vKeepExternalDetectorsEnabled)
+			TempCommand[3] = vSystemData.vCurrentExternalDetectorMask;
+		else
+			TempCommand[3] = vSystemData.vCurrentAlwaysOnExternalDetectorMask;
+
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTimeSetup);
+
+		//TempCommand[0] = 0x33;
+		//TempCommand[1] = 0x00;
+		//TempCommand[2] = 0x00;
+		//if (vSystemData.vKeepExternalDetectorsEnabled)
+		//	TempCommand[3] = 3;
+		//else
+		//	TempCommand[3] = 4;
+		//vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		//Sleep(cSendCommandSleepTimeSetup);
+	}
 }
 
 void CScanTracDlg::StopImageAcquisition()
@@ -13519,7 +13652,52 @@ void CScanTracDlg::SendProductSetupToUController(bool TempLeaveSourceOn)
 		vSystemData.vUControllerReady = true;
 
 	//Send Container Trigger Lockout
+	tSerialCommand TempCommand;
 	SendRetriggerLockout(vGlobalCurrentProduct->vLockoutPosition);
+
+	if (vConfigurationData->vResynchronizeEjectors)
+	{
+		BYTE TempEjectorsEnabled = false;
+		if (vConfigurationData->vEnableEjectors)
+		{
+			TempEjectorsEnabled = true;
+			vConfigurationData->vEnableEjectors = false;
+			if (vGlobaluCSerialPort)
+				vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+			Sleep(cSendCommandSleepTimeSetup);
+		}
+
+		//send re-trigger lockout to sensor 1
+		TempCommand[0] = 0x3C;
+		if (vConfigurationData->vApplyRetriggerLockoutToResynchronizingSensors)
+		{
+			TempCommand[1] = (BYTE)(vGlobalCurrentProduct->vLockoutPosition >> 8);
+			TempCommand[2] = (BYTE)vGlobalCurrentProduct->vLockoutPosition;
+		}
+		else
+		{
+			TempCommand[1] = 0;
+			TempCommand[2] = 0;
+		}
+		TempCommand[3] = 1;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTimeSetup);
+
+		//send re-trigger lockout to sensor 2
+		TempCommand[3] = 2;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTimeSetup);
+
+		if (TempEjectorsEnabled) //re-enable ejectors if had to disable them to send the dwell times
+		{
+			vConfigurationData->vEnableEjectors = true;
+			if (vGlobaluCSerialPort)
+				vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+			Sleep(cSendCommandSleepTimeSetup);
+		}
+	}
 
 	//Send Container Trigger to Image Delay
 	if (vGlobaluCSerialPort)
@@ -13528,6 +13706,17 @@ void CScanTracDlg::SendProductSetupToUController(bool TempLeaveSourceOn)
 
 	SendLinesPerFrame();
 	
+	//Send Ejector Dwell Times
+	BYTE TempEjectorsEnabled = vConfigurationData->vEnableEjectors;
+	if (vConfigurationData->vResynchronizeEjectors)
+	if (vConfigurationData->vEnableEjectors)
+	{
+		vConfigurationData->vEnableEjectors = false;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+		Sleep(cSendCommandSleepTimeSetup);
+	}
+
 	//send image to image delay of zero so both images taken at same time(only used on 24 inch TD)
 	if (((vConfigurationData->vScanTracType == cForteScanTrac) || (vGlobalScanTracType == cAllegroScanTrac) || (vGlobalScanTracType == cSoloPlusScanTrac) || 
 		(vConfigurationData->vScanTracType == cCaseInspectorScanTrac)) && (vGlobaluCSerialPort))  //24 inch TD needs two 12 inch images taken at same time
@@ -13584,7 +13773,6 @@ void CScanTracDlg::SendProductSetupToUController(bool TempLeaveSourceOn)
 	}
 
 	//send ejector activity level to FPGA
-	tSerialCommand TempCommand;
 	TempCommand[0] = 0x23;
 	TempCommand[1] = 0xD8; //0xD0;
 	TempCommand[2] = (BYTE)(TempLevel >> 8);
@@ -13607,6 +13795,14 @@ void CScanTracDlg::SendProductSetupToUController(bool TempLeaveSourceOn)
 		if (vGlobalCurrentProduct)
 			SendSourceSettingsToUController(vGlobalCurrentProduct->vXRaySourceVoltage, vGlobalCurrentProduct->vXRaySourceCurrent);
 		SendXRayPowerOnOffToUController(0);
+	}
+	if (vConfigurationData->vResynchronizeEjectors)
+	if (TempEjectorsEnabled) //re-enable ejectors if had to disable them to send the dwell times
+	{
+		vConfigurationData->vEnableEjectors = true;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+		Sleep(cSendCommandSleepTimeSetup);
 	}
 }
 
@@ -18549,7 +18745,7 @@ bool CScanTracDlg::CheckProductFullyConfigured(CProduct *TempProduct)
 				TempOK = false;
 			}
 			if (TempOK)
-			if (TempProduct->vProductBodyTriggerToImageBeltPositionOffset == 0)
+			if (TempProduct->vProductBodyTriggerToImageDistanceInInches == 0)
 			{
 				CNoticeDialog TempNoticeDialog;
 				TempText.LoadString(IDS_ContainerTriggerToDetectorDistanceIsZero);
@@ -18905,7 +19101,7 @@ bool CScanTracDlg::CheckEjectorsConfigured(CProduct *TempProduct, DWORD TempEjec
 
 	if (TempProduct->vProductImageWidth + 1 > TempMargin)
 		TempMargin = TempProduct->vProductImageWidth + 1;
-	double TempMinimumEjectorDistance = TempProduct->vProductBodyTriggerToImageBeltPositionOffset + TempMargin;
+	double TempMinimumEjectorDistance = TempProduct->vProductBodyTriggerToImageDistanceInInches + TempMargin;
 
 	if (TempOK)
 	{
@@ -18913,7 +19109,7 @@ bool CScanTracDlg::CheckEjectorsConfigured(CProduct *TempProduct, DWORD TempEjec
 		if (vConfigurationData->vEjector[TempLoop].vEnabled)
 		{
 			if (TempEjectorUsed & (1 << TempLoop))
-			if (TempProduct->vEjectorDelayPosition[TempLoop] == 0)
+			if (TempProduct->vEjectorDistanceFromTriggerInInches[TempLoop] == 0)
 			{
 				TempOK = false;
 				CNoticeDialog TempNoticeDialog;
@@ -18922,7 +19118,7 @@ bool CScanTracDlg::CheckEjectorsConfigured(CProduct *TempProduct, DWORD TempEjec
 				TempNoticeDialog.vNoticeText = TempText;
 				TempNoticeDialog.vType = cWarningMessage;
 				TempNoticeDialog.DoModal();
-				TempProduct->vEjectorDelayPosition[TempLoop] = (float)TempMinimumEjectorDistance;
+				TempProduct->vEjectorDistanceFromTriggerInInches[TempLoop] = (float)TempMinimumEjectorDistance;
 				TempLoop = cNumberOfEjectors;
 				TempProduct->CalculateEndOfLineTimeOut();
 			}
@@ -18934,7 +19130,7 @@ bool CScanTracDlg::CheckEjectorsConfigured(CProduct *TempProduct, DWORD TempEjec
 		if (vConfigurationData->vEjector[TempLoop].vEnabled)
 		{
 			if (TempEjectorUsed & (1 << TempLoop))
-			if (TempProduct->vEjectorDelayPosition[TempLoop] < (WORD)TempMinimumEjectorDistance)
+			if (TempProduct->vEjectorDistanceFromTriggerInInches[TempLoop] < (WORD)TempMinimumEjectorDistance)
 			{
 				if (vSystemData.vInAutoSetup)  //if in autosetup, up the position so will not think ejectors too close and process image before get
 				{
@@ -18944,7 +19140,7 @@ bool CScanTracDlg::CheckEjectorsConfigured(CProduct *TempProduct, DWORD TempEjec
 					//else
 						TempPosition = TempPosition + 30;
 					
-					TempProduct->vEjectorDelayPosition[TempLoop] = TempPosition;
+					TempProduct->vEjectorDistanceFromTriggerInInches[TempLoop] = TempPosition;
 					TempProduct->CalculateEndOfLineTimeOut();
 				}
 				else
@@ -23525,6 +23721,9 @@ void CScanTracDlg::RemoveAllContainers()
 			{
 				if (vSystemData.vLogFile.vLogSerialData)
 				{
+					if (vConfigurationData->vResynchronizeEjectors)
+						vSystemData.vLogFile.WriteToLogFile("ScanTracDlg:StopRunning-RemoveAllContainers:" + dtoa(TempContainer->vContainerNumber, 0) + ", " + dtoa(TempContainer->vContainerNumberToEject, 0),cDebugMessage);
+					else
 					vSystemData.vLogFile.WriteToLogFile("ScanTracDlg:StopRunning-RemoveAllContainers:" + dtoa(TempContainer->vContainerNumber, 0),cDebugMessage);
 				}
 				if (vGlobaluCSerialPort)
@@ -30112,6 +30311,20 @@ void CScanTracDlg::EndTestShutter(bool TempAbort)
 
 bool CScanTracDlg::PrepareToRun()
 {
+	vSystemData.vFirstContainerShouldNotTriggerSensorYet = true; //just activated body trigger, so should not get sensor trigger for certain distance
+	vSystemData.vEjectorsNotSynchronized = false;
+
+	int TempTimerResult = SetTimer(vBeltEstimatedPositionTimerHandle,10,NULL);
+	if (!TempTimerResult)
+		ReportErrorMessage("Error-Estimated Position Timer Failed",cEMailInspx,32000);
+
+	if (vConfigurationData->vResynchronizeEjectors)
+	if (vGlobaluCSerialPort)
+	{
+		vGlobaluCSerialPort->ClearEjectorSynchronizationCount();
+		vSystemData.vEjectorsNotSynchronized = false;
+	}
+
 	ClearValveMonitoringFIFO();
 	vSystemData.vOperationsGuardianError = 0;
 	vGlobalGaveHardDriveLowOnMemoryWarning = false;
@@ -35282,7 +35495,7 @@ BYTE CScanTracDlg::TestModesAreActive()
 		(vConfigurationData->vDemoMode) ||
 		(vSystemData.vTemporarilyChangeSource) ||
 		(vSystemData.vSimulatingCamLinkImage) ||
-		(vSystemData.vKeepExternalDetectorsEnabled) ||
+		((vSystemData.vKeepExternalDetectorsEnabled) && (!vConfigurationData->vResynchronizeEjectors)) ||
 		(vSystemData.vFPGADontCorrectForEncoderErrors));
 	if (TempTestModesActive)
 		TempTestModesActive = 8;
@@ -41345,6 +41558,12 @@ void CScanTracDlg::HandleSoftKeyPress(int TempKey1, int TempKey2)
 		break;
 		case 4: 
 //			vSystemData.vTouchScreen = true;
+			if (vGlobalInAutoSize)
+			{
+				if (vConfigurationData->vResynchronizeEjectors)
+					ManuallyEditProductValues();
+			}
+			else
 			//if (this->IsWindowVisible())
 			//{
 			//	vSoftKeyFourPressed = true;
@@ -42557,6 +42776,88 @@ void CScanTracDlg::SendOGSevereEvent(BYTE TempEventType)
 	}
 }
 #endif
+
+void CScanTracDlg::SendEjectorDwellTimesToFPGA()
+{
+	//for resynchronized ejector mode need to send dwell times to FPGA first, but that would fire the ejectors, so disable ejctors first if enabled
+	BYTE TempEjectorsEnabled = false;
+	if (vConfigurationData->vEnableEjectors)
+	{
+		TempEjectorsEnabled = true;
+		vConfigurationData->vEnableEjectors = false;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+		Sleep(cSendCommandSleepTimeSetup);
+	}
+
+	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+	if (vGlobalCurrentProduct->vEjectorDwellTime[TempLoop])
+	{
+		tSerialCommand TempCommand;
+		TempCommand[0] = 0x23;
+		switch (TempLoop)
+		{
+			case 0: TempCommand[1] = 0x9E; break;
+			case 1: TempCommand[1] = 0xA0; break;
+			case 2: TempCommand[1] = 0xA2; break;
+			case 3: TempCommand[1] = 0x91; break;
+			case 4: TempCommand[1] = 0x93; break;
+			case 5: TempCommand[1] = 0x95; break;
+		}
+		
+		//must multiply user entry of milliseconds by 31.25 as need to count 31.25Kilohertz
+		//clock signals.
+		WORD TempWord = (WORD)(vGlobalCurrentProduct->vEjectorDwellTime[TempLoop] * 3.975); // clock 8 times slower than before vGlobalFPGAVersion10Point87OrHigher
+
+		TempCommand[2] = (BYTE)(TempWord >> 8);
+		TempCommand[3] = (BYTE)TempWord;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+		Sleep(cSendCommandSleepTimeSetup);
+	}
+		
+	//send setup to tell which inputs to use in front of each ejector.  For now, ejector 1 is aux detector 2 (Opto 1,4), ejector 2 is Eject Confirmer 1 (Opto 2,4)
+	tSerialCommand TempCommand;
+	TempCommand[0] = 0x2E;
+	TempCommand[1] = 0x02;  //Mask for Digital line 2 (is address 0x82 to read this word from FPGA, second input is Auxilary Detector 2
+	TempCommand[2] = 0x20;	//Mask for Digital line 2 (is address 0x82 to read this word from FPGA, 6th input is Eject Confirmer 1
+	TempCommand[3] = 0;
+	if (vGlobaluCSerialPort)
+		vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+	Sleep(cSendCommandSleepTimeSetup);
+
+	//send re-trigger lockout to sensor 1
+	TempCommand[0] = 0x3C;
+	if (vConfigurationData->vApplyRetriggerLockoutToResynchronizingSensors)
+	{
+		TempCommand[1] = (BYTE)(vGlobalCurrentProduct->vLockoutPosition >> 8);
+		TempCommand[2] = (BYTE)vGlobalCurrentProduct->vLockoutPosition;
+	}
+	else
+	{
+		TempCommand[1] = 0;
+		TempCommand[2] = 0;
+	}
+	TempCommand[3] = 1;
+	if (vGlobaluCSerialPort)
+		vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+	Sleep(cSendCommandSleepTimeSetup);
+
+	//send re-trigger lockout to sensor 2
+	TempCommand[3] = 2;
+	if (vGlobaluCSerialPort)
+		vGlobaluCSerialPort->SendSerialCommand(TempCommand);
+	Sleep(cSendCommandSleepTimeSetup);
+
+	if (TempEjectorsEnabled) //re-enable ejectors if had to disable them to send the dwell times
+	{
+		vConfigurationData->vEnableEjectors = true;
+		if (vGlobaluCSerialPort)
+			vGlobaluCSerialPort->EnableDisableEjectors(vConfigurationData->vEnableEjectors);
+		Sleep(cSendCommandSleepTimeSetup);
+	}
+}
+
 void CScanTracDlg::TestDTOA()
 {
 	for (DWORD TempLoop = 0; TempLoop < 64000; TempLoop++)
@@ -42569,6 +42870,40 @@ void CScanTracDlg::TestDTOA()
 		CW2A TempStringToWrite(TempString);
 	}
 }
+void CScanTracDlg::ManuallyEditProductValues()
+{
+	if (vConfigurationData->vResynchronizeEjectors)
+	if (vGlobalCurrentProduct)
+	{
+		CNumericEntryDialog INumericEntryDialog;  
+		//Set dialog box data titles and number value
+		INumericEntryDialog.vEditString = dtoa(vGlobalCurrentProduct->vEndOfLineTimeOut, 2);
+		INumericEntryDialog.m_DialogTitleStaticText2 = "Enter Distance to decide if Eject Too Late";
+		INumericEntryDialog.m_DialogTitleStaticText3 = "Distance from Container Trigger to after last ejector";
+		INumericEntryDialog.m_DialogTitleStaticText4 = "Original value: " + INumericEntryDialog.vEditString;
+
+		INumericEntryDialog.m_UnitsString = "Measured in inches";
+		INumericEntryDialog.vMaxValue = 300;
+		INumericEntryDialog.vMinValue = 0;
+		INumericEntryDialog.vIntegerOnly = false;
+		//Pass control to dialog box and display
+		int nResponse = INumericEntryDialog.DoModal();
+		//dialog box is now closed, if user pressed select do this
+		//if user pressed cancel, do nothing
+		if (nResponse == IDOK)
+		{
+			vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0] = (float)ATOF(INumericEntryDialog.vEditString);
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(0, vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[0]);
+
+			vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[1] = (float)ATOF(INumericEntryDialog.vEditString);
+			vGlobalCurrentProduct->SetEjectorBeltPositionOffset(1, vGlobalCurrentProduct->vEjectorDistanceFromTriggerInInches[1]);
+
+			vGlobalCurrentProduct->vEndOfLineTimeOut = (float)ATOF(INumericEntryDialog.vEditString);
+			vGlobalCurrentProduct->SetEndOfLineTimeOut(vGlobalCurrentProduct->vEndOfLineTimeOut);
+		}
+	}
+}
+
 
 void CScanTracDlg::SendRetriggerLockout(WORD TempLockout)
 {

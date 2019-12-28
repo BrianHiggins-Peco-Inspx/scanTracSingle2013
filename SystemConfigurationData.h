@@ -103,7 +103,7 @@ enum {cExternalDetectorDisabledMode, cRejectInWindowMode, cAcceptInWindowMode, c
 
 const BYTE cNumberOfExternalDetectorModes = 11;
 
-const BYTE cCurrentArchiveVersionNumber = 157;
+const BYTE cCurrentArchiveVersionNumber = 158;
 
 const BYTE cShowSensitivityDisplays = 1;
 const BYTE cHideSensitivityDisplays = 2;
@@ -737,9 +737,13 @@ public:
 	BYTE vAutoStop;
 	BYTE vDetectedValidGuardMasterDevice;
 	CString vOperationsGuardianServer;
+	BYTE vResynchronizeEjectors;
+	BYTE vApplyRetriggerLockoutToResynchronizingSensors;
+	WORD vBeltPositionDistancetoEjectorResynchronizationSensor;
 
 	//SPARE STREAM Variables
 	WORD vCPMTimePeriod; //Can not be changed anymore, fixed at 30 CPM  //spare if need the stream
+
 	int vNumberOfJitterPositions; //spare - obsolete
 	int vNumberOfTopJitterPositions; //spare - obsolete
 	int vSupportContractDayExpires;
@@ -761,12 +765,9 @@ public:
 
 	BYTE vIgnoreCheyneyInterlockStatus;
 	BYTE vStopAfterAnInspectionRejects;
-	BYTE vSpareByteCD2;
-	BYTE vSpareByteCD3;
 	BYTE vSpareByteCD4;
 
 	WORD vEncoderRateTolerance;
-	WORD vSpareWord3;
 	WORD vSpareWord4;
 	WORD vSpareWord5;
 	WORD vSpareWordCD6;
@@ -816,7 +817,11 @@ public:
 	DWORD vMultiLaneTotalCounts[cMaximumNumberForMultiLane];
 	DWORD vMultiLaneTotalEjectsCounts[cMaximumNumberForMultiLane];
 	DWORD vMultiLaneTotalDisabledEjectsCounts[cMaximumNumberForMultiLane];
-
+	BYTE vResynchronizeEjectorsCurrentEjectorSensorCount[2];
+	BYTE vResynchronizeEjectorsCurrentTriggerCount;
+	bool vEjectorsNotSynchronized;
+	bool vFirstContainerShouldNotTriggerSensorYet;
+	WORD vBeltPositionTunnelShouldBeClearTo;
 	bool vModBusSocketOpen;
 	bool vModBusClientConnected;
 	DWORD vModBusClientConnectionCounts;
@@ -1550,6 +1555,7 @@ public:
 	BYTE vMainDisplayMode;
 	BYTE SimEjectType;  //is a zero based number
 	WORD vCurrentBeltPosition;
+	WORD vCurrentEstimatedBeltPosition;
 	WORD vOldCurrentBeltPosition;
 	bool vEjectTooLateMessageGivenThisRun;
 

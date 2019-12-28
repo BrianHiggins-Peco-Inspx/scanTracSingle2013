@@ -3483,6 +3483,8 @@ BEGIN
     LTEXT           "* 0 is disabled",IDC_Note,116,169,116,8
     CTEXT           "Exit",IDC_Function2Button,77,187,42,20,SS_NOTIFY | SS_CENTERIMAGE | WS_BORDER
     CTEXT           "Setup System Ejectors",IDC_DialogTitleStaticText1,61,2,160,15,SS_NOTIFY | SS_CENTERIMAGE,WS_EX_DLGMODALFRAME
+    CTEXT           "Next",IDC_SubFunction0Button,5,0,36,17,SS_NOTIFY | SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "resync mode",IDC_SubFunction1Display,50,26,77,19,SS_SUNKEN | WS_BORDER,WS_EX_TRANSPARENT
 END
 
 IDD_NewDiagnosticDialog DIALOGEX 0, 0, 282, 212
@@ -7012,7 +7014,7 @@ IDC_CURSOR1             CURSOR                  "res\\cursor1.cur"
 STRINGTABLE
 BEGIN
     IDS_VersionDisplayString 
-                            "ScanTrac\nInspx LLC\nOctober 21d, 2019 Win7\nCopyright (C) 2018"
+                            "ScanTrac\nInspx LLC\nDecember 27, 2019 Win7\nCopyright (C) 2018"
 END
 
 STRINGTABLE

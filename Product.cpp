@@ -95,7 +95,7 @@ CProduct::CProduct()
 	vImageWidthPosition = 0;
 	vProductLockOutWidth = 0;
 	vLockoutPosition = 0;
-	vProductBodyTriggerToImageBeltPositionOffset = 0;
+	vProductBodyTriggerToImageDistanceInInches = 0;
 	vBTToImagePosition = 0;
 	vProductImageHeightTop = 6;
 	vProductImageHeightBottom = 0;
@@ -230,7 +230,7 @@ CProduct::CProduct()
 	}
 	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 	{
-		vEjectorDwellPosition[TempLoop] = 60;//not used
+		vResyncTriggerToEjectTime[TempLoop] = 0;
 		vEjectorDwellTime[TempLoop] = 35;
 		SetEjectorBeltPositionOffset(TempLoop, 64);
 		vEjectorResponseTime[TempLoop] = (float).004;
@@ -323,7 +323,7 @@ void CProduct::CopyProduct(CProduct *TempProduct)
 	vImageWidthPosition = TempProduct->vImageWidthPosition;
 	vProductLockOutWidth = TempProduct->vProductLockOutWidth;
 	vLockoutPosition = TempProduct->vLockoutPosition;
-	vProductBodyTriggerToImageBeltPositionOffset = TempProduct->vProductBodyTriggerToImageBeltPositionOffset;
+	vProductBodyTriggerToImageDistanceInInches = TempProduct->vProductBodyTriggerToImageDistanceInInches;
 	vBulkProductMode = TempProduct->vBulkProductMode;
 	vBTToImagePosition = TempProduct->vBTToImagePosition;
 	vEndOfLineTimeOut = TempProduct->vEndOfLineTimeOut;
@@ -362,9 +362,9 @@ void CProduct::CopyProduct(CProduct *TempProduct)
 	}
 	for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 	{
-		//vEjectorDwellPosition[TempLoop] = TempProduct->vEjectorDwellPosition[TempLoop];
+		vResyncTriggerToEjectTime[TempLoop] = TempProduct->vResyncTriggerToEjectTime[TempLoop];
 		vEjectorDwellTime[TempLoop] = TempProduct->vEjectorDwellTime[TempLoop];
-		SetEjectorBeltPositionOffset(TempLoop,TempProduct->vEjectorDelayPosition[TempLoop]);
+		SetEjectorBeltPositionOffset(TempLoop,TempProduct->vEjectorDistanceFromTriggerInInches[TempLoop]);
 		vEjectorResponseTime[TempLoop] = TempProduct->vEjectorResponseTime[TempLoop];
 	}
 
@@ -538,7 +538,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			<< vHistoryTookAverageDate
 			<< vProductImageWidth 
 			<< vProductLockOutWidth
-			<< vProductBodyTriggerToImageBeltPositionOffset
+			<< vProductBodyTriggerToImageDistanceInInches
 			<< vProductImageHeightTop
 			<< vProductImageHeightBottom
 			<< vEndOfLineTimeOut
@@ -711,10 +711,11 @@ void CProduct::Serialize(CArchive& TempArchive)
 		}
 		for (int TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
 		{
-			TempArchive //<< vEjectorDwellPosition[TempLoop]
+			TempArchive << vEjectorDwellPosition[TempLoop]
 				<< vEjectorDwellTime[TempLoop]
-				<< vEjectorDelayPosition[TempLoop]
-				<< vEjectorResponseTime[TempLoop];
+				<< vEjectorDistanceFromTriggerInInches[TempLoop]
+				<< vEjectorResponseTime[TempLoop]
+				<< vResyncTriggerToEjectTime[TempLoop];
 		}
 		for (int TempLoop = 0; TempLoop < vNumberOfInspections; TempLoop++)
 		{
@@ -727,13 +728,230 @@ void CProduct::Serialize(CArchive& TempArchive)
 		// int vVersion = archive.GetObjectSchema();
     int TempVersion = TempArchive.GetObjectSchema();
 
-		if (TempVersion > 156)
-		{  // version 157 and up
+		if (TempVersion > 157)
+		{  // version 158 and up
 			TempArchive >> vProductName 
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
+				>> vProductImageHeightTop
+				>> vProductImageHeightBottom
+				>> vEndOfLineTimeOut
+				>> vXRaySourceVoltage
+				>> vXRaySourceCurrent
+				>> vXRayIntegrationTimeByte
+				>> vSpareByteXRSE
+				>> vBodyTrigger
+				>> vThresholdForContainerBounds
+				>> vSpareByteCanImageBottomOfContainer
+				>> vSamplingEjector[0]
+				>> vFillerTolerance
+				>> vSpareDoubleCB
+				>> vSpareDoubleCL
+				>> vSpareDoubleCR
+				>> vBackupBodyTrigger
+				>> vReferenceTop
+				>> vReferenceLeft
+				>> vReferenceRight
+				>> vXRayIntegrationTime
+				>> vUsingXScanPoint4mmDetectors
+				>> vBulkProductMode
+				>> vNumberOfInspectionsRequiredToEject
+				>> vSpareDoubleWasStructureAdjustFactor
+				>> vMultiLaneEjectAdjacentLanes
+				>> vSpareByteDT
+				>> vSpareDoubleWasStructureAdjustSubtractiveFactor
+				>> vStructureROIAverage
+				>> vMultiLaneNumberOfLanes
+				>> vMultiLaneNumberOfLinesBeforeContainer
+				>> vSamplingEjector[1]
+				>> vTempScreenShotDirectoryName
+				>> vHaveManuallySetRetriggerLockout
+				>> vReferenceROIsToEdges
+				>> vAddToLearnCount
+				>> vMaximumImageOverlap
+				>> vNeedToRelearn
+				>> vEdgeLocationBottom
+				>> vEdgeLocationBottomPixel
+				>> vEdgeLocationHeight
+				>> vEdgeLocationHeightPixel
+				>> vSpareByteSHMG
+				>> vBottomLocationLeft
+				>> vBottomLocationLength
+				>> vSpareByteSHMB
+				>> TempHaveAFillerMonitorInspection
+				>> vSpareFloatSHMBSD
+				>> vSetupHistoryHistogramThreshold
+				>> vSetupHistoryAverageCount
+				>> vSetupHistoryStructureCount
+
+				>> vHeadOffsetFromIndexPulse[6]
+				>> vSpareStringHDN
+				>> vSpareStringLDN
+				>> vDriftROITop
+				>> vDriftROIBottom
+				>> vDriftROILeft
+				>> vDriftROIRight
+				>> vSpareFloatDTU
+				>> vSpareFloatDTL
+				>> vSpareDWordDAC
+				>> vReferenceBottom
+				>> vHeadOffsetFromIndexPulse[6]
+				>> vSpareFloatDMV
+				>> vSpareFloatDMiV
+				>> vSpareFloatDAV
+				>> vSpareFloatDSD
+
+				>> vHeadOffsetFromIndexPulse[3]
+				>> vSpareStringVN
+				>> vStructureROIStandardDievation
+				>> vSpareDoubleVT1
+				>> vSpareDoubleVL
+				>> vSpareDoubleVR
+				>> vHeadOffsetFromIndexPulse[2]
+				>> vSpareWordVS
+				>> vHeadOffsetFromIndexPulse[cFillerSamplingType]
+				>> vHeadOffsetFromIndexPulse[4]
+				>> vHeadOffsetFromIndexPulse[0]
+				>> vHeadOffsetFromIndexPulse[5]
+				>> vSpareByteVAS
+				>> vSetupHistoryContainerTriggerStandardDeviation
+				>> vSpareByteVDIF
+				>> vSpareDoubleVOIF
+				>> vSpareDoubleVEIF
+				>> vSpareByteVDD
+				>> vSpareByteVDC
+				>> vSpareByteVDT
+
+				>> vSpareByte
+				>> vSpareFloat1
+				>> vSpareFloat2
+				>> vSpareByteVSHMB
+				>> vSpareFloatVSHMBA
+				>> vSpareFloatVSHMBSD
+				>> vSpareByteVSHHT
+				>> vBottomLocationLeftPixel
+				>> vBottomLocationLengthPixel
+				>> vSpareDWordVSHSC
+				>> vSamplingEjector[2]
+				>> vTooManyRejectsAlarmX[0]
+				>> vTooManyRejectsAlarmY[0]
+				>> vTooManyRejectsAlarmDisableEjectors[0]
+				>> vTooManyRejectsAlarmX[1]
+				>> vTooManyRejectsAlarmY[1]
+				>> vTooManyRejectsAlarmDisableEjectors[1]
+				>> vSpareByteVSHMG
+				>> vSpareFloatVSHMGA
+				>> vSpareFloatVSHMGSD
+				>> vOverScanFactor
+				>> vNotes
+				>> vInspectionAlarmSettings[0]
+				>> vInspectionAlarmSettings[1]
+				>> vSpareDWordVSMGC
+				>> vSpareDWordVSMBC
+				>> vSpareDWordVSHAC
+				>> vSpareDWordVSHSC
+				>> vHeadOffsetFromIndexPulse[7]
+				>> vSpareByteVSHAT1
+				>> vSpareFloatSHDATU
+				>> vSpareFloatSHDATL
+				>> vNumberOfInspections
+				>> vSetupHistoryAverageDensity
+				>> vSpareElectronicOffset
+				>> vDriftDensityInspection
+				>> vMaxConveyorSpeedAsEntered
+				>> vTypesOfRejectsToView
+				>> vNumberOfAuxiliaryDetectors
+				>> vHistogramThreshold
+				>> vHistogramLowerThreshold
+				>> vHistogramDilateTimes
+				>> vProductCodeSelectionCString
+				>> vSpareCString1
+				>> vSpareCString2
+				>> vSpareCString3
+				>> vSpareCString4
+				>> vSpareCString5
+				>> vEncoderRateIndexesForFillerSeamerSampling[0]
+				>> vEncoderRateIndexesForFillerSeamerSampling[1]
+				>> vEncoderRateIndexesForFillerSeamerSampling[2]
+				>> vEncoderRateIndexesForFillerSeamerSampling[3]
+				>> vSpareWordP1
+				>> vSpareWordP2
+				>> vSpareWordP3
+				>> vSpareWordP4
+				>> vSpareWordP5
+				>> vSpareIntP1
+				>> vSpareIntP2
+				>> vSpareIntP3
+				>> vSpareIntP4
+				>> vSpareIntP5;
+
+			if (TempHaveAFillerMonitorInspection == 0xAA)
+				TempArchive >> vFillerMonitorInspection;
+
+			if (vMultiLaneNumberOfLanes)
+			for (BYTE TempLoop = 0; TempLoop < cMaximumNumberForMultiLane; TempLoop++)
+			{
+				TempArchive >> vMultiLaneStartPixel[TempLoop]
+					>> vMultiLaneWidthInPixels[TempLoop];
+			}
+
+			for (int TempLoop = 0; TempLoop < cNumberOfExternalDetectors; TempLoop++)
+			{
+				TempArchive >> vExternalDetectorEnable[TempLoop]
+					>> vExternalDetectorWindowStart[TempLoop]
+					>> vExternalDetectorWindowEnd[TempLoop]
+					>> vExternalDetectorMode[TempLoop]
+					>> vExternalDetectorEjector[TempLoop];
+			}
+			for (int TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
+			{
+				TempArchive >> vEjectorDwellPosition[TempLoop]
+					>> vEjectorDwellTime[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
+					>> vEjectorResponseTime[TempLoop]
+					>> vResyncTriggerToEjectTime[TempLoop];
+			}
+			BYTE TempGoodInspectionCount = 0;
+			for (int TempLoop = 0; TempLoop < vNumberOfInspections; TempLoop++)
+			{
+				TempArchive >> vInspection[TempGoodInspectionCount];
+
+				//must convert Under Weight and Over Weight from density to CheckWeigh type
+				if (vInspection[TempGoodInspectionCount])
+				{
+					if ((vInspection[TempGoodInspectionCount]->vInspectionType == cUnderfillByWeightInspection) || (vInspection[TempGoodInspectionCount]->vInspectionType == cOverfillByWeightInspection))
+					{
+						CInspectionCheckWeigh *TempObjectPointer = new CInspectionCheckWeigh;
+						CRuntimeClass *TempCheckWeighInspectionRunTimeClass = TempObjectPointer->GetRuntimeClass();
+						if (!vInspection[TempGoodInspectionCount]->IsKindOf(TempCheckWeighInspectionRunTimeClass))
+						{
+							TempObjectPointer->CopyDensityInspection((CInspectionDensity * )vInspection[TempLoop], vOverScanMultiplier);
+							delete vInspection[TempGoodInspectionCount];
+							vInspection[TempGoodInspectionCount] = (CInspectionCheckWeigh *)TempObjectPointer;
+						}
+						else
+							delete TempObjectPointer;
+					}
+					TempGoodInspectionCount++;  //got a valid inspection, so increase count
+				}
+				else
+					ReportErrorMessage("Invalid Inspection Reading Stream, Product: " + vProductName + ", Inspection: " + dtoa(TempLoop + 1, 0), cEMailInspx, 32000);
+			}
+			vNumberOfInspections = TempGoodInspectionCount;
+
+			//for (TempLoop = 0;TempLoop < cMaximumNumberOfDetectors8; TempLoop++)
+			//	TempArchive >> vSpareDACDetectorOffset[TempLoop];
+		} //end version 158 and up
+		else
+		if (TempVersion > 156)
+		{  // version 157
+			TempArchive >> vProductName 
+				>> vHistoryTookAverageDate
+				>> vProductImageWidth 
+				>> vProductLockOutWidth
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -908,7 +1126,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive //>> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -941,7 +1159,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 
 			//for (TempLoop = 0;TempLoop < cMaximumNumberOfDetectors8; TempLoop++)
 			//	TempArchive >> vSpareDACDetectorOffset[TempLoop];
-		} //end version 157 and up
+		} //end version 157
 		else
 		if (TempVersion > 155)
 		{  // version 156
@@ -949,7 +1167,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -1124,7 +1342,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -1165,7 +1383,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -1334,7 +1552,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -1375,7 +1593,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -1538,7 +1756,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -1579,7 +1797,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -1737,7 +1955,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -1777,7 +1995,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -1931,7 +2149,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -1971,7 +2189,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 				>> vHistoryTookAverageDate
 				>> vProductImageWidth 
 				>> vProductLockOutWidth
-				>> vProductBodyTriggerToImageBeltPositionOffset
+				>> vProductBodyTriggerToImageDistanceInInches
 				>> vProductImageHeightTop
 				>> vProductImageHeightBottom
 				>> vEndOfLineTimeOut
@@ -2122,7 +2340,7 @@ void CProduct::Serialize(CArchive& TempArchive)
 			{
 				TempArchive >> vEjectorDwellPosition[TempLoop]
 					>> vEjectorDwellTime[TempLoop]
-					>> vEjectorDelayPosition[TempLoop]
+					>> vEjectorDistanceFromTriggerInInches[TempLoop]
 					>> vEjectorResponseTime[TempLoop];
 			}
 			BYTE TempGoodInspectionCount = 0;
@@ -2287,10 +2505,10 @@ void CProduct::Serialize(CArchive& TempArchive)
 			vProductLockOutWidth = 5;
 			ReportErrorMessage("Bad float in stream corrected: vProductLockOutWidth", cEMailInspx, 32000);
 		}
-		if ((vProductBodyTriggerToImageBeltPositionOffset > cMaximumImageWidth * 5) || (vProductBodyTriggerToImageBeltPositionOffset < 0))
+		if ((vProductBodyTriggerToImageDistanceInInches > cMaximumImageWidth * 5) || (vProductBodyTriggerToImageDistanceInInches < 0))
 		{
-			vProductBodyTriggerToImageBeltPositionOffset = 5;
-			ReportErrorMessage("Bad float in stream corrected: vProductBodyTriggerToImageBeltPositionOffset", cEMailInspx, 32000);
+			vProductBodyTriggerToImageDistanceInInches = 5;
+			ReportErrorMessage("Bad float in stream corrected: vProductBodyTriggerToImageDistanceInInches", cEMailInspx, 32000);
 		}
 		if ((vProductImageHeightTop > 36) || (vProductImageHeightTop < 0))
 		{
@@ -2435,10 +2653,10 @@ void CProduct::Serialize(CArchive& TempArchive)
 				vEjectorResponseTime[TempLoop] = 100;
 				ReportErrorMessage("Bad float in stream corrected: vEjectorResponseTime[TempLoop]", cEMailInspx, 32000);
 			}
-			if ((vEjectorDelayPosition[TempLoop] > 10000) || (vEjectorDelayPosition[TempLoop] < 0))
+			if ((vEjectorDistanceFromTriggerInInches[TempLoop] > 10000) || (vEjectorDistanceFromTriggerInInches[TempLoop] < 0))
 			{
-				vEjectorDelayPosition[TempLoop] = 100;
-				ReportErrorMessage("Bad float in stream corrected: vEjectorDelayPosition[TempLoop]", cEMailInspx, 32000);
+				vEjectorDistanceFromTriggerInInches[TempLoop] = 100;
+				ReportErrorMessage("Bad float in stream corrected: vEjectorDistanceFromTriggerInInches[TempLoop]", cEMailInspx, 32000);
 			}
 		}
 
@@ -2559,7 +2777,7 @@ void CProduct::SetProductBodyTriggerToImageBeltPositionOffset(float TempValue)
 	if (TempValue < 4)
 		TempValue = 4;
 
-	vProductBodyTriggerToImageBeltPositionOffset = TempValue;
+	vProductBodyTriggerToImageDistanceInInches = TempValue;
 	vBTToImagePosition = (WORD)(TempValue * vGlobalPixelsPerUnit * vOverScanMultiplier);
 }
 
@@ -2568,7 +2786,7 @@ void CProduct::SetEjectorBeltPositionOffset(BYTE TempEjectorNumber, float TempVa
 	if (TempValue < 14)
 		TempValue = 14;
 
-	vEjectorDelayPosition[TempEjectorNumber] = TempValue;
+	vEjectorDistanceFromTriggerInInches[TempEjectorNumber] = TempValue;
 	vEjectorDelayBeltPosition[TempEjectorNumber] = (WORD)(TempValue * vGlobalPixelsPerUnit * vOverScanMultiplier);
 }
 
@@ -2630,10 +2848,10 @@ void CProduct::CalculateEndOfLineTimeOut()
 		if (TempEjectorUsed[TempLoop])
 		{
 			TempNumberOfEjectorsUsed++;
-			if (vEndOfLineTimeOut < vEjectorDelayPosition[TempLoop] + vGlobalEndOfLineTimeOutMargin)
+			if (vEndOfLineTimeOut < vEjectorDistanceFromTriggerInInches[TempLoop] + vGlobalEndOfLineTimeOutMargin)
 			{																														
 				//4/1/04 changed extra delay from 60 to 104 = 4 inches after Last ejector
-				vEndOfLineTimeOut = vEjectorDelayPosition[TempLoop] + vGlobalEndOfLineTimeOutMargin;
+				vEndOfLineTimeOut = vEjectorDistanceFromTriggerInInches[TempLoop] + vGlobalEndOfLineTimeOutMargin;
 			}
 		}
 	}
@@ -3307,9 +3525,9 @@ void CProduct::CheckInspectionsAreValid()
 void CProduct::SetAllDistances()
 {
 		for (BYTE TempLoop = 0; TempLoop < cNumberOfEjectors; TempLoop++)
-			SetEjectorBeltPositionOffset(TempLoop,vEjectorDelayPosition[TempLoop]);
+			SetEjectorBeltPositionOffset(TempLoop,vEjectorDistanceFromTriggerInInches[TempLoop]);
 
-		SetProductBodyTriggerToImageBeltPositionOffset(vProductBodyTriggerToImageBeltPositionOffset);
+		SetProductBodyTriggerToImageBeltPositionOffset(vProductBodyTriggerToImageDistanceInInches);
 		SetProductLockOutWidth(vProductLockOutWidth);
 		SetProductImageWidth(vProductImageWidth);
 		SetEndOfLineTimeOut(vEndOfLineTimeOut);
